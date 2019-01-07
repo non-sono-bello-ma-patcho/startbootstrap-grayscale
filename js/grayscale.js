@@ -40,3 +40,9 @@
   $(window).scroll(navbarCollapse);
 
 })(jQuery); // End of use strict
+
+
+// prevent carousel from cycling annoyingly
+$('#formcarousel').carousel({
+    interval: false
+});

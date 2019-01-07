@@ -44,6 +44,9 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#signup">Sign Up</a>
             </li>
+            <li class="nav-item" data-target="#formcarousel" data-slide-to="1">
+                <a class="nav-link js-scroll-trigger" href="#signup">Log In</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -139,13 +142,58 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-lg-8 mx-auto text-center">
-            <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
+            <h2 class="text-white mb-5">Sign up to Erschel and start to explore!</h2>
+            <div id="formcarousel" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#formcarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#formcarousel" data-slide-to="1"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <form id="signupform">
+                    <div class="form-group">
+                      <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
+                      <small id="mailhelp" class="form-text text-muted text-left">We won't share this information with no one</small>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputName" placeholder="Enter your name...">
+                      <small class="form-text text-muted text-left">We won't share this information with no one</small>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputSurname" placeholder="Enter your surname">
+                      <small class="form-text text-muted text-left">We won't share this information with no one</small>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputUsername" placeholder="Enter your username">
+                      <small class="form-text text-muted text-left">We won't share this information with no one</small>
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPassowrd" placeholder="Type your password...">
+                      <small class="form-text text-muted text-left">We won't share this information with no one</small>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputConfirm" placeholder="Confirm your password...">
+                      <small class="form-text text-muted text-left">We won't share this information with no one</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary mx-auto">Sign Up</button>
+                  </form>
+                </div>
+                <div class="carousel-item">
+                  <form id="loginform" action="" method="post">
+                    <div class="form-group">
+                      <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputUsernamelog" placeholder="Enter your username">
+                      <small id="" class="form-text text-muted text-left">We won't share this information with no one</small>
+                    </div>
+                    <div class="form-group">
+                      <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPassowrdlog" placeholder="Type your password...">
+                      <small id="" class="form-text text-muted text-left">We won't share this information with no one</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary mx-auto">Log In</button>
+                  </form>
+                </div>
+              </div>
 
-            <form class="form-inline d-flex">
-              <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
-              <button type="submit" class="btn btn-primary mx-auto">Subscribe</button>
-            </form>
-
+            </div>
           </div>
         </div>
       </div>
@@ -223,7 +271,7 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/grayscale.min.js"></script>
+    <script src="js/grayscale.js"></script>
 
   </body>
 
