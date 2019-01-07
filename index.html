@@ -44,14 +44,44 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#signup">Sign Up</a>
             </li>
-            <li class="nav-item" data-target="#formcarousel" data-slide-to="1">
-                <a class="nav-link js-scroll-trigger" href="#signup">Log In</a>
+            <li class="nav-item">
+                <a class="nav-link" href="" data-toggle="modal" data-target="#loginModal">Log In</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
+    <!-- Log In Modal-->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginmodalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <div class="modal-body">
+                        <form id="loginform" action="" method="post">
+                            <div class="form-group">
+                                <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputUsernamelog" placeholder="Enter your username">
+                                <small id="" class="form-text text-muted text-left">We won't share this information with no one</small>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPassowrdlog" placeholder="Type your password...">
+                                <small id="" class="form-text text-muted text-left">We won't share this information with no one</small>
+                            </div>
+                            <button type="submit" class="btn btn-primary mx-auto">Log In</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="align-content-between">Don't have an account? <a id="loglink" class="js-scroll-trigger" href="#signup" aria-label="Close">Sign up!</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Header -->
     <header class="masthead">
       <div class="container d-flex h-100 align-items-center">
@@ -143,11 +173,6 @@
         <div class="row">
           <div class="col-md-10 col-lg-8 mx-auto text-center">
             <h2 class="text-white mb-5">Sign up to Erschel and start to explore!</h2>
-            <div id="formcarousel" class="carousel slide" data-ride="carousel">
-              <ol class="carousel-indicators">
-                <li data-target="#formcarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#formcarousel" data-slide-to="1"></li>
-              </ol>
               <div class="carousel-inner">
                 <div class="carousel-item active">
                   <form id="signupform">
@@ -178,25 +203,12 @@
                     <button type="submit" class="btn btn-primary mx-auto">Sign Up</button>
                   </form>
                 </div>
-                <div class="carousel-item">
-                  <form id="loginform" action="" method="post">
-                    <div class="form-group">
-                      <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputUsernamelog" placeholder="Enter your username">
-                      <small id="" class="form-text text-muted text-left">We won't share this information with no one</small>
-                    </div>
-                    <div class="form-group">
-                      <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPassowrdlog" placeholder="Type your password...">
-                      <small id="" class="form-text text-muted text-left">We won't share this information with no one</small>
-                    </div>
-                    <button type="submit" class="btn btn-primary mx-auto">Log In</button>
-                  </form>
-                </div>
+
               </div>
 
             </div>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- Contact Section -->
