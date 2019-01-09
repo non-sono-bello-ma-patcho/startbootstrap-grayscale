@@ -181,7 +181,7 @@
 }
 
 .custom-btn:hover {
-  color: white;
+  color: white !important;
   background: #3d348b;
 }
 
