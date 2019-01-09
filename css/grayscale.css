@@ -170,11 +170,19 @@
 }
 
 .btn-nav {
-  border: solid 1px #3d348b;
-  color: #3d348b;
   margin-top: 0;
   margin-left: -16px;
+}
+
+.custom-btn {
+  border: solid 1px #3d348b;
+  color: #3d348b;
   padding: 0.62rem 1rem;
+}
+
+.custom-btn:hover {
+  color: white;
+  background: #3d348b;
 }
 
 @media (min-width: 992px) {
@@ -188,10 +196,7 @@
   }
 }
 
-.btn-nav:hover {
-  color: white;
-  background: #3d348b;
-}
+
 
 .btn-primary {
   background-color: #3d348b;
@@ -250,6 +255,28 @@
     width: 30%;
   }
 }
+
+.custom-card {
+  overflow: hidden;
+  max-height: 400px;
+}
+
+.custom-card > img {
+  transition: all 0.2s ease;
+}
+
+.custom-card:hover > img {
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.custom-card:hover {
+  font-weight: bolder;
+  trasition: font-size 0.5s ease-in-out;
+}
+
 
 .signup-section {
   padding: 10rem 0;
