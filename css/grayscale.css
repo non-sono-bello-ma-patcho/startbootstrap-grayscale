@@ -262,19 +262,14 @@
 }
 
 .custom-card > img {
-  transition: all 0.2s ease;
+  transition: all 0.5s ease;
 }
 
 .custom-card:hover > img {
   -webkit-filter: blur(5px);
   filter: blur(5px);
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-}
-
-.custom-card:hover {
-  font-weight: bolder;
-  trasition: font-size 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 
