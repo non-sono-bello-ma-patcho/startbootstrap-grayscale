@@ -45,7 +45,7 @@
               <a class="nav-link js-scroll-trigger" href="#signup">Sign Up</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="" data-toggle="modal" data-target="#loginModal">Log In</a>
+                <a class="btn btn-nav" href="" data-toggle="modal" data-target="#loginModal">Log In</a>
             </li>
           </ul>
         </div>
@@ -62,17 +62,18 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                    <div class="modal-body">
-                        <form id="loginform" action="" method="post">
-                            <div class="form-group">
-                                <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputUsernamelog" placeholder="Enter your username">
-                                <small id="" class="form-text text-muted text-left">We won't share this information with no one</small>
+                    <div class="modal-body text-center">
+                        <form id="loginform" action="" method="post" class="form-signin">
+                            <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputUsernamelog" placeholder="Enter your username">
+                            <label for="inputPassowrdlog" class="sr-only">Password</label>
+                            <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPassowrdlog" placeholder="Type your password...">
+                            <div class="checkbox mb3">
+                              <label>
+                                <input type="checkbox" value="Remember me">
+                                Remember me
+                              </label>
                             </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPassowrdlog" placeholder="Type your password...">
-                                <small id="" class="form-text text-muted text-left">We won't share this information with no one</small>
-                            </div>
-                            <button type="submit" class="btn btn-primary mx-auto">Log In</button>
+                            <input type="submit" class="form-control btn-primary" value="Log In">
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -187,39 +188,42 @@
         <div class="row">
           <div class="col-md-10 col-lg-8 mx-auto text-center">
             <h2 class="text-white mb-5">Sign up to Herschel and start to explore!</h2>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <form id="signupform">
-                    <div class="form-group">
-                      <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
-                      <small id="mailhelp" class="form-text text-muted text-left">We won't share this information with no one</small>
+            <form id="signupform" class="needs-validation" novalidate>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address..." required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                      </div>
+                      <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputUsername" placeholder="Enter your username..." required>
+                      <div class="invalid-feedback">This username is already taken.</div>
                     </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputName" placeholder="Enter your name...">
-                      <small class="form-text text-muted text-left">We won't share this information with no one</small>
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputSurname" placeholder="Enter your surname">
-                      <small class="form-text text-muted text-left">We won't share this information with no one</small>
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputUsername" placeholder="Enter your username">
-                      <small class="form-text text-muted text-left">We won't share this information with no one</small>
-                    </div>
-                    <div class="form-group">
-                      <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPassowrd" placeholder="Type your password...">
-                      <small class="form-text text-muted text-left">We won't share this information with no one</small>
-                    </div>
-                    <div class="form-group">
-                      <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputConfirm" placeholder="Confirm your password...">
-                      <small class="form-text text-muted text-left">We won't share this information with no one</small>
-                    </div>
-                    <button type="submit" class="btn btn-primary mx-auto">Sign Up</button>
-                  </form>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputName" placeholder="Enter your name..." required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputSurname" placeholder="Enter your surname..." required>
+                  </div>
                 </div>
 
+                <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                    <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputPassowrd" placeholder="Type your password..." required>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputConfirm" placeholder="Confirm your password..." required>
+                  </div>
+                </div>
               </div>
-
+              <button type="submit" class="btn btn-primary mx-auto">Sign Up</button>
+            </form>
             </div>
           </div>
         </div>
