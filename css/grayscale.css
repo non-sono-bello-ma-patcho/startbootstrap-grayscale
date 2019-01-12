@@ -256,23 +256,6 @@
   }
 }
 
-.custom-card {
-  overflow: hidden;
-  max-height: 400px;
-}
-
-.custom-card > img {
-  transition: all 0.5s ease;
-}
-
-.custom-card:hover > img {
-  -webkit-filter: blur(5px);
-  filter: blur(5px);
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-}
-
-
 .signup-section {
   padding: 10rem 0;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 22, 22, 0.1)), color-stop(75%, rgba(22, 22, 22, 0.5)), to(#161616)), url("../img/bottom.png");

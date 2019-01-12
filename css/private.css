@@ -1,3 +1,8 @@
+#privatebody {
+    background: url("../img/demo4.jpg") no-repeat;
+    background-size: cover;
+}
+
 .idlink:hover > img {
     -webkit-filter: blur(2px);
     filter: blur(2px);
@@ -8,9 +13,6 @@
     opacity: 1;
     transition: opacity 0.2s ease;
 }
-
-
-
 
 img {
     transition: filter 0.2s ease-in-out;
@@ -55,4 +57,20 @@ img {
 .nav-link.active, .nav-link.active:hover{
     border-bottom: solid 2px #3d348b !important;
     border-bottom-width: medium !important;
+}
+
+.bg-black {
+    background-color: #161616 !important;
+}
+
+.gradient {
+    background-image: -moz-linear-gradient(to bottom, rgba(255, 255, 255, 0), #161616);
+    width: 100%;
+    height: 100px;
+}
+
+.slim-card {
+    max-height: 161px;
+    max-width: 331px !important;
+    overflow: hidden;
 }
