@@ -42,3 +42,17 @@ img {
     z-index: 999;
     transition: opacity 0.2s ease;
 }
+
+.nav-link {
+    border: none !important;
+}
+
+.nav-link:hover {
+    border-bottom: solid 2px #acb0bd!important;
+    border-bottom-width: medium !important;
+}
+
+.nav-link.active, .nav-link.active:hover{
+    border-bottom: solid 2px #3d348b !important;
+    border-bottom-width: medium !important;
+}
