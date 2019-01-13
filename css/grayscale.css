@@ -26,6 +26,16 @@
   padding: .9rem 0;
 }
 
+#mainNav .a-logo {
+  background: url("../img/logo_magenta_green.png") no-repeat;
+  height: 44px;
+  width: 128px;
+}
+
+#mainNav.navbar-shrink .a-logo {
+  background: url("../img/logo_purple_char.png") no-repeat;
+}
+
 #mainNav .navbar-nav .nav-item:hover {
   color: fade(white, 80%);
   outline: none;
