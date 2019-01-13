@@ -23,6 +23,27 @@
             <h2>Modify Profile Informations</h2>
             <p class="lead">Make sure to set all the fields you want to change</p>
             <div class="row">
+                <div class="col-md-4">
+                    <h3 class="text-left text-muted mb-5">User image</h3>
+                    <div class="card">
+                        <div class="card-header">
+                            <img id="preview" src="img/default-account.png" class="card-img-top custom-userimage mx-auto mt-2" alt="..." style="overflow: hidden">
+                        </div>
+                        <div class="card-body">
+                            <form action="">
+                                <div class="input-group mb-3 my-auto">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Upload</span>
+                                    </div>
+                                    <div class="custom-file text-left">
+                                        <input type="file" class="custom-file-input" id="inputGroupFile01" onchange="loadname(); displayPreview(this)">
+                                        <label class="custom-file-label" for="inputGroupFile01" id="inputGroupFile01label">Choose file</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-8">
                     <h3 class="text-left text-muted mb-5">User Information</h3>
                     <form action="">
@@ -42,18 +63,31 @@
                                 <input type="email" class="form-control mb-3" id="name" aria-describedby="nameinput" placeholder="change your name...">
                             </div>
                             <div class="col-md-6 text-left">
-                                <label for="username" class="text-muted">Username</label>
+                                <label for="username" class="text-muted">Surname</label>
                                 <input type="email" class="form-control mb-3" id="surname" aria-describedby="surnameinput" placeholder="change your surname...">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 text-left">
+                                <label for="email" class="text-muted">Location</label>
+                                <input type="email" class="form-control mb-3" id="name" aria-describedby="nameinput" placeholder="change your location...">
                             </div>
                         </div>
                     </form>
                 </div>
-                <div class="col-md-4">
-                    <h3 class="text-left text-muted mb-5">User image</h3>
-
-                </div>
             </div>
         </div>
     </div>
+    <!-- Footer -->
+    <footer class="bg-black small text-center text-white-50 fixed-bottom">
+        <div class="container">
+            Copyright &copy; Herschel 2018
+        </div>
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="js/modify.js"></script>
 </body>
 </html>
