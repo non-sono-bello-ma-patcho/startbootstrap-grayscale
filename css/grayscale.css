@@ -27,14 +27,12 @@
 }
 
 #mainNav .a-logo {
-  background: url("../img/logo_magenta_green.png") no-repeat;
-  height: 44px;
-  width: 128px;
+  background: url("../img/logo_purple_char.png") no-repeat;
+  background-size: cover;
+  height: calc(44px*0.8);
+  width: calc(127px*0.8);
 }
 
-#mainNav.navbar-shrink .a-logo {
-  background: url("../img/logo_purple_char.png") no-repeat;
-}
 
 #mainNav .navbar-nav .nav-item:hover {
   color: fade(white, 80%);
@@ -48,11 +46,14 @@
 }
 
 @media (min-width: 992px) {
+  #mainNav .a-logo {
+    background: url("../img/logo_magenta_green.png") no-repeat;
+    height: 44px;
+    width: 128px;
+  }
 
-  .a-logo {
+  #mainNav.navbar-shrink .a-logo {
     background: url("../img/logo_purple_char.png") no-repeat;
-    height: calc(44px*0.8);
-    width: calc(127px*0.8);
   }
 
   #mainNav {
