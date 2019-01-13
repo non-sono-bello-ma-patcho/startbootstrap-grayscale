@@ -1,0 +1,3 @@
+[submodule "startsaw-core"]
+	path = startsaw-core
+	url = https://github.com/non-sono-bello-ma-patcho/startsaw-core
