@@ -54,6 +54,8 @@
 
   #mainNav.navbar-shrink .a-logo {
     background: url("../img/logo_purple_char.png") no-repeat;
+    height: 44px;
+    width: 128px;
   }
 
   #mainNav {
