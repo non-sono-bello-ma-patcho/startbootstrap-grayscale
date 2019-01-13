@@ -48,6 +48,13 @@
 }
 
 @media (min-width: 992px) {
+
+  .a-logo {
+    background: url("../img/logo_purple_char.png") no-repeat;
+    height: calc(44px*0.8);
+    width: calc(127px*0.8);
+  }
+
   #mainNav {
     padding-top: 0;
     padding-bottom: 0;
