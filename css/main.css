@@ -34,3 +34,7 @@
 .bg-light {
     background-color: #f8f9fa !important;
 }
+
+a {
+    outline: 0;
+}
