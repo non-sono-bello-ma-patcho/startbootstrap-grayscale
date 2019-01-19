@@ -1,4 +1,20 @@
 
+.btn-primary {
+    background-color: #3d348b;
+}
+
+.custom-btn {
+    border: solid 1px #3d348b;
+    color: #3d348b;
+    padding: 0.62rem 1rem;
+}
+
+.custom-btn:hover {
+    color: white !important;
+    background: #3d348b;
+}
+
+
 .custom-card {
     overflow: hidden;
     max-height: 400px;
