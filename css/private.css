@@ -13,15 +13,21 @@
     transition: filter 0.2s ease-in-out;
 }
 
-.idlink:hover .custom-icon {
+.idlink:hover > .modify-icon {
     opacity: 1;
-    transition: opacity 0.2s ease;
+    transform: rotate(180deg) translate(50%, 50%);
+    transition: all 0.8s ease;
 }
 
 .profile-image {
     transition: filter 0.2s ease-in-out;
     max-width: 230px;
     max-height: 230px;
+}
+
+.profile-image-half {
+    max-width: 115px;
+    max-height: 115px;
 }
 
 .no-bullet {
@@ -41,7 +47,7 @@
     font-size: 200%;
     opacity: 0;
     z-index: 999;
-    transition: opacity 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .nav-link {
@@ -113,4 +119,22 @@
     height: 27px;
     width: 27px;
     transition: all 0.2s ease;
+}
+
+.uppergrad {
+    background-image: linear-gradient(to top, transparent, #3d348b);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 31px;
+    border-radius: 0.3rem;
+}
+
+.transparentblur {
+    filter: opacity(80%);
+}
+
+.custom-hidden {
+    transition: display 0.3s ease;
 }

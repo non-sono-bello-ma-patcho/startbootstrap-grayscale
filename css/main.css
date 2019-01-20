@@ -54,3 +54,9 @@
 a {
     outline: 0;
 }
+
+.rightcorners {
+    border-radius: 0.25rem !important;
+}
+
+.notification > .modal

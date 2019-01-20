@@ -15,7 +15,6 @@ function loadDiv(doc, target){
         }
     };
     xhttp.send();
-
 }
 
 function displayPreview(input){
