@@ -96,7 +96,7 @@
                     </div>
                     <div class="modal-footer">
                         <p class="align-content-between">Don't have an account? <a id="loglink" class="js-scroll-trigger" href="#signup" aria-label="Close">Sign up!</a> or
-                            <a href="private.html">preview user account</a></p>
+                            <a href="private.php">preview user account</a></p>
                     </div>
                 </div>
             </div>

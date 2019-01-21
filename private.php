@@ -21,7 +21,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
       <div class="container">
-        <a class="navbar-brand" href="index.html" title="Herschel: Space is your Playground"><img src="img/logo_purple_char.png" alt=""></a>
+        <a class="navbar-brand" href="index.php" title="Herschel: Space is your Playground"><img src="img/logo_purple_char.png" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -54,7 +54,7 @@
                     <div class="card-deck">
                         <div class="card mx-auto shadow">
                             <div class="card-header position-relative">
-                                <a href="modifyform.html" aria-label="edit profile" title="edit profile" class="idlink">
+                                <a href="modifyform.php" aria-label="edit profile" title="edit profile" class="idlink">
                                     <span class="modify-icon glyphicon glyphicon-cog text-muted custom-icon"></span>
                                     <img src="img/default-account.png" class="card-img-top profile-image" alt="..." style="overflow: hidden">
                                 </a>
@@ -237,7 +237,7 @@
                                     </div>
                                     <div class="col-sm-5 position-relative mt-3 pr-0">
                                         <div class="card slim-card text-white mt-2 mb-3">
-                                            <a href="index.html" class="read-more text-white">Read more</a>
+                                            <a href="index.php" class="read-more text-white">Read more</a>
                                             <img src="img/demo1.jpg" class="card-img" alt="...">
                                             <div class="card-img-overlay">
                                                 <h5 class="card-title">Card title</h5>
