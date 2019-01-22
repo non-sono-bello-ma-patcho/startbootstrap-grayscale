@@ -7,6 +7,6 @@
  */
 
 return array(
-    'index' => 'index.php',
-    'private' => 'private.php',
+    'index' => '../index.php',
+    'private' => '../private.php',
 );

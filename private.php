@@ -457,6 +457,9 @@
     <div class="container">
         Copyright &copy; Herschel 2018
     </div>
+    <div class="container">
+        <a href="" id="logoutlink" onclick="<?php global $source; session_destroy(); header("Location: ".$source['index']);?>">Logout</a>
+    </div>
 </footer>
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
