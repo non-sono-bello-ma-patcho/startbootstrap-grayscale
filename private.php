@@ -58,7 +58,7 @@
                         <div class="card-header position-relative">
                             <a href="modifyform.php" aria-label="edit profile" title="edit profile" class="idlink">
                                 <span class="modify-icon glyphicon glyphicon-cog text-muted custom-icon"></span>
-                                <img src=<?php echo "\"".getUserImg($_SESSION['id'])."\"";?> class="card-img-top profile-image" alt="..." style="overflow: hidden">
+                                <img src="<?php echo getUserImg($_SESSION['id']);?>" class="card-img-top profile-image" alt="..." style="overflow: hidden">
                             </a>
                         </div>
                         <div class="card-body shadow">
