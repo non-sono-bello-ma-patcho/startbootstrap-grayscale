@@ -50,6 +50,7 @@ $(document).ready(function (){
         var currentUsername = $(this).val().toLowerCase();
         $.post("php/formUtility.php", { username : currentUsername },function(data){
             $('#suUsername').toggleClass("is-invalid", data!=="").toggleClass("is-valid", data==="");
+            $('#usernamecol').toggleClass("mb-0", data!="").toggleClass("mb-3", data==="");
         });
     });
 });

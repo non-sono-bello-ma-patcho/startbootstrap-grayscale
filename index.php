@@ -271,7 +271,7 @@
                                 <input type="hidden" name="signupform">
                                 <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="email" placeholder="Enter email address..." required>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div id="usernamecol" class="col-md-6 mb-3">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroupPrepend">@</span>
