@@ -46,11 +46,11 @@ $('#loglink').click(function () {
 
 /* Ajax */
 $(document).ready(function (){
-    $('#suUsername').on("keyup", function () {
+    $('#suUsername').keyup(function () {
         var currentUsername = $(this).val().toLowerCase();
-        $.post("formUtility.php", { username : currentUsername },function(data, status){
+        $.post("formUtility.php", { username : currentUsername },function(data){
             alert("Got username: ".data);
-            $(this).toggleClass('is-invalid', data===currentUsername);
+            $(this).toggleClass('is-invalid', data);
         });
     });
 });
