@@ -63,7 +63,7 @@ $(document).ready(function () {
     $('#suEmail').keyup(function () {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var email = $(this).val();
-        if (value !== ""){
+        if (email !== ""){
             $(this).toggleClass("is-invalid", re.test(email)==="").toggleClass("is-valid", re.test(email)!=="");
             $('#emailcol').toggleClass("mb-0", data!="").toggleClass("mb-3", data==="");
         }
