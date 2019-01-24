@@ -49,6 +49,7 @@ $(document).ready(function (){
     $('#suUsername').on("keyup", function () {
         var currentUsername = $(this).val().toLowerCase();
         $.post("formUtility.php", { username : currentUsername },function(data, status){
+            alert("Got username: ".data);
             $(this).toggleClass('is-invalid', data===currentUsername);
         });
     });
