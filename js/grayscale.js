@@ -57,6 +57,9 @@ $(document).ready(function (){
         else
             $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);
     });
+});
+
+$(document).ready(function () {
     $('#suEmail').keyup(function () {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var email = $(this).val();
