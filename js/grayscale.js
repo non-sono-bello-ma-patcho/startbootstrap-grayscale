@@ -49,8 +49,7 @@ $(document).ready(function (){
     $('#suUsername').on("keyup", function () {
         var currentUsername = $(this).val().toLowerCase();
         $.post("formUtility.php", { username : currentUsername },function(data, status){
-            if(status.indexOf('2')>=0) //?
-            $(this).toggleClass('is-invalid', data);
+            $(this).toggleClass('is-invalid', data===currentUsername);
         });
     });
 });
