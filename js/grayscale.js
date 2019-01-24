@@ -50,9 +50,7 @@ $(document).ready(function (){
         var currentUsername = $(this).val().toLowerCase();
         console.log("sending request with value: "+currentUsername)
         $.post("php/formUtility.php", { username : currentUsername },function(data){
-            console.log("request returned data: "+data);
-            console.log("toggling class is-invalid:"+Boolean(data));
-            $(this).toggleClass('is-invalid', Boolean(data));
+            $(this).toggleClass('is-invalid', data!=="");
         });
     });
 });
