@@ -57,6 +57,15 @@ $(document).ready(function (){
         else
             $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);
     });
+    $('#suEmail').keyup(function () {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var email = $(this).val();
+        if (value !== ""){
+            $(this).toggleClass("is-invalid", re.test(email)==="").toggleClass("is-valid", re.test(email)!=="");
+        }
+        else
+            $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);
+    });
 });
 
 function checkuser(username) {

@@ -269,7 +269,7 @@
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <input type="hidden" name="signupform">
-                                <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="email" placeholder="Enter email address..." required>
+                                <input type="email" id="suEmail" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="email" placeholder="Enter email address..." required>
                             </div>
                             <div id="usernamecol" class="col-md-6 mb-3">
                                 <div class="input-group">
@@ -296,10 +296,10 @@
 
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
-                                <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswd" placeholder="Type your password..." required>
+                                <input type="password" id="suPassword" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswd" placeholder="Type your password..." required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswdConfirm" placeholder="Confirm your password..." required>
+                                <input type="password" id="suConfirmPassword" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswdConfirm" placeholder="Confirm your password..." required>
                             </div>
                         </div>
                     </div>
