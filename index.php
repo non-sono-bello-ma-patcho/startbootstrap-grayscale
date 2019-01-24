@@ -23,8 +23,6 @@
     <link href="css/grayscale.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 
-    <!-- Ajax, questo sconosciuto -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script
 </head>
 
 <body id="page-top">
@@ -364,10 +362,10 @@
 
         <div class="social d-flex justify-content-center">
             <a href="https://www.instagram.com/nonsonobellomapatcho/?hl=it" class="mx-2">
-                <i class="fab fa-instagram"></i>
+                <i class="fab fa-instagram my-3"></i>
             </a>
             <a href="https://github.com/non-sono-bello-ma-patcho" class="mx-2">
-                <i class="fab fa-github"></i>
+                <i class="fab fa-github my-3"></i>
             </a>
         </div>
 
