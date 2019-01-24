@@ -1,6 +1,5 @@
 (function($) {
   "use strict"; // Start of use strict
-
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -44,3 +43,31 @@
 $('#loglink').click(function () {
     $('#loginModal').modal('hide');
 });
+
+/* Ajax */
+$(document).ready(function (){
+    $('#suUsername').on("keyup", function () {
+        var currentUsername = $(this).val().toLowerCase();
+        $.post("formUtility.php", { username : currentUsername },function(data, status){
+            if(status.indexOf('2')>=0) //?
+            $(this).toggleClass('is-invalid', data);
+        });
+    });
+});
+
+function checkuser(username) {
+    var target = "usernameinfo";
+    var doc = "php/usercheck.php?q="+username+"&f=username";
+    var xhttp = new XMLHttpRequest();
+    xhttp.open("GET", doc, true);
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            //document.getElementById(target).className = this.responseText;
+            if( this.responseText.toString() === 'inputerror')
+                $('#'+target).toggleClass('inputerror', true).toggleClass('inputsuccess', false);
+            if( this.responseText.toString() === 'inputsuccess')
+                $('#'+target).toggleClass('inputsuccess', true).toggleClass('inputerror', false);
+        }
+    };
+    xhttp.send();
+}

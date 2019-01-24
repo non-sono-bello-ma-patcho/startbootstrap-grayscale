@@ -23,6 +23,8 @@
     <link href="css/grayscale.css" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
 
+    <!-- Ajax, questo sconosciuto -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script
 </head>
 
 <body id="page-top">
@@ -274,7 +276,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                                     </div>
-                                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="username" placeholder="Enter your username..." required>
+                                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="username" id="suUsername" placeholder="Enter your username..." required>
                                     <div class="invalid-feedback">This username is already taken.</div>
                                 </div>
                             </div>
