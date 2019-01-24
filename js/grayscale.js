@@ -44,7 +44,13 @@ $('#loglink').click(function () {
     $('#loginModal').modal('hide');
 });
 
+$(document).on("load", function () {
+    $('input,textarea').attr('autocomplete', 'off');
+});
+
 /* Ajax */
+
+/* Domani faccio refactoring */
 $(document).ready(function (){
     $('#suUsername').keyup(function () {
         var currentUsername = $(this).val().toLowerCase();
@@ -57,15 +63,32 @@ $(document).ready(function (){
         else
             $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);
     });
-});
-
-$(document).ready(function () {
     $('#suEmail').keyup(function () {
-        var re = "[^\\/.\\-_]+@[a-z]+.(com|it|en|es)";
+        var re = /([^\._]+@[a-z]+.(com|it|en|es))/;
         var email = $(this).val();
         if (email !== ""){
-            $(this).toggleClass("is-invalid", re.test(email)==="").toggleClass("is-valid", re.test(email)!=="");
-            $('#emailcol').toggleClass("mb-0", data!="").toggleClass("mb-3", data==="");
+            $(this).toggleClass("is-invalid", !re.test(email)).toggleClass("is-valid", re.test(email));
+            $('#emailcol').toggleClass("mb-0", re.test(email)).toggleClass("mb-3", re.test(email));
+        }
+        else
+            $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);
+    });
+    $('#suPassword').keyup(function () {
+        var re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&.]).{8,10}$/;
+        var email = $(this).val();
+        if (email !== ""){
+            $(this).toggleClass("is-invalid", !re.test(email)).toggleClass("is-valid", re.test(email));
+            $('#pwcol').toggleClass("mb-0", re.test(email)).toggleClass("mb-3", re.test(email));
+        }
+        else
+            $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);
+    });
+    $('#suConfirmPassword').keyup(function () {
+        var pw = $('#suPassword').val();
+        var conf =$(this).val();
+        if (pw !== ""){
+            $(this).toggleClass("is-invalid", pw!==conf).toggleClass("is-valid", pw===conf);
+            $('#pwccol').toggleClass("mb-0", pw!==conf).toggleClass("mb-3", pw===conf);
         }
         else
             $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);
