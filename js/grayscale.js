@@ -62,6 +62,7 @@ $(document).ready(function (){
         var email = $(this).val();
         if (value !== ""){
             $(this).toggleClass("is-invalid", re.test(email)==="").toggleClass("is-valid", re.test(email)!=="");
+            $('#emailcol').toggleClass("mb-0", data!="").toggleClass("mb-3", data==="");
         }
         else
             $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);

@@ -267,9 +267,14 @@
                 <form name ="sign_up" class="needs-validation" method='post' novalidate>
                     <div class="form-group">
                         <div class="form-row">
-                            <div class="col-md-6 mb-3">
+                            <div id="emailcol" class="col-md-6 mb-3">
                                 <input type="hidden" name="signupform">
                                 <input type="email" id="suEmail" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="email" placeholder="Enter email address..." required>
+                                <div class="text-left invalid-feedback mt-0">
+                                    <small class="font-weight-bold">
+                                        Email format not valid.
+                                    </small>
+                                </div>
                             </div>
                             <div id="usernamecol" class="col-md-6 mb-3">
                                 <div class="input-group">
