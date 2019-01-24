@@ -51,7 +51,7 @@ $(document).ready(function (){
         console.log("sending request with value: "+currentUsername)
         $.post("php/formUtility.php", { username : currentUsername },function(data){
             console.log("request returned data: "+data);
-            $(this).toggleClass('is-invalid', data);
+            $(this).toggleClass('is-invalid', Boolean(data));
         });
     });
 });
