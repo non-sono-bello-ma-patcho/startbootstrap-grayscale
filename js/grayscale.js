@@ -49,7 +49,7 @@ $(document).ready(function (){
     $('#suUsername').keyup(function () {
         var currentUsername = $(this).val().toLowerCase();
         console.log("sending request with value: "+currentUsername)
-        $.post("formUtility.php", { username : currentUsername },function(data){
+        $.post("php/formUtility.php", { username : currentUsername },function(data){
             console.log("request returned data: "+data);
             $(this).toggleClass('is-invalid', data);
         });
