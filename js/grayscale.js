@@ -48,10 +48,14 @@ $('#loglink').click(function () {
 $(document).ready(function (){
     $('#suUsername').keyup(function () {
         var currentUsername = $(this).val().toLowerCase();
+        if(currentUsername!=="")
         $.post("php/formUtility.php", { username : currentUsername },function(data){
             $('#suUsername').toggleClass("is-invalid", data!=="").toggleClass("is-valid", data==="");
-            $('#usernamecol').toggleClass("mb-0", data!="").toggleClass("mb-3", data==="");
+            $('#usernamecol').toggleClass("mb-0", data!="").toggleClass("mb-3", data===""); // prevent form from warp
         });
+        // remove validation feedback if text is empty
+        else
+            $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);
     });
 });
 

@@ -277,7 +277,7 @@
                                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                                     </div>
                                     <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="username" id="suUsername" placeholder="Enter your username..." required>
-                                    <div class="text-left invalid-feedback">
+                                    <div class="text-left invalid-feedback mt-0">
                                         <small>
                                             This username is already taken.
                                         </small>
