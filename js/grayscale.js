@@ -48,10 +48,8 @@ $('#loglink').click(function () {
 $(document).ready(function (){
     $('#suUsername').keyup(function () {
         var currentUsername = $(this).val().toLowerCase();
-        console.log("sending request with value: "+currentUsername)
         $.post("php/formUtility.php", { username : currentUsername },function(data){
-            if(data!=="")
-                $(this).toggleClass('is-invalid', true);
+            $('#suUsername').toggleClass("is-invalid", data!=="").toggleClass("is-valid", data==="");
         });
     });
 });
