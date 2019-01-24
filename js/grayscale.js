@@ -47,10 +47,10 @@ $('#loglink').click(function () {
 /* Ajax */
 $(document).ready(function (){
     $('#suUsername').keyup(function () {
-        console.log("someone is typing :)");
         var currentUsername = $(this).val().toLowerCase();
+        console.log("sending request with value: "+currentUsername)
         $.post("formUtility.php", { username : currentUsername },function(data){
-            alert("Got username: ".data);
+            console.log("request returned data: "+data);
             $(this).toggleClass('is-invalid', data);
         });
     });
