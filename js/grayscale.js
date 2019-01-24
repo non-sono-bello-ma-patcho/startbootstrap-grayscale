@@ -47,6 +47,7 @@ $('#loglink').click(function () {
 /* Ajax */
 $(document).ready(function (){
     $('#suUsername').keyup(function () {
+        console.log("someone is typing :)");
         var currentUsername = $(this).val().toLowerCase();
         $.post("formUtility.php", { username : currentUsername },function(data){
             alert("Got username: ".data);
