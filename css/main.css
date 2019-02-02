@@ -60,3 +60,15 @@ a {
 }
 
 .notification > .modal
+
+.gradient-bg {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 35rem;
+    padding: 10rem 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
