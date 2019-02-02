@@ -1,15 +1,13 @@
-
+<?php session_start();
+require 'php/userUtility.php';
+?>
 <html lang="en">
-<meta charset="UTF-8">
-<title>Modify User Information</title>
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <title>Private Page - Herschel</title>
+    <title>Modify User Information</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -20,61 +18,62 @@
 <body class="">
 <div class="modifypage">
     <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="img/logo_purple_char.png" alt="">
+        <img class="d-block mx-auto mb-4" src="img/logo_magenta_green.png" alt="">
         <h2>Modify Profile Informations</h2>
         <p class="lead">Make sure to set all the fields you want to change</p>
         <div class="container mx-auto">
-            <div class="row">
-                <div class="col-md-3" style="background-color: rgba(0,0,0,0.2); border-top-left-radius: calc(0.25rem - 1px); border-bottom-left-radius: calc(0.25rem - 1px)">
-                    <ul class="nav flex-column">
-                        <li class="dropdown-item">
-                            <a href="" class="nav-link active text-muted">User Informations</a>
+            <div class="row py-3">
+                <div class="col-md-3" style="background-color: rgba(0,0,0,0.7); border-top-left-radius: calc(0.25rem - 1px); border-bottom-left-radius: calc(0.25rem - 1px);">
+                    <ul class="nav nav-tabs flex-column">
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-white">User Informations</a>
                         </li>
-                        <li class="dropdown-item">
-                            <a href="" class="nav-link text-muted">Email & Billing</a>
+                        <li class="nav-item">
+                            <a href="" class="nav-link text-white"><?php echo $_SESSION['id']; ?></a>
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-9" style="background-color: rgba(0,0,0,0.2); border-top-right-radius: calc(0.25rem - 1px); border-bottom-right-radius: calc(0.25rem - 1px)">
-                    <h3 class="text-left text-muted my-3">User Information</h3>
-                    <form action="">
+                <div class="col-md-9" style="background-color: rgba(0,0,0,0.4); border-top-right-radius: calc(0.25rem - 1px); border-bottom-right-radius: calc(0.25rem - 1px)">
+                    <h3 class="text-left my-3 text-white">User Information</h3>
+                    <form action="php/modifyInformation.php">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-row">
-                                        <label for="email" class="text-muted">Email</label>
-                                        <input type="email" class="form-control mb-3" id="email" aria-describedby="emailinput" placeholder="change your email...">
+                                        <label for="modifyName" class="text-white">Name</label>
+                                        <input type="name" class="form-control mb-3" id="modifyName" aria-describedby="emailinput" placeholder="<?php echo getUserName($_SESSION['id']);?>">
                                     </div>
                                     <div class="form-row">
-                                        <label for="username" class="text-muted">Username</label>
-                                        <input type="email" class="form-control mb-3" id="username" aria-describedby="emailinput" placeholder="change your username...">
-                                    </div>
-                                    <div class="form-row">
-                                        <label for="email" class="text-muted">Name</label>
-                                        <input type="email" class="form-control mb-3" id="name" aria-describedby="nameinput" placeholder="change your name...">
+                                        <label for="modifyUsername" class="text-white">Username</label>
+                                        <input type="text" class="form-control mb-3" id="modifyUsername" aria-describedby="emailinput" placeholder="<?php echo $_SESSION['id']?>">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-row">
-                                        <label for="username" class="text-muted">Surname</label>
-                                        <input type="email" class="form-control mb-3" id="surname" aria-describedby="surnameinput" placeholder="change your surname...">
+                                        <label for="modifySurname" class="text-white">Surname</label>
+                                        <input type="text" class="form-control mb-3" id="modifySurname" aria-describedby="surnameinput" placeholder="<?php echo getUserSurname($_SESSION['id']);?>">
                                     </div>
                                     <div class="form-row">
-                                        <label for="email" class="text-muted">Location</label>
-                                        <input type="email" class="form-control mb-3" id="name" aria-describedby="nameinput" placeholder="change your location...">
-                                    </div>
-                                    <div class="form-row">
-                                        <label for="email" class="text-muted">Description</label>
-                                        <textarea class="form-control" aria-label="With textarea"></textarea>
+                                        <label for="modifyLocation" class="text-white">Location</label>
+                                        <input type="text" class="form-control mb-3" id="modifyLocation" aria-describedby="nameinput" placeholder="change your location...">
                                     </div>
                                 </div>
                                 <div class="col-md-4 text-center">
-                                    <a href="" class="mx-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <img id="preview" src="img/default-account.png" class="custom-userimage mt-2" alt="..." style="overflow: hidden">
-                                    </a>
-                                    <div class="dropdown-menu">
-                                        <a href="" class="dropdown-item">Choose image</a>
-                                        <a href="" class="dropdown-item">Delete image</a>
+                                    <img id="mofdiyImage" src="img/default-account.png" class="custom-userimage mt-2" alt="..." style="overflow: hidden">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input">
+                                        <label for="" class="custom-file-label"></label>
+                                    </div>
+                                    <a href="" class="dropdown-item">Delete image</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-row">
+                                        <label for="modifyDescription" class="text-white">Description</label>
+                                        <textarea id="modifyDescription" class="form-control" aria-label="With textarea" rows="3" style="resize: none">
+                                            <?php echo getUserDescription($_SESSION['username'])?>
+                                        </textarea>
                                     </div>
                                 </div>
                             </div>

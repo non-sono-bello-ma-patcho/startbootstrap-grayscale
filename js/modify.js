@@ -39,3 +39,35 @@ $('.dropdown').on('show.bs.dropdown', function(e){
 $('.dropdown').on('hide.bs.dropdown', function(e){
     $(this).find('.dropdown-menu').first().stop(true, true).slideUp(200);
 });
+
+// set placeholders on load:
+window.onload = function() {
+// send request:
+    console.log("got: "+getCookie("username"));
+    $.post("php/formUtility.php", { username : getCookie("username"), op : "get_info" },function(response){
+      var user = JSON.parse(response);
+      console.log("got username: "+user.username);
+      $('#modifyName').attr('placeholder', user.name);
+      $('#modifyUsername').attr('placeholder', user.username);
+      $('#modifySurname').attr('placeholder', user.surname);
+      $('#modifyLocation').attr('placeholder', user.location);
+      $('#modifyDescription').val(user.description);
+    });
+};
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+

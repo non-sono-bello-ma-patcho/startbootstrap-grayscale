@@ -46,6 +46,7 @@ $('#loglink').click(function () {
 
 $(document).on("load", function () {
     $('input,textarea').attr('autocomplete', 'off');
+    // load placeholder
 });
 
 /* Ajax */
@@ -55,9 +56,10 @@ $(document).ready(function (){
     $('#suUsername').keyup(function () {
         var currentUsername = $(this).val().toLowerCase();
         if(currentUsername!=="")
-        $.post("php/formUtility.php", { username : currentUsername },function(data){
-            $('#suUsername').toggleClass("is-invalid", data!=="").toggleClass("is-valid", data==="");
-            $('#usernamecol').toggleClass("mb-0", data!="").toggleClass("mb-3", data===""); // prevent form from warp
+        $.post("php/formUtility.php", { username : currentUsername, op : "check" },function(response){
+            data = JSON.parse(response).username;
+            $('#suUsername').toggleClass("is-invalid", Boolean(data)).toggleClass("is-valid", !Boolean(data));
+            $('#usernamecol').toggleClass("mb-0", Boolean(data)).toggleClass("mb-3", !Boolean(data)); // prevent form from warp
         });
         // remove validation feedback if text is empty
         else
