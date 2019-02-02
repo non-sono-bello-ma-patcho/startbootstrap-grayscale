@@ -35,44 +35,46 @@ require 'php/userUtility.php';
                 </div>
                 <div class="col-md-9" style="background-color: rgba(0,0,0,0.4); border-top-right-radius: calc(0.25rem - 1px); border-bottom-right-radius: calc(0.25rem - 1px)">
                     <h3 class="text-left my-3 text-white">User Information</h3>
-                    <form action="php/modifyInformation.php">
+                    <form name="formUpdate" enctype="multipart/form-data" method="post">
+                        <input type="hidden" name="modifyform">
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-row">
                                         <label for="modifyName" class="text-white">Name</label>
-                                        <input type="name" class="form-control mb-3" id="modifyName" aria-describedby="emailinput" placeholder="<?php echo getUserName($_SESSION['id']);?>">
+                                        <input type="name" class="form-control mb-3" name="modifyName" aria-describedby="emailinput" placeholder="<?php echo getUserName($_SESSION['id']);?>">
                                     </div>
                                     <div class="form-row">
                                         <label for="modifyUsername" class="text-white">Username</label>
-                                        <input type="text" class="form-control mb-3" id="modifyUsername" aria-describedby="emailinput" placeholder="<?php echo $_SESSION['id']?>">
+                                        <input type="text" class="form-control mb-3" name="modifyUsername" aria-describedby="emailinput" placeholder="<?php echo $_SESSION['id']?>">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-row">
                                         <label for="modifySurname" class="text-white">Surname</label>
-                                        <input type="text" class="form-control mb-3" id="modifySurname" aria-describedby="surnameinput" placeholder="<?php echo getUserSurname($_SESSION['id']);?>">
+                                        <input type="text" class="form-control mb-3" name="modifySurname" aria-describedby="surnameinput" placeholder="<?php echo getUserSurname($_SESSION['id']);?>">
                                     </div>
                                     <div class="form-row">
                                         <label for="modifyLocation" class="text-white">Location</label>
-                                        <input type="text" class="form-control mb-3" id="modifyLocation" aria-describedby="nameinput" placeholder="change your location...">
+                                        <input type="text" class="form-control mb-3" name="modifyLocation" aria-describedby="nameinput" placeholder="<?php echo getUserLocation($_SESSION['id']);?>">
                                     </div>
                                 </div>
                                 <div class="col-md-4 text-center">
-                                    <img id="mofdiyImage" src="img/default-account.png" class="custom-userimage mt-2" alt="..." style="overflow: hidden">
+                                    <img name="modifyImage" src="img/default-account.png" class="custom-userimage mt-2" alt="..." style="overflow: hidden">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input">
+                                        <input name="photo" type="file" class="custom-file-input">
                                         <label for="" class="custom-file-label"></label>
                                     </div>
                                     <a href="" class="dropdown-item">Delete image</a>
+                                    <input type="submit" value="update" onclick="formUpdate.action='php/userUpdate.php'">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-8">
                                     <div class="form-row">
                                         <label for="modifyDescription" class="text-white">Description</label>
-                                        <textarea id="modifyDescription" class="form-control" aria-label="With textarea" rows="3" style="resize: none">
-                                            <?php echo getUserDescription($_SESSION['username'])?>
+                                        <textarea name="modifyDescription" class="form-control" aria-label="With textarea" rows="3" style="resize: none">
+                                            <?php echo getUserDescription($_SESSION['id'])?>
                                         </textarea>
                                     </div>
                                 </div>

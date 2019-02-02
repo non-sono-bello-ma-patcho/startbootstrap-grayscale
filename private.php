@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><?php echo $_SESSION['id'];?></a>
+                    <a class="nav-link" href="#"><?php echo $_SESSION['id']; ?></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Services</a>
@@ -463,7 +463,6 @@
         Copyright &copy; Herschel 2018
     </div>
     <div class="container">
-        <a href="" id="logoutlink" onclick="<?php global $source; session_destroy(); header("Location: ".$source['index']);?>">Logout</a>
     </div>
 </footer>
 <!-- Bootstrap core JavaScript -->
