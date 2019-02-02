@@ -93,7 +93,9 @@
                         <a href="#wishlist" class="nav-link text-muted" id="wish-tab" data-toggle="tab" role="tab">Wishlist</a>
                     </li>
                     <li>
+                        <!-- To remove if not admin  -->
                         <a href="#admin" class="nav-link text-muted" id="admin-tab" data-toggle="tab" role="tab">Admin</a>
+                        <!-- End of area to remove -->
                     </li>
                 </ul>
             </div>
@@ -261,8 +263,9 @@
                 <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist">
                         <h3 class="text-muted mt-3">Your Wishlist</h3>
                     </div>
+                <!-- To remove if not admin -->
                 <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin">
-                    <h3 class="text-muted mt-3">Admin Pane</h3>
+                    <h3 class="text-muted mt-3">Admin Panel</h3>
                     <div class="row py-3">
                         <button class="btn custom-btn mx-auto" data-toggle="modal" data-target="#addproduct">Add product</button>
                         <div class="modal fade" id="addproduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -448,6 +451,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- end of area to remove -->
         </div>
     </div>
 </section>
