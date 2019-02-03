@@ -60,7 +60,7 @@ require 'php/userUtility.php';
                                     </div>
                                 </div>
                                 <div class="col-md-4 text-center">
-                                    <img name="modifyImage" src="img/default-account.png" class="custom-userimage mt-2" alt="..." style="overflow: hidden">
+                                    <img name="modifyImage" src="<?php echo getUserImg($_SESSION['id'])?>" class="custom-userimage mt-2" alt="..." style="overflow: hidden">
                                     <div class="custom-file">
                                         <input name="photo" type="file" class="custom-file-input">
                                         <label for="" class="custom-file-label"></label>

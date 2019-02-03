@@ -1,6 +1,6 @@
 <?php   session_start();
         require 'php/userUtility.php';
-        $username = !isset($_COOKIE['attempteduser'])? 'pininfarina' : $_COOKIE['username'];
+        $username = !isset($_COOKIE['user'])? 'pininfarina' : $_COOKIE['username'];
 
 ?>
 <html lang="en">
@@ -27,7 +27,7 @@
                 <img src="<?php echo getUserImg($_SESSION['id']) ?>" alt="" class="custom-userimage my-5">
                 <form name="sign_in"  method="post" class="form-signin">
                     <input type="hidden" name="loginform">
-                    <input id="usernameinput" readonly type="text" class="preat form-control bg-transparent text-white mr-0 mr-sm-2 mb-3 mb-sm-0 disabled" value="pininfarina" name="username" placeholder="Enter your username">
+                    <input id="usernameinput" readonly type="text" class="preat form-control bg-transparent text-white mr-0 mr-sm-2 mb-3 mb-sm-0 disabled" value="<?php echo $_SESSION['id'];?>" name="username" placeholder="Enter your username">
                     <label for="inputPassowrdlog" class="sr-only">Password</label>
                     <input id="passwordinput" type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id= "inputPassowrdlog" name="pswd" placeholder="Type your password...">
                     <div class="invalid-feedback text-left">
