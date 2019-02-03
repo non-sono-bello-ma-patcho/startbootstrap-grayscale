@@ -19,8 +19,8 @@ require 'php/userUtility.php';
 <div class="main-bg modify-bg">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="img/logo_magenta_green.png" alt="">
-        <h2>Modify Profile Informations</h2>
-        <p class="lead">Make sure to set all the fields you want to change</p>
+        <h2 class="text-white">Modify Profile Informations</h2>
+        <p class="lead text-white">Make sure to set all the fields you want to change</p>
         <div class="container mx-auto">
             <div class="row py-3">
                 <div class="col-md-3" style="background-color: rgba(0,0,0,0.7); border-top-left-radius: calc(0.25rem - 1px); border-bottom-left-radius: calc(0.25rem - 1px);">
@@ -73,9 +73,7 @@ require 'php/userUtility.php';
                                 <div class="col-md-8">
                                     <div class="form-row">
                                         <label for="modifyDescription" class="text-white">Description</label>
-                                        <textarea name="modifyDescription" class="form-control" aria-label="With textarea" rows="3" style="resize: none">
-                                            <?php echo getUserDescription($_SESSION['id'])?>
-                                        </textarea>
+                                        <textarea name="modifyDescription" class="form-control text-left" aria-label="With textarea" rows="3" style="resize: none"><?php echo getUserDescription($_SESSION['id'])?></textarea>
                                     </div>
                                 </div>
                             </div>

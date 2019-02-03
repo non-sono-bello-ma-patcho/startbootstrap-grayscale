@@ -1,5 +1,7 @@
-<?php session_start();
-require 'php/userUtility.php';
+<?php   session_start();
+        require 'php/userUtility.php';
+        $username = !isset($_COOKIE['attempteduser'])? 'pininfarina' : $_COOKIE['username'];
+
 ?>
 <html lang="en">
 <head>
@@ -20,9 +22,9 @@ require 'php/userUtility.php';
         <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" src="img/logo_magenta_green.png" alt="">
             <h2 class="text-white">Wrong Credential</h2>
-            <p class="lead text-white">You are trying to access as <span class="font-weight-bold"><?php echo 'Pinin Farina'; ?></span></p>
+            <p class="lead text-white">You are trying to access as <span class="font-weight-bold"><?php echo getUserName($_SESSION['id'])." ".getUserSurname($_SESSION['id']); ?></span></p>
             <div class="container mx-auto col-md-3 py-5">
-                <img src="img/default-account.png" alt="" class="custom-userimage my-5">
+                <img src="<?php echo getUserImg($_SESSION['id']) ?>" alt="" class="custom-userimage my-5">
                 <form name="sign_in"  method="post" class="form-signin">
                     <input type="hidden" name="loginform">
                     <input id="usernameinput" readonly type="text" class="preat form-control bg-transparent text-white mr-0 mr-sm-2 mb-3 mb-sm-0 disabled" value="pininfarina" name="username" placeholder="Enter your username">
