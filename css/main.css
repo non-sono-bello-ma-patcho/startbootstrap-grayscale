@@ -61,7 +61,7 @@ a {
 
 .notification > .modal
 
-.gradient-bg {
+.main-bg {
     position: relative;
     width: 100%;
     height: auto;
@@ -71,4 +71,8 @@ a {
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
+}
+.custom-userimage {
+    max-width: 115px !important;
+    max-height: 115px !important;
 }
