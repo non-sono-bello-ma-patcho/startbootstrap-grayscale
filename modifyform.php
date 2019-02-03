@@ -16,7 +16,7 @@ require 'php/userUtility.php';
     <link rel="stylesheet" href="css/grayscale.css">
 </head>
 <body class="">
-<div class="modifypage">
+<div class="main-bg modify-bg">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="img/logo_magenta_green.png" alt="">
         <h2>Modify Profile Informations</h2>

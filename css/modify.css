@@ -1,4 +1,4 @@
-.modifypage {
+.modify-bg {
     position: relative;
     width: 100%;
     height: auto;
@@ -10,9 +10,4 @@
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
-}
-
-.custom-userimage {
-    max-width: 115px;
-    max-height: 115px;
 }

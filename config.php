@@ -9,4 +9,5 @@
 return array(
     'index' => '../index.php',
     'private' => '../private.php',
+    'wrong_credential' => '../redirect_wrong_credential.php'
 );

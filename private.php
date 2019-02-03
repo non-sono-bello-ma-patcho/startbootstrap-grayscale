@@ -98,9 +98,8 @@
                         <!-- End of area to remove -->
                     </li>
                 </ul>
-            </div>
-            <div class="tab-content" id="usercontent">
-                <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
+                <div class="tab-content" id="usercontent">
+                    <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
                         <div class="container">
                             <h3 class="mt-3 text-muted">Recommended for you</h3>
                             <div class="row">
@@ -152,7 +151,7 @@
                             </div>
                         </div>
                     </div>
-                <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart">
+                    <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart">
                         <div class="container">
                             <h3 class="mt-3 text-muted">Your Cart</h3>
                             <div class="row">
@@ -204,7 +203,7 @@
                             </div>
                         </div>
                     </div>
-                <div class="tab-pane fade" id="trips" role="tabpanel" aria-labelledby="trips">
+                    <div class="tab-pane fade" id="trips" role="tabpanel" aria-labelledby="trips">
                         <div class="container">
                             <h3 class="mt-3 text-muted">Your Trips</h3>
                             <div class="row">
@@ -260,199 +259,200 @@
                             </div>
                         </div>
                     </div>
-                <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist">
+                    <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist">
                         <h3 class="text-muted mt-3">Your Wishlist</h3>
                     </div>
-                <!-- To remove if not admin -->
-                <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin">
-                    <h3 class="text-muted mt-3">Admin Panel</h3>
-                    <div class="row py-3">
-                        <button class="btn custom-btn mx-auto" data-toggle="modal" data-target="#addproduct">Add product</button>
-                        <div class="modal fade" id="addproduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Add Product </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="" action="">
-                                        <div class="form-row">
-                                            <div class="col-md-4">
-                                                <label class="text-muted" for="ID">Product ID</label>
-                                                <input type="text" name="ID" id="ID" placeholder="insert product ID..." class="form-control">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="text-muted" for="name">Product Name</label>
-                                                <input type="text" name="name" id="name" placeholder="insert product Name..." class="form-control">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label class="text-muted" for="price">Product Price</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="inputGroupPrepend2">$</span>
+                    <!-- To remove if not admin -->
+                    <div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin">
+                        <h3 class="text-muted mt-3">Admin Panel</h3>
+                        <div class="row py-3">
+                            <button class="btn custom-btn mx-auto" data-toggle="modal" data-target="#addproduct">Add product</button>
+                            <div class="modal fade" id="addproduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Add Product </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="" action="">
+                                                <div class="form-row">
+                                                    <div class="col-md-4">
+                                                        <label class="text-muted" for="ID">Product ID</label>
+                                                        <input type="text" name="ID" id="ID" placeholder="insert product ID..." class="form-control">
                                                     </div>
-                                                    <input type="text" class="form-control" id="price" placeholder="1000" aria-describedby="inputGroupPrepend2" required>
+                                                    <div class="col-md-4">
+                                                        <label class="text-muted" for="name">Product Name</label>
+                                                        <input type="text" name="name" id="name" placeholder="insert product Name..." class="form-control">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="text-muted" for="price">Product Price</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="inputGroupPrepend2">$</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="price" placeholder="1000" aria-describedby="inputGroupPrepend2" required>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                                <div class="form-row px-1 mt-2">
+                                                    <label for="desc" class="text-muted">Product Description</label>
+                                                    <textarea class="form-control" name="" id="desc" cols="30"
+                                                              rows="5">Insert Description...</textarea>
+                                                </div>
+                                                <div class="form-row px-1 mt-2">
+                                                    <label for="image" class="text-muted">Product Image</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="image" lang="en">
+                                                        <label class="custom-file-label">Select Image</label>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
-                                        <div class="form-row px-1 mt-2">
-                                            <label for="desc" class="text-muted">Product Description</label>
-                                            <textarea class="form-control" name="" id="desc" cols="30"
-                                                      rows="5">Insert Description...</textarea>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Add</button>
                                         </div>
-                                        <div class="form-row px-1 mt-2">
-                                            <label for="image" class="text-muted">Product Image</label>
-                                            <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="image" lang="en">
-                                                <label class="custom-file-label">Select Image</label>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Add</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    </div>
-                    <div class="row py-3">
-                        <button class="btn custom-btn mx-auto" data-toggle="modal" data-target="#editproduct">Edit product</button>
-                        <div class="modal fade" id="editproduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="editmodal">Edit Product <span class="glyphicon glyphicon-pencil"></span></h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form class="" action="">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label class="text-muted" for="eproductID">Product ID</label>
-                                                    <div class="input-group">
-                                                        <input type="text" name="eID" id="eproductID" placeholder="insert product ID..." class="form-control">
-                                                        <span class="input-group-btn">
+                        <div class="row py-3">
+                            <button class="btn custom-btn mx-auto" data-toggle="modal" data-target="#editproduct">Edit product</button>
+                            <div class="modal fade" id="editproduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="editmodal">Edit Product <span class="glyphicon glyphicon-pencil"></span></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="" action="">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="text-muted" for="eproductID">Product ID</label>
+                                                        <div class="input-group">
+                                                            <input type="text" name="eID" id="eproductID" placeholder="insert product ID..." class="form-control">
+                                                            <span class="input-group-btn">
                                                                                 <button type="button" class="btn glyphicon glyphicon-search" onclick="$('#eproductID').toggleClass('is-invalid', true);"></button>
                                                                             </span>
-                                                        <div class="invalid-feedback" id="pIDfb">Product ID doesn't match any product...</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-row">
-                                                <div class="col-md-6">
-                                                    <label class="text-muted" for="ename">Product Name</label>
-                                                    <input type="text" name="ename" id="ename" placeholder="insert product Name..." class="form-control">
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <label class="text-muted" for="price">Product Price</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="">$</span>
+                                                            <div class="invalid-feedback" id="pIDfb">Product ID doesn't match any product...</div>
                                                         </div>
-                                                        <input type="text" class="form-control" id="price" placeholder="1000" aria-describedby="inputGroupPrepend2">
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-row px-1 mt-2">
-                                                <label for="desc" class="text-muted">Product Description</label>
-                                                <textarea class="form-control" name="" id="desc" cols="30"
-                                                          rows="5">Insert Description...</textarea>
-                                            </div>
-                                            <div class="form-row px-1 mt-2">
-                                                <label for="image" class="text-muted">Product Image</label>
-                                                <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="image" lang="en">
-                                                    <label class="custom-file-label">Select Image</label>
+                                                <div class="form-row">
+                                                    <div class="col-md-6">
+                                                        <label class="text-muted" for="ename">Product Name</label>
+                                                        <input type="text" name="ename" id="ename" placeholder="insert product Name..." class="form-control">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label class="text-muted" for="price">Product Price</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text" id="">$</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" id="price" placeholder="1000" aria-describedby="inputGroupPrepend2">
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Add</button>
+                                                <div class="form-row px-1 mt-2">
+                                                    <label for="desc" class="text-muted">Product Description</label>
+                                                    <textarea class="form-control" name="" id="desc" cols="30"
+                                                              rows="5">Insert Description...</textarea>
+                                                </div>
+                                                <div class="form-row px-1 mt-2">
+                                                    <label for="image" class="text-muted">Product Image</label>
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" id="image" lang="en">
+                                                        <label class="custom-file-label">Select Image</label>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary">Add</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row py-3">
-                        <button class="btn custom-btn mx-auto" data-toggle="modal" data-target="#adduser">Add administrator</button>
-                        <div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="adminmodal">Add Administrator <span class="glyphicon glyphicon-user"></span></h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form class="" action="">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label class="text-muted" for="newusername">Search by username</label>
-                                                    <div class="input-group">
-                                                        <input type="text" name="eID" id="newusername" placeholder="Type a username..." class="form-control rightcorners">
-                                                        <span class="input-group-btn">
+                        <div class="row py-3">
+                            <button class="btn custom-btn mx-auto" data-toggle="modal" data-target="#adduser">Add administrator</button>
+                            <div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="adminmodal">Add Administrator <span class="glyphicon glyphicon-user"></span></h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="" action="">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="text-muted" for="newusername">Search by username</label>
+                                                        <div class="input-group">
+                                                            <input type="text" name="eID" id="newusername" placeholder="Type a username..." class="form-control rightcorners">
+                                                            <span class="input-group-btn">
                                                                                 <button type="button" class="btn glyphicon glyphicon-search" onclick="loaduserinfo()"></button>
                                                                             </span>
-                                                        <div class="invalid-feedback" id="adminufb">username doesn't match any profile...</div>
+                                                            <div class="invalid-feedback" id="adminufb">username doesn't match any profile...</div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </form>
-                                        <div id="userinfo" class="custom-hidden d-none">
-                                            <hr>
-                                            <h5>User information</h5>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <img class="profile-image-half" src="img/default-account.png" alt="user image">
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <p class="text-muted mb-1">Username</p>
-                                                            <p id="usernametag">phibonachos</p>
-                                                        </div>
+                                            </form>
+                                            <div id="userinfo" class="custom-hidden d-none">
+                                                <hr>
+                                                <h5>User information</h5>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <img class="profile-image-half" src="img/default-account.png" alt="user image">
                                                     </div>
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <p class="text-muted mb-1">Name</p>
-                                                            <p id="nametag">Mario</p>
+                                                    <div class="col-md-8">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <p class="text-muted mb-1">Username</p>
+                                                                <p id="usernametag">phibonachos</p>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <p class="text-muted mb-1">Surname</p>
-                                                            <p id="surnametag">Rossi</p>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <p class="text-muted mb-1">Name</p>
+                                                                <p id="nametag">Mario</p>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <p class="text-muted mb-1">Surname</p>
+                                                                <p id="surnametag">Rossi</p>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <p class="text-muted mb-1">Email</p>
-                                                            <p class="mb-0" id="emailtag">example@example.it</p>
-                                                            <small class="form-text text-muted">This user will receive a confirmation email.</small>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <p class="text-muted mb-1">Email</p>
+                                                                <p class="mb-0" id="emailtag">example@example.it</p>
+                                                                <small class="form-text text-muted">This user will receive a confirmation email.</small>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button id="adduserbtn" type="button" class="btn custom-btn disabled">Add Admin</button>
+                                        <div class="modal-footer">
+                                            <button id="adduserbtn" type="button" class="btn custom-btn disabled">Add Admin</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- end of area to remove -->
                 </div>
-                <!-- end of area to remove -->
-        </div>
+            </div>
     </div>
 </section>
 <!-- Lower section -->
