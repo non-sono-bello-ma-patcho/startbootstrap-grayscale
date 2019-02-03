@@ -278,15 +278,16 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="" action="">
+                                    <form  name ="addProduct" enctype="multipart/form-data" method="post">
                                         <div class="form-row">
                                             <div class="col-md-4">
+                                                <input type="hidden" name="addproductform">
                                                 <label class="text-muted" for="ID">Product ID</label>
-                                                <input type="text" name="ID" id="ID" placeholder="insert product ID..." class="form-control">
+                                                <input type="text" name="Productid" id="ID" placeholder="insert product ID..." class="form-control" required>
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="text-muted" for="name">Product Name</label>
-                                                <input type="text" name="name" id="name" placeholder="insert product Name..." class="form-control">
+                                                <input type="text" name="Productname" id="name" placeholder="insert product Name..." class="form-control" required>
                                             </div>
                                             <div class="col-md-4">
                                                 <label class="text-muted" for="price">Product Price</label>
@@ -294,27 +295,27 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="inputGroupPrepend2">$</span>
                                                     </div>
-                                                    <input type="text" class="form-control" id="price" placeholder="1000" aria-describedby="inputGroupPrepend2" required>
+                                                    <input type="text" name="Productprice"  pattern= "[0-9]+" class="form-control" id="price" placeholder="1000" aria-describedby="inputGroupPrepend2" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-row px-1 mt-2">
                                             <label for="desc" class="text-muted">Product Description</label>
-                                            <textarea class="form-control" name="" id="desc" cols="30"
+                                            <textarea class="form-control" name="Productdescription" id="desc" cols="30"
                                                       rows="5">Insert Description...</textarea>
                                         </div>
                                         <div class="form-row px-1 mt-2">
                                             <label for="image" class="text-muted">Product Image</label>
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="image" lang="en">
+                                                <input type="file" name="Productimg" class="custom-file-input" id="image" lang="en" required>
                                                 <label class="custom-file-label">Select Image</label>
                                             </div>
                                         </div>
+                                        <div class="modal-footer">
+                                            <input type="submit"  value="Add" onclick="addProduct.action = 'php/addProduct.php'" class="btn btn-primary">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
                                     </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Add</button>
                                 </div>
                             </div>
                         </div>
@@ -332,9 +333,11 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form class="" action="">
+                                        <!-- da qui -->
+                                        <form name="editProduct" enctype="multipart/form-data" method ="post">
                                             <div class="row">
                                                 <div class="col-md-6">
+                                                    <input type="hidden" name="editproductform">
                                                     <label class="text-muted" for="eproductID">Product ID</label>
                                                     <div class="input-group">
                                                         <input type="text" name="eID" id="eproductID" placeholder="insert product ID..." class="form-control">
@@ -356,27 +359,27 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="">$</span>
                                                         </div>
-                                                        <input type="text" class="form-control" id="price" placeholder="1000" aria-describedby="inputGroupPrepend2">
+                                                        <input type="text" name ="eprice" class="form-control" id="price" placeholder="1000" aria-describedby="inputGroupPrepend2">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-row px-1 mt-2">
                                                 <label for="desc" class="text-muted">Product Description</label>
-                                                <textarea class="form-control" name="" id="desc" cols="30"
+                                                <textarea class="form-control" name="edescription" id="desc" cols="30"
                                                           rows="5">Insert Description...</textarea>
                                             </div>
                                             <div class="form-row px-1 mt-2">
                                                 <label for="image" class="text-muted">Product Image</label>
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input" id="image" lang="en">
+                                                    <input type="file" name="eimg" class="custom-file-input" id="image" lang="en">
                                                     <label class="custom-file-label">Select Image</label>
                                                 </div>
                                             </div>
+                                            <div class="modal-footer">
+                                                <input type="submit" value="Add" onclick="editProduct.action='php/editProduct.php'" class="btn btn-primary">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
                                         </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Add</button>
                                     </div>
                                 </div>
                             </div>
