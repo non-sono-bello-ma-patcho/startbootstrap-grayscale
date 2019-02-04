@@ -397,18 +397,23 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form class="" action="">
+                                        <!-- from here -->
+                                        <form name="addPrivileges" method = "post">
                                             <div class="row">
                                                 <div class="col-md-6">
+                                                    <input type="hidden" name="addadminform">
                                                     <label class="text-muted" for="newusername">Search by username</label>
                                                     <div class="input-group">
-                                                        <input type="text" name="eID" id="newusername" placeholder="Type a username..." class="form-control rightcorners">
+                                                        <input type="text" name="userID" id="newusername" placeholder="Type a username..." class="form-control rightcorners">
                                                         <span class="input-group-btn">
                                                                                 <button type="button" class="btn glyphicon glyphicon-search" onclick="loaduserinfo()"></button>
                                                                             </span>
                                                         <div class="invalid-feedback" id="adminufb">username doesn't match any profile...</div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <input type="submit"  value="Add Admin" id="adduserbtn"  onclick="addPrivileges.action='php/addAdmin.php'" class="btn custom-btn disabled">
                                             </div>
                                         </form>
                                         <div id="userinfo" class="custom-hidden d-none">
@@ -446,9 +451,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal-footer">
-                                        <button id="adduserbtn" type="button" class="btn custom-btn disabled">Add Admin</button>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
