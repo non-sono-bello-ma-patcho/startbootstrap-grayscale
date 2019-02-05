@@ -73,6 +73,8 @@ a {
     background-size: cover;
 }
 .custom-userimage {
-    max-width: 115px !important;
-    max-height: 115px !important;
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 750px;
+    transition: height 0.5s linear;
 }

@@ -6,3 +6,8 @@
 input[type=text]::before {
     content: "@" !important;
 }
+
+.shrinked {
+    height: 0 !important;
+    paddin: 0 !important;
+}

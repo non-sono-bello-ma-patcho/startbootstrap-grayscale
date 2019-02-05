@@ -22,12 +22,12 @@
         <div class="py-5 text-center">
             <img class="d-block mx-auto mb-4" src="img/logo_magenta_green.png" alt="">
             <h2 class="text-white">Wrong Credential</h2>
-            <p class="lead text-white">You are trying to access as <span class="font-weight-bold"><?php echo getUserName($_SESSION['id'])." ".getUserSurname($_SESSION['id']); ?></span></p>
+            <p id="infoBanner" class="lead text-white">You are trying to access as <span class="font-weight-bold"><?php echo getUserName($_SESSION['id'])." ".getUserSurname($_SESSION['id']); ?></span></p>
             <div class="container mx-auto col-md-3 py-5">
-                <img src="<?php echo getUserImg($_SESSION['id']) ?>" alt="" class="custom-userimage my-5">
+                <img id="infoImg" src="<?php echo getUserImg($_SESSION['id']) ?>" alt="" class="custom-userimage my-5">
                 <form name="sign_in"  method="post" class="form-signin">
                     <input type="hidden" name="loginform">
-                    <input id="usernameinput" readonly type="text" class="preat form-control bg-transparent text-white mr-0 mr-sm-2 mb-3 mb-sm-0 disabled" value="<?php echo $_SESSION['id'];?>" name="username" placeholder="Enter your username">
+                    <input id="usernameinput" readonly type="text" class="preat form-control bg-transparent text-white mr-0 mr-sm-2 mb-3 mb-sm-0" value="<?php echo $_SESSION['id'];?>" name="username" placeholder="Enter your username">
                     <label for="inputPassowrdlog" class="sr-only">Password</label>
                     <input id="passwordinput" type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id= "inputPassowrdlog" name="pswd" placeholder="Type your password...">
                     <div class="invalid-feedback text-left">
@@ -42,7 +42,8 @@
                     <input type="submit" class="btn btn-outline-light border-light" onclick="sign_in.action='php/sign_in.php'"  value="Log In">
                 </form>
             </div>
-            <a href="" id="toggleForm" class="text-white"><small>Wrong Account?</small></a>
+            <a id="toggleForm" class="text-white"><small>Wrong Account?</small></a>
+            <div id="filler" class="d-none py-5" style="width: 150px; height: 150px;"></div>
         </div>
     </div>
     <!-- Footer -->

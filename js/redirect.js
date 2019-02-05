@@ -6,9 +6,14 @@ window.onload =() => {
 
 };
 
-$('#toggleForm').onclick = ()=>{
-
-};
+$('#toggleForm').on('click', ()=>{
+    // remove from body img div and banner
+    $('#infoBanner').toggleClass('invisible');
+    $('.custom-userimage').toggleClass('invisible', true).css("{height: 0;}");
+    $('#filler').toggleClass('d-none', false);
+    // remove attribute from inputtext and change style
+    $('#usernameinput').attr('readonly', false).toggleClass('bg-transparent', false).toggleClass('text-white', false);
+});
 
 function getCookie(cname) {
     var name = cname + "=";
