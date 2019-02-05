@@ -11,6 +11,7 @@
 
 .custom-btn:hover {
     color: white !important;
+    border: solid 1px #3d348b !important;
     background: #3d348b;
 }
 
@@ -64,7 +65,7 @@ a {
 .main-bg {
     position: relative;
     width: 100%;
-    height: auto;
+    height: 100%;
     min-height: 35rem;
     padding: 10rem 0;
     background-position: center;
