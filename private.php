@@ -1,4 +1,6 @@
 <?php session_start();
+    $pages = include 'config.php';
+    if(!isset($_SESSION['id'])) header("Location: ".$pages['index']);
     require "php/userUtility.php";
 ?>
 <html lang="en">
@@ -19,7 +21,6 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
 <!-- LogOut Modal -->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="loginmodalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -441,44 +442,45 @@
                                                             </div>
                                                         </div>
                                                     </form>
-                                                    <div id="userinfo" class="custom-hidden d-none">
-                                                        <hr>
-                                                        <h5>User information</h5>
-                                                        <div class="row">
-                                                            <div class="col-md-4">
-                                                                <img class="profile-image-half" src="img/default-account.png" alt="user image">
+                                                </div>
+                                                <div id="userinfo" class="custom-hidden d-none">
+                                                    <hr>
+                                                    <h5>User information</h5>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <img class="profile-image-half" src="img/default-account.png" alt="user image">
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <p class="text-muted mb-1">Username</p>
+                                                                    <p id="usernametag">phibonachos</p>
+                                                                </div>
                                                             </div>
-                                                            <div class="col-md-8">
-                                                                <div class="row">
-                                                                    <div class="col-md-4">
-                                                                        <p class="text-muted mb-1">Username</p>
-                                                                        <p id="usernametag">phibonachos</p>
-                                                                    </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <p class="text-muted mb-1">Name</p>
+                                                                    <p id="nametag">Mario</p>
                                                                 </div>
-                                                                <div class="row">
-                                                                    <div class="col-md-4">
-                                                                        <p class="text-muted mb-1">Name</p>
-                                                                        <p id="nametag">Mario</p>
-                                                                    </div>
-                                                                    <div class="col-md-4">
-                                                                        <p class="text-muted mb-1">Surname</p>
-                                                                        <p id="surnametag">Rossi</p>
-                                                                    </div>
+                                                                <div class="col-md-4">
+                                                                    <p class="text-muted mb-1">Surname</p>
+                                                                    <p id="surnametag">Rossi</p>
                                                                 </div>
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <p class="text-muted mb-1">Email</p>
-                                                                        <p class="mb-0" id="emailtag">example@example.it</p>
-                                                                        <small class="form-text text-muted">This user will receive a confirmation email.</small>
-                                                                    </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <p class="text-muted mb-1">Email</p>
+                                                                    <p class="mb-0" id="emailtag">example@example.it</p>
+                                                                    <small class="form-text text-muted">This user will receive a confirmation email.</small>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <input type="submit"  value="Add Admin" id="adduserbtn"  onclick="addPrivileges.action='php/addAdmin.php'" class="btn custom-btn disabled" form="#addPrivileges">
+                                                    <input type="submit"  value="Add Admin" id="adduserbtn"  onclick="addPrivileges.action='php/addAdmin.php'" class="btn custom-btn disabled">
                                                 </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -490,7 +492,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
 <!-- Footer -->
 <footer class="bg-black small text-center text-white-50" style="height: 20px;">
