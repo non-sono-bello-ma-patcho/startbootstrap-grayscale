@@ -1,4 +1,6 @@
 <?php session_start();
+    $pages = include 'config.php';
+    if(!isset($_SESSION['id'])) header("Location: ".$pages['index']);
     require "php/userUtility.php";
 ?>
 <html lang="en">
@@ -429,54 +431,55 @@
                                                                 <input type="hidden" name="addadminform">
                                                                 <label class="text-muted" for="newusername">Search by username</label>
                                                                 <div class="input-group">
-                                                                    <input type="text" name="userID" id="newusername" placeholder="Type a username..." class="form-control rightcorners">
-                                                                    <span class="input-group-btn">
-                                                                                    <button type="button" class="btn glyphicon glyphicon-search" onclick="loaduserinfo()"></button>
-                                                                                </span>
+                                                                    <input type="text" class="form-control" name="userID" id="newusername" placeholder="Type a username...">
+                                                                    <div class="input-group-append">
+                                                                        <a style="border-radius: 0;" class="rightcorners" onclick="$('#newusername').toggleClass('is-invalid');">
+                                                                            <span class="input-group-text glyphicon glyphicon-search" style="top: 0px;"></span>
+                                                                        </a>
+                                                                    </div>
                                                                     <div class="invalid-feedback" id="adminufb">username doesn't match any profile...</div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer">
-                                                            <input type="submit"  value="Add Admin" id="adduserbtn"  onclick="addPrivileges.action='php/addAdmin.php'" class="btn custom-btn disabled">
-                                                        </div>
                                                     </form>
-                                                    <div id="userinfo" class="custom-hidden d-none">
-                                                        <hr>
-                                                        <h5>User information</h5>
-                                                        <div class="row">
-                                                            <div class="col-md-4">
-                                                                <img class="profile-image-half" src="img/default-account.png" alt="user image">
+                                                </div>
+                                                <div id="userinfo" class="custom-hidden d-none">
+                                                    <hr>
+                                                    <h5>User information</h5>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <img class="profile-image-half" src="img/default-account.png" alt="user image">
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <p class="text-muted mb-1">Username</p>
+                                                                    <p id="usernametag">phibonachos</p>
+                                                                </div>
                                                             </div>
-                                                            <div class="col-md-8">
-                                                                <div class="row">
-                                                                    <div class="col-md-4">
-                                                                        <p class="text-muted mb-1">Username</p>
-                                                                        <p id="usernametag">phibonachos</p>
-                                                                    </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <p class="text-muted mb-1">Name</p>
+                                                                    <p id="nametag">Mario</p>
                                                                 </div>
-                                                                <div class="row">
-                                                                    <div class="col-md-4">
-                                                                        <p class="text-muted mb-1">Name</p>
-                                                                        <p id="nametag">Mario</p>
-                                                                    </div>
-                                                                    <div class="col-md-4">
-                                                                        <p class="text-muted mb-1">Surname</p>
-                                                                        <p id="surnametag">Rossi</p>
-                                                                    </div>
+                                                                <div class="col-md-4">
+                                                                    <p class="text-muted mb-1">Surname</p>
+                                                                    <p id="surnametag">Rossi</p>
                                                                 </div>
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <p class="text-muted mb-1">Email</p>
-                                                                        <p class="mb-0" id="emailtag">example@example.it</p>
-                                                                        <small class="form-text text-muted">This user will receive a confirmation email.</small>
-                                                                    </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <p class="text-muted mb-1">Email</p>
+                                                                    <p class="mb-0" id="emailtag">example@example.it</p>
+                                                                    <small class="form-text text-muted">This user will receive a confirmation email.</small>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
+                                                <div class="modal-footer">
+                                                    <input type="submit"  value="Add Admin" id="adduserbtn"  onclick="addPrivileges.action='php/addAdmin.php'" class="btn custom-btn disabled">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
