@@ -492,14 +492,13 @@
                 </div>
             </div>
         </div>
-
-<!-- Footer -->
-<footer class="bg-black small text-center text-white-50" style="height: 20px;">
-    <div class="container">
-        Copyright &copy; Herschel 2018
     </div>
-</footer>
-
+    <!-- Footer -->
+    <footer class="bg-black small text-center text-white-50" style="height: 20px;">
+        <div class="container">
+            Copyright &copy; Herschel 2018
+        </div>
+    </footer>
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

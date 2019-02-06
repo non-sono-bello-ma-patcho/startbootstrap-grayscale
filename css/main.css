@@ -1,4 +1,6 @@
-
+html * {
+    font-family: 'Raleway', sans-serif;
+}
 .btn-primary {
     background-color: #3d348b;
 }
