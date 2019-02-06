@@ -1,6 +1,8 @@
-<?php session_start();
+<?php
+    session_start();
+    $pages = include 'config.php';
     if(isset($_SESSION['id']))
-        header("Location: private.php");
+        header("Location: ".$pages['private']);
 ?>
 
 <html lang="en" xmlns:size="http://www.w3.org/1999/xhtml">
@@ -13,6 +15,9 @@
     <meta name="author" content="phibonachos and PageFaultHandler">
 
     <title>Herschel - Space's your playground</title>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">

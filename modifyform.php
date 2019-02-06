@@ -16,7 +16,7 @@ require 'php/userUtility.php';
     <link rel="stylesheet" href="css/grayscale.css">
 </head>
 <body class="">
-<div class="main-bg modify-bg">
+<div class="main-bg modify-bg" style="height: calc(100vh - 20px);">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="img/logo_magenta_green.png" alt="">
         <h2 class="text-white">Modify Profile Informations</h2>
@@ -84,8 +84,6 @@ require 'php/userUtility.php';
                 </div>
             </div>
         </div>
-    </div>
-</div>
 <!-- Footer -->
 <footer class="bg-black small text-center text-white-50">
     <div class="container">
