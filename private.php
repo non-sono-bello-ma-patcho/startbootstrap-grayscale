@@ -1,4 +1,5 @@
 <?php session_start();
+    if(!isset($_SESSION['id'])) header("Location: index.php");
     require "php/userUtility.php";
 ?>
 <html lang="en">
@@ -47,8 +48,8 @@
     </div>
 </div>
 
-    <!-- Main content -->
-    <div class="main-bg private-bg" style="height: 100%; width: 100%; position: absolute">
+<!-- Main content -->
+<div class="main-bg private-bg" style="height: calc(100vh - 20px);">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="container">
@@ -79,7 +80,7 @@
         <div id="usercontent" class="mt-5">
             <div class="container pt-1 pb-5 card" style="background: white;">
                 <div class="container-lg px-3 mt-4">
-                    <div class="col-sm-5 col-md-4 col-lg-3  float-left">
+                    <div id="userinfoColumn" class="col-sm-5 col-md-4 col-lg-3  float-left">
                         <div class="card-deck">
                             <div class="card mx-auto">
                                 <div class="card-header position-relative">
@@ -104,7 +105,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-7 col-md-8 col-lg-9 float-left">
+                    <div id="tabColumn" class="col-sm-7 col-md-8 col-lg-9 float-left">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
                                 <a href="#overview" class="nav-link active text-muted" id="overview-tab" data-toggle="tab" role="tab" aria-controls="overview">Overview</a>
@@ -423,58 +424,31 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <!-- from here -->
-                                                    <form name="addPrivileges" method = "post">
+                                                    <form name="addPrivileges" method = "post" id="addPrivileges" >
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <input type="hidden" name="addadminform">
                                                                 <label class="text-muted" for="newusername">Search by username</label>
                                                                 <div class="input-group">
-                                                                    <input type="text" name="userID" id="newusername" placeholder="Type a username..." class="form-control rightcorners">
-                                                                    <span class="input-group-btn">
-                                                                                    <button type="button" class="btn glyphicon glyphicon-search" onclick="loaduserinfo()"></button>
-                                                                                </span>
-                                                                    <div class="invalid-feedback" id="adminufb">username doesn't match any profile...</div>
+                                                                    <input type="text" name="userID" id="newusername" placeholder="Type a username..." class="form-control rightcorners" style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;">
+                                                                    <div class="input-group-append">
+                                                                        <a onclick="searchUserbyUsername()">
+                                                                            <span class="input-group-text glyphicon glyphicon-search" style="top: 0!important; border-top-left-radius: 0; border-bottom-left-radius: 0;"></span>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="invalid-feedback" id="adminufb"></div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <input type="submit"  value="Add Admin" id="adduserbtn"  onclick="addPrivileges.action='php/addAdmin.php'" class="btn custom-btn disabled">
                                                         </div>
                                                     </form>
-                                                    <div id="userinfo" class="custom-hidden d-none">
-                                                        <hr>
-                                                        <h5>User information</h5>
-                                                        <div class="row">
-                                                            <div class="col-md-4">
-                                                                <img class="profile-image-half" src="img/default-account.png" alt="user image">
-                                                            </div>
-                                                            <div class="col-md-8">
-                                                                <div class="row">
-                                                                    <div class="col-md-4">
-                                                                        <p class="text-muted mb-1">Username</p>
-                                                                        <p id="usernametag">phibonachos</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-md-4">
-                                                                        <p class="text-muted mb-1">Name</p>
-                                                                        <p id="nametag">Mario</p>
-                                                                    </div>
-                                                                    <div class="col-md-4">
-                                                                        <p class="text-muted mb-1">Surname</p>
-                                                                        <p id="surnametag">Rossi</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <p class="text-muted mb-1">Email</p>
-                                                                        <p class="mb-0" id="emailtag">example@example.it</p>
-                                                                        <small class="form-text text-muted">This user will receive a confirmation email.</small>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                </div>
+                                                <div id="resultlist" class="custom-hidden d-none">
+                                                    <hr>
+                                                    <h5>User information</h5>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <input type="submit"  value="Add Admin" id="adduserbtn"  onclick="addPrivileges.action='php/addAdmin.php'" class="btn custom-btn disabled">
                                                 </div>
 
                                             </div>
@@ -488,19 +462,14 @@
                 </div>
             </div>
         </div>
-<!-- Lower section -->
-
-<!-- Footer-->
-<footer class="bg-black small text-center text-white-50">
-    <div class="container">
-        Copyright &copy; Herschel 2018
     </div>
-    <div class="container">
-    </div>
-</footer>
-
+    <!-- Footer -->
+    <footer class="bg-black small text-center text-white-50" style="height: 20px;">
+        <div class="container">
+            Copyright &copy; Herschel 2018
+        </div>
+    </footer>
 <!-- Bootstrap core JavaScript -->
-    </div>
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="js/private.js"></script>
