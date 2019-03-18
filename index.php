@@ -1,8 +1,7 @@
 <?php
     session_start();
-    $pages = include 'config.php';
     if(isset($_SESSION['id']))
-        header("Location: ".$pages['private']);
+        header("Location: private.php");
 ?>
 
 <html lang="en" xmlns:size="http://www.w3.org/1999/xhtml">

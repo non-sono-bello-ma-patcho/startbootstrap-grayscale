@@ -1,6 +1,5 @@
 <?php session_start();
-    $pages = include 'config.php';
-    if(!isset($_SESSION['id'])) header("Location: ".$pages['index']);
+    if(!isset($_SESSION['id'])) header("Location: index.php");
     require "php/userUtility.php";
 ?>
 <html lang="en">
