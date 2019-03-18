@@ -360,19 +360,19 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <!-- da qui -->
-                                                    <form name="editProduct" enctype="multipart/form-data" method ="post" action="php/editProduct.php">
+                                                    <form name="editProduct" action="php/editProduct.php" enctype="multipart/form-data" method ="post">
                                                         <div class="form-row">
                                                             <div class="col-md-6">
                                                                 <input type="hidden" name="editproductform">
-                                                                <label class="text-muted" for="eproductID">Product ID</label>
+                                                                <label class="text-muted" for="eID">Product ID</label>
                                                                 <div class="input-group">
-                                                                    <input type="text" name="userID" id="producttoedit" placeholder="Type a product ID..." class="form-control rightcorners" style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;">
+                                                                    <input type="text" name="eID" id="eID" placeholder="Type a product ID..." class="form-control rightcorners" style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;" required>
                                                                     <div class="input-group-append">
-                                                                        <a id="searchbtn">
+                                                                        <a href="#" id="editproduct" onclick="load_product()">
                                                                             <span class="input-group-text glyphicon glyphicon-search" style="top: 0!important; border-top-left-radius: 0; border-bottom-left-radius: 0;"></span>
                                                                         </a>
                                                                     </div>
-                                                                    <div class="invalid-feedback" id="adminufb"></div>
+                                                                    <div class="invalid-feedback" id="productifb">No product matches given code</div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -382,32 +382,34 @@
                                                                 <input type="text" name="ename" id="ename" placeholder="insert product Name..." class="form-control">
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label class="text-muted" for="price">Product Price</label>
+                                                                <label class="text-muted" for="eprice">Product Price</label>
                                                                 <div class="input-group">
                                                                     <div class="input-group-prepend">
                                                                         <span class="input-group-text" id="">$</span>
                                                                     </div>
-                                                                    <input type="text" name ="eprice" class="form-control" id="price" placeholder="1000" aria-describedby="inputGroupPrepend2">
+                                                                    <input type="text" name ="eprice" class="form-control" id="eprice" placeholder="1000" aria-describedby="inputGroupPrepend2">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="form-row px-1 mt-2">
-                                                            <label for="desc" class="text-muted">Product Description</label>
-                                                            <textarea class="form-control" name="edescription" id="desc" cols="30"
+                                                            <label for="edescription" class="text-muted">Product Description</label>
+                                                            <textarea class="form-control" name="edescription" id="edescription" cols="30"
                                                                       rows="5">Insert Description...</textarea>
                                                         </div>
                                                         <div class="form-row px-1 mt-2">
-                                                            <label for="image" class="text-muted">Product Image</label>
+                                                            <label for="eimg" class="text-muted">Product Image</label>
                                                             <div class="custom-file">
-                                                                <input type="file" name="eimg" class="custom-file-input" id="image" lang="en">
+                                                                <input type="file" name="eimg" class="custom-file-input" id="eimg" lang="en">
                                                                 <label class="custom-file-label">Select Image</label>
                                                             </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <input type="submit" value="Edit"  class="btn btn-primary">
                                                         </div>
                                                     </form>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <input type="submit" value="Add"  class="btn btn-primary">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                                                 </div>
 
                                             </div>
@@ -437,19 +439,17 @@
                                                                             <span class="input-group-text glyphicon glyphicon-search" style="top: 0!important; border-top-left-radius: 0; border-bottom-left-radius: 0;"></span>
                                                                         </a>
                                                                     </div>
-                                                                    <div class="invalid-feedback" id="adminufb"></div>
+                                                                    <div class="invalid-feedback" id="adminufb">No user found</div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     <form action="php/addAdmin.php" name="addadminform" method = "post" id="addPrivileges" >
                                                         <input type="hidden" name="addadminform">
+                                                        <hr>
                                                         <div id="resultlist" class="custom-hidden d-none">
-                                                            <hr>
-                                                            <h5>User information</h5>
                                                         </div>
                                                     </form>
                                                 </div>
-
                                                 <div class="modal-footer">
                                                     <input type="submit"  value="Add Admin" id="adduserbtn" class="btn custom-btn disabled" form="addPrivileges" disabled="disabled">
                                                 </div>

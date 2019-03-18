@@ -4,9 +4,9 @@ $("#resultlist").on("change", function(){
     $('#adduserbtn').toggleClass("disabled", false).attr("disabled", false);
 });
 
-$('#editproduct').onclick = () => {
+/*$('#editproduct').on("click", () => {
     load_product();
-};
+});*/
 
 // load user informations on success
 function doLogout() {
@@ -19,17 +19,15 @@ function searchUserbyUsername(){
     $('#resultlist').empty();
     username = $('#newusername').val();
     // return a list? of user with name similar to given
-    console.log("got filter: "+username);
-    $.post("php/formUtility.php", { username : username, op : "searchuser" },function(response){
+    $.post("php/formUtility.php", { param : username, op : "searchuser" },function(response){
         userinfo = JSON.parse(response);
+        console.log("got filter: "+username);
         if(userinfo.length <= 0){
-            $('#adminufb').text(`${username} doesn't match any profile...`);
             $('#resultlist').toggleClass('d-none', true).toggleClass("custom-hidden", true);
             $('#newusername').toggleClass('is-invalid', true);
         }
         else {
             $('#newusername').toggleClass('is-invalid', false);
-            console.log("Found matching users: "+userinfo.length);
             items = userinfo.length;
             offset = 0;
             maxoffset = Math.floor(items/3)*3;
@@ -37,8 +35,6 @@ function searchUserbyUsername(){
             console.log("Initializing "+decks+" decks");
             for(i=0; i<decks; i++){
                 deck = $("<div class=\"card-deck\"></div>");
-                console.log("maxoffset: "+maxoffset+" as module value is: "+3%items);
-                console.log("Cycling over"+(offset<=maxoffset?items-maxoffset:3));
                 for(j=0; j<(offset===maxoffset?items-maxoffset:3); j++){
                     console.log("index is: "+(offset+j));
                     deck.append(`<div class="card m-2">
@@ -75,9 +71,28 @@ function searchUserbyUsername(){
 }
 
 function load_product(){
-    product = $('#producttoedit').val();
-    $.post("php/formUtility.php", { username : username, op : "searchproduct" },function(response){
-       // load fields in placeholders
+    product = $('#eID').val();
+    $.post("php/formUtility.php", { param : product, op : "searchproduct" },function(response){
+        product_info = JSON.parse(response);
+        if(product_info.length <= 0) {
+            $('#eID').toggleClass('is-invalid', true);
+        }
+        else{
+            $('#eID').toggleClass('is-invalid', false);
 
+            console.log("loading placeholders");
+            // load placeholders dynamically
+            for(var key in product_info){
+                console.log("loading: e"+key+" with: "+product_info[key]);
+                if(key!=="description")
+                    $("#e"+key).attr("placeholder", product_info[key]);
+                else
+                    $("#edescription").html(product_info[key]);
+            }
+        }
     });
+}
+
+function toggleSpinner(){
+
 }
