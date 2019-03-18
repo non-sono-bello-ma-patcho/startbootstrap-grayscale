@@ -361,17 +361,19 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <!-- da qui -->
-                                                    <form name="editProduct" enctype="multipart/form-data" method ="post">
-                                                        <div class="row">
+                                                    <form name="editProduct" enctype="multipart/form-data" method ="post" action="php/editProduct.php">
+                                                        <div class="form-row">
                                                             <div class="col-md-6">
                                                                 <input type="hidden" name="editproductform">
                                                                 <label class="text-muted" for="eproductID">Product ID</label>
                                                                 <div class="input-group">
-                                                                    <input type="text" name="eID" id="eproductID" placeholder="insert product ID..." class="form-control">
-                                                                    <span class="input-group-btn">
-                                                                                    <button type="button" class="btn glyphicon glyphicon-search" onclick="$('#eproductID').toggleClass('is-invalid', true);"></button>
-                                                                                </span>
-                                                                    <div class="invalid-feedback" id="pIDfb">Product ID doesn't match any product...</div>
+                                                                    <input type="text" name="userID" id="producttoedit" placeholder="Type a product ID..." class="form-control rightcorners" style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;">
+                                                                    <div class="input-group-append">
+                                                                        <a id="searchbtn">
+                                                                            <span class="input-group-text glyphicon glyphicon-search" style="top: 0!important; border-top-left-radius: 0; border-bottom-left-radius: 0;"></span>
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="invalid-feedback" id="adminufb"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -402,12 +404,13 @@
                                                                 <label class="custom-file-label">Select Image</label>
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer">
-                                                            <input type="submit" value="Add" onclick="editProduct.action='php/editProduct.php'" class="btn btn-primary">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                        </div>
                                                     </form>
                                                 </div>
+                                                <div class="modal-footer">
+                                                    <input type="submit" value="Add"  class="btn btn-primary">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -425,10 +428,8 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <!-- from here -->
-                                                    <form name="addPrivileges" method = "post" id="addPrivileges" >
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <input type="hidden" name="addadminform">
                                                                 <label class="text-muted" for="newusername">Search by username</label>
                                                                 <div class="input-group">
                                                                     <input type="text" name="userID" id="newusername" placeholder="Type a username..." class="form-control rightcorners" style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;">
@@ -441,15 +442,17 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    <form action="php/addAdmin.php" name="addadminform" method = "post" id="addPrivileges" >
+                                                        <input type="hidden" name="addadminform">
+                                                        <div id="resultlist" class="custom-hidden d-none">
+                                                            <hr>
+                                                            <h5>User information</h5>
+                                                        </div>
                                                     </form>
                                                 </div>
-                                                <div id="resultlist" class="custom-hidden d-none">
-                                                    <hr>
-                                                    <h5>User information</h5>
 
-                                                </div>
                                                 <div class="modal-footer">
-                                                    <input type="submit"  value="Add Admin" id="adduserbtn"  onclick="addPrivileges.action='php/addAdmin.php'" class="btn custom-btn disabled">
+                                                    <input type="submit"  value="Add Admin" id="adduserbtn" class="btn custom-btn disabled" form="addPrivileges" disabled="disabled">
                                                 </div>
 
                                             </div>

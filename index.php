@@ -58,11 +58,11 @@
                     <a class="nav-link js-scroll-trigger" href="#signup">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <?php if(isset($_SESSION['bad_input'])){
+                    <?php /*if(isset($_SESSION['bad_input'])){
                         echo "<div style='top:0%; text-align:center; font-size:12px;  height:1%;'><label style=\"color:red;\">"
                             .$_SESSION['bad_input']."</label></div>";
                         session_destroy();
-                        }?>
+                        }*/?>
                     <a class="btn btn-nav custom-btn" href="" data-toggle="modal" data-target="#loginModal">Log In</a>
                 </li>
             </ul>
@@ -270,7 +270,7 @@
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto text-center">
                 <h2 class="text-white mb-5">Sign up to Herschel and start to explore!</h2>
-                <form name ="sign_up" class="needs-validation" method='post' novalidate>
+                <form name ="sign_up" class="needs-validation" method='post' action="php/sign_up.php">
                     <div class="form-group">
                         <div class="form-row">
                             <div id="emailcol" class="col-md-6 mb-3">
@@ -319,7 +319,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary mx-auto" onclick="sign_up.action='php/sign_up.php'">Sign Up</button>
+                    <button type="submit" class="btn btn-primary mx-auto">Sign Up</button>
                 </form>
             </div>
         </div>
