@@ -1,6 +1,8 @@
 <?php session_start();
     if(!isset($_SESSION['id'])) header("Location: index.php");
-    require "php/userUtility.php";
+    require_once "php/userUtility.php";
+    require_once "php/purchaseUtility.php";
+    require_once "php/productUtility.php";
 ?>
 <html lang="en">
 
@@ -181,53 +183,12 @@
                             <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart">
                                 <div class="container">
                                     <h3 class="mt-3 text-muted">Your Cart</h3>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card slim-card mt-2">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                                    <p class="card-text">Some quick example text.</p>
-                                                    <a href="#" class="card-link">Card link</a>
-                                                    <a href="#" class="card-link">Another link</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="card slim-card mt-2">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                                    <p class="card-text">Some quick example text.</p>
-                                                    <a href="#" class="card-link">Card link</a>
-                                                    <a href="#" class="card-link">Another link</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card slim-card mt-2">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="card-link">Card link</a>
-                                                    <a href="#" class="card-link">Another link</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="card slim-card text-white mt-2 mb-3">
-                                                <img src="img/demo1.jpg" class="card-img" alt="...">
-                                                <div class="card-img-overlay">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                    <p class="card-text">Last updated 3 mins ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        <?php
+                                            $total_price = 0;
+                                            echo printUserItem($_SESSION['id'],$total_price);
+
+                                        ?>
+
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="trips" role="tabpanel" aria-labelledby="trips">
