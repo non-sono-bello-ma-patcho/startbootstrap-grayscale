@@ -1,3 +1,6 @@
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 // activate button on radio check
 $("#resultlist").on("change", function(){
     console.log("radio checked: "+$('input[type=radio]:checked').val());
