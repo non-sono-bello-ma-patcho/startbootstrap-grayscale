@@ -14,7 +14,7 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/redirect.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/grayscale.css">
 </head>
 <body style="background: #171544">
@@ -29,7 +29,7 @@
                     <input type="hidden" name="loginform">
                     <input id="usernameinput" readonly type="text" class="preat form-control bg-transparent text-white mr-0 mr-sm-2 mb-3 mb-sm-0" value="<?php echo $_SESSION['id'];?>" name="username" placeholder="Enter your username">
                     <label for="inputPassowrdlog" class="sr-only">Password</label>
-                    <input id="passwordinput" type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id= "inputPassowrdlog" name="pswd" placeholder="Type your password...">
+                    <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id= "inputPassowrdlog" name="pswd" placeholder="Type your password...">
                     <div class="invalid-feedback text-left">
                         <p>Wrong Password for Account</p>
                     </div>

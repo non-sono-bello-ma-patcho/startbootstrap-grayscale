@@ -12,7 +12,7 @@ require 'php/userUtility.php';
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/modify.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/grayscale.css">
 </head>
 <body class="">
@@ -42,7 +42,7 @@ require 'php/userUtility.php';
                                 <div class="col-md-4">
                                     <div class="form-row">
                                         <label for="modifyName" class="text-white">Name</label>
-                                        <input type="name" class="form-control mb-3" name="modifyName" aria-describedby="emailinput" placeholder="<?php echo getUserName($_SESSION['id']);?>">
+                                        <input type="email" class="form-control mb-3" name="modifyName" aria-describedby="emailinput" placeholder="<?php echo getUserName($_SESSION['id']);?>">
                                     </div>
                                     <div class="form-row">
                                         <label for="modifyUsername" class="text-white">Username</label>
@@ -73,7 +73,7 @@ require 'php/userUtility.php';
                                 <div class="col-md-8">
                                     <div class="form-row">
                                         <label for="modifyDescription" class="text-white">Description</label>
-                                        <textarea name="modifyDescription" class="form-control text-left" aria-label="With textarea" rows="3" style="resize: none"><?php echo getUserDescription($_SESSION['id'])?></textarea>
+                                        <textarea name="modifyDescription" id="modifyDescription" class="form-control text-left" aria-label="With textarea" rows="3" style="resize: none"><?php echo getUserDescription($_SESSION['id'])?></textarea>
                                     </div>
                                 </div>
                             </div>

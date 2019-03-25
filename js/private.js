@@ -22,7 +22,7 @@ function searchUserbyUsername(){
     $('#resultlist').empty();
     username = $('#newusername').val();
     // return a list? of user with name similar to given
-    $.post("php/formUtility.php", { param : username, op : "searchuser" },function(response){
+    $.get("php/formUtility.php", { param : username, op : "searchuser" },function(response){
         userinfo = JSON.parse(response);
         console.log("got filter: "+username);
         if(userinfo.length <= 0){
@@ -86,8 +86,7 @@ function load_product(){
             console.log("loading placeholders");
             // load placeholders dynamically
             for(var key in product_info){
-                console.log("loading: e"+key+" with: "+product_info[key]);
-                if(key!=="description")
+                if(key!=="description" && product_info.hasOwnProperty(key))
                     $("#e"+key).attr("placeholder", product_info[key]);
                 else
                     $("#edescription").html(product_info[key]);

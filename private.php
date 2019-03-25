@@ -19,7 +19,8 @@
     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/private.css">
     <link rel="stylesheet" href="css/grayscale.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="vendor/fontawesome-free/css/all.css">
 </head>
 <body>
 <!-- LogOut Modal -->
@@ -87,7 +88,7 @@
                             <div class="card mx-auto">
                                 <div class="card-header position-relative">
                                     <a href="modifyform.php?<?php echo  htmlspecialchars(session_id());?>'" aria-label="edit profile" title="edit profile" class="idlink">
-                                        <span class="modify-icon glyphicon glyphicon-cog text-muted custom-icon"></span>
+                                        <span class="modify-icon fas fa-cog text-white custom-icon"></span>
                                         <img src="<?php echo getUserImg($_SESSION['id']);?>" class="card-img-top profile-image" alt="..." style="overflow: hidden">
                                     </a>
                                 </div>
@@ -134,7 +135,7 @@
                                     <h3 class="mt-3 text-muted">Recommended for you</h3>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <?php include "components/travel_card.php?pn=ciao&ppr=10&pdesc=mi chiamo virgola sono un gattino bau bau"?>
+
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="card slim-card mt-2">
