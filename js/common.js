@@ -16,10 +16,9 @@ function addCard(product_id){
         );
     }).then((fullfilled) => { // in fullfilled c'è la robaccia che ho settato prima;
         $.get(
-            "components/travel_card.php",
+            "components/private_card.php",
             fullfilled,
             (response) => {
-                console.log(response);
                 $('#card-container').append(response);
             }
         );
@@ -28,5 +27,10 @@ function addCard(product_id){
     });
 }
 
+function addtoCart(elem){
+    console.log("Ugh it work, code_product: "+$(elem).attr('id'));
+    $(elem).toggleClass('far').toggleClass('fas')
+}
+
 addCard("asdf");
-addCard("ciao");
+addCard("ABC-100");

@@ -16,7 +16,7 @@
     <title>Private Page - Herschel</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/private.css">
     <link rel="stylesheet" href="css/grayscale.css">
     <link rel="stylesheet" href="css/common.css">
@@ -260,7 +260,7 @@
     </footer>
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/private.js"></script>
 </body>
 </html>
