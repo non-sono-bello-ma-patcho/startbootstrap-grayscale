@@ -1,4 +1,4 @@
-function addCard(product_id){
+function addCard(product_id, target){
     let productInfo;
     new Promise((resolve, reject)=>{
          $.get(
@@ -19,7 +19,7 @@ function addCard(product_id){
             "components/private_card.php",
             fullfilled,
             (response) => {
-                $('#card-container').append(response);
+                target.append(response);
             }
         );
     }).catch(function (error) {
@@ -29,8 +29,15 @@ function addCard(product_id){
 
 function addtoCart(elem){
     console.log("Ugh it work, code_product: "+$(elem).attr('id'));
-    $(elem).toggleClass('far').toggleClass('fas')
+    if($(this).is(':checked')) $(this).toggleClass('far').toggleClass('fas');
+/*    var attr = $(elem).attr('id').match(/add_([a-zA-Z0-9]+)/);
+    console.log(attr);
+    var prod_code = attr ? attr[1] : "none";
+    console.log("got prod_code: "+prod_code);
+    $(elem).closest("#remove_"+prod_code).toggleClass('d-none', false);
+    console.log("class toggled");*/
 }
 
-addCard("asdf");
-addCard("ABC-100");
+
+var v = document.cookie.match(/currentUser=([a-zA-Z0-9]+)/);
+var username = v? v[1] : "none";

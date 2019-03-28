@@ -111,7 +111,7 @@
                     <div id="tabColumn" class="col-sm-7 col-md-8 col-lg-9 float-left">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a href="#overview" class="nav-link active text-muted" id="overview-tab" data-toggle="tab" role="tab" aria-controls="overview">Overview</a>
+                                <a href="#newproduct" class="nav-link active text-muted" id="overview-tab" data-toggle="tab" role="tab" aria-controls="overview">New Products</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#cart" class="nav-link text-muted" id="cart-tab" data-toggle="tab" role="tab" aria-controls="cart">Cart <span class="badge badge-light"><?php //echo sizeof(getUserCart($_SESSION['id']));?></span></a>
@@ -130,49 +130,11 @@
                             </li>
                         </ul>
                         <div class="tab-content" id="usercontent">
-                            <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
-                                <div class="container">
-                                    <h3 class="mt-3 text-muted">Recommended for you</h3>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="card slim-card mt-2">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                                    <p class="card-text">Some quick example text.</p>
-                                                    <a href="#" class="card-link">Card link</a>
-                                                    <a href="#" class="card-link">Another link</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card slim-card mt-2">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="card-link">Card link</a>
-                                                    <a href="#" class="card-link">Another link</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="card slim-card text-white mt-2 mb-3">
-                                                <img src="img/demo1.jpg" class="card-img" alt="...">
-                                                <div class="card-img-overlay">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                    <p class="card-text">Last updated 3 mins ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="tab-pane fade show active" id="newproduct" role="tabpanel" aria-labelledby="overview">
+<!--                                <div class="container">-->
+                                    <h3 class="mt-3 text-muted">Freshly baked</h3>
+                                    <div class="card-deck justify-content-between" id="new-prod-container"></div>
+<!--                                </div>-->
                             </div>
                             <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart">
                                 <div class="container">
@@ -262,5 +224,6 @@
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/private.js"></script>
+<script src="js/common.js"></script>
 </body>
 </html>
