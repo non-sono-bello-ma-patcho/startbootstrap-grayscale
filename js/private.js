@@ -113,3 +113,17 @@ function load_product(){
 function toggleSpinner(){
 
 }
+
+function load_search_result(){
+    var value = document.getElementById("itemsearch").value;
+    $.ajax(
+        {
+            url: 'php/itemSearch.php',
+            type:'POST',
+            dataType: 'text',
+            data: {value: value},
+            success: function(data){
+                $("#item-search-results").html(data);
+            }
+        })
+}
