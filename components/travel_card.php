@@ -6,12 +6,13 @@
  * Time: 23.14
  */
 
+$product_link = 'herschel.hopto.org/products.php?id=';
 // a seconda che la carta sia vista nello store, nel carrello o wishlist, deve reindirizzare sul carrello o sul dettaglio
-$card_title = trim($_REQUEST['name']);
-$card_description = trim($_REQUEST['description']);
-$card_price = trim($_REQUEST['price']);
-$card_image = 'img/productImg/'.trim($_REQUEST['img']);
-$product_link = 'herschel.hopto.org/products.php?id='.trim($_REQUEST['code']);
+isset($_REQUEST['name']) ? $card_title = trim($_REQUEST['name']) : $card_title = $name;
+isset($_REQUEST['description']) ? $card_description = trim($_REQUEST['description']) : $card_description = $description;
+isset($_REQUEST['price']) ? $card_price = trim($_REQUEST['price']) : $card_price = $price;
+isset($_REQUEST['img']) ? $card_image = 'img/productImg/'.trim($_REQUEST['img']) : $card_image = $img;
+isset($_REQUEST['code']) ? $product_link .= trim($_REQUEST['code']) : $product_link .= $code;
 
 echo "
 <div class=\"col-sm-5 position-relative mt-3 pr-0\">
