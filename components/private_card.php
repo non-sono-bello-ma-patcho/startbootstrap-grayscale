@@ -11,6 +11,7 @@ $card_title =  isset($_REQUEST['name']) ? trim($_REQUEST['name']) : $card_title 
 $card_description = isset($_REQUEST['description']) ? trim($_REQUEST['description']) : $card_description = $description;
 $card_price = isset($_REQUEST['price']) ? trim($_REQUEST['price']) : $card_price = $price;
 $card_image = isset($_REQUEST['img']) ? trim($_REQUEST['img']) : $card_image = $img;
+$card_code = isset($_REQUEST['code']) ? trim($_REQUEST['code']) : $code;
 $product_link = 'herschel.hopto.org/products.php?id='.(isset($_REQUEST['code']) ? trim($_REQUEST['code']) :  $code);
 
 echo "
