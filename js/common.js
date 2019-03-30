@@ -1,6 +1,6 @@
 function addCard(product_id, target){
     let productInfo;
-    new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject)=>{
          $.get(
             "php/formUtility.php",
             { param : product_id, op : "searchproduct"},
@@ -19,9 +19,10 @@ function addCard(product_id, target){
             "components/private_card.php",
             fullfilled,
             (response) => {
-                target.prepend(response);
+                target.append(response);
             }
         );
+        console.log("appended");
     }).catch(function (error) {
         console.log(error.message);
     });

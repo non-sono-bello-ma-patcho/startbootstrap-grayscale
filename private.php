@@ -86,21 +86,22 @@
                     <div id="userinfoColumn" class="col-sm-5 col-md-4 col-lg-3  float-left">
                         <div class="card-deck">
                             <div class="card mx-auto">
-                                <div class="card-header position-relative">
+                                <div class="position-relative">
                                     <a href="modifyform.php?<?php echo  htmlspecialchars(session_id());?>'" aria-label="edit profile" title="edit profile" class="idlink">
                                         <span class="modify-icon fas fa-cog text-white custom-icon"></span>
-                                        <img src="<?php echo getUserImg($_SESSION['id']);?>" class="card-img-top profile-image" alt="..." style="overflow: hidden">
+                                        <img src="<?php echo getUserImg($_SESSION['id']);?>" class="card-img-top" alt="..." style="overflow: hidden">
                                     </a>
                                 </div>
                                 <div class="card-body shadow">
                                     <p class="card-title font-weight-bolder">
                                         <?php echo getUserName($_SESSION['id'])." ".getUserSurname($_SESSION['id']); ?>
                                     </p>
-                                    <p class="d-block text-muted"><?php echo "@".$_SESSION['id']; ?></p>
+                                    <span class="text-muted fas fa-user"><?php echo $_SESSION['id']; ?></span>
+                                    <hr>
                                     <p class="card-text"><?php echo getUserDescription($_SESSION['id']); ?></p>
                                     <ul class="no-bullet">
                                         <li>
-                                            <span class="glyphicon glyphicon-map-marker"></span>
+                                            <span class="fas fa-map-marker-alt"></span>
                                             <span><?php echo getUserLocation($_SESSION['id']); ?></span>
                                         </li>
                                     </ul>
@@ -144,12 +145,14 @@
 <!--                                </div>-->
                             </div>
                             <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart">
-                                <div class="container">
-                                    <h3 class="mt-3 text-muted">Your Cart</h3>
-                                        <?php
-                                        $total_price = 0;
-                                        echo printUserItem($_SESSION['id'],$total_price);
-                                        ?>
+                                <h3 class="mt-3 text-muted">Your Cart</h3>
+                                <div id="cart-spinner" class="d-flex justify-content-center" style="height: 160px;">
+                                    <div class="my-auto spinner-border text-primary align-middle" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                                <div class="card-deck justify-content-between" id="cart-container">
+
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="trips" role="tabpanel" aria-labelledby="trips">
@@ -159,17 +162,27 @@
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-deck justify-content-between" id="cart-container">
-
-                                </div>
+                                <div class="card-deck justify-content-between" id="trips-container"></div>
                             </div>
                             <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist">
                                 <h3 class="text-muted mt-3">Your Wishlist</h3>
                                 <!-- loads wishlist -->
+                                <div id="wishlist-spinner" class="d-flex justify-content-center" style="height: 160px;">
+                                    <div class="my-auto spinner-border text-primary align-middle" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                                <div class="card-deck justify-content-between" id="wishlist-container"></div>
                             </div>
                             <!-- To remove if not admin -->
                             <?php if(isAdmin($_SESSION['id'])) require_once './components/admin_panel.php'?>
                             <!-- end of area to remove -->
+                        </div>
+                        <div class="row text-right align-baseline mb-0">
+                            <div class="col-md-8"></div>
+                            <div class="col-md-4">
+                                <span class="text-muted font-weight-bold far fa-shopping-cart">Total: <span class="text-black-50 font-weight-normal">0.00$</span></span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -183,6 +196,7 @@
         </div>
     </footer>
 <!-- Bootstrap core JavaScript -->
+<script src="js/popper.min.js"></script>
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/private.js"></script>

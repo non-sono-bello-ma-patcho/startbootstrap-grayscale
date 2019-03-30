@@ -154,14 +154,22 @@ function load_tab(target){
             }
         );
     }).then((fulfilled) => {
+        let promises = [];
+        $(target + "-container").hide();
+        console.log("hiding container, begin to iterate");
         for (var i in fulfilled) {
-            addCard(fulfilled[i], $(target + "-container"));
+            promises.push(addCard(fulfilled[i], $(target + "-container")));
         }
+        console.log("done");
+        Promise.all(promises).then(() => {
+            $("#new-prod-spinner").toggleClass('d-none', true).toggleClass('d-flex', false);
+            $("#new-prod-container").fadeIn('slow');
+        });
     }).catch((error) => {
         $(target+"-container").append("<p class='text-muted m-auto' style='height: 160px'>An error occured on loading products...</p>");
     }).finally(() => {
         // remove spinner
-        $(target+"-spinner").toggleClass('d-none', true).toggleClass('d-flex', false);
+
     });
 
 }
