@@ -133,7 +133,6 @@ function load_search_result(){
 
 function load_tab(target){
     // add spinner
-    $(target+"-spinner").toggleClass('d-none', false);
     var table;
     switch (target) {
         case '#new-prod':
@@ -142,16 +141,27 @@ function load_tab(target){
         case '#cart-container':
             break;
     }
-    $.get(
-        "php/formUtility.php",
-        { param : table, op : "latest_prod"},
-        function(response){
-            let products = JSON.parse(response);
-            for (var i in products){
-                addCard(products[i], $(target+"-container"));
+    new Promise((resolve, reject)=>{
+        $.get(
+            "php/formUtility.php",
+            { param : table, op : "latest_prod"},
+            function(response){
+                try{
+                    resolve(JSON.parse(response));
+                } catch (e) {
+                    reject(new Error("couldn't fetch product codes from table"));
+                }
             }
+        );
+    }).then((fulfilled) => {
+        for (var i in fulfilled) {
+            addCard(fulfilled[i], $(target + "-container"));
         }
-    );
-    // remove spinner
-    $(target+"-spinner").toggleClass('d-none', true);
+    }).catch((error) => {
+        $(target+"-container").append("<p class='text-muted m-auto' style='height: 160px'>An error occured on loading products...</p>");
+    }).finally(() => {
+        // remove spinner
+        $(target+"-spinner").toggleClass('d-none', true).toggleClass('d-flex', false);
+    });
+
 }
