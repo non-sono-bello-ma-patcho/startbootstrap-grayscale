@@ -19,7 +19,7 @@ function addCard(product_id, target){
             "components/private_card.php",
             fullfilled,
             (response) => {
-                target.append(response);
+                target.prepend(response);
             }
         );
     }).catch(function (error) {
@@ -38,6 +38,3 @@ function addtoCart(elem){
     console.log("class toggled");*/
 }
 
-
-var v = document.cookie.match(/currentUser=([a-zA-Z0-9]+)/);
-var username = v? v[1] : "none";
