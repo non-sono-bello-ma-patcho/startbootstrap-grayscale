@@ -1,6 +1,21 @@
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
-})
+
+});
+
+console.log("loading dynamically");
+$.get(
+    "php/formUtility.php",
+    { param : "%%", op : "latest_prod"},
+    function(response){
+        let products = JSON.parse(response);
+        for (var i in products){
+            console.log(products[i]);
+            addCard(products[i], $('#new-prod-container'));
+        }
+    }
+);
+
 // activate button on radio check
 $("#resultlist").on("change", function(){
     console.log("radio checked: "+$('input[type=radio]:checked').val());
@@ -35,7 +50,6 @@ function searchUserbyUsername(){
             offset = 0;
             maxoffset = Math.floor(items/3)*3;
             decks = Math.ceil(items/3);
-            console.log("Initializing "+decks+" decks");
             for(i=0; i<decks; i++){
                 deck = $("<div class=\"card-deck\"></div>");
                 for(j=0; j<(offset===maxoffset?items-maxoffset:3); j++){
@@ -94,6 +108,7 @@ function load_product(){
         }
     });
 }
+
 
 function toggleSpinner(){
 

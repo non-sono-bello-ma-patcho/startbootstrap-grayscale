@@ -42,11 +42,11 @@ require 'php/userUtility.php';
                                 <div class="col-md-4">
                                     <div class="form-row">
                                         <label for="modifyName" class="text-white">Name</label>
-                                        <input type="email" class="form-control mb-3" name="modifyName" aria-describedby="emailinput" placeholder="<?php echo getUserName($_SESSION['id']);?>">
+                                        <input type="text" class="form-control mb-3" name="modifyName" aria-describedby="nameinput" placeholder="<?php echo getUserName($_SESSION['id']);?>">
                                     </div>
                                     <div class="form-row">
                                         <label for="modifyUsername" class="text-white">Username</label>
-                                        <input type="text" class="form-control mb-3" name="modifyUsername" aria-describedby="emailinput" placeholder="<?php echo $_SESSION['id']?>">
+                                        <input type="text" class="form-control mb-3" name="modifyUsername" aria-describedby="usernameinput" placeholder="<?php echo $_SESSION['id']?>">
                                     </div>
                                 </div>
                                 <div class="col-md-4">

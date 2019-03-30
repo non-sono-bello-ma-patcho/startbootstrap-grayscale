@@ -20,7 +20,7 @@ echo '
                                                                     <input type="text" name="eID" id="eID" placeholder="Type a product ID..." class="form-control rightcorners" style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;" required>
                                                                     <div class="input-group-append">
                                                                         <a href="#" id="editproduct" onclick="load_product()">
-                                                                            <span class="input-group-text glyphicon glyphicon-search" style="top: 0!important; border-top-left-radius: 0; border-bottom-left-radius: 0;"></span>
+                                                                            <span class="input-group-text fas fa-search" style="top: 0!important; border-top-left-radius: 0; border-bottom-left-radius: 0;"></span>
                                                                         </a>
                                                                     </div>
                                                                     <div class="invalid-feedback" id="productifb">No product matches given code</div>

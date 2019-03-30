@@ -3,11 +3,6 @@
     background: linear-gradient(to bottom, rgba(22, 22, 22, 0.1) 0%, rgba(22, 22, 22, 0.5) 75%, #161616 100%), url("../img/private.png") center no-repeat;
 }
 
-#privatebody {
-    background: url("../img/demo4.jpg") no-repeat;
-    background-size: cover;
-}
-
 .idlink {
     display: block;
 }
@@ -75,8 +70,8 @@
 }
 
 .slim-card {
-    max-height: 161px !important;
-    max-width: 331px !important;
+    /*max-height: 161px !important;*/
+    /*max-width: 400px !important;*/
     overflow: hidden;
     position: relative;
     border: solid 4px rgba(12, 12, 13, 0);

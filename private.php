@@ -16,7 +16,7 @@
     <title>Private Page - Herschel</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/private.css">
     <link rel="stylesheet" href="css/grayscale.css">
     <link rel="stylesheet" href="css/common.css">
@@ -111,7 +111,7 @@
                     <div id="tabColumn" class="col-sm-7 col-md-8 col-lg-9 float-left">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a href="#overview" class="nav-link active text-muted" id="overview-tab" data-toggle="tab" role="tab" aria-controls="overview">Overview</a>
+                                <a href="#newproduct" class="nav-link active text-muted" id="overview-tab" data-toggle="tab" role="tab" aria-controls="overview">New Products</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#cart" class="nav-link text-muted" id="cart-tab" data-toggle="tab" role="tab" aria-controls="cart">Cart <span class="badge badge-light"><?php //echo sizeof(getUserCart($_SESSION['id']));?></span></a>
@@ -130,28 +130,11 @@
                             </li>
                         </ul>
                         <div class="tab-content" id="usercontent">
-                            <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
-                                <div  class="container">
-                                    <!-- search bar to be modified  start-->
-                                    <h3 class="mt-3 text-muted">Recommended for you</h3>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="text-muted" >Search items within our catalogue</label>
-                                            <div class="input-group">
-                                                <input type="text"  id="itemsearch" placeholder="Type something..." class="form-control rightcorners" style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;">
-                                                <div class="input-group-append">
-                                                    <a onclick="load_search_result()">
-                                                        <span class="input-group-text glyphicon glyphicon-search" style="top: 0!important; border-top-left-radius: 0; border-bottom-left-radius: 0;"></span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- search bar to be modified end -->
-                                    <!-- div that will contain search results start -->
-                                    <div id ="item-search-results" class="container"></div>
-                                    <!-- div that will contain search results end -->
-                                </div>
+                            <div class="tab-pane fade show active" id="newproduct" role="tabpanel" aria-labelledby="overview">
+<!--                                <div class="container">-->
+                                    <h3 class="mt-3 text-muted">Freshly baked</h3>
+                                    <div class="card-deck justify-content-between" id="new-prod-container"></div>
+<!--                                </div>-->
                             </div>
                             <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart">
                                 <div class="container">
@@ -239,7 +222,8 @@
     </footer>
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/private.js"></script>
+<script src="js/common.js"></script>
 </body>
 </html>
