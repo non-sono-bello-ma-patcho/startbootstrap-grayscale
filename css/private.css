@@ -70,7 +70,7 @@
 }
 
 .slim-card {
-    /*max-height: 161px !important;*/
+    max-height: 160px !important;
     /*max-width: 400px !important;*/
     overflow: hidden;
     position: relative;

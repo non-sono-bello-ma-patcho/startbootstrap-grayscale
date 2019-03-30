@@ -3,10 +3,10 @@ $(function () {
 
 });
 
-console.log("loading dynamically");
-$.get(
+// loads products on overview
+/*$.get(
     "php/formUtility.php",
-    { param : "%%", op : "latest_prod"},
+    { param : "products", op : "latest_prod"},
     function(response){
         let products = JSON.parse(response);
         for (var i in products){
@@ -14,7 +14,9 @@ $.get(
             addCard(products[i], $('#new-prod-container'));
         }
     }
-);
+);*/
+
+$(load_tab('#new-prod'));
 
 // activate button on radio check
 $("#resultlist").on("change", function(){
@@ -33,6 +35,7 @@ function doLogout() {
     console.log("destroyed");
 }
 
+// TODO: refactor using components
 function searchUserbyUsername(){
     $('#resultlist').empty();
     username = $('#newusername').val();
@@ -54,7 +57,7 @@ function searchUserbyUsername(){
                 deck = $("<div class=\"card-deck\"></div>");
                 for(j=0; j<(offset===maxoffset?items-maxoffset:3); j++){
                     console.log("index is: "+(offset+j));
-                    deck.append(`<div class="card m-2">
+                    deck.append(`<div class="card m-2 col-md-6">
                                     <div class="card-header">
                                         <div class="form-check">
                                             <input type="radio" class="form-check-input" name="userID" value="${userinfo[j+offset].username}">
@@ -126,4 +129,29 @@ function load_search_result(){
                 $("#item-search-results").html(data);
             }
         })
+}
+
+function load_tab(target){
+    // add spinner
+    $(target+"-spinner").toggleClass('d-none', false);
+    var table;
+    switch (target) {
+        case '#new-prod':
+            table = 'products';
+            break;
+        case '#cart-container':
+            break;
+    }
+    $.get(
+        "php/formUtility.php",
+        { param : table, op : "latest_prod"},
+        function(response){
+            let products = JSON.parse(response);
+            for (var i in products){
+                addCard(products[i], $(target+"-container"));
+            }
+        }
+    );
+    // remove spinner
+    $(target+"-spinner").toggleClass('d-none', true);
 }
