@@ -131,47 +131,26 @@
                         </ul>
                         <div class="tab-content" id="usercontent">
                             <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview">
-                                <div class="container">
+                                <div  class="container">
+                                    <!-- search bar to be modified  start-->
                                     <h3 class="mt-3 text-muted">Recommended for you</h3>
                                     <div class="row">
-                                        <div class="col-sm-6">
-
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="card slim-card mt-2">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                                    <p class="card-text">Some quick example text.</p>
-                                                    <a href="#" class="card-link">Card link</a>
-                                                    <a href="#" class="card-link">Another link</a>
+                                        <div class="col-md-6">
+                                            <label class="text-muted" >Search items within our catalogue</label>
+                                            <div class="input-group">
+                                                <input type="text"  id="itemsearch" placeholder="Type something..." class="form-control rightcorners" style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;">
+                                                <div class="input-group-append">
+                                                    <a onclick="load_search_result()">
+                                                        <span class="input-group-text glyphicon glyphicon-search" style="top: 0!important; border-top-left-radius: 0; border-bottom-left-radius: 0;"></span>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card slim-card mt-2">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="card-link">Card link</a>
-                                                    <a href="#" class="card-link">Another link</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="card slim-card text-white mt-2 mb-3">
-                                                <img src="img/demo1.jpg" class="card-img" alt="...">
-                                                <div class="card-img-overlay">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                    <p class="card-text">Last updated 3 mins ago</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <!-- search bar to be modified end -->
+                                    <!-- div that will contain search results start -->
+                                    <div id ="item-search-results" class="container"></div>
+                                    <!-- div that will contain search results end -->
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart">
