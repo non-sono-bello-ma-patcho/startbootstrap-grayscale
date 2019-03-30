@@ -132,8 +132,15 @@
                         <div class="tab-content" id="usercontent">
                             <div class="tab-pane fade show active" id="newproduct" role="tabpanel" aria-labelledby="overview">
 <!--                                <div class="container">-->
-                                    <h3 class="mt-3 text-muted">Freshly baked</h3>
-                                    <div class="card-deck justify-content-between" id="new-prod-container"></div>
+                                <h3 class="mt-3 text-muted">Freshly baked</h3>
+                                <div id="new-prod-spinner" class="d-flex justify-content-center" style="height: 160px;">
+                                    <div class="my-auto spinner-border text-primary align-middle" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                                <div class="card-deck justify-content-between" id="new-prod-container">
+
+                                </div>
 <!--                                </div>-->
                             </div>
                             <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart">
@@ -146,59 +153,14 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="trips" role="tabpanel" aria-labelledby="trips">
-                                <div class="container">
-                                    <h3 class="mt-3 text-muted">Your Trips</h3>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card slim-card mt-2">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                                    <p class="card-text">Some quick example text.</p>
-                                                    <a href="#" class="card-link">Card link</a>
-                                                    <a href="#" class="card-link">Another link</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="card slim-card mt-2">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                                    <p class="card-text">Some quick example text.</p>
-                                                    <a href="#" class="card-link">Card link</a>
-                                                    <a href="#" class="card-link">Another link</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <h3 class="mt-3 text-muted">Your Trips</h3>
+                                <div id="trips-spinner" class="d-flex justify-content-center" style="height: 160px;">
+                                    <div class="my-auto spinner-border text-primary align-middle" role="status">
+                                        <span class="sr-only">Loading...</span>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="card slim-card mt-2">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                                    <a href="#" class="card-link">Card link</a>
-                                                    <a href="#" class="card-link">Another link</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-5 position-relative mt-3 pr-0">
-                                            <div class="card slim-card text-white mt-2 mb-3">
-                                                <a href="index.php" class="read-more text-white">Read more</a>
-                                                <img src="img/demo1.jpg" class="card-img" alt="...">
-                                                <div class="card-img-overlay">
-                                                    <h5 class="card-title">Card title</h5>
-                                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                    <p class="card-text">tua madre</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-1 mt-3 px-0">
-                                            <button class="mt-1 remove-button px-0"></button>
-                                        </div>
-                                    </div>
+                                </div>
+                                <div class="card-deck justify-content-between" id="cart-container">
+
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist">
