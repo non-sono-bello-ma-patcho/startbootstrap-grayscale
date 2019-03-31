@@ -17,6 +17,7 @@ $(function () {
 );*/
 
 $(load_tab('#new-prod'));
+$(load_tab('#cart'));
 
 // activate button on radio check
 $("#resultlist").on("change", function(){
@@ -138,7 +139,8 @@ function load_tab(target){
         case '#new-prod':
             table = 'products';
             break;
-        case '#cart-container':
+        case '#cart':
+            table = 'cart';
             break;
     }
     new Promise((resolve, reject)=>{
@@ -162,11 +164,12 @@ function load_tab(target){
         }
         console.log("done");
         Promise.all(promises).then(() => {
-            $("#new-prod-spinner").toggleClass('d-none', true).toggleClass('d-flex', false);
-            $("#new-prod-container").fadeIn('slow');
+            $(target+"-spinner").toggleClass('d-none', true).toggleClass('d-flex', false);
+            $(target+"-container").fadeIn('slow');
         });
     }).catch((error) => {
-        $(target+"-container").append("<p class='text-muted m-auto' style='height: 160px'>An error occured on loading products...</p>");
+        console.log(error);
+        $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>An error occured on loading...</p>`);
     }).finally(() => {
         // remove spinner
 

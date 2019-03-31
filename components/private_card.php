@@ -24,7 +24,7 @@ echo "
         <div class=\"card-img-overlay\">
             <h4 class=\"card-title d-inline\">{$card_title}</h4>
             <span class='badge badge-info'><small>{$card_price}$</small></span>
-            <button data-id=\"{$card_code}\" data-cmd='add' class='manage-cart bg-transparent border-0 float-right outline'  style='outline: none;' onclick='addtoCart(this)'>
+            <button data-id=\"{$card_code}\" data-cmd='add' class='manage-cart bg-transparent border-0 float-right outline'  style='outline: none;'>
                 <span class='far fa-star float-right text-warning'></span>
             </button>
             <p class=\"card-text\">{$card_description}</p>

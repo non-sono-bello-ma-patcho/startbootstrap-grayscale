@@ -1,4 +1,4 @@
-let username = document.cookie;
+let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1];
 
 console.log(username);
 
@@ -32,20 +32,27 @@ function addCard(product_id, target){
     });
 }
 
-$(document).on('click', 'manage-cart', function(e){
+$(document).on('click', '.manage-cart', function(e){
     let btn = $(this);
     let id = btn.data('id');
     let cmd = btn.data('cmd')+'_to_cart';
 
-  /*  $.post(
+    console.log("calling rest with: "+id+", "+cmd+", "+username);
+
+    $.post(
         'php/rest.php',
         {
             param : cmd ,
             id : id,
-            username :
+            username : username,
+            op : cmd
+        },
+        (response, status) => {
+            console.log("status: "+status);
         }
-    );*/
-})
+    );
+
+});
 
 function addtoCart(elem){
     console.log("Ugh it work, code_product: "+$(elem).attr('id'));
