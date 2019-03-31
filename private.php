@@ -113,7 +113,7 @@
                     <div id="tabColumn" class="col-sm-7 col-md-8 col-lg-9 float-left">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a href="#newproduct" class="nav-link active text-muted" id="overview-tab" data-toggle="tab" role="tab" aria-controls="overview">New Products</a>
+                                <a href="#new-prod" class="nav-link active text-muted" id="overview-tab" data-toggle="tab" role="tab" aria-controls="overview">New Products</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#cart" class="nav-link text-muted" id="cart-tab" data-toggle="tab" role="tab" aria-controls="cart">Cart <span class="badge badge-light"><?php //echo sizeof(getUserCart($_SESSION['id']));?></span></a>
@@ -132,7 +132,7 @@
                             </li>
                         </ul>
                         <div class="tab-content" id="usercontent">
-                            <div class="tab-pane fade show active" id="newproduct" role="tabpanel" aria-labelledby="overview">
+                            <div class="tab-pane fade show active" id="new-prod" role="tabpanel" aria-labelledby="overview">
 <!--                                <div class="container">-->
                                 <h3 class="mt-3 text-muted">Freshly baked</h3>
                                 <div id="new-prod-spinner" class="d-flex justify-content-center" style="height: 160px;">

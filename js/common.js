@@ -35,7 +35,11 @@ function addCard(product_id, target){
 $(document).on('click', '.manage-cart', function(e){
     let btn = $(this);
     let id = btn.data('id');
-    let cmd = btn.data('cmd')+'_to_cart';
+    let cmd = btn.data('cmd')+'_cart';
+
+    //alter behaviour
+    btn.data('cmd', "remove");
+    btn.children('span').toggleClass('far').toggleClass('fas');
 
     console.log("calling rest with: "+id+", "+cmd+", "+username);
 
@@ -51,7 +55,6 @@ $(document).on('click', '.manage-cart', function(e){
             console.log("status: "+status);
         }
     );
-
 });
 
 function addtoCart(elem){

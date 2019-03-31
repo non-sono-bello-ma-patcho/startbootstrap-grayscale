@@ -3,21 +3,13 @@ $(function () {
 
 });
 
-// loads products on overview
-/*$.get(
-    "php/rest.php",
-    { param : "products", op : "latest_prod"},
-    function(response){
-        let products = JSON.parse(response);
-        for (var i in products){
-            console.log(products[i]);
-            addCard(products[i], $('#new-prod-container'));
-        }
-    }
-);*/
-
 $(load_tab('#new-prod'));
-$(load_tab('#cart'));
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    var target = $(e.target).attr("href") // activated tab
+    flush_tab(target);
+    load_tab(target);
+});
 
 // activate button on radio check
 $("#resultlist").on("change", function(){
@@ -149,9 +141,10 @@ function load_tab(target){
             { param : table, op : "latest_prod"},
             function(response){
                 try{
-                    resolve(JSON.parse(response));
+                    if(response !=="")
+                        resolve(JSON.parse(response));
                 } catch (e) {
-                    reject(new Error("couldn't fetch product codes from table"));
+                    reject(new Error(target));
                 }
             }
         );
@@ -164,15 +157,18 @@ function load_tab(target){
         }
         console.log("done");
         Promise.all(promises).then(() => {
-            $(target+"-spinner").toggleClass('d-none', true).toggleClass('d-flex', false);
             $(target+"-container").fadeIn('slow');
         });
     }).catch((error) => {
         console.log(error);
-        $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>An error occured on loading...</p>`);
+        $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>Your ${error} is empty</p>`);
     }).finally(() => {
         // remove spinner
-
+        $(target+"-spinner").toggleClass('d-none', true).toggleClass('d-flex', false);
     });
 
+}
+
+function flush_tab(target){
+    $(target+"-container").empty();
 }
