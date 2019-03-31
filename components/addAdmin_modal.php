@@ -18,7 +18,7 @@ echo '
                                                                     <input type="text" name="userID" id="newusername" placeholder="Type a username..." class="form-control rightcorners" style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;">
                                                                     <div class="input-group-append">
                                                                         <a onclick="searchUserbyUsername()">
-                                                                            <span class="input-group-text glyphicon glyphicon-search" style="top: 0!important; border-top-left-radius: 0; border-bottom-left-radius: 0;"></span>
+                                                                            <span class="input-group-text fas fa-search py-auto my-auto" style="top: 0!important; border-top-left-radius: 0; border-bottom-left-radius: 0;"></span>
                                                                         </a>
                                                                     </div>
                                                                     <div class="invalid-feedback" id="adminufb">No user found</div>

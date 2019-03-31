@@ -44,7 +44,7 @@ $('.dropdown').on('hide.bs.dropdown', function(e){
 window.onload = function() {
 // send request:
     console.log("got: "+getCookie("username"));
-    $.post("php/formUtility.php", { username : getCookie("username"), op : "get_info" },function(response){
+    $.post("php/rest.php", { username : getCookie("username"), op : "get_info" },function(response){
       var user = JSON.parse(response);
       console.log("got username: "+user.username);
       $('#modifyName').attr('placeholder', user.name);

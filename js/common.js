@@ -1,8 +1,12 @@
+let username = document.cookie;
+
+console.log(username);
+
 function addCard(product_id, target){
     let productInfo;
     return new Promise((resolve, reject)=>{
          $.get(
-            "php/formUtility.php",
+            "php/rest.php",
             { param : product_id, op : "searchproduct"},
             (response) => {
                 if(response !== "[]"){
@@ -27,6 +31,21 @@ function addCard(product_id, target){
         console.log(error.message);
     });
 }
+
+$(document).on('click', 'manage-cart', function(e){
+    let btn = $(this);
+    let id = btn.data('id');
+    let cmd = btn.data('cmd')+'_to_cart';
+
+  /*  $.post(
+        'php/rest.php',
+        {
+            param : cmd ,
+            id : id,
+            username :
+        }
+    );*/
+})
 
 function addtoCart(elem){
     console.log("Ugh it work, code_product: "+$(elem).attr('id'));

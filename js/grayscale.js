@@ -56,7 +56,7 @@ $(document).ready(function (){
     $('#suUsername').keyup(function () {
         var currentUsername = $(this).val().toLowerCase();
         if(currentUsername!=="")
-        $.post("php/formUtility.php", { username : currentUsername, op : "check" },function(response){
+        $.post("php/rest.php", { username : currentUsername, op : "check" },function(response){
             data = JSON.parse(response).username;
             $('#suUsername').toggleClass("is-invalid", Boolean(data)).toggleClass("is-valid", !Boolean(data));
             $('#usernamecol').toggleClass("mb-0", Boolean(data)).toggleClass("mb-3", !Boolean(data)); // prevent form from warp

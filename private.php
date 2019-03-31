@@ -1,5 +1,6 @@
 <?php session_start();
     if(!isset($_SESSION['id'])) header("Location: index.php");
+    setcookie("username", $_REQUEST['username']);
     require_once "php/userUtility.php";
     require_once "php/purchaseUtility.php";
     require_once "php/productUtility.php";
@@ -196,7 +197,7 @@
         </div>
     </footer>
 <!-- Bootstrap core JavaScript -->
-<script src="js/popper.min.js"></script>
+
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/private.js"></script>

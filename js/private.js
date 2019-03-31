@@ -5,7 +5,7 @@ $(function () {
 
 // loads products on overview
 /*$.get(
-    "php/formUtility.php",
+    "php/rest.php",
     { param : "products", op : "latest_prod"},
     function(response){
         let products = JSON.parse(response);
@@ -40,7 +40,7 @@ function searchUserbyUsername(){
     $('#resultlist').empty();
     username = $('#newusername').val();
     // return a list? of user with name similar to given
-    $.get("php/formUtility.php", { param : username, op : "searchuser" },function(response){
+    $.get("php/rest.php", { param : username, op : "searchuser" },function(response){
         userinfo = JSON.parse(response);
         console.log("got filter: "+username);
         if(userinfo.length <= 0){
@@ -92,7 +92,7 @@ function searchUserbyUsername(){
 
 function load_product(){
     product = $('#eID').val();
-    $.post("php/formUtility.php", { param : product, op : "searchproduct" },function(response){
+    $.post("php/rest.php", { param : product, op : "searchproduct" },function(response){
         product_info = JSON.parse(response);
         if(product_info.length <= 0) {
             $('#eID').toggleClass('is-invalid', true);
@@ -143,7 +143,7 @@ function load_tab(target){
     }
     new Promise((resolve, reject)=>{
         $.get(
-            "php/formUtility.php",
+            "php/rest.php",
             { param : table, op : "latest_prod"},
             function(response){
                 try{
