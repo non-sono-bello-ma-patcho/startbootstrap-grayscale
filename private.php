@@ -142,27 +142,6 @@
                                 <div class="card-deck justify-content-between" id="new-prod-container">
 
                                 </div>
-
-                               <!-- MOTORE DI RICERCA, CORRETTO  -->
-
-                                <!--  MOTORE DI RICERCA
-
-                                        <label class="text-muted" >Search within our catalogue</label>
-                                        <div class="input-group">
-                                            <input type="text" name="itemsearchID" id="itemsearch" placeholder="Type something..." class="form-control rightcorners" style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;">
-                                        </div>
-                                        <input type="radio" name="orderby" id="order_by_min_price" value="lowest price" > lowest price <br>
-                                        <input type="radio" name="orderby" id="order_by_max_price" value="hightest price" >hightest price <br>
-                                        <input type="radio" name="orderby" id="order_by_relevance" value="relevance" > relevance <br>
-                                        <input type = "submit" onclick="load_search_result()">
-                                    </div>
-                                </div>
-                                <div id="item-search-results"></div> dove verranno stampati i risulatti della ricerca
-                                -->
-
-
-
-<!--                                </div>-->
                             </div>
                             <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart">
                                 <h3 class="mt-3 text-muted">Your Cart</h3>
@@ -215,6 +194,7 @@
             Copyright &copy; Herschel 2018
         </div>
     </footer>
+
 <!-- Bootstrap core JavaScript -->
 <script src="js/popper.min.js"></script>
 <script src="vendor/jquery/jquery.min.js"></script>

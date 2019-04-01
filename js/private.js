@@ -119,11 +119,14 @@ function toggleSpinner(){
 
 function load_search_result(){
     var value = document.getElementById("itemsearch").value;
+    var min_price = document.getElementById("price-min").value;
+    var max_price = document.getElementById("price-max").value;
+
     var order;
     if(document.getElementById("order_by_min_price").checked)
-        order = "price_min";
+        order = "lowest";
     else if(document.getElementById("order_by_max_price").checked)
-        order = "price_max";
+        order = "hightest";
     else if(document.getElementById("order_by_relevance").checked)
         order = "relevance";
     else order = false;
@@ -135,7 +138,9 @@ function load_search_result(){
             type:'POST',
             dataType: 'text',
             data: {value: value,
-                order: order
+                order: order,
+                min: min_price,
+                max: max_price
             },
             success: function(data){
                 $("#item-search-results").html(data);
