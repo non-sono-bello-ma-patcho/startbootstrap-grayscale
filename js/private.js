@@ -1,9 +1,13 @@
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
-
 });
 
-$(load_tab('#new-prod'));
+// $(load_tab('#new-prod'));
+
+$(document).ready(()=>{
+    let to_load = $(".tab-pane.active").attr('id');
+    load_tab("#"+to_load);
+});
 
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
     var target = $(e.target).attr("href") // activated tab
@@ -23,9 +27,7 @@ $("#resultlist").on("change", function(){
 
 // load user informations on success
 function doLogout() {
-    console.log("Trying to destroy session...");
     window.location.href = 'php/logout.php';
-    console.log("destroyed");
 }
 
 // TODO: refactor using components
@@ -105,11 +107,6 @@ function load_product(){
     });
 }
 
-
-function toggleSpinner(){
-
-}
-
 function load_search_result(){
     var value = document.getElementById("itemsearch").value;
     $.ajax(
@@ -141,27 +138,31 @@ function load_tab(target){
             { param : table, op : "latest_prod"},
             function(response){
                 try{
-                    if(response !=="")
+                    if(response !=="[]")
                         resolve(JSON.parse(response));
+                    else
+                        resolve(table);
                 } catch (e) {
                     reject(new Error(target));
                 }
             }
         );
     }).then((fulfilled) => {
-        let promises = [];
-        $(target + "-container").hide();
-        console.log("hiding container, begin to iterate");
-        for (var i in fulfilled) {
-            promises.push(addCard(fulfilled[i], $(target + "-container")));
+        if(Array.isArray(fulfilled)){
+            let promises = [];
+            $(target + "-container").hide();
+            for (var i in fulfilled) {
+                promises.push(addCard(fulfilled[i], $(target + "-container")));
+            }
+            Promise.all(promises).then(() => {
+                $(target+"-container").fadeIn('slow');
+            });
         }
-        console.log("done");
-        Promise.all(promises).then(() => {
-            $(target+"-container").fadeIn('slow');
-        });
+        else {
+            $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>Your ${fulfilled} is empty</p>`);
+        }
     }).catch((error) => {
-        console.log(error);
-        $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>Your ${error} is empty</p>`);
+        $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>An error occured loading ${error.message.slice(1)}</p>`);
     }).finally(() => {
         // remove spinner
         $(target+"-spinner").toggleClass('d-none', true).toggleClass('d-flex', false);
