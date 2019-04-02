@@ -21,6 +21,11 @@ html * {
 .custom-card {
     overflow: hidden;
     max-height: 400px;
+    -webkit-transition: all .5s;
+    -moz-transition:  margin-left .5s ease;
+    -ms-transition: all .5s;
+    -o-transition: all .5s;
+    transition: margin-left .5s ease;
 }
 
 .custom-card > img {

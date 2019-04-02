@@ -1,31 +1,7 @@
-var username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1];
-
+var username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1]; // fa schifo sto coso...
 var cart;
 
-new Promise((resolve, reject)=>{
-    $.get(
-        "php/rest.php",
-        {
-            param : 'cart',
-            op : 'latest_prod'
-        },
-        (response) => {
-            console.log('initializing cart with: '+response);
-            try{
-                cart = JSON.parse(response);
-                resolve(cart);
-                console.log(cart);
-            } catch (e) {
-                reject(new Error('lol'));
-            }
-
-        }
-    );
-}).then((fulfilled)=>{
-    createCookie('cart', JSON.stringify(fulfilled), 1);
-    console.log(document.cookie);
-});
-
+initCart();
 
 function addCard(product_id, target){
     let productInfo;
@@ -35,6 +11,8 @@ function addCard(product_id, target){
             { param : product_id, op : "searchproduct"},
             (response) => {
                 try {
+                    let tab = target.attr('id').replace('-container', '');
+                    response = response.substring(0, response.length-1).concat(`, "tab" : "${tab}"}`);
                     productInfo = JSON.parse(response);
                     resolve(productInfo);
                 }
@@ -56,30 +34,64 @@ function addCard(product_id, target){
     });
 }
 
+$(document).on('click', '.manage-new-prod', function(e){
+    let btn = $(this);
+    let id = btn.data('id');
+    let cmd = btn.data('cmd')+'_cart';
+
+
+
+    $.post(
+        'php/rest.php',
+        {
+            // param : cmd ,
+            id : id,
+            username : username,
+            op : cmd
+        },
+        (response, status) => {
+            if(cmd === "add_cart") cart.push(id);
+            else cart.splice(cart.indexOf(id), 1);
+            console.log("status: "+status); //TODO manage addition and deletion
+
+        }
+    ).done(()=>{
+        updateCart();
+        updateTotal();
+        //alter behaviour
+        btn.data('cmd', btn.data('cmd') === 'add' ? "remove" : 'add');
+        btn.children('span').toggleClass('far').toggleClass('fas');
+    });
+});
+
 $(document).on('click', '.manage-cart', function(e){
     let btn = $(this);
     let id = btn.data('id');
     let cmd = btn.data('cmd')+'_cart';
 
     //alter behaviour
-    console.log("setting data to remove");
-    btn.data('cmd', "remove");
-    console.log(btn.data('cmd'));
-    btn.children('span').toggleClass('far').toggleClass('fas');
 
     $.post(
         'php/rest.php',
         {
-            param : cmd ,
             id : id,
             username : username,
             op : cmd
         },
         (response, status) => {
-            console.log("status: "+status);
+            if(cmd === "add_cart") cart.push(id);
+            else cart.splice(cart.indexOf(id), 1);
+            console.log("status: "+status); //TODO manage addition and deletion
+
         }
-    );
+    ).done(()=>{
+        updateCart();
+        updateTotal();
+        let card = $(this).closest('.card');
+        card.fadeOut('slow').remove();
+    });
 });
+
 
 var createCookie = function(name, value, days) {
     var expires;
@@ -107,4 +119,45 @@ function getCookie(c_name) {
         }
     }
     return "";
+}
+
+function updateTotal() {
+    $.get(
+        "php/rest.php",
+        { username : username, op : "get_total"},
+        (response) => {
+            console.log(JSON.parse(response));
+            let price = JSON.parse(response);
+            $('#total-cart').html("$"+(price===null? '0' : price)).animate($('#total-cart').width(), 'slow');
+        }
+    );
+}
+
+var updateCart = () => createCookie('cart', JSON.stringify(cart), false);
+
+
+function initCart(){
+    new Promise((resolve, reject)=>{
+        $.get(
+            "php/rest.php",
+            {
+                param : 'cart',
+                op : 'latest_prod'
+            },
+            (response) => {
+                console.log('initializing cart with: '+response);
+                try{
+                    cart = JSON.parse(response);
+                    resolve(cart);
+                    console.log(cart);
+                } catch (e) {
+                    reject(new Error('lol'));
+                }
+
+            }
+        );
+    }).then((fulfilled)=>{
+        createCookie('cart', JSON.stringify(fulfilled), 1);
+        console.log(document.cookie);
+    });
 }

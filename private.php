@@ -138,7 +138,7 @@
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-deck justify-content-between" id="new-prod-container">
+                                <div class="card-columns" id="new-prod-container">
 
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-deck justify-content-between" id="cart-container">
+                                <div class="card-columns" id="cart-container">
 
                                 </div>
                             </div>
@@ -160,7 +160,7 @@
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-deck justify-content-between" id="trips-container"></div>
+                                <div class="card-group" id="trips-container"></div>
                             </div>
                             <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist">
                                 <h3 class="text-muted mt-3">Your Wishlist</h3>
@@ -183,7 +183,7 @@
                     <div class="row text-right align-baseline mb-0">
                         <div class="col-md-8"></div>
                         <div class="col-md-4">
-                            <span class="text-muted font-weight-bold far fa-shopping-cart">Total: <span class="text-black-50 font-weight-normal">0.00$</span></span>
+                            <span class="text-muted font-weight-bold far fa-shopping-cart">Total <span class="text-black-50 font-weight-normal" id="total-cart"></span></span>
                         </div>
                     </div>
                 </div>

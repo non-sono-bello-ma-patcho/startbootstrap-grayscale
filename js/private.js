@@ -7,6 +7,7 @@ $(function () {
 $(document).ready(()=>{
     let to_load = $(".tab-pane.active").attr('id');
     load_tab("#"+to_load);
+    updateTotal();
 });
 
 $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
