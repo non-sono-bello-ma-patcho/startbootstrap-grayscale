@@ -1,0 +1,32 @@
+{
+  "name": "startsaw-herschel",
+  "version": "1.0.0",
+  "description": "space is your playground",
+  "private": true,
+  "scripts": {
+    "test": "npx webpack --config webpack.config.js",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/non-sono-bello-ma-patcho/startsaw-herschel.git"
+  },
+  "author": "phibonachos, pagefaulthandler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/non-sono-bello-ma-patcho/startsaw-herschel/issues"
+  },
+  "homepage": "https://github.com/non-sono-bello-ma-patcho/startsaw-herschel#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1",
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "node-sass": "^4.11.0",
+    "popper.js": "^1.15.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}

@@ -22,6 +22,10 @@
     <link rel="stylesheet" href="css/grayscale.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="vendor/fontawesome-free/css/all.css">
+
+    <!-- Bootstrap core JavaScript -->
+<!--    <script src="js/common.js"></script>-->
+    <script src="js/private.js"></script>
 </head>
 <body style="background: black">
 <!-- LogOut Modal -->
@@ -38,7 +42,10 @@
                 <div class="row">
                     <p class="col-md-12">Log out from Herschel?</p>
                     <div class="col-md-6">
-                        <button class="btn custom-btn" id="logoutbtn" onclick="doLogout()">log out</button>
+<!--                        <button class="btn custom-btn" id="logoutbtn" onclick="doLogout()">log out</button>-->
+                        <form action="php/logout.php">
+                            <input type="submit" value="log out" class="btn custom-btn">
+                        </form>
                     </div>
                     <div class="col-md-6">
                         <button class="btn custom-btn" data-dismiss="modal">close</button>
@@ -195,12 +202,5 @@
             Copyright &copy; Herschel 2018
         </div>
     </footer>
-
-<!-- Bootstrap core JavaScript -->
-
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="js/common.js"></script>
-<script src="js/private.js"></script>
 </body>
 </html>
