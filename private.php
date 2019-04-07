@@ -195,6 +195,7 @@
             Copyright &copy; Herschel 2018
         </div>
     </footer>
+
 <!-- Bootstrap core JavaScript -->
 
 <script src="vendor/jquery/jquery.min.js"></script>
