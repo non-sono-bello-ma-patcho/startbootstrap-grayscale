@@ -1,22 +1,20 @@
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
-
 });
 
-// loads products on overview
-/*$.get(
-    "php/rest.php",
-    { param : "products", op : "latest_prod"},
-    function(response){
-        let products = JSON.parse(response);
-        for (var i in products){
-            console.log(products[i]);
-            addCard(products[i], $('#new-prod-container'));
-        }
-    }
-);*/
+// $(load_tab('#new-prod'));
 
-$(load_tab('#new-prod'));
+$(document).ready(()=>{
+    let to_load = $(".tab-pane.active").attr('id');
+    load_tab("#"+to_load);
+    updateTotal();
+});
+
+$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+    var target = $(e.target).attr("href") // activated tab
+    flush_tab(target);
+    load_tab(target);
+});
 
 // activate button on radio check
 $("#resultlist").on("change", function(){
@@ -30,9 +28,7 @@ $("#resultlist").on("change", function(){
 
 // load user informations on success
 function doLogout() {
-    console.log("Trying to destroy session...");
     window.location.href = 'php/logout.php';
-    console.log("destroyed");
 }
 
 // TODO: refactor using components
@@ -112,19 +108,31 @@ function load_product(){
     });
 }
 
-
-function toggleSpinner(){
-
-}
-
 function load_search_result(){
     var value = document.getElementById("itemsearch").value;
+    var min_price = document.getElementById("price-min").value;
+    var max_price = document.getElementById("price-max").value;
+
+    var order;
+    if(document.getElementById("order_by_min_price").checked)
+        order = "lowest";
+    else if(document.getElementById("order_by_max_price").checked)
+        order = "hightest";
+    else if(document.getElementById("order_by_relevance").checked)
+        order = "relevance";
+    else order = false;
+
+
     $.ajax(
         {
             url: 'php/itemSearch.php',
             type:'POST',
             dataType: 'text',
-            data: {value: value},
+            data: {value: value,
+                order: order,
+                min: min_price,
+                max: max_price
+            },
             success: function(data){
                 $("#item-search-results").html(data);
             }
@@ -138,7 +146,8 @@ function load_tab(target){
         case '#new-prod':
             table = 'products';
             break;
-        case '#cart-container':
+        case '#cart':
+            table = 'cart';
             break;
     }
     new Promise((resolve, reject)=>{
@@ -147,29 +156,38 @@ function load_tab(target){
             { param : table, op : "latest_prod"},
             function(response){
                 try{
-                    resolve(JSON.parse(response));
+                    if(response !=="[]")
+                        resolve(JSON.parse(response));
+                    else
+                        resolve(table);
                 } catch (e) {
-                    reject(new Error("couldn't fetch product codes from table"));
+                    reject(new Error(target));
                 }
             }
         );
     }).then((fulfilled) => {
-        let promises = [];
-        $(target + "-container").hide();
-        console.log("hiding container, begin to iterate");
-        for (var i in fulfilled) {
-            promises.push(addCard(fulfilled[i], $(target + "-container")));
+        if(Array.isArray(fulfilled)){
+            let promises = [];
+            $(target + "-container").hide();
+            for (var i in fulfilled) {
+                promises.push(addCard(fulfilled[i], $(target + "-container")));
+            }
+            Promise.all(promises).then(() => {
+                $(target+"-container").fadeIn('slow');
+            });
         }
-        console.log("done");
-        Promise.all(promises).then(() => {
-            $("#new-prod-spinner").toggleClass('d-none', true).toggleClass('d-flex', false);
-            $("#new-prod-container").fadeIn('slow');
-        });
+        else {
+            $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>Your ${fulfilled} is empty</p>`);
+        }
     }).catch((error) => {
-        $(target+"-container").append("<p class='text-muted m-auto' style='height: 160px'>An error occured on loading products...</p>");
+        $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>An error occured loading ${error.message.slice(1)}</p>`);
     }).finally(() => {
         // remove spinner
-
+        $(target+"-spinner").toggleClass('d-none', true).toggleClass('d-flex', false);
     });
 
+}
+
+function flush_tab(target){
+    $(target+"-container").empty();
 }

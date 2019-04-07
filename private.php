@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="vendor/fontawesome-free/css/all.css">
 </head>
-<body>
+<body style="background: black">
 <!-- LogOut Modal -->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="loginmodalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -53,7 +53,6 @@
 </div>
 
 <!-- Main content -->
-<div class="main-bg private-bg" style="height: calc(100vh - 20px);">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
         <div class="container">
@@ -81,9 +80,9 @@
         </div>
     </nav>
     <!-- User Profile Section -->
-        <div id="usercontent" class="mt-5">
-            <div class="container pt-1 pb-5 card" style="background: white;">
-                <div class="container-lg px-3 mt-4">
+        <div id="usercontent" class="mt-5" style="">
+            <div class="container mb-5 pt-1 px-0 card">
+                <div class="container-lg px-3 card-body" style="background: white;">
                     <div id="userinfoColumn" class="col-sm-5 col-md-4 col-lg-3  float-left">
                         <div class="card-deck">
                             <div class="card mx-auto">
@@ -113,7 +112,7 @@
                     <div id="tabColumn" class="col-sm-7 col-md-8 col-lg-9 float-left">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a href="#newproduct" class="nav-link active text-muted" id="overview-tab" data-toggle="tab" role="tab" aria-controls="overview">New Products</a>
+                                <a href="#new-prod" class="nav-link active text-muted" id="overview-tab" data-toggle="tab" role="tab" aria-controls="overview">New Products</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#cart" class="nav-link text-muted" id="cart-tab" data-toggle="tab" role="tab" aria-controls="cart">Cart <span class="badge badge-light"><?php //echo sizeof(getUserCart($_SESSION['id']));?></span></a>
@@ -132,18 +131,16 @@
                             </li>
                         </ul>
                         <div class="tab-content" id="usercontent">
-                            <div class="tab-pane fade show active" id="newproduct" role="tabpanel" aria-labelledby="overview">
-<!--                                <div class="container">-->
+                            <div class="tab-pane fade show active" id="new-prod" role="tabpanel" aria-labelledby="overview">
                                 <h3 class="mt-3 text-muted">Freshly baked</h3>
                                 <div id="new-prod-spinner" class="d-flex justify-content-center" style="height: 160px;">
                                     <div class="my-auto spinner-border text-primary align-middle" role="status">
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-deck justify-content-between" id="new-prod-container">
+                                <div class="card-columns" id="new-prod-container">
 
                                 </div>
-<!--                                </div>-->
                             </div>
                             <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart">
                                 <h3 class="mt-3 text-muted">Your Cart</h3>
@@ -152,7 +149,7 @@
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-deck justify-content-between" id="cart-container">
+                                <div class="card-columns" id="cart-container">
 
                                 </div>
                             </div>
@@ -163,7 +160,7 @@
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-deck justify-content-between" id="trips-container"></div>
+                                <div class="card-group" id="trips-container"></div>
                             </div>
                             <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist">
                                 <h3 class="text-muted mt-3">Your Wishlist</h3>
@@ -179,28 +176,31 @@
                             <?php if(isAdmin($_SESSION['id'])) require_once './components/admin_panel.php'?>
                             <!-- end of area to remove -->
                         </div>
-                        <div class="row text-right align-baseline mb-0">
-                            <div class="col-md-8"></div>
-                            <div class="col-md-4">
-                                <span class="text-muted font-weight-bold far fa-shopping-cart">Total: <span class="text-black-50 font-weight-normal">0.00$</span></span>
-                            </div>
+
+                    </div>
+                </div>
+                <div class="card-footer py-3 bg-white">
+                    <div class="row text-right align-baseline mb-0">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-4">
+                            <span class="text-muted font-weight-bold far fa-shopping-cart">Total <span class="text-black-50 font-weight-normal" id="total-cart"></span></span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     <!-- Footer -->
     <footer class="bg-black small text-center text-white-50" style="height: 20px;">
         <div class="container">
             Copyright &copy; Herschel 2018
         </div>
     </footer>
+
 <!-- Bootstrap core JavaScript -->
 
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="js/private.js"></script>
 <script src="js/common.js"></script>
+<script src="js/private.js"></script>
 </body>
 </html>
