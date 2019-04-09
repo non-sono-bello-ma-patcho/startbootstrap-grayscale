@@ -3,16 +3,31 @@ export let cart;
 
 initCart();
 
-export function addCard(product_id, target){
-    let productInfo;
+export function addCard(product_id, target, type='product'){
+    console.log('tryng to load card to '+target);
+    let productInfo, op, component;
+    switch(type){
+        case 'product':
+            op = 'searchproduct';
+            component = 'private_card';
+            break;
+        case 'user':
+            op = 'searchuser';
+            component = 'user_card';
+            break;
+    }
+    console.log('calling rest with params: '+op+", "+component);
     return new Promise((resolve, reject)=>{
         $.get(
             "php/rest.php",
-            { param : product_id, op : "searchproduct"},
+            { param : product_id, op : op},
             (response) => {
                 try {
-                    let tab = target.attr('id').replace('-container', '');
-                    response = response.substring(0, response.length-1).concat(`, "tab" : "${tab}"}`);
+                    if(type === 'product'){
+                        console.log('appending tab elem to json');
+                        let tab = target.attr('id').replace('-container', '');
+                        response = response.substring(0, response.length-1).concat(`, "tab" : "${tab}"}`);
+                    }
                     productInfo = JSON.parse(response);
                     resolve(productInfo);
                 }
@@ -22,8 +37,9 @@ export function addCard(product_id, target){
             }
         );
     }).then((fullfilled) => { // in fullfilled c'è la robaccia che ho settato prima;
+        console.log('retrieving component: '+component);
         $.get(
-            "components/private_card.php",
+            `components/${component}.php`,
             fullfilled,
             (response) => {
                 target.append(response);
@@ -101,3 +117,4 @@ function initCart(){
         console.log(document.cookie);
     });
 }
+

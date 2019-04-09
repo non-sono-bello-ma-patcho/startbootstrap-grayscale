@@ -13,3 +13,8 @@ $gray-900: #212529 !default;
 $black: #161616 !default;
 
 $primary: #3d348b !default;
+$image-folder : '../../img';
+
+@function get-path-to-image($image-folder){
+  @return $image-folder;
+}

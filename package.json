@@ -4,7 +4,7 @@
   "description": "space is your playground",
   "private": true,
   "scripts": {
-    "test": "npx webpack --config webpack.config.js",
+    "test": "webpack --config webpack.config.js",
     "build": "webpack"
   },
   "repository": {
@@ -23,9 +23,16 @@
     "lodash": "^4.17.11"
   },
   "devDependencies": {
+    "autoprefixer": "^9.5.1",
+    "clean-webpack-plugin": "^2.0.1",
+    "css-loader": "^2.1.1",
+    "file-loader": "^3.0.1",
+    "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "popper.js": "^1.15.0",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   }
