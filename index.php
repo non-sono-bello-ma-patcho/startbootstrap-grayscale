@@ -57,11 +57,6 @@
                     <a class="nav-link js-scroll-trigger" href="#signup">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <?php /*if(isset($_SESSION['bad_input'])){
-                        echo "<div style='top:0%; text-align:center; font-size:12px;  height:1%;'><label style=\"color:red;\">"
-                            .$_SESSION['bad_input']."</label></div>";
-                        session_destroy();
-                        }*/?>
                     <a class="btn btn-nav custom-btn" href="" data-toggle="modal" data-target="#loginModal">Log In</a>
                 </li>
             </ul>
