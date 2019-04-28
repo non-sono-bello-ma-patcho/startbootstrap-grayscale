@@ -1,3 +1,6 @@
+/* CSS */
+import '../scss/_temp-private.scss';
+
 /* JS */
 import 'bootstrap/js/dist/tooltip';
 import 'bootstrap/js/dist/tab';
@@ -9,6 +12,7 @@ import {addCard, updateCart, updateTotal, username, cart} from "./common";
 // activate tooltip
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
+    $('#searchbtn').click(()=>load_likable_users());
 });
 
 // load active tab and update total
@@ -89,20 +93,43 @@ $("#resultlist").on("change", function(){
 });
 
 // TODO: refactor using components
-function searchUserbyUsername(){
+function load_likable_users(){
     $('#resultlist').empty();
-    username = $('#newusername').val();
-    // return a list? of user with name similar to given
-    $.get("php/rest.php", { param : username, op : "searchuser" },function(response){
+    let username = $('#newusername').val();
+    console.log('calling promise:');
+    new Promise((resolve, reject)=>{
+        // in questa puntata di Andreo e le pormise carichiamo delle carte contenenti un profilo da aggiungere come admin
+        // eseguo una chiamata get per ottenere la lista dei papabili
+        console.log('calling rest: guessuser');
+        $.get("php/rest.php", { param : username, op : "guessuser" })
+            .done((response)=>JSON.parse(response).length>0?resolve(JSON.parse(response)):reject())
+            .fail(()=>reject());
+    }).then((users)=>{
+        // a questo punto carico gli utenti
+        console.log('successfull: adding cards!');
+            $('#newusername').toggleClass('is-invalid', false);
+        for(let i = 0; i<users.length; i++){
+            addCard(users[i], $('#resultlist'), 'user');
+        }
+        $('#resultlist').toggleClass('d-none', false).toggleClass("custom-hidden", false);
+    },
+        ()=>{
+            console.log('failed: show error message');
+            // a questo punto dico che non ci sono utenti papabili con quel nome
+            $('#resultlist').toggleClass('d-none', true).toggleClass("custom-hidden", true);
+            $('#newusername').toggleClass('is-invalid', true);
+        });
+    // return a list of user with name similar to given
+    /*$.get("php/rest.php", { param : username, op : "searchuser" },function(response){
         let userinfo = JSON.parse(response);
         console.log("got filter: "+username);
         if(userinfo.length <= 0){
-            $('#resultlist').toggleClass('d-none', true).toggleClass("custom-hidden", true);
-            $('#newusername').toggleClass('is-invalid', true);
+
         }
         else {
-            $('#newusername').toggleClass('is-invalid', false);
-            let items = userinfo.length;
+
+            // a questo punto aggiungo tutte le card caricate...
+            /!*let items = userinfo.length;
             let offset = 0;
             let maxoffset = Math.floor(items/3)*3;
             let decks = Math.ceil(items/3);
@@ -137,10 +164,9 @@ function searchUserbyUsername(){
                 }
                 offset += 3;
                 $('#resultlist').append(deck);
-            }
-            $('#resultlist').toggleClass('d-none', false).toggleClass("custom-hidden", false);
+            }*!/
         }
-    });
+    });*/
 }
 
 function load_product(){
@@ -178,7 +204,6 @@ function load_search_result(){
     else if(document.getElementById("order_by_relevance").checked)
         order = "relevance";
     else order = false;
-
 
     $.ajax(
         {

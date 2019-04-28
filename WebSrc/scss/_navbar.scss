@@ -50,8 +50,20 @@
         color: white;
       }
     }
+    .a-logo {
+      background: url("../img/logo_magenta_green_css.png") no-repeat;
+      background-size: cover;
+      height: calc(44px*0.8);
+      width: calc(127px*0.8);
+    }
     &.navbar-shrink {
       background-color: $white;
+      .a-logo {
+        background: url("../img/logo_purple_char_css.png") no-repeat;
+        background-size: cover;
+        height: calc(44px*0.6);
+        width: calc(127px*0.6);
+      }
       .navbar-brand {
         color: $black;
       }
@@ -73,4 +85,8 @@
       }
     }
   }
+}
+
+#mainNav.navbar-shrink , #mainNav .a-logo {
+
 }

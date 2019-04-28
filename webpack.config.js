@@ -2,22 +2,47 @@ const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MakeDirWebpackPlugin = require('make-dir-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     context: path.resolve(__dirname, 'WebSrc'),
     entry : {
         common : './js/common.js',
-        private : './js/private.js',
-        test : './js/test.js'
+        grayscale : './js/grayscale.js',
+        // private : './js/private.js',
+        // test : './js/test.js',
+        // fontawesomecustom : './js/fontawesomecustom.js'
   },
     output: {
-        path: path.resolve(__dirname, 'js'),
-        filename: "[name].js"
+        path: path.resolve(__dirname, 'dist'),
+        filename: "js/[name].js"
     },
     mode: "development",
     module: {
         rules: [
+            {
+                test: /\.js$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        cacheDirectory: true,
+                        presets: [["@babel/preset-env", {modules: false}]],
+                        plugins: ["@babel/plugin-syntax-dynamic-import"],
+                    }
+                }
+            },
         // compilazione dei scss, immagini e font:
+            {
+                test: /_component\.(html)$/,
+                use: {
+                    loader: 'php-loader',
+                    options: {
+                        attrs: [':data-src']
+                    }
+                }
+            },
         {
             test: /\.scss$/,
             use: [
@@ -26,7 +51,7 @@ module.exports = {
                     loader: 'css-loader',
                     options: {
                         importLoaders: 2,
-                        sourceMap: true
+                        sourceMap: false
                     }
                 },
                 {
@@ -35,9 +60,12 @@ module.exports = {
                         plugins: () => [
                             require('autoprefixer')(),
                         ],
-                        sourceMap: true
+                        sourceMap: false
                     }
                 },
+                /*{
+                    loader: "resolve-url-loader"
+                },*/
                 {
                     loader: 'sass-loader',
                     options: {
@@ -47,14 +75,36 @@ module.exports = {
             ]
         },
         {
-            test: /\.(png|jpg|gif)$/,
-            use: {
-                loader: 'file-loader',
-                options: {
-                    name: '../test-img/[name].[ext]'
+            // immagini utilizzate nei css
+            test: /_css\.(png|jpg|gif)$/,
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name : '[name].[ext]',
+                        outputPath : 'img',
+                        publicPath : '../img',
+                        // context : 'dist',
+                        useRelativePath : true
+                    }
                 }
-            }
+            ]
         },
+            // immagini utilizzate in index
+            {
+                test: /_index\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath : 'img',
+                            publicPath : 'img',
+                            useRelativePath : true
+                        }
+                    }
+                ]
+            },
             {
                 test: /\.svg$/,
                 loader: 'svg-inline-loader'
@@ -72,10 +122,18 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            title: "Herschel | Planet is your playground",
+            filename : "index.php",
+            template: "assets/index.php",
+            chunks:  ['common', 'grayscale'],
+            inject: 'body'
+        }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
             'window.jQuery': 'jquery',
+            'window.$': 'jquery',
             Popper: ['popper.js', 'default'],
             // In case you imported plugins individually, you must also require them here:
             Alert: "exports-loader?Alert!bootstrap/js/dist/alert",
@@ -91,7 +149,7 @@ module.exports = {
             // common: "common"
         }),
         new MiniCssExtractPlugin({
-            filename : '../css/[name].css'
+            filename : 'css/[name].css'
         })
     ],
     stats : true

@@ -18,14 +18,14 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/private.css">
-    <link rel="stylesheet" href="css/grayscale.css">
-    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="../css/private.css">
+    <link rel="stylesheet" href="../css/grayscale.css">
+    <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="vendor/fontawesome-free/css/all.css">
 
     <!-- Bootstrap core JavaScript -->
 <!--    <script src="js/common.js"></script>-->
-    <script src="js/private.js"></script>
+    <script src="../js/private.js"></script>
 </head>
 <body style="background: black">
 <!-- LogOut Modal -->
@@ -43,7 +43,7 @@
                     <p class="col-md-12">Log out from Herschel?</p>
                     <div class="col-md-6">
 <!--                        <button class="btn custom-btn" id="logoutbtn" onclick="doLogout()">log out</button>-->
-                        <form action="php/logout.php">
+                        <form action="../../../php/logout.php">
                             <input type="submit" value="log out" class="btn custom-btn">
                         </form>
                     </div>
@@ -180,7 +180,7 @@
                                 <div class="card-deck justify-content-between" id="wishlist-container"></div>
                             </div>
                             <!-- To remove if not admin -->
-                            <?php if(isAdmin($_SESSION['id'])) require_once './components/admin_panel.php'?>
+                            <?php if(isAdmin($_SESSION['id'])) require_once './components/admin_panel.php' ?>
                             <!-- end of area to remove -->
                         </div>
 

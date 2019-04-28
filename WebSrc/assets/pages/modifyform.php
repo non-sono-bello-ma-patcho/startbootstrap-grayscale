@@ -11,14 +11,14 @@ require 'php/userUtility.php';
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/modify.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/grayscale.css">
+    <link rel="stylesheet" href="../css/modify.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/grayscale.css">
 </head>
 <body class="">
 <div class="main-bg modify-bg" style="height: calc(100vh - 20px);">
     <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="img/logo_magenta_green.png" alt="">
+        <img class="d-block mx-auto mb-4" src="../../img/logo_magenta_green_css.png" alt="">
         <h2 class="text-white">Modify Profile Informations</h2>
         <p class="lead text-white">Make sure to set all the fields you want to change</p>
         <div class="container mx-auto">

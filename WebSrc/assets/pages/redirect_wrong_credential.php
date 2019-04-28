@@ -1,5 +1,5 @@
 <?php   session_start();
-        require_once'php/userUtility.php';
+        require_once 'php/userUtility.php';
         $username = !isset($_COOKIE['attempteduser'])? 'pininfarina' : $_COOKIE['attempteduser'];
 
 ?>
@@ -13,14 +13,14 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/redirect.css">
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/grayscale.css">
+    <link rel="stylesheet" href="../css/redirect.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/grayscale.css">
 </head>
 <body style="background: #171544">
     <div class="main-bg mismatched-bg">
         <div class="py-5 text-center">
-            <img class="d-block mx-auto mb-4" src="img/logo_magenta_green.png" alt="">
+            <img class="d-block mx-auto mb-4" src="../../img/logo_magenta_green_css.png" alt="">
             <h2 class="text-white">Wrong Credential</h2>
             <p id="infoBanner" class="lead text-white">You are trying to access as <span class="font-weight-bold"><?php echo getUserName($_COOKIE['attempteduser'])." ".getUserSurname($_COOKIE['attempteduser']); ?></span></p>
             <div class="container mx-auto col-md-3 py-5">

@@ -1,4 +1,17 @@
-export let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1]; // fa schifo sto coso...
+import 'bootstrap/js/dist/button';
+import 'bootstrap/js/dist/dropdown';
+import 'bootstrap/js/dist/alert';
+import 'bootstrap/js/dist/toast';
+import 'bootstrap/js/dist/modal';
+import 'bootstrap/js/dist/popover';
+import 'bootstrap/js/dist/tooltip';
+import 'bootstrap/js/dist/scrollspy';
+import './fontawesomecustom';
+
+import '../scss/common.scss';
+
+
+// export let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1] | 'none'; // fa schifo sto coso...
 export let cart;
 
 initCart();
@@ -24,7 +37,6 @@ export function addCard(product_id, target, type='product'){
             (response) => {
                 try {
                     if(type === 'product'){
-                        console.log('appending tab elem to json');
                         let tab = target.attr('id').replace('-container', '');
                         response = response.substring(0, response.length-1).concat(`, "tab" : "${tab}"}`);
                     }
@@ -42,7 +54,12 @@ export function addCard(product_id, target, type='product'){
             `components/${component}.php`,
             fullfilled,
             (response) => {
-                target.append(response);
+                let card = $(response);
+                // add event handlers
+                /*card.find('.selection').on('change', function () {
+                    $(this).toggleClass('callout-cyan', $(this).prop('checked')).toggleClass('callout-gray', !$(this).prop('checked'));
+                });*/
+                target.append(card);
             }
         );
     }).catch(function (error) {

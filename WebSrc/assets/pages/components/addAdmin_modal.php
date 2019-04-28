@@ -14,21 +14,18 @@ echo '
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <label class="text-muted" for="newusername">Search by username</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" name="userID" id="newusername" placeholder="Type a username..." class="form-control rightcorners" style="border-top-right-radius: 0 !important; border-bottom-right-radius: 0 !important;">
-                                                                    <div class="input-group-append">
-                                                                        <a onclick="searchUserbyUsername()">
-                                                                            <span class="input-group-text fas fa-search py-auto my-auto" style="top: 0!important; border-top-left-radius: 0; border-bottom-left-radius: 0;"></span>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="invalid-feedback" id="adminufb">No user found</div>
+                                                                <div class="input-group mb-3">
+                                                                  <input type="text" class="form-control" placeholder="username" name="newusername" id="newusername">
+                                                                  <div class="input-group-append">
+                                                                    <button id="searchbtn" class="btn btn-primary py-0" type="button"><span class="fas fa-search"></span></button>
+                                                                  </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     <form action="php/addAdmin.php" name="addadminform" method = "post" id="addPrivileges" >
                                                         <input type="hidden" name="addadminform">
                                                         <hr>
-                                                        <div id="resultlist" class="custom-hidden d-none">
+                                                        <div id="resultlist" class="custom-hidden d-none" style="max-height: 356px; overflow-y: auto; overflow-x: hidden">
                                                         </div>
                                                     </form>
                                                 </div>

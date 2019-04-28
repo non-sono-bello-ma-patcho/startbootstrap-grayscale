@@ -1,0 +1,89 @@
+@import "~bootstrap/scss/functions";
+@import "variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap-grid";
+
+
+html * {
+  font-family: 'Raleway', sans-serif;
+}
+
+.btn-nav {
+  margin-top: 0;
+  margin-left: -16px;
+}
+
+.custom-btn {
+  border: solid 1px #3d348b;
+  color: #3d348b;
+  padding: 0.62rem 1rem;
+  &:hover{
+    color: white !important;
+    border: solid 1px $primary !important;
+    background: $primary;
+  }
+}
+
+
+
+.custom-card {
+  overflow: hidden;
+  max-height: 400px;
+  & > img {
+    transition: all 0.5s ease;
+  }
+  &:hover > img {
+    -webkit-filter: blur(1px);
+    filter: blur(1px);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+  }
+}
+
+
+.lower-section {
+  padding: 10rem 0;
+  background: linear-gradient(to bottom, rgba(22, 22, 22, 0.1) 0%, rgba(22, 22, 22, 0.5) 75%, #161616 100%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+  transition: 0.3s ease-in-out;
+}
+
+.bg-black {
+  background-color: #161616 !important;
+}
+
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+a {
+  outline: 0;
+}
+
+.rightcorners {
+  border-radius: 0.25rem !important;
+}
+
+
+.main-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 35rem;
+  padding: 10rem 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
+
+.custom-userimage {
+  width: 150px !important;
+  height: 150px !important;
+  border-radius: 750px;
+  transition: height 0.5s linear;
+}

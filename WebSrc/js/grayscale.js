@@ -1,8 +1,16 @@
+import 'jquery.easing';
+import 'bootstrap/js/dist/scrollspy';
+import 'bootstrap/js/dist/collapse';
+
+/* SCSS */
+import '../scss/grayscale.scss';
+
+
 (function($) {
   "use strict"; // Start of use strict
   // Smooth scrolling using jQuery easing
   $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
       var target = $(this.hash);
       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
       if (target.length) {
@@ -57,7 +65,7 @@ $(document).ready(function (){
         var currentUsername = $(this).val().toLowerCase();
         if(currentUsername!=="")
         $.post("php/rest.php", { username : currentUsername, op : "check" },function(response){
-            data = JSON.parse(response).username;
+            let data = JSON.parse(response).username;
             $('#suUsername').toggleClass("is-invalid", Boolean(data)).toggleClass("is-valid", !Boolean(data));
             $('#usernamecol').toggleClass("mb-0", Boolean(data)).toggleClass("mb-3", !Boolean(data)); // prevent form from warp
         });
@@ -103,7 +111,7 @@ function checkuser(username) {
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", doc, true);
     xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status === 200) {
             //document.getElementById(target).className = this.responseText;
             if( this.responseText.toString() === 'inputerror')
                 $('#'+target).toggleClass('inputerror', true).toggleClass('inputsuccess', false);

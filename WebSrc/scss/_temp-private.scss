@@ -1,8 +1,11 @@
-@import "~bootstrap/dist/css/bootstrap.css";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap-grid";
 @import "variables";
 
 .private-bg {
-  background: linear-gradient(to bottom, #{fade-out($black, .9)} 0%, #{fade-out($black, .5)} 75%, $black 100%) url('../../img/private.png') no-repeat scroll center;
+  background: linear-gradient(to bottom, #{fade-out($black, .9)} 0%, #{fade-out($black, .5)} 75%, $black 100%) url('../img/private.png') no-repeat scroll center;
 }
 
 .idlink {
@@ -133,4 +136,26 @@
 
 .custom-hidden {
   transition: display 0.3s ease;
+}
+
+.callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 0 solid;
+  border-right-width: 1px;
+  border-left-width: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  &:hover {
+    border-left-color: $teal !important;
+    h4 {
+      color: $teal !important;
+    }
+    transition: all 0.5s ease;
+  }
 }

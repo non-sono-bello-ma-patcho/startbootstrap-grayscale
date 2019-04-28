@@ -13,13 +13,10 @@
     <meta name="description" content="">
     <meta name="author" content="phibonachos and PageFaultHandler">
 
-    <title>Herschel - Space's your playground</title>
+    <title>Herschel | Space's your playground</title>
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -27,8 +24,6 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/grayscale.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/common.css">
 
 </head>
 
@@ -57,12 +52,7 @@
                     <a class="nav-link js-scroll-trigger" href="#signup">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <?php /*if(isset($_SESSION['bad_input'])){
-                        echo "<div style='top:0%; text-align:center; font-size:12px;  height:1%;'><label style=\"color:red;\">"
-                            .$_SESSION['bad_input']."</label></div>";
-                        session_destroy();
-                        }*/?>
-                    <a class="btn btn-nav custom-btn" href="" data-toggle="modal" data-target="#loginModal">Log In</a>
+                    <a class="nav-link" href="" data-toggle="modal" data-target="#loginModal">Log In</a>
                 </li>
             </ul>
         </div>
@@ -96,7 +86,7 @@
             </div>
             <div class="modal-footer">
                 <p class="align-content-between">Don't have an account? <a id="loglink" class="js-scroll-trigger" href="#signup" aria-label="Close">Sign up!</a> or
-                    <a href="WebSrc/assets/pages/private.php">preview user account</a></p>
+                    <a href="pages/private.php">preview user account</a></p>
             </div>
         </div>
     </div>
@@ -137,7 +127,7 @@
         <!-- Featured Project Row -->
         <div class="row align-items-center no-gutters mb-4 mb-lg-5">
             <div class="col-xl-8 col-lg-7">
-                <img class="img-fluid mb-3 mb-lg-0" src="WebSrc/img/project2_index.jpg" alt="">
+                <img class="img-fluid mb-3 mb-lg-0" src="<%=require('../img/project2_index.jpg')%>" alt="">
             </div>
             <div class="col-xl-4 col-lg-5">
                 <div class="featured-text text-center text-lg-left">
@@ -156,7 +146,7 @@
         <!-- Project One Row -->
         <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
             <div class="col-lg-6">
-                <img class="img-fluid" src="WebSrc/img/project1_index.jpg" alt="">
+                <img class="img-fluid" src="<%=require('../img/project1_index.jpg')%>" alt="">
             </div>
             <div class="col-lg-6">
                 <div class="bg-black text-center h-100 project">
@@ -167,7 +157,7 @@
 
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan nec sem et maximus. Donec convallis efficitur pharetra. Nullam iaculis, magna nec aliquet consectetur, eros risus pretium nisi, vitae ultricies quam orci et erat. Vivamus varius diam non ligula rutrum, a maximus lorem convallis. Maecenas faucibus lectus diam, vel porta quam bibendum ac. Sed vulputate sem sapien, id pretium turpis accumsan sit amet. Ut suscipit quis turpis a volutpat. Phasellus pulvinar nunc non placerat molestie. In neque leo, fringilla sit amet nisl blandit, pretium tempus ante. Phasellus quis nisi mauris. Vivamus commodo iaculis posuere. Aliquam bibendum orci nulla, dictum tincidunt erat scelerisque ornare. Nulla ullamcorper lacus vitae orci posuere lobortis. Sed pharetra nunc ut tristique posuere.
 
-                                Nullam a justo cursus, luctus sem at, lobortis ex. Nullam vitae est id odio finibus viverra. Nam leo dolor, aliquam congue augue sed, pulvinar tristique lectus. Cras et imperdiet elit. Pellentesque tristique mi sem. Vivamus pretium, est vitae luctus euismod, ipsum quam dapibus lacus, eu tincidunt arcu metus ut justo. Maecenas pellentesque, eros sagittis volutpat auctor, est elit consequat diam, non molestie ex ante sit amet sem. Vestibulum consequat sem eros. Nunc sit amet lectus at quam pharetra suscipit in a eros. Vivamus at consectetur risus. Nam lorem dolor, luctus sed elit sit amet, condimentum sodales ipsum. </p>
+                                Nullam a justo cursus, luctus sem at, lobortis ex. Nullam vitae est id odio finibus viverra. Nam leo dolor, aliquam congue augue sed, pulvinar tristique lectus. Cras et imperdiet elit. Pellentesque tristique mi sem. </p>
                             <hr class="d-none d-lg-block mb-0 ml-0">
                         </div>
                     </div>
@@ -178,7 +168,7 @@
         <!-- Project Two Row -->
         <div class="row justify-content-center no-gutters">
             <div class="col-lg-6">
-                <img class="img-fluid custom-img" src="WebSrc/img/project4_index.jpg" alt="">
+                <img class="img-fluid custom-img" src="<%=require('../img/project4_index.jpg')%>" alt="">
             </div>
             <div class="col-lg-6 order-lg-first">
                 <div class="bg-black text-center h-100 project">
@@ -189,7 +179,7 @@
 
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan nec sem et maximus. Donec convallis efficitur pharetra. Nullam iaculis, magna nec aliquet consectetur, eros risus pretium nisi, vitae ultricies quam orci et erat. Vivamus varius diam non ligula rutrum, a maximus lorem convallis. Maecenas faucibus lectus diam, vel porta quam bibendum ac. Sed vulputate sem sapien, id pretium turpis accumsan sit amet. Ut suscipit quis turpis a volutpat. Phasellus pulvinar nunc non placerat molestie. In neque leo, fringilla sit amet nisl blandit, pretium tempus ante. Phasellus quis nisi mauris. Vivamus commodo iaculis posuere. Aliquam bibendum orci nulla, dictum tincidunt erat scelerisque ornare. Nulla ullamcorper lacus vitae orci posuere lobortis. Sed pharetra nunc ut tristique posuere.
 
-                                Nullam a justo cursus, luctus sem at, lobortis ex. Nullam vitae est id odio finibus viverra. Nam leo dolor, aliquam congue augue sed, pulvinar tristique lectus. Cras et imperdiet elit. Pellentesque tristique mi sem. Vivamus pretium, est vitae luctus euismod, ipsum quam dapibus lacus, eu tincidunt arcu metus ut justo. Maecenas pellentesque, eros sagittis volutpat auctor, est elit consequat diam, non molestie ex ante sit amet sem. Vestibulum consequat sem eros. Nunc sit amet lectus at quam pharetra suscipit in a eros. Vivamus at consectetur risus. Nam lorem dolor, luctus sed elit sit amet, condimentum sodales ipsum. </p>
+                                Nullam a justo cursus, luctus sem at, lobortis ex. Nullam vitae est id odio finibus viverra. Nam leo dolor, aliquam congue augue sed, pulvinar tristique lectus. Cras et imperdiet elit. Pellentesque tristique mi sem. </p>
                             <hr class="d-none d-lg-block mb-0 mr-0">
                         </div>
                     </div>
@@ -222,7 +212,7 @@
 
             </div>
             <div class="card mb-4 bg-dark text-white custom-card font-weight-bolder border-0">
-                <img class="card-img custom-img" src="WebSrc/img/project1_index.jpg" alt="Card Image">
+                <img class="card-img custom-img" src="<%=require('../img/project1_index.jpg')%>" alt="Card Image">
                 <div class="card-img-overlay">
                     <div class="col-md-3 ml-auto">
                         <span class="badge badge-danger">1k</span>
@@ -385,17 +375,6 @@
         Copyright &copy; Herschel 2018
     </div>
 </footer>
-
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Plugin JavaScript -->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for this template -->
-<script src="js/grayscale.js"></script>
-
 </body>
 
 </html>
