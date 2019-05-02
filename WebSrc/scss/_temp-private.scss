@@ -1,11 +1,9 @@
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/mixins";
-@import "~bootstrap/scss/bootstrap";
-@import "~bootstrap/scss/bootstrap-grid";
 @import "variables";
+@import "common";
+@import "private_card";
 
 .private-bg {
-  background: linear-gradient(to bottom, #{fade-out($black, .9)} 0%, #{fade-out($black, .5)} 75%, $black 100%) url('../img/private.png') no-repeat scroll center;
+  background: linear-gradient(to bottom, #{fade-out($black, .9)} 0%, #{fade-out($black, .5)} 75%, $black 100%) url('../img/private_css.png') no-repeat scroll center;
 }
 
 .idlink {
@@ -74,16 +72,6 @@
   height: 100px;
 }
 
-.slim-card {
-  max-height: 160px !important;
-  overflow: hidden;
-  position: relative;
-  border: solid 4px rgba(12, 12, 13, 0);
-  background: rgba(12,12,13,0);
-  &:hover{
-    border: solid 4px rgba(12, 12, 13, 0.1);
-  }
-}
 
 .read-more {
   position: absolute;
@@ -98,19 +86,6 @@
   background-image: linear-gradient(to bottom, transparent, black);
 }
 
-/*.remove-button {
-  margin: 0 ;
-  height: 11px;
-  width: 11px;
-  display: block;
-  border: solid 1px #8d99ae;
-  border-radius: 50px;
-  background: #f8f9fa url("chrome://browser/skin/page-action.svg") no-repeat 55%;
-  opacity: 0;
-  transition: all 0.2s ease;
-  outline: 0 !important;
-  box-shadow:  0 2px rgba(12, 12, 13, 0.1);
-}*/
 
 .remove-button:hover {
   transform: translate(-13.5px, -13.5px);

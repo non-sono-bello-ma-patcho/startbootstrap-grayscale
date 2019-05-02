@@ -7,7 +7,9 @@ import 'bootstrap/js/dist/tab';
 import 'bootstrap/js/dist/button';
 import 'bootstrap/js/dist/modal';
 
-import {addCard, updateCart, updateTotal, username, cart} from "./common";
+import {addCard, updateCart, updateTotal, cart} from "./common";
+
+let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1]; // fa schifo sto coso..
 
 // activate tooltip
 $(function () {
@@ -19,7 +21,7 @@ $(function () {
 $(document).ready(()=>{
     let to_load = $(".tab-pane.active").attr('id');
     load_tab("#"+to_load);
-    updateTotal();
+    updateTotal(username);
 });
 
 // reload active tab on click
@@ -53,7 +55,7 @@ $(document).on('click', '.manage-new-prod', function(e){
         updateTotal();
         //alter behaviour
         btn.data('cmd', btn.data('cmd') === 'add' ? "remove" : 'add');
-        btn.children('span').toggleClass('far').toggleClass('fas');
+        btn.empty().append(`<span class="${btn.data('cmd') === 'add' ?'far':'fas'} fa-star text-warning"></span>`)
     });
 });
 

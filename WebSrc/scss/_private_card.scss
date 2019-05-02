@@ -1,0 +1,28 @@
+.slim-card {
+  max-height: 160px !important;
+  overflow: hidden;
+  position: relative;
+
+  background: rgba($gray-700, 0);
+  &:hover{
+
+  }
+}
+
+.custom-card {
+  overflow: hidden;
+  max-height: 400px;
+  border: solid 4px rgba($gray-700, 0) !important;
+  & > img {
+    transition: all 0.5s ease;
+  }
+  &:hover {
+    border: solid 4px rgba($gray-700, 0.3) !important;
+    & > img {
+      -webkit-filter: blur(1px);
+      filter: blur(1px);
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+}

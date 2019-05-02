@@ -137,7 +137,7 @@
         <!-- Featured Project Row -->
         <div class="row align-items-center no-gutters mb-4 mb-lg-5">
             <div class="col-xl-8 col-lg-7">
-                <img class="img-fluid mb-3 mb-lg-0" src="WebSrc/img/project2_index.jpg" alt="">
+                <img class="img-fluid mb-3 mb-lg-0" src="WebSrc/img/project2_ext.jpg" alt="">
             </div>
             <div class="col-xl-4 col-lg-5">
                 <div class="featured-text text-center text-lg-left">
@@ -156,7 +156,7 @@
         <!-- Project One Row -->
         <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
             <div class="col-lg-6">
-                <img class="img-fluid" src="WebSrc/img/project1_index.jpg" alt="">
+                <img class="img-fluid" src="WebSrc/img/project1_ext.jpg" alt="">
             </div>
             <div class="col-lg-6">
                 <div class="bg-black text-center h-100 project">
@@ -178,7 +178,7 @@
         <!-- Project Two Row -->
         <div class="row justify-content-center no-gutters">
             <div class="col-lg-6">
-                <img class="img-fluid custom-img" src="WebSrc/img/project4_index.jpg" alt="">
+                <img class="img-fluid custom-img" src="WebSrc/img/project4_ext.jpg" alt="">
             </div>
             <div class="col-lg-6 order-lg-first">
                 <div class="bg-black text-center h-100 project">
@@ -222,7 +222,7 @@
 
             </div>
             <div class="card mb-4 bg-dark text-white custom-card font-weight-bolder border-0">
-                <img class="card-img custom-img" src="WebSrc/img/project1_index.jpg" alt="Card Image">
+                <img class="card-img custom-img" src="WebSrc/img/project1_ext.jpg" alt="Card Image">
                 <div class="card-img-overlay">
                     <div class="col-md-3 ml-auto">
                         <span class="badge badge-danger">1k</span>

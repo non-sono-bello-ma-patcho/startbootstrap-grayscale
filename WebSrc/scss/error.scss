@@ -1,0 +1,81 @@
+@import "../scss/common.scss";
+
+.gradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  &-rotate{
+    z-index: -2;
+  }
+
+  &-overlay {
+    z-index: -1;
+  }
+}
+
+.bg-dark-transparent {
+  background: rgba($black, 0.6);
+}
+
+#color-stop {
+  &-1 {
+    -webkit-animation: change-color-1 12s ease-in-out infinite alternate;
+    animation: change-color-1 12s ease-in-out infinite alternate
+  }
+
+  &-2 {
+    -webkit-animation: change-color-2 12s ease-in-out infinite alternate;
+    animation: change-color-2 12s ease-in-out infinite alternate
+  }
+  &-3 {
+    -webkit-animation: change-color-3 12s ease-in-out infinite alternate;
+    animation: change-color-3 12s ease-in-out infinite alternate
+  }
+}
+
+@keyframes change-color-1 {
+  0% {
+    stop-color: #85ffc7
+  }
+  25% {
+    stop-color: #39393a
+  }
+  50% {
+    stop-color: #297373
+  }
+  75% {
+    stop-color: #ff8552
+  }
+}
+@keyframes change-color-2 {
+  0% {
+    stop-color: #297373
+  }
+  25% {
+    stop-color: #85ffc7
+  }
+  350% {
+    stop-color: #ff8552
+  }
+  75% {
+    stop-color: #e6e6e6
+  }
+}
+@keyframes change-color-3 {
+  0% {
+    stop-color: #39393a
+  }
+  25% {
+    stop-color: #ff8552
+  }
+  50% {
+    stop-color: #e6e6e6
+  }
+  75% {
+    stop-color: #297373
+  }
+}

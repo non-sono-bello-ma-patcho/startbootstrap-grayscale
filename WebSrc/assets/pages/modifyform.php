@@ -10,10 +10,6 @@ require 'php/userUtility.php';
     <title>Modify User Information</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/modify.css">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/grayscale.css">
 </head>
 <body class="">
 <div class="main-bg modify-bg" style="height: calc(100vh - 20px);">
@@ -35,7 +31,7 @@ require 'php/userUtility.php';
                 </div>
                 <div class="col-md-9" style="background-color: rgba(0,0,0,0.4); border-top-right-radius: calc(0.25rem - 1px); border-bottom-right-radius: calc(0.25rem - 1px)">
                     <h3 class="text-left my-3 text-white">User Information</h3>
-                    <form name="formUpdate" enctype="multipart/form-data" method="post">
+                    <form name="formUpdate" enctype="multipart/form-data" method="post" action="php/updateUser.php">
                         <input type="hidden" name="modifyform">
                         <div class="container">
                             <div class="row">
@@ -90,10 +86,5 @@ require 'php/userUtility.php';
         Copyright &copy; Herschel 2018
     </div>
 </footer>
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.js"></script>
-<script src="js/modify.js"></script>
 </body>
 </html>

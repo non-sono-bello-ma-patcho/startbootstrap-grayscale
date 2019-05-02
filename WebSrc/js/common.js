@@ -11,6 +11,7 @@ import './fontawesomecustom';
 import '../scss/common.scss';
 
 
+
 // export let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1] | 'none'; // fa schifo sto coso...
 export let cart;
 
@@ -51,9 +52,10 @@ export function addCard(product_id, target, type='product'){
     }).then((fullfilled) => { // in fullfilled c'è la robaccia che ho settato prima;
         console.log('retrieving component: '+component);
         $.get(
-            `components/${component}.php`,
+            `../components/${component}.php`,
             fullfilled,
-            (response) => {
+            (response, status) => {
+                console.log(`response status is: ${status}`);
                 let card = $(response);
                 // add event handlers
                 /*card.find('.selection').on('change', function () {
@@ -97,7 +99,7 @@ function getCookie(c_name) {
 
 export var updateCart = () => createCookie('cart', JSON.stringify(cart), false);
 
-export function updateTotal() {
+export function updateTotal(username) {
     $.get(
         "php/rest.php",
         { username : username, op : "get_total"},

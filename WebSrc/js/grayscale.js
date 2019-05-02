@@ -63,12 +63,13 @@ $(document).on("load", function () {
 $(document).ready(function (){
     $('#suUsername').keyup(function () {
         var currentUsername = $(this).val().toLowerCase();
-        if(currentUsername!=="")
-        $.post("php/rest.php", { username : currentUsername, op : "check" },function(response){
-            let data = JSON.parse(response).username;
-            $('#suUsername').toggleClass("is-invalid", Boolean(data)).toggleClass("is-valid", !Boolean(data));
-            $('#usernamecol').toggleClass("mb-0", Boolean(data)).toggleClass("mb-3", !Boolean(data)); // prevent form from warp
-        });
+        if(currentUsername!==""){
+            $.get("php/rest.php", { param : currentUsername, op : "check" },(response)=>{
+                let data = JSON.parse(response);
+                $('#suUsername').toggleClass("is-invalid", data!=null).toggleClass("is-valid", data==null);
+                $('#usernamecol').toggleClass("mb-0", data!=null).toggleClass("mb-3", data==null); // prevent form from warp
+            });
+        }
         // remove validation feedback if text is empty
         else
             $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);
@@ -104,20 +105,3 @@ $(document).ready(function (){
             $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);
     });
 });
-
-function checkuser(username) {
-    var target = "usernameinfo";
-    var doc = "php/usercheck.php?q="+username+"&f=username";
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("GET", doc, true);
-    xhttp.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            //document.getElementById(target).className = this.responseText;
-            if( this.responseText.toString() === 'inputerror')
-                $('#'+target).toggleClass('inputerror', true).toggleClass('inputsuccess', false);
-            if( this.responseText.toString() === 'inputsuccess')
-                $('#'+target).toggleClass('inputsuccess', true).toggleClass('inputerror', false);
-        }
-    };
-    xhttp.send();
-}

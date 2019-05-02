@@ -1,0 +1,36 @@
+<div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="adminmodal">Add Administrator <span class="glyphicon glyphicon-user"></span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- from here -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="text-muted" for="newusername">Search by username</label>
+                            <div class="input-group mb-3">
+                              <input type="text" class="form-control" placeholder="username" name="newusername" id="newusername">
+                              <div class="input-group-append">
+                                <button id="searchbtn" class="btn btn-primary py-0" type="button"><span class="fas fa-search"></span></button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                <form action="php/addAdmin.php" name="addadminform" method = "post" id="addPrivileges" >
+                    <input type="hidden" name="addadminform">
+                    <hr>
+                    <div id="resultlist" class="custom-hidden d-none" style="max-height: 356px; overflow-y: auto; overflow-x: hidden">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="submit"  value="Add Admin" id="adduserbtn" class="btn custom-btn disabled" form="addPrivileges" disabled="disabled">
+            </div>
+
+        </div>
+    </div>
+</div>

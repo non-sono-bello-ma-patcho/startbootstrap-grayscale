@@ -16,16 +16,6 @@
 
     <title>Private Page - Herschel</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/private.css">
-    <link rel="stylesheet" href="../css/grayscale.css">
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="vendor/fontawesome-free/css/all.css">
-
-    <!-- Bootstrap core JavaScript -->
-<!--    <script src="js/common.js"></script>-->
-    <script src="../js/private.js"></script>
 </head>
 <body style="background: black">
 <!-- LogOut Modal -->
@@ -42,8 +32,7 @@
                 <div class="row">
                     <p class="col-md-12">Log out from Herschel?</p>
                     <div class="col-md-6">
-<!--                        <button class="btn custom-btn" id="logoutbtn" onclick="doLogout()">log out</button>-->
-                        <form action="../../../php/logout.php">
+                        <form action="php/logout.php">
                             <input type="submit" value="log out" class="btn custom-btn">
                         </form>
                     </div>
@@ -103,12 +92,13 @@
                                     <p class="card-title font-weight-bolder">
                                         <?php echo getUserName($_SESSION['id'])." ".getUserSurname($_SESSION['id']); ?>
                                     </p>
-                                    <span class="text-muted fas fa-user"><?php echo $_SESSION['id']; ?></span>
+                                    <span class="text-muted fas fa-user"></span>
+                                    <span><?php echo $_SESSION['id']; ?></span>
                                     <hr>
                                     <p class="card-text"><?php echo getUserDescription($_SESSION['id']); ?></p>
                                     <ul class="no-bullet">
                                         <li>
-                                            <span class="fas fa-map-marker-alt"></span>
+                                            <span class="fas fa-map-marked-alt"></span>
                                             <span><?php echo getUserLocation($_SESSION['id']); ?></span>
                                         </li>
                                     </ul>
@@ -190,7 +180,8 @@
                     <div class="row text-right align-baseline mb-0">
                         <div class="col-md-8"></div>
                         <div class="col-md-4">
-                            <span class="text-muted font-weight-bold far fa-shopping-cart">Total <span class="text-black-50 font-weight-normal" id="total-cart"></span></span>
+                            <span class="text-muted font-weight-bold fas fa-shopping-cart"></span>
+                            <span class="text-muted font-weight-bold">Total <span class="text-black-50 font-weight-normal" id="total-cart"></span></span>
                         </div>
                     </div>
                 </div>

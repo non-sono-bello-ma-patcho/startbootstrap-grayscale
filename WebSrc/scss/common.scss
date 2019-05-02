@@ -4,7 +4,6 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap/scss/bootstrap-grid";
 
-
 html * {
   font-family: 'Raleway', sans-serif;
 }
@@ -24,23 +23,6 @@ html * {
     background: $primary;
   }
 }
-
-
-
-.custom-card {
-  overflow: hidden;
-  max-height: 400px;
-  & > img {
-    transition: all 0.5s ease;
-  }
-  &:hover > img {
-    -webkit-filter: blur(1px);
-    filter: blur(1px);
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-  }
-}
-
 
 .lower-section {
   padding: 10rem 0;

@@ -3,17 +3,19 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MakeDirWebpackPlugin = require('make-dir-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
     context: path.resolve(__dirname, 'WebSrc'),
     entry : {
         common : './js/common.js',
         grayscale : './js/grayscale.js',
-        // private : './js/private.js',
+        private : './js/private.js',
         // test : './js/test.js',
-        // fontawesomecustom : './js/fontawesomecustom.js'
+        error : './js/error.js',
+        fontawesomecustom : './js/fontawesomecustom.js'
   },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -34,65 +36,66 @@ module.exports = {
                 }
             },
         // compilazione dei scss, immagini e font:
+            // sta rumenta compila i require sulle pagine
             {
                 test: /_component\.(html)$/,
                 use: {
-                    loader: 'php-loader',
+                    loader: 'html-loader',
                     options: {
                         attrs: [':data-src']
                     }
                 }
             },
-        {
-            test: /\.scss$/,
-            use: [
-                MiniCssExtractPlugin.loader,
-                {
-                    loader: 'css-loader',
-                    options: {
-                        importLoaders: 2,
-                        sourceMap: false
-                    }
-                },
-                {
-                    loader: 'postcss-loader',
-                    options: {
-                        plugins: () => [
-                            require('autoprefixer')(),
-                        ],
-                        sourceMap: false
-                    }
-                },
-                /*{
-                    loader: "resolve-url-loader"
-                },*/
-                {
-                    loader: 'sass-loader',
-                    options: {
-                        sourceMap: true
-                    }
-                }
-            ]
-        },
-        {
-            // immagini utilizzate nei css
-            test: /_css\.(png|jpg|gif)$/,
-            use: [
-                {
-                    loader: 'file-loader',
-                    options: {
-                        name : '[name].[ext]',
-                        outputPath : 'img',
-                        publicPath : '../img',
-                        // context : 'dist',
-                        useRelativePath : true
-                    }
-                }
-            ]
-        },
-            // immagini utilizzate in index
             {
-                test: /_index\.(png|jpg|gif)$/,
+                test: /\.scss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 2,
+                            sourceMap: false
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [
+                                require('autoprefixer')(),
+                            ],
+                            sourceMap: false
+                        }
+                    },
+                    /*{
+                        loader: "resolve-url-loader"
+                    },*/
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }
+                ]
+            },
+            {
+                // immagini utilizzate nei css
+                test: /_css\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name : '[name].[ext]',
+                            outputPath : 'img',
+                            publicPath : '../img',
+                            // context : 'dist',
+                            useRelativePath : true
+                        }
+                    }
+                ]
+            },
+            // immagini utilizzate direttamente nelle pagine
+            {
+                test: /_ext\.(png|jpg|gif)$/,
                 use: [
                     {
                         loader: 'file-loader',
@@ -100,7 +103,6 @@ module.exports = {
                             name: '[name].[ext]',
                             outputPath : 'img',
                             publicPath : 'img',
-                            useRelativePath : true
                         }
                     }
                 ]
@@ -129,6 +131,34 @@ module.exports = {
             chunks:  ['common', 'grayscale'],
             inject: 'body'
         }),
+        new HtmlWebpackPlugin({
+            filename : "private.php",
+            template: "assets/pages/private.php",
+            chunks:  ['common', 'private'],
+            inject: 'body'
+        }),
+        new HtmlWebpackPlugin({
+            filename : "modifyform.php",
+            template: "assets/pages/modifyform.php",
+            chunks:  ['common'],
+            inject: 'body'
+        }),
+        new HtmlWebpackPlugin({
+            filename : "error.php",
+            template: "assets/pages/error.php",
+            chunks:  ['error'],
+            inject: 'body'
+        }),
+        new HtmlWebpackPlugin({
+            filename : "components/admin_panel.php",
+            template: "assets/components/admin_panel.php",
+            chunks : []
+        }),
+        new CopyWebpackPlugin([
+            { from : '../php', to : 'php' },
+            { from : '../config.php', to : '' },
+            { context : './assets/components/', from : '*_card.php', to : 'components' }
+        ]),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
@@ -152,5 +182,19 @@ module.exports = {
             filename : 'css/[name].css'
         })
     ],
+    optimization: {
+        minimizer: [
+            new UglifyJsPlugin({
+                cache: true,
+                parallel: true,
+                sourceMap: true
+            }),
+            new OptimizeCSSAssetsPlugin({
+                cssProcessorOptions: {
+                    parser: require("postcss-safe-parser")
+                }
+            })
+        ]
+    },
     stats : true
 };
