@@ -6,10 +6,10 @@ import 'bootstrap/js/dist/modal';
 import 'bootstrap/js/dist/popover';
 import 'bootstrap/js/dist/tooltip';
 import 'bootstrap/js/dist/scrollspy';
-import './fontawesomecustom';
+import './fontawesome';
 
 import '../scss/common.scss';
-import './searchForm'
+import './searchForm';
 
 
 // export let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1] | 'none'; // fa schifo sto coso...

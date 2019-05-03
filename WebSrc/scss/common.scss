@@ -76,7 +76,6 @@ a {
   padding: 20px;
   margin: 20px 0;
   border: 0 solid;
-  border-top-width: 1px;
   border-bottom-width: 5px;
   border-radius: 3px;
   cursor: pointer;
@@ -94,19 +93,27 @@ a {
   }
 }
 
-@each $name,$color in $colors {
-  .callout-#{$name} {
-    border-bottom-color: $color;
-    h4 {
-      color: $color;
+@each $color, $value in $theme-colors{
+  @for $i from 1 through 9 {
+    .bg-#{$color}-transparency-#{$i} {
+      background: rgba($value, $i/10);
     }
   }
 }
 
+//@each $name,$color in $colors {
+//  .callout-#{$name} {
+//    border-bottom-color: $color;
+//    h4 {
+//      color: $color;
+//    }
+//  }
+//}
+
 .callout-primary {
-  border-left-color: $primary;
+  border-left-color: $primary !important;
   h4 {
-    color: $primary;
+    color: $primary !important;
   }
 }
 
@@ -119,15 +126,21 @@ a {
   }
   .search-input-group{
     width: 100% !important;
-    height: 52px;
-    border-bottom: 1px solid $primary;
+    height: 53px;
     vertical-align: bottom;
     display: table-cell;
+    &-wrapper{
+      border-bottom: 2px solid $primary;
+    }
     label {
       color: $primary;
       cursor: text;
       display: block;
       margin-bottom: 0 !important;
+    }
+    button {
+      position: absolute;
+      bottom: 0;
     }
   }
 }

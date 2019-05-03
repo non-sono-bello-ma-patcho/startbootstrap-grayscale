@@ -15,7 +15,7 @@ module.exports = {
         private : './js/private.js',
         // test : './js/test.js',
         error : './js/error.js',
-        fontawesomecustom : './js/fontawesomecustom.js'
+        fontawesomecustom : './js/fontawesome.js'
   },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -78,6 +78,37 @@ module.exports = {
                 ]
             },
             {
+                test: /\.less$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            importLoaders: 2,
+                            sourceMap: false
+                        }
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [
+                                require('autoprefixer')(),
+                            ],
+                            sourceMap: false
+                        }
+                    },
+                    /*{
+                        loader: "resolve-url-loader"
+                    },*/
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    }
+                ]
+            },
+            {
                 // immagini utilizzate nei css
                 test: /_css\.(png|jpg|gif)$/,
                 use: [
@@ -126,7 +157,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: "Herschel | Planet is your playground",
-            filename : "index.php",
+            filename : "index.html",
             template: "assets/index.php",
             chunks:  ['common', 'grayscale'],
             inject: 'body'

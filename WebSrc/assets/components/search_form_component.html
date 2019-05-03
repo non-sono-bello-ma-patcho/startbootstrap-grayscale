@@ -1,59 +1,50 @@
 <form action="" class="search-form">
-    <div class="form-row">
-        <div class="col-12 col-md-4">
+    <div class="form-row mx-auto">
+        <div class="col-12 col-md-3">
+            <div class="search-input-group-wrapper">
+                <div class="search-input-group">
+                    <label for="itemsearch" class="input-text-label align-bottom">Location</label>
+                    <div class="collapse inputwrapper">
+                        <input type="text" name="itemsearchID" id="itemsearch" placeholder="" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-12">
+            <div class="search-input-group-wrapper">
+                <div class="search-input-group mx-auto">
+                    <label for="maxitemprice" class="input-text-label align-bottom">Max Price</label>
+                    <div class="collapse inputwrapper">
+                        <input type="number" name="maxitemPrice" id="maxitemprice" placeholder="" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-12">
+            <div class="search-input-group-wrapper">
+                <div class="search-input-group mx-auto">
+                    <label for="dateStart" class="input-text-label align-bottom">Arrival</label>
+                    <div class="collapse inputwrapper">
+                        <input type="text" name="startDate" id="dateStart" class="datepicker" placeholder="" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-12">
+            <div class="search-input-group-wrapper">
+                <div class="search-input-group mx-auto">
+                    <label for="dateEnd" class="input-text-label align-bottom">Departure</label>
+                    <div class="collapse inputwrapper">
+                        <input type="text" name="endDate" id="dateEnd" class="datepicker" placeholder="" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-12 d-flex flex-column align-items-center position-relative">
             <div class="search-input-group">
-                <label for="itemsearch" class="input-text-label align-bottom">Location</label>
-                <div class="collapse inputwrapper">
-                    <input type="text" name="itemsearchID" id="itemsearch" placeholder="" value="">
-                </div>
+                <label for="dateEnd" class="input-text-label align-bottom sr-only">Search</label>
+                <button class="form-control btn-primary" type = "submit" onclick="">cerca</button>
             </div>
         </div>
-        <div class="col-md-4 col-6">
-            <div class="search-input-group mx-auto">
-                <label for="itemsearch" class="input-text-label align-bottom">Min Price</label>
-                <div class="collapse inputwrapper">
-                    <input type="number" name="itemPrice" id="itemprice" placeholder="" value="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="form-row">
-        <div class="col-4">
-            <div class="search-input-group mx-auto">
-                <label for="dateStart" class="input-text-label align-bottom">Arrival</label>
-                <div class="collapse inputwrapper">
-                    <input type="text" name="startDate" id="dateStart" class="datepicker" placeholder="" value="">
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="search-input-group mx-auto">
-                <label for="dateEnd" class="input-text-label align-bottom">Departure</label>
-                <div class="collapse inputwrapper">
-                    <input type="text" name="endDate" id="dateEnd" class="datepicker" placeholder="" value="">
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <label for="max_price">Max. price</label>
-            <select class="form-control" name="max_price" id="max_price"></select>
-        </div>
-    </div>
-    <div class="form-row">
-
-    </div>
-    <!--<label for="order_by_min_price">-->
-        <!--<input type="radio" name="orderby" id="order_by_min_price" value="lowest price">-->
-        <!--lowest price-->
-    <!--</label>-->
-    <!--<label for="order_by_max_price">-->
-        <!--<input type="radio" name="orderby" id="order_by_max_price" value="lowest price">-->
-        <!--highest price-->
-    <!--</label><label for="order_by_relevance">-->
-    <!--<input type="radio" name="orderby" id="order_by_relevance" value="lowest price">-->
-        <!--relevance-->
-    <!--</label>-->
-    <div class="form-row">
-        <input class="form-control btn-primary" type = "submit" onclick="load_search_result()">
     </div>
 </form>

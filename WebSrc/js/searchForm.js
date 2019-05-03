@@ -1,12 +1,15 @@
 import 'bootstrap/js/dist/collapse';
-import 'eonasdan-bootstrap-datetimepicker';
-
 $('.search-input-group input').focusout(function () {
-   if($(this).val()===""){
-       console.log('focus lost');
-       $(this).parent().toggle('collapse');
-   }
+    let _this = this;
+    setTimeout(()=>{
+        if($(_this).val()===""){
+            console.log($(_this).attr('id')+': lost focus');
+            $(_this).parent().toggle('collapse');
+        }
+    }, 500);
 });
+
+import './datepicker';
 
 
 
@@ -19,5 +22,5 @@ $('.search-input-group label').click(function () {
 });
 
 $( function() {
-    $( ".datepicker" ).datetimepicker();
+    $( ".datepicker" ).datepicker({orientation : 'bottom'});
 } );

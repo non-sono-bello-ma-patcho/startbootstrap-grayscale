@@ -81,11 +81,20 @@
 <!-- Header -->
 <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
-        <!--<div class="mx-auto text-center">-->
-            <div class="callout callout-yellow w-100 h-50 d-block bg-light">
-                <h3>Search</h3>
+        <!--<div class="row">-->
+        <div class="d-block w-100">
+            <div class="mx-auto text-center d-block">
+                <h1 class="mx-auto my-0 text-uppercase">Herschel</h1>
+            </div>
+            <div class="callout w-100 d-block bg-white mb-0 py-0 d-block">
                 <%=require('./components/search_form_component.html')%>
             </div>
+        </div>
+
+        <!--</div>-->
+        <!--<div class="row">-->
+
+        <!--</div>-->
     </div>
 </header>
 
