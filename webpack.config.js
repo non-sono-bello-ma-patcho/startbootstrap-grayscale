@@ -157,7 +157,7 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: "Herschel | Planet is your playground",
-            filename : "index.html",
+            filename : "index.php",
             template: "assets/index.php",
             chunks:  ['common', 'grayscale'],
             inject: 'body'
