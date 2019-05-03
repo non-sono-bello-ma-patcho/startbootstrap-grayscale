@@ -1,3 +1,5 @@
+@import "variables";
+
 #mainNav {
   min-height: 56px;
   background-color: $white;
@@ -9,6 +11,15 @@
     &:focus {
       outline: none;
     }
+  }
+  .gradient-title {
+    display: none;
+  }
+  .a-logo {
+    background: url("../img/logo_purple_char_css.png") no-repeat;
+    background-size: cover;
+    height: calc(44px*0.6);
+    width: calc(127px*0.6);
   }
   .navbar-brand {
     color: $black;
@@ -29,12 +40,26 @@
       }
     }
   }
+  /* dispositivi grandi*/
   @media (min-width: 992px) {
     padding-top: 0;
     padding-bottom: 0;
     border-bottom: none;
     background-color: transparent;
     transition: background-color 0.3s ease-in-out;
+    .gradient-title {
+      display: block;
+      font-family: 'Varela Round';
+      margin-top: .5rem !important;
+      margin-bottom: 0 !important;
+      font-size: 2rem;
+      line-height: 2.5rem;
+      letter-spacing: 0.8rem;
+      background: -webkit-linear-gradient(fade-out(white, 0.1), fade-out(white, 1));
+      -webkit-text-fill-color: transparent;
+      -webkit-background-clip: text;
+    }
+
     .navbar-brand {
       padding: .5rem 0;
       color: fade-out($white, .5);
@@ -58,6 +83,17 @@
     }
     &.navbar-shrink {
       background-color: $white;
+      .gradient-title {
+        font-family: 'Varela Round';
+        margin-top: .5rem !important;
+        margin-bottom: 0 !important;
+        font-size: 2rem;
+        line-height: 2.5rem;
+        letter-spacing: 0.8rem;
+        background: -webkit-linear-gradient(fade-out($primary, 0.1), fade-out($primary, 1));
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+      }
       .a-logo {
         background: url("../img/logo_purple_char_css.png") no-repeat;
         background-size: cover;
@@ -85,8 +121,4 @@
       }
     }
   }
-}
-
-#mainNav.navbar-shrink , #mainNav .a-logo {
-
 }
