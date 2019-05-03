@@ -1,8 +1,9 @@
 @import "~bootstrap/scss/functions";
-@import "variables";
 @import "~bootstrap/scss/mixins";
+@import "variables";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap/scss/bootstrap-grid";
+
 
 html * {
   font-family: 'Raleway', sans-serif;
@@ -68,4 +69,65 @@ a {
   height: 150px !important;
   border-radius: 750px;
   transition: height 0.5s linear;
+}
+
+
+.callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 0 solid;
+  border-top-width: 1px;
+  border-bottom-width: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  &:hover {
+    border-left-color: $teal !important;
+    h4 {
+      color: $teal !important;
+    }
+    transition: all 0.5s ease;
+  }
+}
+
+@each $name,$color in $colors {
+  .callout-#{$name} {
+    border-bottom-color: $color;
+    h4 {
+      color: $color;
+    }
+  }
+}
+
+.callout-primary {
+  border-left-color: $primary;
+  h4 {
+    color: $primary;
+  }
+}
+
+.search-form{
+  input[type='text'], input[type='number']{
+    width: 100%;
+    color: $text-muted;
+    background: transparent;
+    border: none;
+  }
+  .search-input-group{
+    width: 100% !important;
+    height: 52px;
+    border-bottom: 1px solid $primary;
+    vertical-align: bottom;
+    display: table-cell;
+    label {
+      color: $primary;
+      cursor: text;
+      display: block;
+      margin-bottom: 0 !important;
+    }
+  }
 }

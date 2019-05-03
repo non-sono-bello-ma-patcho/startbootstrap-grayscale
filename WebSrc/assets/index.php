@@ -19,7 +19,6 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
@@ -33,6 +32,7 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
         <a class="navbar-brand js-scroll-trigger a-logo" href="#page-top"></a>
+        <h1 class="mx-auto my-0 text-uppercase gradient-title">Herschel</h1>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars"></i>
@@ -73,8 +73,7 @@
                 <%=require('./components/login_form_component.html')%>
             </div>
             <div class="modal-footer">
-                <p class="align-content-between">Don't have an account? <a id="loglink" class="js-scroll-trigger" href="#signup" aria-label="Close">Sign up!</a> or
-                    <a href="pages/private.php">preview user account</a></p>
+                <p class="align-content-between">Don't have an account? <a id="loglink" class="js-scroll-trigger" href="#signup" aria-label="Close">Sign up!</a>
             </div>
         </div>
     </div>
@@ -82,12 +81,11 @@
 <!-- Header -->
 <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
-        <div class="mx-auto text-center">
-            <h1 class="mx-auto my-0 text-uppercase">Herschel</h1>
-            <h2 class="text-white-50 mx-auto mt-2 mb-5">That’s the advantage of space.  It’s big enough to hold practically anything, and so, eventually, it does.
-                <figcaption>-T. Pratchett</figcaption></h2>
-            <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
-        </div>
+        <!--<div class="mx-auto text-center">-->
+            <div class="callout callout-yellow w-100 h-50 d-block bg-light">
+                <h3>Search</h3>
+                <%=require('./components/search_form_component.html')%>
+            </div>
     </div>
 </header>
 
@@ -247,57 +245,7 @@
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto text-center">
                 <h2 class="text-white mb-5">Sign up to Herschel and start to explore!</h2>
-                <form name ="sign_up" class="needs-validation" method='post' action="php/sign_up.php">
-                    <div class="form-group">
-                        <div class="form-row">
-                            <div id="emailcol" class="col-md-6 mb-3">
-                                <input type="hidden" name="signupform">
-                                <input type="email" id="suEmail" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="email" placeholder="Enter email address..." required>
-                                <div class="text-left invalid-feedback mt-0">
-                                    <small class="font-weight-bold">
-                                        Email format not valid.
-                                    </small>
-                                </div>
-                            </div>
-                            <div id="usernamecol" class="col-md-6 mb-3">
-                                <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="username" id="suUsername" placeholder="Enter your username..." required>
-                                    <div class="text-left invalid-feedback mt-0">
-                                        <small class="font-weight-bold">
-                                            This username is already taken.
-                                        </small>
-                                    </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="name" placeholder="Enter your name..." required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="surname" placeholder="Enter your surname..." required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div id="pwcol" class="col-md-6 mb-3">
-                                <input type="password" id="suPassword" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswd" placeholder="Type your password..." required>
-                                <div class="text-left invalid-feedback mt-0">
-                                    <small class="font-weight-bold">
-                                        Password must be long... you now...
-                                    </small>
-                                </div>
-                            </div>
-                            <div id="pwccol" class="col-md-6 mb-3">
-                                <input type="password" id="suConfirmPassword" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswdConfirm" placeholder="Confirm your password..." required>
-                                <div class="text-left invalid-feedback mt-0">
-                                    <small class="font-weight-bold">
-                                        Confirm password doesn't match.
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary mx-auto">Sign Up</button>
-                </form>
+                <%=require('./components/signup_form_component.html')%>
             </div>
         </div>
     </div>
