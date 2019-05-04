@@ -79,7 +79,7 @@ a {
   border-bottom-width: 5px;
   border-radius: 3px;
   cursor: pointer;
-  transition: all 0.5s ease;
+  transition: all 0.5s linear;
   h4 {
     margin-top: 0;
     margin-bottom: 5px;
@@ -142,5 +142,16 @@ a {
       position: absolute;
       bottom: 0;
     }
+  }
+}
+
+@media(min-width: 850px){
+  .fixed-form{
+    position: fixed;
+    top: 50px !important;
+    margin-top: 10px;
+    right: 4px !important;
+    width: 375px !important;
+    transition: all linear 0.5s;
   }
 }

@@ -2,3 +2,5 @@ node_modules
 .sass-cache
 bower_components
 *.xml
+dist
+*.lock

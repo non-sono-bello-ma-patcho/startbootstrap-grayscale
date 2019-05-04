@@ -86,7 +86,7 @@
             <div class="mx-auto text-center d-block">
                 <h1 class="mx-auto my-0 text-uppercase">Herschel</h1>
             </div>
-            <div class="callout w-100 d-block bg-white mb-0 py-0 d-block">
+            <div class="callout w-100 d-block bg-white mb-0 py-0 d-block search-form-wrapper">
                 <%=require('./components/search_form_component.html')%>
             </div>
         </div>
