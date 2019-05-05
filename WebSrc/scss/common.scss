@@ -145,13 +145,19 @@ a {
   }
 }
 
-@media(min-width: 850px){
+.fixed-form {
+  display: none;
+}
+
+@media(min-width: 1025px){
   .fixed-form{
+    z-index: 999;
+    display: block;
     position: fixed;
-    top: 50px !important;
+    top: 56px !important;
     margin-top: 10px;
     right: 4px !important;
     width: 375px !important;
-    transition: all linear 0.5s;
+    transition: all revert 0.5s;
   }
 }

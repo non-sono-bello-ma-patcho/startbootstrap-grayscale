@@ -28,16 +28,16 @@ $('.search-input-group label').click(function () {
 $( function() {
     $( ".datepicker" ).datepicker({orientation : 'bottom'});
 } );
-
-$(window).scroll(()=>{
-    console.log('page scrolling...');
-    let window_top = $(window).scrollTop();
-    console.log(`window top: ${window_top}, form-top: ${div_top}`);
-    if ((window_top > div_top)){
-        console.log('sticking to top');
-        $(searchForm).toggleClass('fixed-form', true);
-    }
-    else {
-        $(searchForm).toggleClass('fixed-form', false);
-    }
-});
+//
+// $(window).scroll(()=>{
+//     console.log('page scrolling...');
+//     let window_top = $(window).scrollTop();
+//     console.log(`window top: ${window_top}, form-top: ${div_top}`);
+//     if ((window_top > div_top)){
+//         console.log('sticking to top');
+//         $(searchForm).toggleClass('fixed-form', true);
+//     }
+//     else {
+//         $(searchForm).toggleClass('fixed-form', false);
+//     }
+// });

@@ -78,23 +78,25 @@
         </div>
     </div>
 </div>
+
+<!-- small search form -->
+<div class="collapse">
+    <div class="callout w-100 bg-white mb-0 py-0 fixed-form">
+        <%=require('./components/small_search_form_component.html')%>
+    </div>
+</div>
+
 <!-- Header -->
 <header class="masthead">
     <div class="container d-flex h-100 align-items-center">
-        <!--<div class="row">-->
         <div class="d-block w-100">
             <div class="mx-auto text-center d-block">
                 <h1 class="mx-auto my-0 text-uppercase">Herschel</h1>
             </div>
-            <div class="callout w-100 d-block bg-white mb-0 py-0 d-block search-form-wrapper">
+            <div class="callout w-100 bg-white mb-0 py-0 search-form-wrapper">
                 <%=require('./components/search_form_component.html')%>
             </div>
         </div>
-
-        <!--</div>-->
-        <!--<div class="row">-->
-
-        <!--</div>-->
     </div>
 </header>
 
@@ -248,6 +250,7 @@
         <a class="btn custom-btn">Find more in store</a>
     </div>
 </section>
+
 <!-- Signup Section -->
 <section id="signup" class="signup-section">
     <div class="container">
@@ -263,7 +266,6 @@
 <!-- Contact Section -->
 <section class="contact-section bg-black">
     <div class="container">
-
         <div class="row">
 
             <div class="col-md-4 mb-3 mb-md-0">
