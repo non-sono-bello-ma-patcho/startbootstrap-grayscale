@@ -76,7 +76,7 @@ a {
   padding: 20px;
   margin: 20px 0;
   border: 0 solid;
-  border-bottom-width: 5px;
+  border-left-width: 5px;
   border-radius: 3px;
   cursor: pointer;
   transition: all 0.5s linear;
@@ -124,6 +124,15 @@ a {
     background: transparent;
     border: none;
   }
+  &-wrapper{
+    padding: 20px 20px 10px;
+    margin: 20px 0;
+    border: 0 solid;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.5s linear;
+    border-bottom: 5px solid $primary;
+  }
   .search-input-group{
     width: 100% !important;
     height: 53px;
@@ -141,23 +150,18 @@ a {
     button {
       position: absolute;
       bottom: 0;
+      left: 0;
     }
   }
 }
 
-.fixed-form {
-  display: none;
-}
 
-@media(min-width: 1025px){
-  .fixed-form{
-    z-index: 999;
-    display: block;
-    position: fixed;
-    top: 56px !important;
-    margin-top: 10px;
-    right: 4px !important;
-    width: 375px !important;
-    transition: all revert 0.5s;
-  }
+
+#small_form_wrapper {
+  z-index: 999;
+  height: 0;
+  position: fixed;
+  top: 60px !important;
+  right: 4px !important;
+  width: 375px !important;
 }

@@ -39,12 +39,15 @@ module.exports = {
             // sta rumenta compila i require sulle pagine
             {
                 test: /_component\.(html)$/,
-                use: {
-                    loader: 'html-loader',
-                    options: {
-                        attrs: [':data-src']
+                use: [
+                    {
+
+                        loader: 'html-loader',
+                        options: {
+                            attrs: [':data-src']
+                        }
                     }
-                }
+                ]
             },
             {
                 test: /\.scss$/,
@@ -156,6 +159,37 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
+            filename : "../WebSrc/assets/components/detail_bar_component.html",
+            template: "assets/components/navigation_bar_component.html",
+            chunks : [],
+            links : [
+                {
+                    name : "HOME",
+                    link : "index.php"
+                },
+                {
+                    name : "DESCRIPTION",
+                    link : "#description"
+                },
+                {
+                    name : "FEATURES",
+                    link : "#features"
+                },
+                {
+                    name : "FIND SIMILAR",
+                    link : "#findSimilar"
+                },
+                {
+                    name : "BUY",
+                    link : "#buy"
+                },
+                {
+                    name : "Log In",
+                    link : "#loginModal"
+                },
+            ],
+        }),
+        new HtmlWebpackPlugin({
             title: "Herschel | Planet is your playground",
             filename : "index.php",
             template: "assets/index.php",
@@ -166,6 +200,12 @@ module.exports = {
             filename : "private.php",
             template: "assets/pages/private.php",
             chunks:  ['common', 'private'],
+            inject: 'body'
+        }),
+        new HtmlWebpackPlugin({
+            filename : "detail.php",
+            template: "assets/pages/detail.php",
+            chunks:  [],
             inject: 'body'
         }),
         new HtmlWebpackPlugin({

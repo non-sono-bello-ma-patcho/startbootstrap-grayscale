@@ -12,7 +12,7 @@ $card_description = isset($_REQUEST['description']) ? trim($_REQUEST['descriptio
 $card_price = isset($_REQUEST['price']) ? trim($_REQUEST['price']) : $card_price = $price;
 $card_image = isset($_REQUEST['img']) ? trim($_REQUEST['img']) : $card_image = $img;
 $card_code = isset($_REQUEST['code'])? trim($_REQUEST['code']) : $code;
-$product_link = 'herschel.hopto.org/products.php?id='.$card_code;
+$product_link = 'herschel.hopto.org/detail.php?id='.$card_code;
 $card_cmd = !is_int(strpos($_COOKIE['cart'], $card_code))? 'add' : 'remove';
 $card_class = !is_int(strpos($_COOKIE['cart'], $card_code))? 'far' : 'fas';
 $tab = isset($_REQUEST['tab'])? $_REQUEST['tab'] : "";
