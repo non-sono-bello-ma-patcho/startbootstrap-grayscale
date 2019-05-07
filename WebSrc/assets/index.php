@@ -46,9 +46,6 @@
                     <a class="nav-link js-scroll-trigger" href="#projects">Planets</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#shop">Shop</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="#signup">Sign Up</a>
                 </li>
                 <li class="nav-item">
@@ -112,7 +109,7 @@
 </header>
 
 <!-- About Section -->
-<section id="about" class="about-section text-center">
+<section id="about" class="about-section text-center d-none d-md-block">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
@@ -129,7 +126,7 @@
 </section>
 
 <!-- Projects Section -->
-<section id="projects" class="projects-section bg-light">
+<section id="projects" class="projects-section bg-light d-none d-md-block">
     <div class="container">
 
         <!-- Featured Project Row -->

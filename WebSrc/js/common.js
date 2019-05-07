@@ -9,7 +9,6 @@ import 'bootstrap/js/dist/scrollspy';
 import './fontawesome';
 
 import '../scss/common.scss';
-import './searchForm';
 
 
 // export let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1] | 'none'; // fa schifo sto coso...

@@ -15,7 +15,8 @@ module.exports = {
         private : './js/private.js',
         // test : './js/test.js',
         error : './js/error.js',
-        fontawesomecustom : './js/fontawesome.js'
+        fontawesome : './js/fontawesome.js',
+        detail : './js/detail.js'
   },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -39,7 +40,7 @@ module.exports = {
             // sta rumenta compila i require sulle pagine
             {
                 test: /_component\.(html)$/,
-                use: [
+                use:
                     {
 
                         loader: 'html-loader',
@@ -47,7 +48,6 @@ module.exports = {
                             attrs: [':data-src']
                         }
                     }
-                ]
             },
             {
                 test: /\.scss$/,
@@ -159,37 +159,6 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            filename : "../WebSrc/assets/components/detail_bar_component.html",
-            template: "assets/components/navigation_bar_component.html",
-            chunks : [],
-            links : [
-                {
-                    name : "HOME",
-                    link : "index.php"
-                },
-                {
-                    name : "DESCRIPTION",
-                    link : "#description"
-                },
-                {
-                    name : "FEATURES",
-                    link : "#features"
-                },
-                {
-                    name : "FIND SIMILAR",
-                    link : "#findSimilar"
-                },
-                {
-                    name : "BUY",
-                    link : "#buy"
-                },
-                {
-                    name : "Log In",
-                    link : "#loginModal"
-                },
-            ],
-        }),
-        new HtmlWebpackPlugin({
             title: "Herschel | Planet is your playground",
             filename : "index.php",
             template: "assets/index.php",
@@ -202,12 +171,12 @@ module.exports = {
             chunks:  ['common', 'private'],
             inject: 'body'
         }),
-        new HtmlWebpackPlugin({
+        /*new HtmlWebpackPlugin({
             filename : "detail.php",
             template: "assets/pages/detail.php",
             chunks:  [],
             inject: 'body'
-        }),
+        }),*/
         new HtmlWebpackPlugin({
             filename : "modifyform.php",
             template: "assets/pages/modifyform.php",
@@ -224,6 +193,33 @@ module.exports = {
             filename : "components/admin_panel.php",
             template: "assets/components/admin_panel.php",
             chunks : []
+        }),
+        new HtmlWebpackPlugin({
+            filename : "detail.php",
+            template: "assets/pages/detail.php",
+            chunks : [ 'common', 'detail' ],
+            links : [
+                {
+                    name : "HOME",
+                    link : "index.php"
+                },
+                {
+                    name : "DESCRIPTION",
+                    link : "#description"
+                },
+                {
+                    name : "FEATURES",
+                    link : "#features"
+                },
+                {
+                    name : "BUY",
+                    link : "#buy"
+                },
+                {
+                    name : "Log In",
+                    link : "#loginModal"
+                },
+            ],
         }),
         new CopyWebpackPlugin([
             { from : '../php', to : 'php' },

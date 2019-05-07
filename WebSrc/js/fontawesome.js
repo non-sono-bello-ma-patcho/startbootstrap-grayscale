@@ -10,7 +10,9 @@ import {
     faMobileAlt,
     faEnvelope,
     faMapMarkedAlt,
-    faShoppingCart
+    faShoppingCart,
+    faRocket,
+    faCode
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -34,6 +36,8 @@ library.add(
     faEnvelope,
     faMapMarkedAlt,
     faShoppingCart,
+    faRocket,
+    faCode,
 
     // regular
     faStarReg,
