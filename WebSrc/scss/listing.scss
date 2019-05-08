@@ -1,0 +1,15 @@
+@import "common";
+@import "navbar";
+@import "private_card";
+
+body {
+  background: url("../img/bg-listing_css.jpg") repeat;
+  background-size: 737px 648px;
+}
+
+.card-img-left {
+  max-width: 100%;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.25rem - 1px);
+  display: inline;
+}

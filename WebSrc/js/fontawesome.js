@@ -12,7 +12,8 @@ import {
     faMapMarkedAlt,
     faShoppingCart,
     faRocket,
-    faCode
+    faCode,
+    faSlidersH
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -38,6 +39,7 @@ library.add(
     faShoppingCart,
     faRocket,
     faCode,
+    faSlidersH,
 
     // regular
     faStarReg,

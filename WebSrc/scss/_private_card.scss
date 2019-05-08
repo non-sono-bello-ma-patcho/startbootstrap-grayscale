@@ -1,5 +1,8 @@
 .slim-card {
   max-height: 160px !important;
+  @media (min-width: 768px) {
+    max-height: 240px !important;
+  }
   overflow: hidden;
   position: relative;
 
@@ -11,7 +14,6 @@
 
 .custom-card {
   overflow: hidden;
-  max-height: 400px;
   border: solid 4px rgba($gray-700, 0) !important;
   & > img {
     transition: all 0.5s ease;
@@ -24,5 +26,17 @@
       cursor: pointer;
       transition: all 0.5s ease-in-out;
     }
+  }
+  .read-more {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+    z-index: 999;
+    font-weight: bolder;
+    background-image: linear-gradient(to bottom, transparent, black);
   }
 }

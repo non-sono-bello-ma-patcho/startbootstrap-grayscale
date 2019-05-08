@@ -15,8 +15,10 @@ module.exports = {
         private : './js/private.js',
         // test : './js/test.js',
         error : './js/error.js',
-        fontawesome : './js/fontawesome.js',
-        detail : './js/detail.js'
+        // fontawesome : './js/fontawesome.js',
+        detail : './js/detail.js',
+        modify : './js/modify.js',
+        listing : './js/listing.js'
   },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -168,19 +170,19 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename : "private.php",
             template: "assets/pages/private.php",
-            chunks:  ['common', 'private'],
+            chunks:  [ 'common', 'private' ],
             inject: 'body'
         }),
-        /*new HtmlWebpackPlugin({
-            filename : "detail.php",
-            template: "assets/pages/detail.php",
-            chunks:  [],
+        new HtmlWebpackPlugin({
+            filename : "listing.php",
+            template: "assets/pages/listing.php",
+            chunks:  [ 'common', 'listing' ],
             inject: 'body'
-        }),*/
+        }),
         new HtmlWebpackPlugin({
             filename : "modifyform.php",
             template: "assets/pages/modifyform.php",
-            chunks:  ['common'],
+            chunks:  ['modify'],
             inject: 'body'
         }),
         new HtmlWebpackPlugin({
