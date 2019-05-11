@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "test": "webpack --config webpack.config.js",
-    "build": "webpack"
+    "build": "webpack",
+    "dist": "webpack --config distconfig.js"
   },
   "repository": {
     "type": "git",

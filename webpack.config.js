@@ -159,7 +159,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new CleanWebpackPlugin(),
+       // new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: "Herschel | Planet is your playground",
             filename : "index.php",

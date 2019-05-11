@@ -1,6 +1,6 @@
 <?php session_start();
     if(!isset($_SESSION['id'])) header("Location: index.php");
-    setcookie("username", $_REQUEST['username']);
+    setcookie("username", $_SESSION['id']);
     require_once "php/userUtility.php";
     require_once "php/purchaseUtility.php";
     require_once "php/productUtility.php";
