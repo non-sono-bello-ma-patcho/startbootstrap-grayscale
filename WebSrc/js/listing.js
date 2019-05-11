@@ -1,3 +1,3 @@
 import '../scss/listing.scss';
 
-import "./searchForm";
+import "./components/searchForm";

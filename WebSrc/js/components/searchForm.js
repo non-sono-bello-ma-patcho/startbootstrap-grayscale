@@ -1,6 +1,6 @@
 import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/carousel';
-import './datepicker';
+import '../datepicker';
 
 
 $('.search-input-group input').focusout(function () {

@@ -17,7 +17,7 @@
     <title>Private Page - Herschel</title>
 
 </head>
-<body style="background: black">
+<body>
 <!-- LogOut Modal -->
 <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="loginmodalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -50,7 +50,7 @@
 
 <!-- Main content -->
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+    <!--<nav class="navbar navbar-expand-lg navbar-shrink navbar-light" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger a-logo" href=""></a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +60,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href=""><?php echo $_SESSION['id'];?></a>
+                        <a class="nav-link" href=""><?php /*echo $_SESSION['id'];*/?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Home</a>
@@ -70,6 +70,24 @@
                     </li>
                     <li class="nav-item">
                         <a id="logoutbtn" class="btn btn-nav custom-btn text-white border-light" data-target="#logoutModal" data-toggle="modal">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>-->
+
+    <nav class="navbar navbar-expand-lg navbar-shrink navbar-light shadow" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand a-logo" href="index.php"></a>
+            <h1 class="mx-auto my-0 text-uppercase gradient-title">Herschel</h1>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -188,10 +206,12 @@
             </div>
         </div>
     <!-- Footer -->
-    <footer class="bg-black small text-center text-white-50" style="height: 20px;">
-        <div class="container">
-            Copyright &copy; Herschel 2018
-        </div>
-    </footer>
+<div class="fading"></div>
+<!-- Footer -->
+<footer class="bg-black small text-center text-white-50">
+    <div class="container">
+        Copyright &copy; Herschel 2018
+    </div>
+</footer>
 </body>
 </html>

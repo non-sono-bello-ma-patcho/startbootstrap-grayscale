@@ -90,3 +90,21 @@ footer {
     background: $white;
   }
 }*/
+
+.modal.fade{
+  .modal-dialog {
+    height: 100%;
+    width: 100%;
+    max-width: unset !important;
+    margin: 0;
+  }
+
+  .modal-header {
+    border-radius: 0 !important;
+  }
+
+  .modal-content {
+    border-radius: 0;
+    height: 100%;
+  }
+}

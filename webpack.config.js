@@ -19,7 +19,7 @@ module.exports = {
         detail : './js/detail.js',
         modify : './js/modify.js',
         listing : './js/listing.js'
-  },
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: "js/[name].js"
@@ -163,7 +163,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "Herschel | Planet is your playground",
             filename : "index.php",
-            template: "assets/index.php",
+            template: "assets/pages/index.php",
             chunks:  ['common', 'grayscale'],
             inject: 'body'
         }),

@@ -1,9 +1,11 @@
 @import "variables";
 @import "common";
+@import "navbar";
 @import "private_card";
 
-.private-bg {
-  background: linear-gradient(to bottom, #{fade-out($black, .9)} 0%, #{fade-out($black, .5)} 75%, $black 100%) url('../img/private_css.png') no-repeat scroll center;
+body {
+  background: url("../img/bg-listing_css.jpg") repeat;
+  background-size: 737px 648px;
 }
 
 .idlink {
@@ -111,4 +113,13 @@
 
 .custom-hidden {
   transition: display 0.3s ease;
+}
+
+.fading {
+  padding: 5rem;
+  background: linear-gradient(to bottom, #{fade-out($black, .9)} 0%, #{fade-out($black, .5)} 75%, $black 100%),
+}
+
+footer {
+  padding: 5rem 0;
 }

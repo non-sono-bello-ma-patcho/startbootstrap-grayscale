@@ -1,8 +1,8 @@
 import 'jquery.easing';
 import 'bootstrap/js/dist/scrollspy';
 import 'bootstrap/js/dist/collapse';
-import './searchForm';
-import './signupForm';
+import './components/searchForm';
+import './components/signupForm';
 /* SCSS */
 import '../scss/grayscale.scss';
 

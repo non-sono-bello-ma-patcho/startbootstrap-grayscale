@@ -1,11 +1,15 @@
 /* CSS */
-import '../scss/_temp-private.scss';
+import '../scss/private.scss';
 
 /* JS */
 import 'bootstrap/js/dist/tooltip';
 import 'bootstrap/js/dist/tab';
 import 'bootstrap/js/dist/button';
 import 'bootstrap/js/dist/modal';
+
+import './components/addProdcutForm';
+import './components/editProductForm';
+import './components/addAdminForm';
 
 import {addCard, updateCart, updateTotal, cart} from "./common";
 
@@ -169,28 +173,6 @@ function load_likable_users(){
             }*!/
         }
     });*/
-}
-
-function load_product(){
-    let product = $('#eID').val();
-    $.post("php/rest.php", { param : product, op : "searchproduct" },function(response){
-        let product_info = JSON.parse(response);
-        if(product_info.length <= 0) {
-            $('#eID').toggleClass('is-invalid', true);
-        }
-        else{
-            $('#eID').toggleClass('is-invalid', false);
-
-            console.log("loading placeholders");
-            // load placeholders dynamically
-            for(var key in product_info){
-                if(key!=="description" && product_info.hasOwnProperty(key))
-                    $("#e"+key).attr("placeholder", product_info[key]);
-                else
-                    $("#edescription").html(product_info[key]);
-            }
-        }
-    });
 }
 
 function load_search_result(){

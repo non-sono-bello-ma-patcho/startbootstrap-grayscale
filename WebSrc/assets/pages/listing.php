@@ -40,18 +40,17 @@ $h1 = "{$number_of_trips} trips to {$destination}";
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title text-white" id="exampleModalLabel">
+                    <span class="fas fa-sliders-h"></span>
+                    Filter your search
+                </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true" class="text-white">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <%=require('../components/listing_search_form_component.html')%>
             </div>
         </div>
     </div>
@@ -79,14 +78,14 @@ $h1 = "{$number_of_trips} trips to {$destination}";
         <div class="col-lg-12 col-10">
             <h3 class="text-primary mb-0"><?php echo $h1; ?></h3>
         </div>
-        <div class="col-2 d-lg-none text-center my-auto">
+        <div class="col-2 d-md-none text-center my-auto">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 <span class="fas fa-sliders-h text-primary m-auto"></span>
             </button>
         </div>
     </div>
     <div class="row h-100 px-4">
-        <div class="col-lg-8 col-12 pl-0" id="items_column">
+        <div class="col-lg-8 col-md-7 col-12 pl-0" id="items_column">
             <div class="" id="item_container">
                 <?php
                     // here iterate over found tuples and print html
@@ -94,7 +93,7 @@ $h1 = "{$number_of_trips} trips to {$destination}";
                 ?>
             </div>
         </div>
-        <div class="col-lg-4 d-none d-lg-block px-2" id="filters_column">
+        <div class="col-lg-4 col-md-5 d-none d-md-block px-2" id="filters_column">
             <div class="card shadow">
                 <div class="card-header bg-primary text-white font-weight-bolder">
                     <span class="fas fa-sliders-h"></span>

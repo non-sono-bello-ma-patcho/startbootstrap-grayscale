@@ -57,7 +57,7 @@
 </nav>
 
 <!-- Log In Modal-->
-<%=require('./components/login_modal_component.html')%>
+<%=require('../components/login_modal_component.html')%>
 
 
 <!-- small search form -->
@@ -67,7 +67,7 @@
             <div class="carousel-item" id="form-item">
                 <div class="fixed-form">
                     <div class="search-form-wrapper bg-white">
-                        <%=require('./components/small_search_form_component.html')%>
+                        <%=require('../components/small_search_form_component.html')%>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                 <h1 class="mx-auto my-0 text-uppercase">Herschel</h1>
             </div>
             <div class="w-100 bg-white mb-0 py-0 search-form-wrapper" id="big_form_wrapper">
-                <%=require('./components/search_form_component.html')%>
+                <%=require('../components/search_form_component.html')%>
             </div>
         </div>
     </div>
@@ -116,7 +116,7 @@
         <!-- Featured Project Row -->
         <div class="row align-items-center no-gutters mb-4 mb-lg-5">
             <div class="col-xl-8 col-lg-7">
-                <img class="img-fluid mb-3 mb-lg-0" src="<%=require('../img/project2_ext.jpg')%>" alt="">
+                <img class="img-fluid mb-3 mb-lg-0" src="<%=require('../..//img/project2_ext.jpg')%>" alt="">
             </div>
             <div class="col-xl-4 col-lg-5">
                 <div class="featured-text text-center text-lg-left">
@@ -135,7 +135,7 @@
         <!-- Project One Row -->
         <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
             <div class="col-lg-6">
-                <img class="img-fluid" src="<%=require('../img/project1_ext.jpg')%>" alt="">
+                <img class="img-fluid" src="<%=require('../../img/project1_ext.jpg')%>" alt="">
             </div>
             <div class="col-lg-6">
                 <div class="bg-black text-center h-100 project">
@@ -157,7 +157,7 @@
         <!-- Project Two Row -->
         <div class="row justify-content-center no-gutters">
             <div class="col-lg-6">
-                <img class="img-fluid custom-img" src="<%=require('../img/project4_ext.jpg')%>" alt="">
+                <img class="img-fluid custom-img" src="<%=require('../../img/project4_ext.jpg')%>" alt="">
             </div>
             <div class="col-lg-6 order-lg-first">
                 <div class="bg-black text-center h-100 project">
@@ -178,70 +178,6 @@
 
     </div>
 </section>
-<!-- Shop Preview Section -->
-<section id="shop" class="shop-section bg-light d-none">
-    <div class="shop-header text-center">
-        <h2>Shop</h2>
-    </div>
-    <div class="container">
-        <div class="card-deck mb-3 text-center">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Item</h4>
-                </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">$1</h1>
-                    <ul class="list-unstyled mt-3 mb4">
-                        <li>Lorem ipsum dolor sit amet.</li>
-                        <li>Consectetur adipiscing elit.</li>
-                        <li>Ut viverra augue a elementum molestie.</li>
-                    </ul>
-                    <button type="button" class="btn custom-btn">Sign up or log in for purchase</button>
-                </div>
-
-            </div>
-            <div class="card mb-4 bg-dark text-white custom-card font-weight-bolder border-0">
-                <img class="card-img custom-img" src="<%=require('../img/project1_ext.jpg')%>" alt="Card Image">
-                <div class="card-img-overlay">
-                    <div class="col-md-3 ml-auto">
-                        <span class="badge badge-danger">1k</span>
-                    </div>
-                    <h4 class="card-title text-center">Your Soul</h4>
-                    <h1 class="card-title pricing-card-title">$0</h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>An All Stars Winner whom actually deserves it</li>
-                        <li>2 GB of kittens vids</li>
-                        <li>Email support</li>
-                        <li>French Fries</li>
-                    </ul>
-                    <button type="button" class="btn custom-btn text-white">Sign up for free</button>
-                    <div class="mb-4">
-                        <small class="text-white">*You'll have to wait about 72 hours to get an answer</small>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">Free</h4>
-                </div>
-                <div class="card-body">
-                    <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>10 users included</li>
-                        <li>2 GB of storage</li>
-                        <li>Email support</li>
-                        <li>Help center access</li>
-                    </ul>
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-    <div class="mb-4 text-center">
-        <a class="btn custom-btn">Find more in store</a>
-    </div>
-</section>
 
 <!-- Signup Section -->
 <section id="signup" class="signup-section">
@@ -249,7 +185,7 @@
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto text-center">
                 <h2 class="text-white mb-5">Sign up to Herschel and start to explore!</h2>
-                <%=require('./components/signup_form_component.html')%>
+                <%=require('../components/signup_form_component.html')%>
             </div>
         </div>
     </div>
