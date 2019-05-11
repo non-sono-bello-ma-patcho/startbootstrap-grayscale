@@ -1,0 +1,30 @@
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginmodalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <form  method="post" class="form-signin" action="php/sign_in.php">
+                    <input type="hidden" name="loginform">
+                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="username" placeholder="Enter your username">
+                    <label for="inputPassowrdlog" class="sr-only">Password</label>
+                    <input type="password" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id= "inputPassowrdlog" name="pswd" placeholder="Type your password...">
+                    <div class="checkbox mb3">
+                        <label>
+                            <input type="checkbox" value="Remember me">
+                            Remember me
+                        </label>
+                    </div>
+                    <input type="submit" class="form-control btn-primary" value="Log In">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <p class="align-content-between">Don't have an account? <a id="loglink" class="js-scroll-trigger" href="#signup" aria-label="Close">Sign up!</a>
+            </div>
+        </div>
+    </div>
+</div>

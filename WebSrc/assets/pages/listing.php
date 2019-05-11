@@ -5,6 +5,12 @@
  * Date: 08/05/19
  * Time: 21.20
  */
+// set all the variables to pages
+
+$number_of_trips = '6.800';
+$destination = 'Mars';
+$h1 = "{$number_of_trips} trips to {$destination}";
+
 ?>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -25,10 +31,35 @@
 
     <!-- Custom styles for this template -->
 </head>
-<body>
+<body class="h-100">
+
+<!-- Log In Modal-->
+<%=require('../components/login_modal_component.html')%>
+
+<!-- mobile filters modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <nav class="navbar navbar-expand-lg navbar-shrink navbar-light shadow" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger a-logo" href="index.php"></a>
+        <a class="navbar-brand a-logo" href="index.php"></a>
         <h1 class="mx-auto my-0 text-uppercase gradient-title">Herschel</h1>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
@@ -43,63 +74,45 @@
         </div>
     </div>
 </nav>
-<div class="container h-100 bg-light">
-    <div class="row mx-3 pt-4">
-        <h3 class="text-primary">Trips to Mars <small class="text-muted"> for beginners > with guides</small></h3>
+<div class="container bg-light mt-3">
+    <div class="row px-4 pt-4">
+        <div class="col-lg-12 col-10">
+            <h3 class="text-primary mb-0"><?php echo $h1; ?></h3>
+        </div>
+        <div class="col-2 d-lg-none text-center my-auto">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <span class="fas fa-sliders-h text-primary m-auto"></span>
+            </button>
+        </div>
     </div>
-    <div class="row h-100 mx-3">
-        <div class="col-md-8 col-12" id="items_column">
+    <div class="row h-100 px-4">
+        <div class="col-lg-8 col-12 pl-0" id="items_column">
             <div class="" id="item_container">
-                <div class="custom-card card slim-card text-white text-left mt-2 mb-3">
-                    <a href="link" class="read-more text-white">Read More</a>
-                    <img src="../../img/project4_ext.jpg" class="card-img" alt="...">
-                    <div class="card-img-overlay">
-                        <div class='row'>
-                            <div class='col-10'>
-                                <h4 class="card-title d-inline">Asgardia</h4>
-                                <span class='badge badge-info'><small>1.000$</small></span>
-                            </div>
-                            <div class='col-2'>
-                                <button data-id="" data-cmd='' class='bg-transparent border-0 float-right outline' style='outline: none;'>
-                                    <span class='far fa-star float-right text-primary'></span>
-                                </button>
-                            </div>
-                        </div>
-                        <p class="card-text">Carta di prova per il listato</p>
-                    </div>
-                </div>
-                <div class="custom-card card slim-card text-white text-left mt-2 mb-3">
-                    <a href="link" class="read-more text-white">Read More</a>
-                    <img src="../../img/project2_ext.jpg" class="card-img" alt="...">
-                    <div class="card-img-overlay">
-                        <div class='row'>
-                            <div class='col-10'>
-                                <h4 class="card-title d-inline">Erebor</h4>
-                                <span class='badge badge-info'><small>1.000$</small></span>
-                            </div>
-                            <div class='col-2'>
-                                <button data-id="" data-cmd='' class='bg-transparent border-0 float-right outline' style='outline: none;'>
-                                    <span class='far fa-star float-right text-primary'></span>
-                                </button>
-                            </div>
-                        </div>
-                        <p class="card-text">Carta di prova per il listato</p>
-                    </div>
-                </div>
+                <?php
+                    // here iterate over found tuples and print html
+
+                ?>
             </div>
         </div>
-        <div class="col-md-4 col-12" id="filters_column">
+        <div class="col-lg-4 d-none d-lg-block px-2" id="filters_column">
             <div class="card shadow">
                 <div class="card-header bg-primary text-white font-weight-bolder">
                     <span class="fas fa-sliders-h"></span>
                     filters
                 </div>
                 <div class="card-body">
-                    <%=require('../components/small_search_form_component.html')%>
+                    <%=require('../components/listing_search_form_component.html')%>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="fading"></div>
+<!-- Footer -->
+<footer class="bg-black small text-center text-white-50">
+    <div class="container">
+        Copyright &copy; Herschel 2018
+    </div>
+</footer>
 </body>
 </html>

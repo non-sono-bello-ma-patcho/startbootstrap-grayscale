@@ -1,0 +1,42 @@
+.slim-card {
+  max-height: 160px !important;
+  @media (min-width: 768px) {
+    max-height: 240px !important;
+  }
+  overflow: hidden;
+  position: relative;
+
+  background: rgba($gray-700, 0);
+  &:hover{
+
+  }
+}
+
+.custom-card {
+  overflow: hidden;
+  border: solid 4px rgba($gray-700, 0) !important;
+  & > img {
+    transition: all 0.5s ease;
+  }
+  &:hover {
+    border: solid 4px rgba($gray-700, 0.3) !important;
+    & > img {
+      -webkit-filter: blur(1px);
+      filter: blur(1px);
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+  .read-more {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+    z-index: 999;
+    font-weight: bolder;
+    background-image: linear-gradient(to bottom, transparent, black);
+  }
+}

@@ -13,7 +13,8 @@ import {
     faShoppingCart,
     faRocket,
     faCode,
-    faSlidersH
+    faSlidersH,
+    faSort
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -40,6 +41,7 @@ library.add(
     faRocket,
     faCode,
     faSlidersH,
+    faSort,
 
     // regular
     faStarReg,

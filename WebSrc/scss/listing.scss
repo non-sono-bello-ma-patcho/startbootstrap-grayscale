@@ -7,9 +7,86 @@ body {
   background-size: 737px 648px;
 }
 
+.fading {
+  padding: 5rem;
+  background: linear-gradient(to bottom, #{fade-out($black, .9)} 0%, #{fade-out($black, .5)} 75%, $black 100%),
+}
+
+footer {
+  padding: 5rem 0;
+}
+
 .card-img-left {
   max-width: 100%;
   border-top-left-radius: calc(0.25rem - 1px);
   border-bottom-left-radius: calc(0.25rem - 1px);
   display: inline;
 }
+
+/*
+#filters_modal {
+  .modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  .modal-dialog {
+    position: fixed;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  .modal-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 2px solid $primary;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .modal-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 50px;
+    padding: 10px;
+    background: $primary;
+    border: 0;
+  }
+
+  .modal-title {
+    font-weight: 300;
+    font-size: 2em;
+    color: $white;
+    line-height: 30px;
+  }
+
+  .modal-body {
+    position: absolute;
+    top: 50px;
+    bottom: 60px;
+    width: 100%;
+    font-weight: 300;
+    overflow: auto;
+  }
+
+  .modal-footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    padding: 10px;
+    background: $white;
+  }
+}*/
