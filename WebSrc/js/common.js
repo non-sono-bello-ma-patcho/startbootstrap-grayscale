@@ -11,7 +11,7 @@ import './fontawesome';
 import '../scss/common.scss';
 
 
-// export let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1] | 'none'; // fa schifo sto coso...
+export let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1] | 'none'; // fa schifo sto coso...
 export let cart;
 
 initCart();
@@ -38,7 +38,10 @@ export function addCard(product_id, target, type='product'){
                 try {
                     if(type === 'product'){
                         let tab = target.attr('id').replace('-container', '');
-                        response = response.substring(0, response.length-1).concat(`, "tab" : "${tab}"}`);
+                        response = JSON.stringify(response);
+                        console.log(response);
+                        response.substring(0, response.length-1).concat(`, "tab" : "${tab}"}`);
+                        console.log(response);
                     }
                     productInfo = JSON.parse(response);
                     resolve(productInfo);
@@ -113,19 +116,17 @@ export function updateTotal(username) {
 function initCart(){
     new Promise((resolve, reject)=>{
         $.get(
-            "php/rest.php",
+            "rest/getCart.php",
             {
-                param : 'cart',
-                op : 'latest_prod'
+                username : username
             },
             (response) => {
-                console.log('initializing cart with: '+response);
+                console.log('initializing cart with: '+response['cart']);
                 try{
-                    cart = JSON.parse(response);
+                    cart = response['cart'];
                     resolve(cart);
-                    console.log(cart);
                 } catch (e) {
-                    reject(new Error('lol'));
+                    reject(e);
                 }
 
             }

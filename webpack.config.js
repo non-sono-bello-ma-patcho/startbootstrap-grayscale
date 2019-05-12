@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MakeDirWebpackPlugin = require('make-dir-webpack-plugin');
 
 module.exports = {
     context: path.resolve(__dirname, 'WebSrc'),
@@ -159,7 +160,7 @@ module.exports = {
         ]
     },
     plugins: [
-       // new CleanWebpackPlugin(),
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: "Herschel | Planet is your playground",
             filename : "index.php",
@@ -225,9 +226,16 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             { from : '../php', to : 'php' },
+            { from : '../rest', to : 'rest' },
             { from : '../config.php', to : '' },
             { context : './assets/components/', from : '*_card.php', to : 'components' }
         ]),
+        new MakeDirWebpackPlugin({
+            dirs: [
+                { path: 'dist/img/productImg' },
+                { path: 'dist/img/profileImg' },
+            ]
+        }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',

@@ -218,16 +218,16 @@ function load_tab(target){
     }
     new Promise((resolve, reject)=>{
         $.get(
-            "php/rest.php",
-            { param : table, op : "latest_prod"},
+            "rest/listProducts.php",
+            {},
             function(response){
                 try{
                     if(response !=="[]")
-                        resolve(JSON.parse(response));
+                        resolve(response);
                     else
                         resolve(table);
                 } catch (e) {
-                    reject(new Error(target));
+                    reject(e);
                 }
             }
         );
@@ -246,7 +246,7 @@ function load_tab(target){
             $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>Your ${fulfilled} is empty</p>`);
         }
     }).catch((error) => {
-        $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>An error occured loading ${error.message.slice(1)}</p>`);
+        $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>An error occured loading ${error.message}</p>`);
     }).finally(() => {
         // remove spinner
         $(target+"-spinner").toggleClass('d-none', true).toggleClass('d-flex', false);

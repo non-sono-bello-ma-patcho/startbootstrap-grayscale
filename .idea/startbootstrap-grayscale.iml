@@ -6,7 +6,6 @@
       <sourceFolder url="file://$MODULE_DIR$/mailer/test" isTestSource="true" packagePrefix="PHPMailer\Test\" />
       <sourceFolder url="file://$MODULE_DIR$/WebSrc" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/php" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/dist" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/css" />
       <excludeFolder url="file://$MODULE_DIR$/js" />
     </content>
