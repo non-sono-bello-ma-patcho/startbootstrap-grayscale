@@ -1,7 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
@@ -16,6 +16,7 @@ $username = json_decode(file_get_contents("php://input"))->username;
 //$result = get_information_listed('users', 'name, surname, username, mail, img, description', 'username', $data->username);
 
 $result = [
+    "total" => getUserTotal($username),
     "cart" => getUserCart($username)
 ];
 

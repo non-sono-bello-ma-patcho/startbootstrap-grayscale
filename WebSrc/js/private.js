@@ -11,9 +11,10 @@ import './components/addProdcutForm';
 import './components/editProductForm';
 import './components/addAdminForm';
 
-import {addCard, updateCart, updateTotal, cart} from "./common";
+import './components/private_card';
 
-let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1]; // fa schifo sto coso..
+import {addCard, getCookie, updateTotal, username} from "./common";
+
 
 // activate tooltip
 $(function () {
@@ -25,7 +26,7 @@ $(function () {
 $(document).ready(()=>{
     let to_load = $(".tab-pane.active").attr('id');
     load_tab("#"+to_load);
-    updateTotal(username);
+    updateTotal();
 });
 
 // reload active tab on click
@@ -36,61 +37,10 @@ $(document).on('shown.bs.tab', 'a[data-toggle="tab"]',function (e) {
 });
 
 // this delegates action on button click depending on card type
-$(document).on('click', '.manage-new-prod', function(e){
-    let btn = $(this);
-    let id = btn.data('id');
-    let cmd = btn.data('cmd')+'_cart';
-
-    $.post(
-        'php/rest.php',
-        {
-            id : id,
-            username : username,
-            op : cmd
-        },
-        (response, status) => {
-            if(cmd === "add_cart") cart.push(id);
-            else cart.splice(cart.indexOf(id), 1);
-            console.log("status: "+status); //TODO manage addition and deletion
-
-        }
-    ).done(()=>{
-        updateCart();
-        updateTotal();
-        //alter behaviour
-        btn.data('cmd', btn.data('cmd') === 'add' ? "remove" : 'add');
-        btn.empty().append(`<span class="${btn.data('cmd') === 'add' ?'far':'fas'} fa-star text-warning"></span>`)
-    });
-});
 
 
-$(document).on('click', '.manage-cart', function(e){
-    let btn = $(this);
-    let id = btn.data('id');
-    let cmd = btn.data('cmd')+'_cart';
 
-    //alter behaviour
 
-    $.post(
-        'php/rest.php',
-        {
-            id : id,
-            username : username,
-            op : cmd
-        },
-        (response, status) => {
-            if(cmd === "add_cart") cart.push(id);
-            else cart.splice(cart.indexOf(id), 1);
-            console.log("status: "+status); //TODO manage addition and deletion
-
-        }
-    ).done(()=>{
-        updateCart();
-        updateTotal();
-        let card = $(this).closest('.card');
-        card.fadeOut('slow').remove();
-    });
-});
 
 // activate button on radio check
 $("#resultlist").on("change", function(){
@@ -125,54 +75,6 @@ function load_likable_users(){
             $('#resultlist').toggleClass('d-none', true).toggleClass("custom-hidden", true);
             $('#newusername').toggleClass('is-invalid', true);
         });
-    // return a list of user with name similar to given
-    /*$.get("php/rest.php", { param : username, op : "searchuser" },function(response){
-        let userinfo = JSON.parse(response);
-        console.log("got filter: "+username);
-        if(userinfo.length <= 0){
-
-        }
-        else {
-
-            // a questo punto aggiungo tutte le card caricate...
-            /!*let items = userinfo.length;
-            let offset = 0;
-            let maxoffset = Math.floor(items/3)*3;
-            let decks = Math.ceil(items/3);
-            for(let i=0; i<decks; i++){
-                let deck = $("<div class=\"card-deck\"></div>");
-                for(let j=0; j<(offset===maxoffset?items-maxoffset:3); j++){
-                    console.log("index is: "+(offset+j));
-                    deck.append(`<div class="card m-2 col-md-6">
-                                    <div class="card-header">
-                                        <div class="form-check">
-                                            <input type="radio" class="form-check-input" name="userID" value="${userinfo[j+offset].username}">
-                                            <label for="usernamec" class="form-check-label">${userinfo[j+offset].username}</label>
-                                        </div>
-                                        </div>
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <p id="nametag">${userinfo[j+offset].name}</p>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <p id="surnametag">${userinfo[j+offset].surname}</p>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <p class="mb-0" id="emailtag">${userinfo[j+offset].email}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>`
-                    );
-                }
-                offset += 3;
-                $('#resultlist').append(deck);
-            }*!/
-        }
-    });*/
 }
 
 function load_search_result(){
@@ -207,30 +109,33 @@ function load_search_result(){
 
 function load_tab(target){
     // add spinner
-    let table;
+    let command, $data = {username : username};
     switch (target) {
         case '#new-prod':
-            table = 'products';
+            command = 'listProducts';
             break;
         case '#cart':
-            table = 'cart';
+            command = 'getCart';
             break;
     }
     new Promise((resolve, reject)=>{
-        $.get(
-            "rest/listProducts.php",
-            {},
-            function(response){
-                try{
-                    if(response !=="[]")
-                        resolve(response);
-                    else
-                        resolve(table);
-                } catch (e) {
-                    reject(e);
-                }
+
+        $.ajax({
+            contentType : "application/json",
+            data : JSON.stringify($data),
+            type : 'POST',
+            processData: false,
+            url : `rest/${command}.php`
+        }).then((response)=>{
+            try{
+                if(response !==[])
+                    resolve(response);
+                else
+                    resolve(command);
+            } catch (e) {
+                reject(e);
             }
-        );
+        });
     }).then((fulfilled) => {
         if(Array.isArray(fulfilled)){
             let promises = [];
@@ -243,6 +148,7 @@ function load_tab(target){
             });
         }
         else {
+            console.log(fulfilled);
             $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>Your ${fulfilled} is empty</p>`);
         }
     }).catch((error) => {

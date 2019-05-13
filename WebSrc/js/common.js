@@ -10,6 +10,21 @@ import './fontawesome';
 
 import '../scss/common.scss';
 
+let user_card_cfg = {
+    command : 'getUserInfo',
+    component : 'user_card',
+    key : 'username'
+};
+let prod_card_cfg = {
+    command : 'getProductInfo',
+    component : 'private_card',
+    key : 'code',
+    op : (tab)=>{
+        if(tab==='product')
+            return 'new-prod';
+        return 'cart';
+    }
+};
 
 export let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1] | 'none'; // fa schifo sto coso...
 export let cart;
@@ -17,58 +32,67 @@ export let cart;
 initCart();
 
 export function addCard(product_id, target, type='product'){
-    console.log('tryng to load card to '+target);
-    let productInfo, op, component;
+    console.log('trying to load card '+product_id+' to '+target.attr('id'));
+    let productInfo, conf;
+
     switch(type){
         case 'product':
-            op = 'searchproduct';
-            component = 'private_card';
+            conf = prod_card_cfg;
             break;
         case 'user':
-            op = 'searchuser';
-            component = 'user_card';
+            conf = user_card_cfg;
             break;
     }
-    console.log('calling rest with params: '+op+", "+component);
+
+    console.log("initialized variables");
+
     return new Promise((resolve, reject)=>{
-        $.get(
-            "php/rest.php",
-            { param : product_id, op : op},
-            (response) => {
-                try {
-                    if(type === 'product'){
-                        let tab = target.attr('id').replace('-container', '');
-                        response = JSON.stringify(response);
-                        console.log(response);
-                        response.substring(0, response.length-1).concat(`, "tab" : "${tab}"}`);
-                        console.log(response);
-                    }
-                    productInfo = JSON.parse(response);
-                    resolve(productInfo);
-                }
-                catch(e){
-                    reject(new Error("Couldn't load product: "+e.message));
-                }
+        // get product information via rest:
+        let $data = type==="product"?{code:product_id}:{username:product_id};
+        console.log('data: '+$data);
+        $.ajax({
+            contentType : "application/json",
+            data : JSON.stringify($data),
+            type : 'POST',
+            processData: false,
+            url : `rest/${conf.command}.php`
+        }).done((response)=>{
+            // once got the product info, use them as data for the next $.get call
+            try {
+                /*if(type === 'product'){
+                    let tab = target.attr('id').replace('-container', '');
+                    response = JSON.stringify(response);
+                    response.substring(0, response.length-1).concat(`, "tab" : "${tab}"}`);
+                    response = JSON.parse(response);
+                }*/
+                // add tab key to data
+                response.tab = conf.op(type);
+                console.log(response);
+                productInfo = response;
+                resolve(productInfo);
             }
-        );
-    }).then((fullfilled) => { // in fullfilled c'è la robaccia che ho settato prima;
-        console.log('retrieving component: '+component);
-        $.get(
-            `../components/${component}.php`,
-            fullfilled,
-            (response, status) => {
-                console.log(`response status is: ${status}`);
-                let card = $(response);
-                // add event handlers
-                /*card.find('.selection').on('change', function () {
-                    $(this).toggleClass('callout-cyan', $(this).prop('checked')).toggleClass('callout-gray', !$(this).prop('checked'));
-                });*/
-                target.append(card);
+            catch(e){
+                reject(new Error("Couldn't load product: "+e.message));
             }
-        );
-    }).catch(function (error) {
-        console.log(error.message);
-    });
+        });
+        }).then((fulfilled) => { // in fulfilled c'è la robaccia che ho settato prima;
+            console.log('retrieving component: '+conf.component);
+            $.get(
+                `../components/${conf.component}.php`,
+                fulfilled,
+                (response, status) => {
+                    console.log(`response status is: ${status}`);
+                    let card = $(response);
+                    // add event handlers
+                    /*card.find('.selection').on('change', function () {
+                        $(this).toggleClass('callout-cyan', $(this).prop('checked')).toggleClass('callout-gray', !$(this).prop('checked'));
+                    });*/
+                    target.append(card);
+                }
+            );
+        }).catch(function (error) {
+            console.log(error.message);
+        });
 }
 
 let createCookie = function(name, value, days) {
@@ -84,7 +108,7 @@ let createCookie = function(name, value, days) {
     document.cookie = name + "=" + value + expires + "; path=/";
 };
 
-function getCookie(c_name) {
+export function getCookie(c_name) {
     if (document.cookie.length > 0) {
         let c_start = document.cookie.indexOf(c_name + "=");
         if (c_start != -1) {
@@ -101,39 +125,30 @@ function getCookie(c_name) {
 
 export var updateCart = () => createCookie('cart', JSON.stringify(cart), false);
 
-export function updateTotal(username) {
-    $.get(
-        "php/rest.php",
-        { username : username, op : "get_total"},
-        (response) => {
-            console.log(JSON.parse(response));
-            let price = JSON.parse(response);
-            $('#total-cart').html("$"+(price===null? '0' : price)).animate($('#total-cart').width(), 'slow');
-        }
-    );
+export function updateTotal(total) {
+    $('#total-cart').html("$"+total);
 }
 
 function initCart(){
+    let $username = getCookie('username');
     new Promise((resolve, reject)=>{
-        $.get(
-            "rest/getCart.php",
-            {
-                username : username
-            },
-            (response) => {
-                console.log('initializing cart with: '+response['cart']);
-                try{
-                    cart = response['cart'];
-                    resolve(cart);
-                } catch (e) {
-                    reject(e);
-                }
-
+        $.ajax({
+            contentType : "application/json",
+            data : JSON.stringify({username : $username}),
+            type : 'POST',
+            processData: false,
+            url : `rest/getCart.php`
+        }).then((response)=>{
+            console.log("username: "+$username);
+            console.log(response);
+            console.log('initializing cart with: '+response['cart']);
+            try{
+                cart = response['cart'];
+                resolve(cart);
+            } catch (e) {
+                reject(e);
             }
-        );
-    }).then((fulfilled)=>{
-        createCookie('cart', JSON.stringify(fulfilled), 1);
-        console.log(document.cookie);
-    });
+        });
+    }).then((fulfilled)=>createCookie('cart', JSON.stringify(fulfilled), 1));
+    console.log(document.cookie);
 }
-

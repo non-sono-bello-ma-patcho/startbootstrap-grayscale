@@ -1,7 +1,7 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
@@ -9,19 +9,19 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require_once '../php/userUtility.php';
 
 
-$data = json_decode(file_get_contents("php://input"));
+$username = json_decode(file_get_contents("php://input"))->username;
 
 // set product property values
 
 //$result = get_information_listed('users', 'name, surname, username, mail, img, description', 'username', $data->username);
 
 $result = [
-    'name' => getUserName($data->username),
-    'surname' => getUserSurname($data->username),
-    'username' => $data->username,
-    'mail' => getUserMail($data->username),
-    'img' => getUserImg($data->username),
-    'description' => getUserDescription($data->username)
+    'name' => getUserName($username),
+    'surname' => getUserSurname($username),
+    'username' => $username,
+    'mail' => getUserMail($username),
+    'img' => getUserImg($username),
+    'description' => getUserDescription($username)
 ];
 
 echo json_encode($result);

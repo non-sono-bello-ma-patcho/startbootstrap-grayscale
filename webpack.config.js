@@ -228,7 +228,8 @@ module.exports = {
             { from : '../php', to : 'php' },
             { from : '../rest', to : 'rest' },
             { from : '../config.php', to : '' },
-            { context : './assets/components/', from : '*_card.php', to : 'components' }
+            { context : './assets/components/', from : '*_card.php', to : 'components' },
+            { from : 'img/default-account.png', to : 'img/profileImg'}
         ]),
         new MakeDirWebpackPlugin({
             dirs: [
