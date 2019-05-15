@@ -1,5 +1,5 @@
 import "../../scss/_private_card.scss";
-import {updateTotal, getCookie, username, cart} from "../common";
+import {updateTotal, getCookie} from "../common";
 
 // delegate on card click
 $(document).on('click', '.manage-cart', function(e){
@@ -39,7 +39,7 @@ function updateCart(username, id, cmd, callback){
         type : 'POST',
         processData: false,
         url : `rest/updateCart.php`
-    }).then((response, status)=>{
+    }).then((response)=>{
         console.log(`the item: ${id} had been successfully ${cmd}ed by ${username}`);
         updateTotal(response['total']);
         callback();
