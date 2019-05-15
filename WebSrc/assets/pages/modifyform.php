@@ -1,5 +1,9 @@
 <?php session_start();
 require 'php/userUtility.php';
+if(!isset($_SERVER['PHP_AUTH_USER'])){
+    http_response_code(401);
+    header("Location: ../error.php?code=".http_response_code());
+}
 ?>
 <html lang="en">
 <head>

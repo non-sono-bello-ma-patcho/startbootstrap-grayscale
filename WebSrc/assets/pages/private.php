@@ -1,5 +1,10 @@
 <?php session_start();
-    if(!isset($_SESSION['id'])) header("Location: index.php");
+    //if(!isset($_SESSION['id'])) header("Location: index.php");
+
+if(!isset($_SERVER['PHP_AUTH_USER'])){
+    http_response_code(401);
+    header("Location: ../error.php?code=".http_response_code());
+}
     setcookie("username", $_SESSION['id']);
     require_once "php/userUtility.php";
     require_once "php/purchaseUtility.php";
