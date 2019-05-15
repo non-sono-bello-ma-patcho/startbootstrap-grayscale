@@ -6,9 +6,9 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 // files needed to connect to database
-require_once '../php/databaseUtility.php';
+require_once '../php/productUtility.php';
 
 // set product property values
-$result = select_all('code', 'products', null);
+$result = getAllProducts();
 
 echo json_encode($result);

@@ -13,7 +13,7 @@ import './components/addAdminForm';
 
 import './components/private_card';
 
-import {addCard, getCookie, updateTotal, username} from "./common";
+import {addCard, getCookie, updateTotal, username, initCart} from "./common";
 
 
 // activate tooltip
@@ -108,6 +108,7 @@ function load_search_result(){
 }
 
 function load_tab(target){
+    console.log("loading: "+$(target).attr('id'));
     // add spinner
     let command, $data = {username : username};
     switch (target) {
@@ -119,7 +120,7 @@ function load_tab(target){
             break;
     }
     new Promise((resolve, reject)=>{
-
+        console.log("calling rest, retrieving products");
         $.ajax({
             contentType : "application/json",
             data : JSON.stringify($data),
@@ -127,6 +128,7 @@ function load_tab(target){
             processData: false,
             url : `rest/${command}.php`
         }).then((response)=>{
+            console.log("got response: "+(response));
             try{
                 if(response !==[])
                     resolve(response);

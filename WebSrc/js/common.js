@@ -27,12 +27,9 @@ let prod_card_cfg = {
 };
 
 export let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1] | 'none'; // fa schifo sto coso...
-export let cart;
 
-initCart();
-
-export function addCard(product_id, target, type='product'){
-    console.log('trying to load card '+product_id+' to '+target.attr('id'));
+export function addCard(entity_obj, target, type='product'){
+    console.log('rendering '+(entity_obj)+' to '+target.attr('id'));
     let productInfo, conf;
 
     switch(type){
@@ -45,26 +42,48 @@ export function addCard(product_id, target, type='product'){
     }
 
     console.log("initialized variables");
+    entity_obj.tab = conf.op(type); // sta cosa è ridondante, definire direttamente il valore tab...
+    // dal momento che ho l'oggetto intero non mi resta che chiamare la componente
+    // aggiungo il campo tab all'oggetto che passo:
 
+    return new Promise((resolve, reject)=>{
+        // faccio la chiamata ajax alla componente
+        $.ajax({
+            contentType : 'application/json',
+            data : entity_obj,
+            type : 'GET',
+            url : `components/${conf.component}.php`
+        }).done((response)=>{
+            // adesso che ho la risposta non so cosa cazzo farmene ma qualcosa mi invento
+            resolve(response); // risolvo la componente da caricare sul dom beibi
+        });
+    }).then((fulfilled)=>{
+        // carico tutto sul dom
+        $(target).append(fulfilled); // se non funziona urlo
+    }).catch((error)=>{
+        // stica
+        console.log(error.message);
+    });
+/*
     return new Promise((resolve, reject)=>{
         // get product information via rest:
         let $data = type==="product"?{code:product_id}:{username:product_id};
         console.log('data: '+$data);
         $.ajax({
             contentType : "application/json",
-            data : JSON.stringify($data),
+            data : JSON.stringify(entity_obj),
             type : 'POST',
             processData: false,
             url : `rest/${conf.command}.php`
         }).done((response)=>{
             // once got the product info, use them as data for the next $.get call
             try {
-                /*if(type === 'product'){
+                /!*if(type === 'product'){
                     let tab = target.attr('id').replace('-container', '');
                     response = JSON.stringify(response);
                     response.substring(0, response.length-1).concat(`, "tab" : "${tab}"}`);
                     response = JSON.parse(response);
-                }*/
+                }*!/
                 // add tab key to data
                 response.tab = conf.op(type);
                 console.log(response);
@@ -84,15 +103,15 @@ export function addCard(product_id, target, type='product'){
                     console.log(`response status is: ${status}`);
                     let card = $(response);
                     // add event handlers
-                    /*card.find('.selection').on('change', function () {
+                    /!*card.find('.selection').on('change', function () {
                         $(this).toggleClass('callout-cyan', $(this).prop('checked')).toggleClass('callout-gray', !$(this).prop('checked'));
-                    });*/
+                    });*!/
                     target.append(card);
                 }
             );
         }).catch(function (error) {
             console.log(error.message);
-        });
+        });*/
 }
 
 let createCookie = function(name, value, days) {
@@ -143,7 +162,7 @@ function initCart(){
             console.log(response);
             console.log('initializing cart with: '+response['cart']);
             try{
-                cart = response['cart'];
+                let cart = response['cart'];
                 resolve(cart);
             } catch (e) {
                 reject(e);

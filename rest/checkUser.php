@@ -9,10 +9,10 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 // files needed to connect to database
 require_once '../php/userUtility.php';
 
-
 $data = json_decode(file_get_contents("php://input"));
 
 $result = [
     'used' => existingUser($data->username)
 ];
+
 echo json_encode($result);
