@@ -22,19 +22,16 @@ try {
         insertUserCart($data->username, $data->item);
     else
         removeFromCart($data->username, $data->item);
+    setrawcookie('cart', getUserCart($data->username));
+    $result = [
+//        "total" => getUserTotal($data->username)!==null?getUserTotal($data->username) : 0
+        "cart" => getUserCart($data->username)
+    ];
+    http_response_code(200);
+
+    echo json_encode($result);
 
 } catch (Exception $e){
     http_response_code(500);
 }
-
-setrawcookie('cart', getUserCart($data->username));
-
-$result = [
-    "total" => getUserTotal($data->username)!==null?getUserTotal($data->username) : 0
-];
-
-http_response_code(200);
-
-echo json_encode($result);
-
 

@@ -15,9 +15,15 @@ $username = json_decode(file_get_contents("php://input"))->username;
 
 //$result = get_information_listed('users', 'name, surname, username, mail, img, description', 'username', $data->username);
 
+$cart = array();
+
+foreach(getUserCart($username) as $row){
+    array_push($cart, $row['item']);
+}
+
 $result = [
-    "total" => getUserTotal($username),
-    "cart" => getUserCart($username)
+    "cart" => $cart,
+    "total" => getTotalCartPrice($username)
 ];
 
 echo json_encode($result);
