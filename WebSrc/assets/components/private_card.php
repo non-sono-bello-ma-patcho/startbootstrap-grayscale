@@ -19,11 +19,11 @@ $tab = isset($_REQUEST['tab'])? $_REQUEST['tab'] : "";
 
 // setting button class and style depending on tab
 switch($tab){
-    case 'new-prod':
+    case 'new-prod-container':
         $icon = 'star';
         $color = 'warning';
         break;
-    case 'cart':
+    case 'cart-container':
         $icon = 'minus-circle';
         $color = 'danger';
         break;

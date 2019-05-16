@@ -17,14 +17,14 @@ $username = json_decode(file_get_contents("php://input"))->username;
 
 $cart = array();
 
-foreach(getUserCart($username) as $row){
-    array_push($cart, $row['item']);
+foreach(get_multiple_information("cart c inner join products p on c.item = p.code", [ "code", "name", "description", "price", "img" ], "username", $username) as $row){
+    array_push($cart, $row);
 }
 
 $result = [
-    "cart" => $cart,
+    "cart" => get_multiple_information("cart c inner join products p on c.item = p.code", [ "code", "name", "description", "price", "img" ], "username", $username),
     "total" => getTotalCartPrice($username)
 ];
 
-echo json_encode($result);
+echo json_encode($cart);
 
