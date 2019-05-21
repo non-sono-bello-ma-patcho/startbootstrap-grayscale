@@ -1,7 +1,8 @@
+import '../../scss/_slider.scss';
+
 import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/carousel';
 import './datepicker';
-
 
 $('.search-input-group input').focusout(function () {
     let _this = this;

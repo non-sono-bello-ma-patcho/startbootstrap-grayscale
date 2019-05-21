@@ -165,3 +165,23 @@ a {
   right: 4px !important;
   width: 375px !important;
 }
+
+@media (max-width: 576px) {
+  .modal.fade{
+    .modal-dialog {
+      height: 100%;
+      width: 100%;
+      max-width: unset !important;
+      margin: 0;
+    }
+
+    .modal-header {
+      border-radius: 0 !important;
+    }
+
+    .modal-content {
+      border-radius: 0;
+      height: 100%;
+    }
+  }
+}

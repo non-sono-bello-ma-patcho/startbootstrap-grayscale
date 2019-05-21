@@ -35,19 +35,19 @@ error_log("fetching result");
 if(isset($_REQUEST["order"]))
     switch($_REQUEST['order']){
         case "lowest":
-            $result = search_items('code, description, img, price','products',array('name','description'),$destination,"price","ASC",$minPrice,$maxPrice);
+            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"price","ASC",$minPrice,$maxPrice);
             break;
         case "hightest":
-            $result = search_items('code, description, img, price','products',array('name','description'),$destination,"price","DESC",$minPrice,$maxPrice);
+            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"price","DESC",$minPrice,$maxPrice);
             break;
         case "relevance":
-            $result = search_items('code, description, img, price','products',array('name','description'),$destination,"relevance","DESC",$minPrice,$maxPrice);
+            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"relevance","DESC",$minPrice,$maxPrice);
             break;
         default:
-            $result = search_items('code, description, img, price','products',array('name','description'),$destination,false,false, $minPrice,$maxPrice);
+            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,false,false, $minPrice,$maxPrice);
     }
 else
-    $result = search_items('code, description, img, price','products',array('name','description'),$destination,false,false, $minPrice,$maxPrice);
+    $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,false,false, $minPrice,$maxPrice);
 
 $number_of_trips = sizeof($result);
 
@@ -99,7 +99,7 @@ $h1 = "{$number_of_trips} trips to {$destination}";
                 </button>
             </div>
             <div class="modal-body">
-                <%=require('../components/listing_search_form_component.html')%>
+                <%=require('../components/modal_search_form_component.html')%>
             </div>
         </div>
     </div>
@@ -133,9 +133,9 @@ $h1 = "{$number_of_trips} trips to {$destination}";
             </button>
         </div>
     </div>
-    <div class="row h-100 px-4">
+    <div class="row px-4">
         <div class="col-lg-8 col-12 pl-0" id="items_column">
-            <div class="" id="item_container" style="height: 90%;">
+            <div class="" id="item_container">
                 <?php
                     // here iterate over found tuples and print html
                     foreach ($result as $item){
@@ -192,19 +192,6 @@ $h1 = "{$number_of_trips} trips to {$destination}";
                 ?>
             </div>
             <!--      Pagination navbar      -->
-            <nav aria-label="Page navigation example" class="listing-pagination" style="height: 10%">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
 -        </div>
         <div class="col-lg-4 d-none d-lg-block px-2" id="filters_column">
             <div class="card shadow">
@@ -218,6 +205,20 @@ $h1 = "{$number_of_trips} trips to {$destination}";
             </div>
         </div>
     </div>
+    <nav aria-label="Page navigation example" class="listing-pagination py-2">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">...</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
+
 </div>
 <div class="fading"></div>
 <!-- Footer -->

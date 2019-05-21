@@ -1,0 +1,101 @@
+<form action="listing.php" class="search-form">
+    <div class="">
+        <!-- aggiungere ordina per e non mi ricordo che altro ma sicuramente qualcosa manca -->
+        <div class="form-row">
+            <div class="col-12">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group">
+                        <label for="description" class="input-text-label align-bottom">Location</label>
+                        <div class="collapse inputwrapper">
+                            <input type="text" name="destination" id="description" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-6">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group mx-auto">
+                        <label for="modal_minitemprice" class="input-text-label align-bottom">Min Price</label>
+                        <div class="collapse inputwrapper">
+                            <input type="number" name="minPrice" id="modal_minitemprice" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group mx-auto">
+                        <label for="modal_maxitemprice" class="input-text-label align-bottom">Max Price</label>
+                        <div class="collapse inputwrapper">
+                            <input type="number" name="maxPrice" id="modal_maxitemprice" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-6">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group mx-auto">
+                        <label for="modal_dateStart" class="input-text-label align-bottom">Arrival</label>
+                        <div class="collapse inputwrapper">
+                            <input type="text" name="startDate" id="modal_dateStart" class="datepicker" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group mx-auto">
+                        <label for="modal_dateEnd" class="input-text-label align-bottom">Departure</label>
+                        <div class="collapse inputwrapper">
+                            <input type="text" name="endDate" id="modal_dateEnd" class="datepicker" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h4 class="text-muted mt-3">Advanced Filters</h4>
+        <div class="form-row">
+            <div class="col-6">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group mx-auto">
+                        <label for="modal_distance" class="input-text-label align-bottom">distance</label>
+                        <div class="collapse inputwrapper">
+                            <input type="number" name="distance" id="modal_distance" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group mx-auto">
+                        <label for="modal_duration" class="input-text-label align-bottom">duration</label>
+                        <div class="collapse inputwrapper">
+                            <input type="number" name="duration" id="modal_duration" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-6">
+                <div class="search-input-group mx-auto">
+                    <label class="switch d-inline-block">
+                        <input type="checkbox" id="modal_housing">
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="modal_housing" class="text-primary ml-1 d-inline">Housing</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 d-flex flex-column align-items-center position-relative">
+            <div class="search-input-group">
+                <label for="modal_button_search" class="input-text-label align-bottom sr-only">Search</label>
+                <button class="form-control btn-primary w-100" type = "submit" id="modal_button_search" onclick="">CERCA</button>
+            </div>
+        </div>
+    </div>
+</form>

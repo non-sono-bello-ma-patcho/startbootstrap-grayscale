@@ -4,19 +4,29 @@
         <div class="col-12">
             <div class="search-input-group-wrapper">
                 <div class="search-input-group">
-                    <label for="small_itemsearch" class="input-text-label align-bottom">Location</label>
+                    <label for="description" class="input-text-label align-bottom">Location</label>
                     <div class="collapse inputwrapper">
-                        <input type="text" name="itemsearchID" id="small_itemsearch" placeholder="" value="">
+                        <input type="text" name="destination" id="description" placeholder="" value="">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-12">
+        <div class="col-6">
+            <div class="search-input-group-wrapper">
+                <div class="search-input-group mx-auto">
+                    <label for="small_minitemprice" class="input-text-label align-bottom">Max Price</label>
+                    <div class="collapse inputwrapper">
+                        <input type="number" name="minPrice" id="small_minitemprice" placeholder="" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
             <div class="search-input-group-wrapper">
                 <div class="search-input-group mx-auto">
                     <label for="small_maxitemprice" class="input-text-label align-bottom">Max Price</label>
                     <div class="collapse inputwrapper">
-                        <input type="number" name="maxitemPrice" id="small_maxitemprice" placeholder="" value="">
+                        <input type="number" name="maxPrice" id="small_maxitemprice" placeholder="" value="">
                     </div>
                 </div>
             </div>
@@ -41,10 +51,40 @@
                 </div>
             </div>
         </div>
+        <h4 class="text-muted my-3">Advanced Filters</h4>
+        <div class="col-6">
+            <div class="search-input-group-wrapper">
+                <div class="search-input-group mx-auto">
+                    <label for="small_distance" class="input-text-label align-bottom">distance</label>
+                    <div class="collapse inputwrapper">
+                        <input type="number" name="distance" id="small_distance" placeholder="" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="search-input-group-wrapper">
+                <div class="search-input-group mx-auto">
+                    <label for="small_duration" class="input-text-label align-bottom">duration</label>
+                    <div class="collapse inputwrapper">
+                        <input type="number" name="duration" id="small_duration" placeholder="" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="search-input-group mx-auto">
+                <label class="switch d-inline-block">
+                    <input type="checkbox" id="housing">
+                    <span class="slider round"></span>
+                </label>
+                <label for="housing" class="text-primary ml-1 d-inline">Housing</label>
+            </div>
+        </div>
         <div class="col-12 d-flex flex-column align-items-center position-relative">
             <div class="search-input-group">
                 <label for="small_button_search" class="input-text-label align-bottom sr-only">Search</label>
-                <button class="form-control btn-primary w-100" type = "submit" id="small_button_search" onclick="">cerca</button>
+                <button class="form-control btn-primary w-100" type = "submit" id="small_button_search" onclick="">CERCA</button>
             </div>
         </div>
     </div>

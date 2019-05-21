@@ -13,8 +13,12 @@ $card_price = isset($_REQUEST['price']) ? trim($_REQUEST['price']) : $card_price
 $card_image = isset($_REQUEST['img']) ? trim($_REQUEST['img']) : $card_image = $img;
 $card_code = isset($_REQUEST['code'])? trim($_REQUEST['code']) : $code;
 $product_link = 'herschel.hopto.org/detail.php?id='.$card_code;
-$card_cmd = !array_search($card_code, unserialize($_COOKIE['cart']))===null? 'add' : 'remove';
-$card_class = !array_search($card_code, unserialize($_COOKIE['cart']))===null? 'far' : 'fas';
+$uc = json_encode(unserialize($_COOKIE['cart']));
+$response = strpos($card_code, $uc)>=0;
+error_log("unserialiazed cart is: {$uc}");
+error_log("the response for {$card_code} is {$response}");
+$card_cmd = array_search($card_code, unserialize($_COOKIE['cart']))===false? 'add' : 'remove';
+$card_class = array_search($card_code, unserialize($_COOKIE['cart']))===false? 'far' : 'fas'; // array search restituisce la chiave, altrimenti resituisce false...
 $tab = isset($_REQUEST['tab'])? $_REQUEST['tab'] : "";
 
 // setting button class and style depending on tab

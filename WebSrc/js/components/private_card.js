@@ -43,5 +43,7 @@ function updateCart(username, id, cmd, callback){
         console.log(`the item: ${id} had been successfully ${cmd}ed by ${username}`);
         updateTotal(response['total']);
         callback();
+    }).catch((e)=>{
+        console.log(`could not send request due to: ${e.message}`);
     });
 }

@@ -72,7 +72,6 @@
                 </div>
             </div>
             <div class="carousel-item active">
-
             </div>
         </div>
     </div>
