@@ -110,7 +110,7 @@ function load_search_result(){
 function load_tab(target){
     console.log("loading: "+$(target).attr('id'));
     // add spinner
-    let command, $data = {username : username};
+    let command, $data = {username : getCookie("user")};
     switch (target) {
         case '#new-prod':
             command = 'listProducts';
@@ -128,10 +128,19 @@ function load_tab(target){
             processData: false,
             url : `rest/${command}.php`
         }).then((response)=>{
-            console.log("got response: "+(response));
+            console.log("got response: ");
+            console.log(response);
             try{
-                if(response !==[])
-                    resolve(response);
+                if(response !==[]) {
+                    switch (target) {
+                        case '#new-prod':
+                            resolve(response);
+                            break;
+                        case '#cart':
+                            resolve(response["cart"]);
+                            break;
+                    }
+                }
                 else
                     resolve(command);
             } catch (e) {
@@ -139,7 +148,10 @@ function load_tab(target){
             }
         });
     }).then((fulfilled) => {
+        console.log("resolved value");
+        console.log(fulfilled);
         if(Array.isArray(fulfilled)){
+
             let promises = [];
             $(target + "-container").hide();
             for (let i in fulfilled) {
@@ -150,6 +162,7 @@ function load_tab(target){
             });
         }
         else {
+            console.log("this is not an array");
             console.log(fulfilled);
             $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>Your ${fulfilled} is empty</p>`);
         }

@@ -2,7 +2,7 @@ import "../../scss/_private_card.scss";
 import {updateTotal, getCookie} from "../common";
 
 // delegate on card click
-$(document).on('click', '.manage-cart', function(e){
+$(document).on('click', '.manage-cart-container', function(e){
     console.log("Oh crap someone clicked, delegate private cart functions");
     let btn = $(this);
     let id = btn.data('id');
@@ -18,7 +18,7 @@ $(document).on('click', '.manage-cart', function(e){
     });
 });
 
-$(document).on('click', '.manage-new-prod', function(e){
+$(document).on('click', '.manage-new-prod-container', function(e){
     let btn = $(this);
     let id = btn.data('id');
     let cmd = btn.data('cmd');
@@ -43,5 +43,8 @@ function updateCart(username, id, cmd, callback){
         console.log(`the item: ${id} had been successfully ${cmd}ed by ${username}`);
         updateTotal(response['total']);
         callback();
+    }).catch((e)=>{
+        console.log("could not send request");
     });
+
 }

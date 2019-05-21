@@ -7,9 +7,58 @@
  */
 // set all the variables to pages
 
-$number_of_trips = '6.800';
-$destination = 'Mars';
+require_once 'php/databaseUtility.php';
+require_once 'php/productUtility.php';
+
+$destination = $_REQUEST["destination"];
+$maxPrice = isset($_REQUEST["maxPrice"])? $_REQUEST["maxPrice"] !== "" ? $_REQUEST["maxPrice"] : 9999999 : 999999;
+$minPrice = isset($_REQUEST["minPrice"])? $_REQUEST["minPrice"] : 0;
+$arrival = isset($_REQUEST["arrival"])? $_REQUEST["arrival"] : "none" ;
+$departure = isset($_REQUEST["departure"])? $_REQUEST["departure"] : "none";
+
+error_log("launching search with params : {$destination}, {$maxPrice}, {$minPrice}, {$arrival}, {$departure}");
+
+function get_include($file,$item){
+    $name = $item -> name;
+    $price = $item -> price;
+    $img = $item -> img;
+    $code = $item -> code;
+    ob_start();
+    require $file;
+    return ob_get_clean();
+}
+
+
+error_log("fetching result");
+
+
+if(isset($_REQUEST["order"]))
+    switch($_REQUEST['order']){
+        case "lowest":
+            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"price","ASC",$minPrice,$maxPrice);
+            break;
+        case "hightest":
+            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"price","DESC",$minPrice,$maxPrice);
+            break;
+        case "relevance":
+            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"relevance","DESC",$minPrice,$maxPrice);
+            break;
+        default:
+            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,false,false, $minPrice,$maxPrice);
+    }
+else
+    $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,false,false, $minPrice,$maxPrice);
+
+$number_of_trips = sizeof($result);
+
+
+
+error_log("got result: {$number_of_trips}");
+error_log("got result: {$result}");
+
 $h1 = "{$number_of_trips} trips to {$destination}";
+
+
 
 ?>
 
@@ -37,7 +86,7 @@ $h1 = "{$number_of_trips} trips to {$destination}";
 <%=require('../components/login_modal_component.html')%>
 
 <!-- mobile filters modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="form_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -78,22 +127,86 @@ $h1 = "{$number_of_trips} trips to {$destination}";
         <div class="col-lg-12 col-10">
             <h3 class="text-primary mb-0"><?php echo $h1; ?></h3>
         </div>
-        <div class="col-2 d-md-none text-center my-auto">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        <div class="col-2 d-lg-none text-center my-auto">
+            <button type="button" class="btn btn-light btn-outline-light" data-toggle="modal" data-target="#form_modal">
                 <span class="fas fa-sliders-h text-primary m-auto"></span>
             </button>
         </div>
     </div>
     <div class="row h-100 px-4">
-        <div class="col-lg-8 col-md-7 col-12 pl-0" id="items_column">
-            <div class="" id="item_container">
+        <div class="col-lg-8 col-12 pl-0" id="items_column">
+            <div class="" id="item_container" style="height: 90%;">
                 <?php
                     // here iterate over found tuples and print html
+                    foreach ($result as $item){
+//                        echo get_include("components/private_card.php",$item);
+                        // a seconda che la carta sia vista nello store, nel carrello o wishlist, deve reindirizzare sul carrello o sul dettaglio
+                        $card_title =  $item['name'];
+                        $card_description = $item['description'];
+                        $card_price = $item['price'];
+                        $card_image = $item['img'];
+                        error_log("card image is: {$card_image}");
+                        $card_code = $item['code'];
+                        $product_link = 'herschel.hopto.org/detail.php?id='.$card_code;
+                        $card_cmd = !/*is_int(strpos($_COOKIE['cart'], $card_code))*/false? 'add' : 'remove';
+                        $card_class = !/*is_int(strpos($_COOKIE['cart'], $card_code))*/false? 'far' : 'fas';
+                        $tab = "";
+// setting button class and style depending on tab
+                        switch($tab){
+                            case 'wishlist-container':
+                            case 'cart-container':
+                                $icon = 'minus-circle';
+                                $color = 'danger';
+                                break;
+                            case 'new-prod-container':
+                            default:
+                                $icon = 'star';
+                                $color = 'warning';
+                                break;
 
+                        }
+// come faccio a settare il bottone a seconda che il prodotto sia già nel carrello o meno? piango.
+                        $card_pattern = "
+                            <div class=\"custom-card card slim-card text-white text-left mt-2 mb-3\">
+                                <a href=\"{$product_link}\" class=\"read-more text-white\">Read More</a>
+                                <img src=\"{$card_image}\" class=\"card-img\" alt=\"...\">
+                                <div class=\"card-img-overlay\">
+                                    <div class='row'>
+                                        <div class='col-10'>
+                                            <h4 class=\"card-title d-inline\">{$card_title}</h4>
+                                            <span class='badge badge-info'><small>{$card_price}$</small></span>
+                                        </div>
+                                        <div class='col-2'>
+                                            <button data-id=\"{$card_code}\" data-cmd='{$card_cmd}' class='manage-{$tab} bg-transparent border-0 float-right outline' style='outline: none;'>
+                                                <span class='{$card_class} fa-{$icon} float-right text-{$color}'></span>
+                                            </button>    
+                                        </div>  
+                                    </div>            
+                                    <p class=\"card-text\">{$card_description}</p>
+                                </div>
+                            </div>
+                        ";
+                        echo $card_pattern;
+                        error_log("loaded");
+                    }
                 ?>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-5 d-none d-md-block px-2" id="filters_column">
+            <!--      Pagination navbar      -->
+            <nav aria-label="Page navigation example" class="listing-pagination" style="height: 10%">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+-        </div>
+        <div class="col-lg-4 d-none d-lg-block px-2" id="filters_column">
             <div class="card shadow">
                 <div class="card-header bg-primary text-white font-weight-bolder">
                     <span class="fas fa-sliders-h"></span>

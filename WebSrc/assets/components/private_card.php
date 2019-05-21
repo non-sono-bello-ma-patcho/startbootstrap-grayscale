@@ -13,19 +13,23 @@ $card_price = isset($_REQUEST['price']) ? trim($_REQUEST['price']) : $card_price
 $card_image = isset($_REQUEST['img']) ? trim($_REQUEST['img']) : $card_image = $img;
 $card_code = isset($_REQUEST['code'])? trim($_REQUEST['code']) : $code;
 $product_link = 'herschel.hopto.org/detail.php?id='.$card_code;
-$card_cmd = !is_int(strpos($_COOKIE['cart'], $card_code))? 'add' : 'remove';
-$card_class = !is_int(strpos($_COOKIE['cart'], $card_code))? 'far' : 'fas';
+$card_cmd = !array_search($card_code, unserialize($_COOKIE['cart']))===null? 'add' : 'remove';
+$card_class = !array_search($card_code, unserialize($_COOKIE['cart']))===null? 'far' : 'fas';
 $tab = isset($_REQUEST['tab'])? $_REQUEST['tab'] : "";
 
 // setting button class and style depending on tab
 switch($tab){
-    case 'new-prod':
-        $icon = 'star';
-        $color = 'warning';
-        break;
-    case 'cart':
+    case 'wishlist-container':
+    case 'cart-container':
         $icon = 'minus-circle';
         $color = 'danger';
+        $card_class = 'fas';
+        $card_cmd  = 'remove';
+        break;
+    case 'new-prod-container':
+    default:
+        $icon = 'star';
+        $color = 'warning';
         break;
 }
 // come faccio a settare il bottone a seconda che il prodotto sia già nel carrello o meno? piango.

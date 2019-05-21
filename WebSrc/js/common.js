@@ -20,16 +20,16 @@ let prod_card_cfg = {
     component : 'private_card',
     key : 'code',
     op : (tab)=>{
-        if(tab==='product')
-            return 'new-prod';
-        return 'cart';
+        return ($(tab).attr('id'));
     }
 };
 
 export let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1] | 'none'; // fa schifo sto coso...
 
 export function addCard(entity_obj, target, type='product'){
-    console.log('rendering '+(entity_obj)+' to '+target.attr('id'));
+    console.log('rendering ');
+    console.log(entity_obj);
+    console.log(' to '+target.attr('id'));
     let productInfo, conf;
 
     switch(type){
@@ -42,7 +42,9 @@ export function addCard(entity_obj, target, type='product'){
     }
 
     console.log("initialized variables");
-    entity_obj.tab = conf.op(type); // sta cosa è ridondante, definire direttamente il valore tab...
+    entity_obj.tab = conf.op(target);
+    console.log("tab is: "+conf.op(target));
+    console.log(entity_obj);// sta cosa è ridondante, definire direttamente il valore tab...
     // dal momento che ho l'oggetto intero non mi resta che chiamare la componente
     // aggiungo il campo tab all'oggetto che passo:
 
@@ -64,54 +66,7 @@ export function addCard(entity_obj, target, type='product'){
         // stica
         console.log(error.message);
     });
-/*
-    return new Promise((resolve, reject)=>{
-        // get product information via rest:
-        let $data = type==="product"?{code:product_id}:{username:product_id};
-        console.log('data: '+$data);
-        $.ajax({
-            contentType : "application/json",
-            data : JSON.stringify(entity_obj),
-            type : 'POST',
-            processData: false,
-            url : `rest/${conf.command}.php`
-        }).done((response)=>{
-            // once got the product info, use them as data for the next $.get call
-            try {
-                /!*if(type === 'product'){
-                    let tab = target.attr('id').replace('-container', '');
-                    response = JSON.stringify(response);
-                    response.substring(0, response.length-1).concat(`, "tab" : "${tab}"}`);
-                    response = JSON.parse(response);
-                }*!/
-                // add tab key to data
-                response.tab = conf.op(type);
-                console.log(response);
-                productInfo = response;
-                resolve(productInfo);
-            }
-            catch(e){
-                reject(new Error("Couldn't load product: "+e.message));
-            }
-        });
-        }).then((fulfilled) => { // in fulfilled c'è la robaccia che ho settato prima;
-            console.log('retrieving component: '+conf.component);
-            $.get(
-                `../components/${conf.component}.php`,
-                fulfilled,
-                (response, status) => {
-                    console.log(`response status is: ${status}`);
-                    let card = $(response);
-                    // add event handlers
-                    /!*card.find('.selection').on('change', function () {
-                        $(this).toggleClass('callout-cyan', $(this).prop('checked')).toggleClass('callout-gray', !$(this).prop('checked'));
-                    });*!/
-                    target.append(card);
-                }
-            );
-        }).catch(function (error) {
-            console.log(error.message);
-        });*/
+
 }
 
 let createCookie = function(name, value, days) {

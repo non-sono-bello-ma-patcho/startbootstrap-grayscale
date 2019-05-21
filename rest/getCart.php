@@ -9,22 +9,29 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require_once '../php/purchaseUtility.php';
 
 
-$username = json_decode(file_get_contents("php://input"))->username;
+try {
+    $bean = json_decode(file_get_contents("php://input"));
+
+    $username = $bean->username;
+
+    error_log("got {$username}");
 
 // set product property values
 
-//$result = get_information_listed('users', 'name, surname, username, mail, img, description', 'username', $data->username);
-
-$cart = array();
-
-foreach(getUserCart($username) as $row){
-    array_push($cart, $row['item']);
+//    $result = get_information_listed('users', 'name, surname, username, mail, img, description', 'username', $bean->username);
+    error_log("setting cookie");
+    $cookie_cart = getUserCart($username);
+    error_log("encoding {$cookie_cart}");
+    setcookie("cart", serialize($cookie_cart));
+    error_log("set");
+    $result = [
+        "cart" => get_multiple_information("cart c inner join products p on c.item = p.code", [ "code", "name", "description", "price", "img" ], "username", $username),
+        "total" => getTotalCartPrice($username)
+    ];
+} catch (Exception $e){
+    $result = [
+        "error" => $e->getMessage()
+    ];
 }
-
-$result = [
-    "cart" => $cart,
-    "total" => getTotalCartPrice($username)
-];
-
 echo json_encode($result);
 
