@@ -6,7 +6,7 @@
   "scripts": {
     "test": "webpack --config webpack.config.js",
     "build": "webpack",
-    "dist": "webpack --config distconfig.js"
+    "dist": "webpack --config distconfig.js && sudo chmod 774 -R /var/www/html && sudo chown -R shinon:www-data /var/www/html"
   },
   "repository": {
     "type": "git",
@@ -63,6 +63,6 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-merge": "^4.2.1",
-    "webpack-php-loader": "^0.5.0",
+    "webpack-php-loader": "^0.5.0"
   }
 }
