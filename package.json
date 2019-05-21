@@ -4,9 +4,8 @@
   "description": "space is your playground",
   "private": true,
   "scripts": {
-    "test": "webpack --config webpack.config.js",
     "build": "webpack",
-    "dist": "webpack --config distconfig.js"
+    "test": "webpack --config webpack.dev.js && sudo chmod -R 774 /srv/http && sudo chown -R phibonachos:http /srv/http"
   },
   "repository": {
     "type": "git",

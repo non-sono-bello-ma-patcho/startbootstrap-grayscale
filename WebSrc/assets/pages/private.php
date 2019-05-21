@@ -1,10 +1,11 @@
 <?php session_start();
-    if(!isset($_SESSION['id'])){
+/*
+if(!isset($_SESSION['id'])){
         http_response_code(401);
         $_SESSION['last_error'] = "trying to access to private.php without passing trough sign in or sign up";
         header("Location: ../error.php?code=" . http_response_code());
     }
-    /*
+/*
 if(isset($_SERVER['PHP_AUTH_USER'])) {
     if ($_SERVER['PHP_AUTH_USER'] !== true) {
         http_response_code(401);

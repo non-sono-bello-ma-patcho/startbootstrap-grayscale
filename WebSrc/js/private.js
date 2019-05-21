@@ -132,7 +132,14 @@ function load_tab(target){
             console.log(response);
             try{
                 if(response !==[]) {
-                    resolve(response);
+                    switch (target) {
+                        case '#new-prod':
+                            resolve(response);
+                            break;
+                        case '#cart':
+                            resolve(response["cart"]);
+                            break;
+                    }
                 }
                 else
                     resolve(command);
@@ -141,6 +148,8 @@ function load_tab(target){
             }
         });
     }).then((fulfilled) => {
+        console.log("resolved value");
+        console.log(fulfilled);
         if(Array.isArray(fulfilled)){
 
             let promises = [];
@@ -153,6 +162,7 @@ function load_tab(target){
             });
         }
         else {
+            console.log("this is not an array");
             console.log(fulfilled);
             $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>Your ${fulfilled} is empty</p>`);
         }
