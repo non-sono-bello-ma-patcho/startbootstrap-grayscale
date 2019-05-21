@@ -40,7 +40,7 @@ module.exports = {
                 }
             },
         // compilazione dei scss, immagini e font:
-        // sta rumenta compila i require sulle pagine
+            // sta rumenta compila i require sulle pagine
             {
                 test: /_component\.(html)$/,
                 use:
@@ -229,15 +229,14 @@ module.exports = {
             { from : '../rest', to : 'rest' },
             { from : '../config.php', to : '' },
             { context : './assets/components/', from : '*_card.php', to : 'components' },
-            { from : 'img/default-account.png', to : 'img/profileImg'},
-            { from : 'img/default-product.jpg', to : 'img/productImg'}
-        ]),/*
+            { from : 'img/default-account.png', to : 'img/profileImg'}
+        ]),
         new MakeDirWebpackPlugin({
             dirs: [
                 { path: 'dist/img/productImg' },
                 { path: 'dist/img/profileImg' },
             ]
-        }),*/
+        }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
