@@ -18,12 +18,18 @@ if(!$data->op){
 
 
 try {
-    if($data->op==="add")
-        insertUserCart($data->username, $data->item);
-    else
-        removeFromCart($data->username, $data->item);
-    setcookie('cart', serialize(getUserCart($data->username)));
+    if($data->op==="add"){
+        error_log("adding item to cart");
+        insertUserCart($data->username, $data->code);
+    }
+    else{
+        error_log("removing item from cart");
+        removeFromCart($data->username, $data->code);
+    }
+    setcookie('cart', serialize(getUserCart($data->username)), time()+3600, "/");
+
     http_response_code(200);
+    echo json_encode(getTotalCartPrice($data->username));
 } catch (Exception $e){
     http_response_code(500);
 }

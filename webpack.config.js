@@ -229,14 +229,9 @@ module.exports = {
             { from : '../rest', to : 'rest' },
             { from : '../config.php', to : '' },
             { context : './assets/components/', from : '*_card.php', to : 'components' },
-            { from : 'img/default-account.png', to : 'img/profileImg'}
+            { from : 'img/default-account.png', to : 'img/profileImg'},
+            { from : 'img/default-product.jpg', to : 'img/productImg'}
         ]),
-        new MakeDirWebpackPlugin({
-            dirs: [
-                { path: 'dist/img/productImg' },
-                { path: 'dist/img/profileImg' },
-            ]
-        }),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',

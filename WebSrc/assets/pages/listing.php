@@ -10,51 +10,54 @@
 require_once 'php/databaseUtility.php';
 require_once 'php/productUtility.php';
 
-$destination = $_REQUEST["destination"];
-$maxPrice = isset($_REQUEST["maxPrice"])? $_REQUEST["maxPrice"] !== "" ? $_REQUEST["maxPrice"] : 9999999 : 999999;
-$minPrice = isset($_REQUEST["minPrice"])? $_REQUEST["minPrice"] : 0;
-$arrival = isset($_REQUEST["arrival"])? $_REQUEST["arrival"] : "none" ;
-$departure = isset($_REQUEST["departure"])? $_REQUEST["departure"] : "none";
+$destination = trim($_REQUEST['destination']);
+$filters = [];
 
-error_log("launching search with params : {$destination}, {$maxPrice}, {$minPrice}, {$arrival}, {$departure}");
+if(!empty($_REQUEST["maxPrice"]))
+    $filters['maxPrice'] = $_REQUEST["maxPrice"] === "" ? 999999 : trim($_REQUEST["maxPrice"]);
+if(!empty($_REQUEST["minPrice"]))
+    $filters['minPrice'] = trim($_REQUEST["minPrice"]);
+if(!empty($_REQUEST["arrival"]))
+    $filters['arrival'] = trim($_REQUEST["arrival"]);
+if(!empty($_REQUEST["departure"]))
+    $filters['departure'] = trim($_REQUEST["departure"]);
+if(!empty($_REQUEST["distance"]))
+    $filters['distance'] = trim($_REQUEST["distance"]);
+if(!empty($_REQUEST["guide"]))
+    $filters['guide'] = trim($_REQUEST["guide"]);
+if(!empty($_REQUEST["housing"]))
+    $filters['housing'] = $_REQUEST["housing"];
+if(!empty($_REQUEST["minAge"]))
+    $filters['minAge'] = $_REQUEST["minAge"];
+if(!empty($_REQUEST["level"]))
+    $filters['level'] = $_REQUEST["level"];
+if(!empty($_REQUEST["maxUsers"]))
+    $filters['maxUsers'] = $_REQUEST["maxUsers"];
 
-function get_include($file,$item){
-    $name = $item -> name;
-    $price = $item -> price;
-    $img = $item -> img;
-    $code = $item -> code;
-    ob_start();
-    require $file;
-    return ob_get_clean();
-}
+$stringFilters = json_encode($filters);
 
+error_log("launching search with params : {$destination}, {$stringFilters}");
 
-error_log("fetching result");
-
-
+//search_items($resultColumn,$table,$columnMatch,$search,$orderby,$direction,$filters){
 if(isset($_REQUEST["order"]))
     switch($_REQUEST['order']){
         case "lowest":
-            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"price","ASC",$minPrice,$maxPrice);
+            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"price","ASC",$filters);
             break;
         case "hightest":
-            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"price","DESC",$minPrice,$maxPrice);
+            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"price","DESC",$filters);
             break;
         case "relevance":
-            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"relevance","DESC",$minPrice,$maxPrice);
+            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"relevance","DESC",$filters);
             break;
         default:
-            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,false,false, $minPrice,$maxPrice);
+            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,false,false, $filters);
     }
 else
-    $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,false,false, $minPrice,$maxPrice);
+    $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,false,false, $filters);
 
 $number_of_trips = sizeof($result);
 
-
-
-error_log("got result: {$number_of_trips}");
-error_log("got result: {$result}");
 
 $h1 = "{$number_of_trips} trips to {$destination}";
 
@@ -192,6 +195,19 @@ $h1 = "{$number_of_trips} trips to {$destination}";
                 ?>
             </div>
             <!--      Pagination navbar      -->
+            <nav aria-label="Page navigation example" class="listing-pagination py-2">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">...</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
 -        </div>
         <div class="col-lg-4 d-none d-lg-block px-2" id="filters_column">
             <div class="card shadow">
@@ -205,19 +221,6 @@ $h1 = "{$number_of_trips} trips to {$destination}";
             </div>
         </div>
     </div>
-    <nav aria-label="Page navigation example" class="listing-pagination py-2">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">...</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
 
 </div>
 <div class="fading"></div>
