@@ -6,7 +6,7 @@
   "scripts": {
     "test": "webpack --config webpack.config.js",
     "build": "webpack",
-    "dist": "webpack --config distconfig.js && sudo chmod 774 -R /var/www/html && sudo chown -R shinon:www-data /var/www/html"
+    "dist": "webpack --config webpack.dev.js && sudo chmod 774 -R /srv/http && sudo chown -R phibonachos:http /srv/http"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,7 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "bootstrap-datepicker": "^1.8.0",
+    "cleave.js": "^1.4.10",
     "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "jquery": "^3.3.1",
     "jquery-datepicker": "^1.12.3",

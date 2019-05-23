@@ -7,14 +7,16 @@ import 'bootstrap/js/dist/tab';
 import 'bootstrap/js/dist/button';
 import 'bootstrap/js/dist/modal';
 
+/*
 import './components/addProdcutForm';
 import './components/editProductForm';
 import './components/addAdminForm';
-
-import './components/private_card';
+*/
 
 import {addCard, getCookie, updateTotal, username, initCart} from "./common";
 
+import './components/private_card';
+import './components/searchForm';
 
 // activate tooltip
 $(function () {

@@ -11,8 +11,10 @@ require_once 'php/databaseUtility.php';
 require_once 'php/productUtility.php';
 
 $destination = trim($_REQUEST['destination']);
+
 $filters = [];
 
+$filters['destination'] = $destination;
 if(!empty($_REQUEST["maxPrice"]))
     $filters['maxPrice'] = $_REQUEST["maxPrice"] === "" ? 999999 : trim($_REQUEST["maxPrice"]);
 if(!empty($_REQUEST["minPrice"]))
@@ -37,6 +39,8 @@ if(!empty($_REQUEST["maxUsers"]))
 $stringFilters = json_encode($filters);
 
 error_log("launching search with params : {$destination}, {$stringFilters}");
+
+setrawcookie("filters", $stringFilters, time()+3600, "/");
 
 //search_items($resultColumn,$table,$columnMatch,$search,$orderby,$direction,$filters){
 if(isset($_REQUEST["order"]))
@@ -148,7 +152,6 @@ $h1 = "{$number_of_trips} trips to {$destination}";
                         $card_description = $item['description'];
                         $card_price = $item['price'];
                         $card_image = $item['img'];
-                        error_log("card image is: {$card_image}");
                         $card_code = $item['code'];
                         $product_link = 'herschel.hopto.org/detail.php?id='.$card_code;
                         $card_cmd = !/*is_int(strpos($_COOKIE['cart'], $card_code))*/false? 'add' : 'remove';
