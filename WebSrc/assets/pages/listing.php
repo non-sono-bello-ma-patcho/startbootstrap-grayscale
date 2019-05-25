@@ -154,8 +154,8 @@ $h1 = "{$number_of_trips} trips to {$destination}";
                         $card_image = $item['img'];
                         $card_code = $item['code'];
                         $product_link = 'herschel.hopto.org/detail.php?id='.$card_code;
-                        $card_cmd = !/*is_int(strpos($_COOKIE['cart'], $card_code))*/false? 'add' : 'remove';
-                        $card_class = !/*is_int(strpos($_COOKIE['cart'], $card_code))*/false? 'far' : 'fas';
+                        $card_cmd = !is_int(strpos($_COOKIE['cart'], $card_code))? 'add' : 'remove';
+                        $card_class = !is_int(strpos($_COOKIE['cart'], $card_code))? 'far' : 'fas';
                         $tab = "";
 // setting button class and style depending on tab
                         switch($tab){
