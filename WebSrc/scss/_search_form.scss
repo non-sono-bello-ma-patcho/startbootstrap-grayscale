@@ -16,6 +16,7 @@
     padding: 0.2rem 1rem;
     color: $gray-700;
     outline: none;
+    background: white;
   }
   select {
     display: block;
@@ -54,6 +55,29 @@
       position: absolute;
       bottom: 0;
       left: 0;
+    }
+  }
+  .image-previewer {
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+    label {
+      margin-bottom: 0;
+      cursor: pointer;
+      top: calc(50% - 32px);
+      left: calc(50% - 32px);
+      padding: .8rem .9rem;
+      border-radius: 32px;
+      border-bottom: solid 3px $gray-600;
+      border-right: solid 3px $gray-600;
+      transition: all 0.1s ease;
+
+      &:hover {
+        border-bottom: solid 2px $gray-600;
+        border-right: solid 2px $gray-600;
+        transition: all 0.1s ease;
+      }
     }
   }
 }

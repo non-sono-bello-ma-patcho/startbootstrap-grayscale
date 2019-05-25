@@ -61,7 +61,7 @@
                         <div class="col-md-3">
                             <div class="search-input-group-wrapper">
                                 <div class="search-input-group">
-                                    <label for="minAge" class="input-text-label align-bottom">Minimum Age</label>
+                                    <label for="minAge" class="input-text-label align-bottom">Min Age</label>
                                     <div class="collapse inputwrapper">
                                         <input type="number" name="minAge" id="minAge" placeholder="" class="" required>
                                     </div>
@@ -90,25 +90,32 @@
                         </div>
                     </div>
                     <div class="form-row px-1 mt-4">
-                        <label for="image" class="text-primary">Product Image</label>
-                        <div class="position-relative w-100 bg-light" style="height: 256px">
-                            <div class="position-absolute bg-white" style="top: calc(50%); left: 50%; width: 32px; height: 32px; border-radius: 32px">
-
-                            </div>
+                        <label class="text-primary">Product Image</label>
+                        <div class="position-relative w-100 bg-light image-previewer" style="height: 256px">
+                            <img src="" id="preview" alt="">
+                            <label class="position-absolute bg-white" for="image"><span class="fas fa-file-upload text-primary"></span></label>
+                            <input type="file" name="Productimg" class="d-none" id="image" lang="en" required>
                         </div>
                     </div>
                     <div class="form-row px-1 mt-4">
-                        <div class="col-8">
-                            <label for="image" class="text-muted">Product Image</label>
-                            <div class="custom-file">
-                                <input type="file" name="Productimg" class="custom-file-input" id="image" lang="en" required>
-                                <label class="custom-file-label">Select Image</label>
-                            </div>
+                        <div class="col-6 text-center">
+                            <label class="switch d-inline-block">
+                                <input type="checkbox" id="modal_guide">
+                                <span class="slider round"></span>
+                            </label>
+                            <label for="modal_guide" class="text-primary ml-1 d-inline">Guide</label>
                         </div>
-                        <div class="col-4 text-center">
-                            <label for="addProductBtn" class="invisible w-100">Add Product</label>
-                            <input type="submit" id="addProductBtn"  value="Add" class="py-2 btn btn-outline-success">
+                        <div class="col-6 text-center">
+                            <label class="switch d-inline-block">
+                                <input type="checkbox" id="modal_housing">
+                                <span class="slider round"></span>
+                            </label>
+                            <label for="modal_housing" class="text-primary ml-1 d-inline">Housing</label>
                         </div>
+                    </div>
+                    <div class="form-row px-1 mt-4 justify-content-center">
+                        <label for="addProductBtn" class="sr-only">Add Product</label>
+                        <input type="submit" id="addProductBtn"  value="Add" class="py-2 btn btn-outline-primary w-50">
                     </div>
                 </form>
             </div>

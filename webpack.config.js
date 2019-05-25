@@ -1,12 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const MakeDirWebpackPlugin = require('make-dir-webpack-plugin');
 
 module.exports = {
     context: path.resolve(__dirname, 'WebSrc'),
@@ -84,37 +83,6 @@ module.exports = {
                 ]
             },
             {
-                test: /\.less$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 2,
-                            sourceMap: false
-                        }
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: () => [
-                                require('autoprefixer')(),
-                            ],
-                            sourceMap: false
-                        }
-                    },
-                    /*{
-                        loader: "resolve-url-loader"
-                    },*/
-                    {
-                        loader: 'less-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    }
-                ]
-            },
-            {
                 // immagini utilizzate nei css
                 test: /_css\.(png|jpg|gif)$/,
                 use: [
@@ -171,7 +139,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename : "private.php",
             template: "assets/pages/private.php",
-            chunks:  [ 'common', 'private' ],
+            chunks:  [ 'private' ],
             inject: 'body'
         }),
         new HtmlWebpackPlugin({
@@ -255,19 +223,8 @@ module.exports = {
             filename : 'css/[name].css'
         })
     ],
+    stats : true,
     optimization: {
-        minimizer: [
-            new UglifyJsPlugin({
-                cache: true,
-                parallel: true,
-                sourceMap: true
-            }),
-            new OptimizeCSSAssetsPlugin({
-                cssProcessorOptions: {
-                    parser: require("postcss-safe-parser")
-                }
-            })
-        ]
-    },
-    stats : true
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    }
 };
