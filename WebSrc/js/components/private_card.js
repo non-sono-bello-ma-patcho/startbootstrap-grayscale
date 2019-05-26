@@ -2,6 +2,7 @@ import "../../scss/_private_card.scss";
 import {updateTotal, getCookie} from "../common";
 
 // delegate on card click
+// TODO fix no event on listing page (creare un id generico anziché selettivo)
 $(document).on('click', '.manage-cart-container', function(e){
     console.log("Oh crap someone clicked, delegate private cart functions");
     let btn = $(this);
