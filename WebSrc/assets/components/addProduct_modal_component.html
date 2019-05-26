@@ -8,44 +8,114 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form  name ="addProduct" action="php/addProduct.php" enctype="multipart/form-data" method="post">
+                <form  name ="addProduct" action="php/addProduct.php" enctype="multipart/form-data" method="post" class="search-form">
+                    <input type="hidden" name="addproductform">
                     <div class="form-row">
                         <div class="col-md-4">
-                            <input type="hidden" name="addproductform">
-                            <label class="text-muted" for="ID">Product ID</label>
-                            <input type="text" name="Productid" id="ID" placeholder="insert product ID..." class="form-control" required>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="text-muted" for="name">Product Name</label>
-                            <input type="text" name="Productname" id="name" placeholder="insert product Name..." class="form-control" required>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="text-muted" for="price">Product Price</label>
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupPrepend2">\$</span>
+                            <div class="search-input-group-wrapper">
+                                <div class="search-input-group">
+                                    <label for="ID" class="input-text-label align-bottom">Product ID</label>
+                                    <div class="collapse inputwrapper">
+                                        <input type="text" name="Productid" id="ID" placeholder="" class="" required>
+                                    </div>
                                 </div>
-                                <input type="number" name="Productprice" class="form-control" id="price" placeholder="1000" aria-describedby="inputGroupPrepend2" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="search-input-group-wrapper">
+                                <div class="search-input-group">
+                                    <label for="name" class="input-text-label align-bottom">Product name</label>
+                                    <div class="collapse inputwrapper">
+                                        <input type="text" name="Productname" id="name" placeholder="" class="" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="search-input-group-wrapper">
+                                <div class="search-input-group">
+                                    <label for="price" class="input-text-label align-bottom">Product price</label>
+                                    <div class="collapse inputwrapper">
+                                        <input type="number" name="Productprice" class="" id="price" placeholder="" aria-describedby="" required>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-row px-1 mt-2">
-                        <label for="desc" class="text-muted">Product Description</label>
-                        <textarea class="form-control" name="Productdescription" id="desc" cols="30"
+                    <div class="form-row px-1 mt-4">
+                        <label for="desc" class="text-primary">Product Description</label>
+                        <textarea class="text-muted" name="Productdescription" id="desc" cols="30"
                                   rows="5">Insert Description...</textarea>
                     </div>
-                    <div class="form-row px-1 mt-2">
-                        <div class="col-8">
-                            <label for="image" class="text-muted">Product Image</label>
-                            <div class="custom-file">
-                                <input type="file" name="Productimg" class="custom-file-input" id="image" lang="en" required>
-                                <label class="custom-file-label">Select Image</label>
+                    <div class="form-row px-1 mt-4">
+                        <div class="col-md-3">
+                            <div class="search-input-group-wrapper">
+                                <div class="search-input-group">
+                                    <label for="level" class="input-text-label align-bottom">Level</label>
+                                    <div class="collapse inputwrapper">
+                                        <input type="number" name="level" id="level" placeholder="" class="" required>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-4 text-center">
-                            <label for="addProductBtn" class="invisible w-100">Add Product</label>
-                            <input type="submit" id="addProductBtn"  value="Add" class="py-2 btn btn-outline-success">
+                        <div class="col-md-3">
+                            <div class="search-input-group-wrapper">
+                                <div class="search-input-group">
+                                    <label for="minAge" class="input-text-label align-bottom">Min Age</label>
+                                    <div class="collapse inputwrapper">
+                                        <input type="number" name="minAge" id="minAge" placeholder="" class="" required>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-md-3">
+                            <div class="search-input-group-wrapper">
+                                <div class="search-input-group">
+                                    <label for="distance" class="input-text-label align-bottom">Distance</label>
+                                    <div class="collapse inputwrapper">
+                                        <input type="number" name="distance" class="" id="distance" placeholder="" aria-describedby="" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="search-input-group-wrapper">
+                                <div class="search-input-group">
+                                    <label for="duration" class="input-text-label align-bottom">Duration</label>
+                                    <div class="collapse inputwrapper">
+                                        <input type="number" name="duration" class="" id="duration" placeholder="" aria-describedby="" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row px-1 mt-4">
+                        <label class="text-primary">Product Image</label>
+                        <div class="position-relative w-100 bg-light image-previewer" style="height: 256px">
+                            <img src="" id="preview" alt="">
+                            <label class="position-absolute bg-white" for="image"><span class="fas fa-file-upload text-primary"></span></label>
+                            <input type="file" name="Productimg" class="d-none" id="image" lang="en" required>
+                        </div>
+                    </div>
+                    <div class="form-row px-1 mt-4">
+                        <div class="col-6 text-center">
+                            <label class="switch d-inline-block">
+                                <input type="checkbox" id="modal_guide">
+                                <span class="slider round"></span>
+                            </label>
+                            <label for="modal_guide" class="text-primary ml-1 d-inline">Guide</label>
+                        </div>
+                        <div class="col-6 text-center">
+                            <label class="switch d-inline-block">
+                                <input type="checkbox" id="modal_housing">
+                                <span class="slider round"></span>
+                            </label>
+                            <label for="modal_housing" class="text-primary ml-1 d-inline">Housing</label>
+                        </div>
+                    </div>
+                    <div class="form-row px-1 mt-4 justify-content-center">
+                        <label for="addProductBtn" class="sr-only">Add Product</label>
+                        <input type="submit" id="addProductBtn"  value="Add" class="py-2 btn btn-outline-primary w-50">
                     </div>
                 </form>
             </div>

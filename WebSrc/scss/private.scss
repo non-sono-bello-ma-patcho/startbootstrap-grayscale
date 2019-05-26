@@ -1,5 +1,4 @@
 @import "variables";
-@import "common";
 @import "navbar";
 
 body {
@@ -121,4 +120,8 @@ body {
 
 footer {
   padding: 5rem 0;
+  &:before{
+    padding: 5rem;
+    background: linear-gradient(to bottom, #{fade-out($black, .9)} 0%, #{fade-out($black, .5)} 75%, $black 100%);
+  }
 }

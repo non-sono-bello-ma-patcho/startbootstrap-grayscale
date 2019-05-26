@@ -1,12 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const MakeDirWebpackPlugin = require('make-dir-webpack-plugin');
 
 module.exports = {
     context: path.resolve(__dirname, 'WebSrc'),
@@ -40,7 +39,7 @@ module.exports = {
                 }
             },
         // compilazione dei scss, immagini e font:
-        // sta rumenta compila i require sulle pagine
+            // sta rumenta compila i require sulle pagine
             {
                 test: /_component\.(html)$/,
                 use:
@@ -77,37 +76,6 @@ module.exports = {
                     },*/
                     {
                         loader: 'sass-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    }
-                ]
-            },
-            {
-                test: /\.less$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            importLoaders: 2,
-                            sourceMap: false
-                        }
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: () => [
-                                require('autoprefixer')(),
-                            ],
-                            sourceMap: false
-                        }
-                    },
-                    /*{
-                        loader: "resolve-url-loader"
-                    },*/
-                    {
-                        loader: 'less-loader',
                         options: {
                             sourceMap: true
                         }
@@ -171,7 +139,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename : "private.php",
             template: "assets/pages/private.php",
-            chunks:  [ 'common', 'private' ],
+            chunks:  [ 'private' ],
             inject: 'body'
         }),
         new HtmlWebpackPlugin({
@@ -231,13 +199,7 @@ module.exports = {
             { context : './assets/components/', from : '*_card.php', to : 'components' },
             { from : 'img/default-account.png', to : 'img/profileImg'},
             { from : 'img/default-product.jpg', to : 'img/productImg'}
-        ]),/*
-        new MakeDirWebpackPlugin({
-            dirs: [
-                { path: 'dist/img/productImg' },
-                { path: 'dist/img/profileImg' },
-            ]
-        }),*/
+        ]),
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery',
@@ -261,19 +223,8 @@ module.exports = {
             filename : 'css/[name].css'
         })
     ],
+    stats : true,
     optimization: {
-        minimizer: [
-            new UglifyJsPlugin({
-                cache: true,
-                parallel: true,
-                sourceMap: true
-            }),
-            new OptimizeCSSAssetsPlugin({
-                cssProcessorOptions: {
-                    parser: require("postcss-safe-parser")
-                }
-            })
-        ]
-    },
-    stats : true
+        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    }
 };

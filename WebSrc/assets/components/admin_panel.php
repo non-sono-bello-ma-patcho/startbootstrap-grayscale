@@ -13,4 +13,7 @@ echo '<div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="adm
             <button class="btn custom-btn mx-auto" data-toggle="modal" data-target="#adduser">Add administrator</button>
             <%=require("./addAdmin_modal_component.html")%>
         </div>
+        <div class="row py-3">
+            <a href="php/changePassword.php" class="btn custom-btn mx-auto">Test change password</a>
+        </div>
       </div>';

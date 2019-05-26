@@ -1,90 +1,116 @@
 <form action="listing.php" class="search-form">
-    <div class="form-row mx-auto">
+    <div class="">
         <!-- aggiungere ordina per e non mi ricordo che altro ma sicuramente qualcosa manca -->
-        <div class="col-12">
-            <div class="search-input-group-wrapper">
-                <div class="search-input-group">
-                    <label for="description" class="input-text-label align-bottom">Location</label>
-                    <div class="collapse inputwrapper">
-                        <input type="text" name="destination" id="description" placeholder="" value="">
+        <div class="form-row">
+            <div class="col-12">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group">
+                        <label for="listing_description" class="input-text-label align-bottom">Location</label>
+                        <div class="collapse inputwrapper">
+                            <input type="text" name="destination" id="listing_description" placeholder="" value="">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-6">
-            <div class="search-input-group-wrapper">
-                <div class="search-input-group mx-auto">
-                    <label for="small_minitemprice" class="input-text-label align-bottom">Max Price</label>
-                    <div class="collapse inputwrapper">
-                        <input type="number" name="minPrice" id="small_minitemprice" placeholder="" value="">
+        <div class="form-row">
+            <div class="col-6">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group mx-auto">
+                        <label for="listing_minitemprice" class="input-text-label align-bottom">Min Price</label>
+                        <div class="collapse inputwrapper">
+                            <input type="number" name="minPrice" id="listing_minitemprice" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group mx-auto">
+                        <label for="listing_maxitemprice" class="input-text-label align-bottom">Max Price</label>
+                        <div class="collapse inputwrapper">
+                            <input type="number" name="maxPrice" id="listing_maxitemprice" placeholder="" value="">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-6">
-            <div class="search-input-group-wrapper">
-                <div class="search-input-group mx-auto">
-                    <label for="small_maxitemprice" class="input-text-label align-bottom">Max Price</label>
-                    <div class="collapse inputwrapper">
-                        <input type="number" name="maxPrice" id="small_maxitemprice" placeholder="" value="">
+        <div class="form-row">
+            <div class="col-6">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group mx-auto">
+                        <label for="listing_dateStart" class="input-text-label align-bottom">Arrival</label>
+                        <div class="collapse inputwrapper">
+                            <input type="text" name="startDate" id="listing_dateStart" class="datepicker" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group mx-auto">
+                        <label for="listing_dateEnd" class="input-text-label align-bottom">Departure</label>
+                        <div class="collapse inputwrapper">
+                            <input type="text" name="endDate" id="listing_dateEnd" class="datepicker" placeholder="" value="">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-12">
-            <div class="search-input-group-wrapper">
-                <div class="search-input-group mx-auto">
-                    <label for="small_dateStart" class="input-text-label align-bottom">Arrival</label>
-                    <div class="collapse inputwrapper">
-                        <input type="text" name="startDate" id="small_dateStart" class="datepicker" placeholder="" value="">
+        <h4 class="text-muted mt-3">Advanced Filters</h4>
+        <div class="form-row">
+            <div class="col-6">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group mx-auto">
+                        <label for="listing_distance" class="input-text-label align-bottom">Distance</label>
+                        <div class="collapse inputwrapper">
+                            <input type="number" name="distance" id="listing_distance" placeholder="" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="search-input-group-wrapper">
+                    <div class="search-input-group mx-auto">
+                        <label for="listing_duration" class="input-text-label align-bottom">Duration</label>
+                        <div class="collapse inputwrapper">
+                            <input type="number" name="duration" id="listing_duration" placeholder="" value="">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-12">
-            <div class="search-input-group-wrapper">
-                <div class="search-input-group mx-auto">
-                    <label for="small_dateEnd" class="input-text-label align-bottom">Departure</label>
-                    <div class="collapse inputwrapper">
-                        <input type="text" name="endDate" id="small_dateEnd" class="datepicker" placeholder="" value="">
-                    </div>
+        <div class="form-row mt-3">
+            <div class="col-6">
+                <div class="form-row ">
+                    <label class="switch d-inline-block">
+                        <input type="checkbox" name="housing" id="listing_housing" >
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="listing_housing" class="text-primary ml-1 d-inline">Housing</label>
+                </div>
+                <div class="form-row">
+                    <label class="switch d-inline-block">
+                        <input type="checkbox" name="guide" id="listing_guide" >
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="listing_guide" class="text-primary ml-1 d-inline">Guide</label>
                 </div>
             </div>
-        </div>
-        <h4 class="text-muted my-3">Advanced Filters</h4>
-        <div class="col-6">
-            <div class="search-input-group-wrapper">
-                <div class="search-input-group mx-auto">
-                    <label for="small_distance" class="input-text-label align-bottom">distance</label>
-                    <div class="collapse inputwrapper">
-                        <input type="number" name="distance" id="small_distance" placeholder="" value="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="search-input-group-wrapper">
-                <div class="search-input-group mx-auto">
-                    <label for="small_duration" class="input-text-label align-bottom">duration</label>
-                    <div class="collapse inputwrapper">
-                        <input type="number" name="duration" id="small_duration" placeholder="" value="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="search-input-group mx-auto">
-                <label class="switch d-inline-block">
-                    <input type="checkbox" id="housing">
-                    <span class="slider round"></span>
-                </label>
-                <label for="housing" class="text-primary ml-1 d-inline">Housing</label>
+            <div class="col-6">
+                <label for="listing_level" class="text-primary">Level</label>
+                <select name="level" id="listing_level" class="">
+                    <option value="">select</option>
+                    <option value="0">beginner</option>
+                    <option value="1">intermediate</option>
+                    <option value="2">expert</option>
+                </select>
             </div>
         </div>
         <div class="col-12 d-flex flex-column align-items-center position-relative">
             <div class="search-input-group">
-                <label for="small_button_search" class="input-text-label align-bottom sr-only">Search</label>
-                <button class="form-control btn-primary w-100" type = "submit" id="small_button_search" onclick="">CERCA</button>
+                <label for="listing_button_search" class="input-text-label align-bottom sr-only">Search</label>
+                <button class="form-control btn-primary w-100" type = "submit" id="listing_button_search" onclick="">CERCA</button>
             </div>
         </div>
     </div>

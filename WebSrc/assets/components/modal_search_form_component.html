@@ -62,7 +62,7 @@
             <div class="col-6">
                 <div class="search-input-group-wrapper">
                     <div class="search-input-group mx-auto">
-                        <label for="modal_distance" class="input-text-label align-bottom">distance</label>
+                        <label for="modal_distance" class="input-text-label align-bottom">Distance</label>
                         <div class="collapse inputwrapper">
                             <input type="number" name="distance" id="modal_distance" placeholder="" value="">
                         </div>
@@ -72,7 +72,7 @@
             <div class="col-6">
                 <div class="search-input-group-wrapper">
                     <div class="search-input-group mx-auto">
-                        <label for="modal_duration" class="input-text-label align-bottom">duration</label>
+                        <label for="modal_duration" class="input-text-label align-bottom">Duration</label>
                         <div class="collapse inputwrapper">
                             <input type="number" name="duration" id="modal_duration" placeholder="" value="">
                         </div>
@@ -80,15 +80,29 @@
                 </div>
             </div>
         </div>
-        <div class="form-row">
+        <div class="form-row mt-3">
             <div class="col-6">
-                <div class="search-input-group mx-auto">
+                <div class="form-row ">
                     <label class="switch d-inline-block">
                         <input type="checkbox" id="modal_housing">
                         <span class="slider round"></span>
                     </label>
                     <label for="modal_housing" class="text-primary ml-1 d-inline">Housing</label>
                 </div>
+                <div class="form-row">
+                    <label class="switch d-inline-block">
+                        <input type="checkbox" id="modal_guide">
+                        <span class="slider round"></span>
+                    </label>
+                    <label for="modal_guide" class="text-primary ml-1 d-inline">Guide</label>
+                </div>
+            </div>
+            <div class="col-6">
+                <select name="level" id="modal_level" class="">
+                    <option value="0">beginner</option>
+                    <option value="1">intermediate</option>
+                    <option value="2">expert</option>
+                </select>
             </div>
         </div>
         <div class="col-12 d-flex flex-column align-items-center position-relative">

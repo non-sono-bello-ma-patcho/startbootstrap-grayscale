@@ -1,9 +1,6 @@
 <?php session_start();
 require 'php/userUtility.php';
-/*if(!isset($_SERVER['PHP_AUTH_USER'])){
-    http_response_code(401);
-    header("Location: ../error.php?code=".http_response_code());
-}*/
+
 if(!isset($_SESSION['id'])){
     http_response_code(401);
     $_SESSION['last_error'] = "trying to access to modifyform.php without passing trough sign in or sign up";

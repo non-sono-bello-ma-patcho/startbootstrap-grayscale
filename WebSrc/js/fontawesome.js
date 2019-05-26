@@ -14,7 +14,8 @@ import {
     faRocket,
     faCode,
     faSlidersH,
-    faSort
+    faSort,
+    faFileUpload,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -42,6 +43,7 @@ library.add(
     faCode,
     faSlidersH,
     faSort,
+    faFileUpload,
 
     // regular
     faStarReg,

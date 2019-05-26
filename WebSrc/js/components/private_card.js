@@ -33,15 +33,17 @@ $(document).on('click', '.manage-new-prod-container', function(e){
 
 function updateCart(username, id, cmd, callback){
     console.log("Oh crap someone clicked, delegate private cart functions");
+    let $data = JSON.stringify({ username : username, code : id, op : cmd });
+
     $.ajax({
         contentType : "application/json",
-        data : JSON.stringify({username : username, item : id, op : cmd}),
+        data : $data,
         type : 'POST',
         processData: false,
         url : `rest/updateCart.php`
     }).then((response)=>{
         console.log(`the item: ${id} had been successfully ${cmd}ed by ${username}`);
-        updateTotal(response['total']);
+        updateTotal(response);
         callback();
     }).catch((e)=>{
         console.log(`could not send request due to: ${e.message}`);
