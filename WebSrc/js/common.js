@@ -27,9 +27,6 @@ let prod_card_cfg = {
 export let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1] | 'none'; // fa schifo sto coso...
 
 export function addCard(entity_obj, target, type='product'){
-    console.log('rendering ');
-    console.log(entity_obj);
-    console.log(' to '+target.attr('id'));
     let productInfo, conf;
 
     switch(type){
@@ -42,31 +39,20 @@ export function addCard(entity_obj, target, type='product'){
     }
 
     console.log("initialized variables");
-    entity_obj.tab = conf.op(target);
-    console.log("tab is: "+conf.op(target));
+    entity_obj.tab = conf.op($(target));
+    console.log("tab is: "+conf.op($(target)));
     console.log(entity_obj);// sta cosa è ridondante, definire direttamente il valore tab...
     // dal momento che ho l'oggetto intero non mi resta che chiamare la componente
     // aggiungo il campo tab all'oggetto che passo:
 
-    return new Promise((resolve, reject)=>{
-        // faccio la chiamata ajax alla componente
-        $.ajax({
-            contentType : 'application/json',
-            data : entity_obj,
-            type : 'GET',
-            url : `components/${conf.component}.php`
-        }).done((response)=>{
-            // adesso che ho la risposta non so cosa cazzo farmene ma qualcosa mi invento
-            resolve(response); // risolvo la componente da caricare sul dom beibi
-        });
-    }).then((fulfilled)=>{
-        // carico tutto sul dom
-        $(target).append(fulfilled); // se non funziona urlo
-    }).catch((error)=>{
-        // stica
-        console.log(error.message);
-    });
-
+    $.ajax({
+        contentType : 'text/html',
+        data : entity_obj,
+        type : 'GET',
+        url : `components/${conf.component}.php`
+    }).done((response)=>{
+        $(target).append(response); // se non funziona urlo
+    }).catch((error)=> console.log(error.message));
 }
 
 let createCookie = function(name, value, days) {

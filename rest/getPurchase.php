@@ -14,21 +14,16 @@ try {
 
     $username = $bean->username;
 
-    error_log("got {$username}");
+    $cookie_purchase = getUserPurchases($username);
 
-// set product property values
+    setcookie("purchase", serialize($cookie_purchase), time()+3600, "/");
 
-//    $result = get_information_listed('users', 'name, surname, username, mail, img, description', 'username', $bean->username);
-    error_log("setting cookie");
-    $cookie_cart = getUserCart($username);
-    error_log("encoding {$cookie_cart}");
-    setcookie("cart", serialize($cookie_cart), time()+3600, "/");
-    error_log("set");
-    $result = get_multiple_information("cart c inner join products p on c.item = p.code", [ "code", "name", "description", "price", "img" ], "username", $username);
+    $result = getUserPurchases($username); // get_multiple_information("purchase c inner join products p on c.product = p.code", [ "code", "name", "description", "price", "img" ], "username", $username);
 } catch (Exception $e){
     $result = [
         "error" => $e->getMessage()
     ];
 }
+
 echo json_encode($result);
 

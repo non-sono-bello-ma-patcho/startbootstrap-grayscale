@@ -23,6 +23,7 @@ $tab = isset($_REQUEST['tab'])? $_REQUEST['tab'] : "";
 
 // setting button class and style depending on tab
 switch($tab){
+    case 'purchase-container':
     case 'wishlist-container':
     case 'cart-container':
         $icon = 'minus-circle';
@@ -30,7 +31,7 @@ switch($tab){
         $card_class = 'fas';
         $card_cmd  = 'remove';
         break;
-    case 'new-prod-container':
+    case 'products-container':
     default:
         $icon = 'star';
         $color = 'warning';
