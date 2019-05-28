@@ -6,7 +6,7 @@ import 'bootstrap/js/dist/modal';
 import 'bootstrap/js/dist/popover';
 import 'bootstrap/js/dist/tooltip';
 import 'bootstrap/js/dist/scrollspy';
-import './fontawesome';
+import './components/fontawesome';
 
 import '../scss/common.scss';
 
@@ -111,4 +111,18 @@ function initCart(){
         });
     }).then((fulfilled)=>createCookie('cart', JSON.stringify(fulfilled), 1));
     console.log(document.cookie);
+}
+
+
+export function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        let reader = new FileReader();
+
+        reader.onload = function(e) {
+            $(input).parent().find('img').attr('src', e.target.result).removeClass('d-none');
+        };
+
+        reader.readAsDataURL(input.files[0]);
+    }
 }

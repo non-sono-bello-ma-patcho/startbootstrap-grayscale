@@ -47,23 +47,6 @@ $( function() {
     $( ".datepicker" ).datepicker({orientation : 'bottom'});
 } );
 
-function readURL(input) {
-
-    if (input.files && input.files[0]) {
-        let reader = new FileReader();
-
-        reader.onload = function(e) {
-            $('#preview').attr('src', e.target.result);
-        };
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-$("#image").change(function() {
-    readURL(this);
-});
-
 
 $('.carousel').carousel({
     interval : false

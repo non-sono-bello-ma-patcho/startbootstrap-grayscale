@@ -20,23 +20,23 @@
                     </div>
                     <div class="col-md-3 text-center">
                         <label class="sr-only">Delete Product</label>
-                        <input type="submit" value="DELETE" class="btn btn-outline-danger">
+                        <input type="submit" value="DELETE" class="btn btn-danger disabled">
                     </div>
                     <div class="col-md-3 text-center">
                         <label class="sr-only">Update Product</label>
-                        <input type="submit" value="UPDATE" class="btn btn-outline-primary">
+                        <input type="submit" value="UPDATE" class="btn btn-primary disabled" form="editProduct">
                     </div>
                 </div>
                 <hr>
-                <form  name ="editProduct" action="php/editProduct.php" enctype="multipart/form-data" method="post" class="search-form">
+                <form  id ="editProduct" action="php/editProduct.php" enctype="multipart/form-data" method="post" class="search-form">
                     <input type="hidden" name="editproductform">
                     <div class="form-row">
                         <div class="col-md-4">
                             <div class="search-input-group-wrapper">
                                 <div class="search-input-group">
-                                    <label for="eid" class="input-text-label align-bottom">Product ID</label>
+                                    <label for="ecode" class="input-text-label align-bottom">Product ID</label>
                                     <div class="collapse inputwrapper">
-                                        <input type="text" name="eid" id="eid" placeholder="" class="" required>
+                                        <input type="text" name="ecode" id="ecode" placeholder="" class="" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -46,7 +46,7 @@
                                 <div class="search-input-group">
                                     <label for="ename" class="input-text-label align-bottom">Product name</label>
                                     <div class="collapse inputwrapper">
-                                        <input type="text" name="ename" id="ename" placeholder="" class="" required>
+                                        <input type="text" name="ename" id="ename" placeholder="" class="" >
                                     </div>
                                 </div>
                             </div>
@@ -56,7 +56,7 @@
                                 <div class="search-input-group">
                                     <label for="eprice" class="input-text-label align-bottom">Product price</label>
                                     <div class="collapse inputwrapper">
-                                        <input type="number" name="eprice" class="" id="eprice" placeholder="" aria-describedby="" required>
+                                        <input type="number" name="eprice" class="" id="eprice" placeholder="" aria-describedby="" >
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                                 <div class="search-input-group">
                                     <label for="elevel" class="input-text-label align-bottom">Level</label>
                                     <div class="collapse inputwrapper">
-                                        <input type="number" name="elevel" id="elevel" placeholder="" class="" required>
+                                        <input type="number" name="elevel" id="elevel" placeholder="" class="" >
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +83,7 @@
                                 <div class="search-input-group">
                                     <label for="eMinAge" class="input-text-label align-bottom">Min Age</label>
                                     <div class="collapse inputwrapper">
-                                        <input type="number" name="eMinAge" id="eMinAge" placeholder="" class="" required>
+                                        <input type="number" name="eMinAge" id="eMinAge" placeholder="" class="" >
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
                                 <div class="search-input-group">
                                     <label for="edistance" class="input-text-label align-bottom">Distance</label>
                                     <div class="collapse inputwrapper">
-                                        <input type="number" name="edistance" class="" id="edistance" placeholder="" aria-describedby="" required>
+                                        <input type="number" name="edistance" class="" id="edistance" placeholder="" aria-describedby="" >
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                                 <div class="search-input-group">
                                     <label for="eduration" class="input-text-label align-bottom">Duration</label>
                                     <div class="collapse inputwrapper">
-                                        <input type="number" name="eduration" class="" id="eduration" placeholder="" aria-describedby="" required>
+                                        <input type="number" name="eduration" class="" id="eduration" placeholder="" aria-describedby="" >
                                     </div>
                                 </div>
                             </div>
@@ -112,9 +112,9 @@
                     <div class="form-row px-1 mt-4">
                         <label class="text-primary">Product Image</label>
                         <div class="position-relative w-100 bg-light image-previewer" style="height: 256px">
-                            <img src="" id="preview" alt="" class="d-none">
+                            <img src="" id="edit-preview" alt="" class="d-none">
                             <label class="position-absolute bg-white" for="eimg"><span class="fas fa-file-upload text-primary"></span></label>
-                            <input type="file" name="eimg" class="d-none" id="eimg" lang="en" required>
+                            <input type="file" name="eimg" class="d-none" id="eimg" lang="en" >
                         </div>
                     </div>
                     <div class="form-row px-1 mt-4">
@@ -132,10 +132,6 @@
                             </label>
                             <label for="ehousing" class="text-primary ml-1 d-inline">Housing</label>
                         </div>
-                    </div>
-                    <div class="form-row px-1 mt-4 justify-content-center">
-                        <label for="addProductBtn" class="sr-only">Add Product</label>
-                        <input type="submit" id="addProductBtn"  value="Add" class="py-2 btn btn-outline-primary w-50">
                     </div>
                 </form>
             </div>

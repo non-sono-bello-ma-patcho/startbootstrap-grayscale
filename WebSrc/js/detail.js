@@ -1,3 +1,3 @@
 import "../scss/detail.scss";
 
-import "./fontawesome"
+import "./components/fontawesome"

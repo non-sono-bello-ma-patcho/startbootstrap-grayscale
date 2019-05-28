@@ -8,16 +8,16 @@ import 'bootstrap/js/dist/button';
 import 'bootstrap/js/dist/modal';
 
 /*
-import './components/addProdcutForm';
 
 import './components/addAdminForm';
 */
 
-import {addCard, getCookie, updateTotal, username, initCart} from "./common";
+import {addCard, getCookie, updateTotal} from "./common";
 
 import './components/private_card';
 import './components/searchForm';
 import './components/editProductForm';
+import './components/addProdcutForm';
 
 // activate tooltip
 $(function () {

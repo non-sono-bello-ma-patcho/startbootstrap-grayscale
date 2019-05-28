@@ -6,6 +6,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
     context: path.resolve(__dirname, 'WebSrc'),
@@ -15,7 +16,7 @@ module.exports = {
         private : './js/private.js',
         // test : './js/test.js',
         error : './js/error.js',
-        // fontawesome : './js/fontawesome.js',
+        fontawesome : './js/components/fontawesome.js',
         detail : './js/detail.js',
         modify : './js/modify.js',
         listing : './js/listing.js'
@@ -139,7 +140,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename : "private.php",
             template: "assets/pages/private.php",
-            chunks:  [ 'private' ],
+            chunks:  [ 'common', 'private' ],
             inject: 'body'
         }),
         new HtmlWebpackPlugin({
@@ -221,10 +222,27 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename : 'css/[name].css'
-        })
+        }),
+        // new BundleAnalyzerPlugin({openAnalyzer: true, analyzerPort: 8924})
     ],
     stats : true,
     optimization: {
-        minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
-    }
+        splitChunks: {
+            minSize: 1,
+            cacheGroups: {
+                js: {
+                    test: /\.js$/,
+                    name: "commons",
+                    chunks: "all",
+                    minChunks: 7,
+                },
+                css: {
+                    test: /\.s?css$/,
+                    name: "commons",
+                    chunks: "all",
+                    minChunks: 15,
+                },
+            }
+        }
+    },
 };
