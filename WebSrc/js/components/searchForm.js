@@ -14,7 +14,6 @@ import './datepicker';
 *
 * */
 
-console.log("define action on page load");
 $(window).on("load", ()=>{
     console.log("uncollapsing div on page load");
     $('.search-input-group input').each(function () {
@@ -24,7 +23,6 @@ $(window).on("load", ()=>{
             $(_this).parent().toggle('collapse');
     });
 });
-console.log("defined");
 
 $('.search-input-group input').focusout(function () {
     let _this = this;
@@ -48,33 +46,6 @@ $('.search-input-group label').click(function () {
 $( function() {
     $( ".datepicker" ).datepicker({orientation : 'bottom'});
 } );
-
-function readURL(input) {
-
-    if (input.files && input.files[0]) {
-        let reader = new FileReader();
-
-        reader.onload = function(e) {
-            $('#preview').attr('src', e.target.result);
-        };
-
-        reader.readAsDataURL(input.files[0]);
-    }
-}
-
-$("#image").change(function() {
-    readURL(this);
-});
-
-$(window).scroll((e)=>{
-    let wrap = $('#small_form_wrapper');
-    if ($(window).scrollTop() > $('#big_form_wrapper').offset().top+20 && !$('.fixed-form').is(':visible')) {
-        $('.carousel').carousel('next');
-    } else if($(window).scrollTop() < $('#big_form_wrapper').offset().top+20 && $('.fixed-form').is(':visible')){
-        $('.carousel').carousel('prev');
-    }
-});
-
 
 
 $('.carousel').carousel({

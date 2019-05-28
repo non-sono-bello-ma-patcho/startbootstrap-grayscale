@@ -58,6 +58,17 @@ $(document).on("load", function () {
     // load placeholder
 });
 
+// show and hide mini-form
+$(window).scroll((e)=>{
+  let wrap = $('#small_form_wrapper');
+  if ($(window).scrollTop() > $('#big_form_wrapper').offset().top+20 && !$('.fixed-form').is(':visible')) {
+    $('.carousel').carousel('next');
+  } else if($(window).scrollTop() < $('#big_form_wrapper').offset().top+20 && $('.fixed-form').is(':visible')){
+    $('.carousel').carousel('prev');
+  }
+});
+
+
 /* Ajax */
 
 /* Domani faccio refactoring */

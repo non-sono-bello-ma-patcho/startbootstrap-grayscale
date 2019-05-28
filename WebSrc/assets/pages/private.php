@@ -131,7 +131,7 @@ if(!isset($_SESSION['id'])){
                     <div id="tabColumn" class="col-sm-7 col-md-8 col-lg-9 float-left">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
-                                <a href="#new-prod" class="nav-link active text-muted" id="overview-tab" data-toggle="tab" role="tab" aria-controls="overview">New Products</a>
+                                <a href="#products" class="nav-link active text-muted" id="overview-tab" data-toggle="tab" role="tab" aria-controls="overview">New Products</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#cart" class="nav-link text-muted" id="cart-tab" data-toggle="tab" role="tab" aria-controls="cart">Cart <span class="badge badge-light"><?php //echo sizeof(getUserCart($_SESSION['id']));?></span></a>
@@ -140,7 +140,7 @@ if(!isset($_SESSION['id'])){
                                 <a href="#trips" class="nav-link text-muted" id="trip-tab" data-toggle="tab" role="tab">My Trips</a>
                             </li>
                             <li>
-                                <a href="#wishlist" class="nav-link text-muted" id="wish-tab" data-toggle="tab" role="tab">Wishlist</a>
+                                <a href="#wishlist" class="nav-link text-muted" id="wish-tab" data-toggle="tab" role="tab">Wish list</a>
                             </li>
                             <li>
                                 <!-- To remove if not admin  -->
@@ -150,18 +150,18 @@ if(!isset($_SESSION['id'])){
                             </li>
                         </ul>
                         <div class="tab-content" id="usercontent">
-                            <div class="tab-pane fade show active" id="new-prod" role="tabpanel" aria-labelledby="overview">
+                            <div class="tab-pane fade show active" id="products" data-action="listProducts" role="tabpanel" aria-labelledby="overview">
                                 <h3 class="mt-3 text-muted">Freshly baked</h3>
-                                <div id="new-prod-spinner" class="d-flex justify-content-center" style="height: 160px;">
+                                <div id="products-spinner" class="d-flex justify-content-center" style="height: 160px;">
                                     <div class="my-auto spinner-border text-primary align-middle" role="status">
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-columns" id="new-prod-container">
+                                <div class="card-columns" id="products-container">
 
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="cart" role="tabpanel" aria-labelledby="cart">
+                            <div class="tab-pane fade" id="cart" role="tabpanel" data-action="getCart">
                                 <h3 class="mt-3 text-muted">Your Cart</h3>
                                 <div id="cart-spinner" class="d-flex justify-content-center" style="height: 160px;">
                                     <div class="my-auto spinner-border text-primary align-middle" role="status">
@@ -172,16 +172,16 @@ if(!isset($_SESSION['id'])){
 
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="trips" role="tabpanel" aria-labelledby="trips">
+                            <div class="tab-pane fade" id="trips" role="tabpanel" data-action="getPurchase" aria-labelledby="trips">
                                 <h3 class="mt-3 text-muted">Your Trips</h3>
                                 <div id="trips-spinner" class="d-flex justify-content-center" style="height: 160px;">
                                     <div class="my-auto spinner-border text-primary align-middle" role="status">
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-group" id="trips-container"></div>
+                                <div class="card-columns" id="purchase"></div>
                             </div>
-                            <div class="tab-pane fade" id="wishlist" role="tabpanel" aria-labelledby="wishlist">
+                            <div class="tab-pane fade" id="wishlist" role="tabpanel" data-action="getWishList" aria-labelledby="wishlist">
                                 <h3 class="text-muted mt-3">Your Wishlist</h3>
                                 <!-- loads wishlist -->
                                 <div id="wishlist-spinner" class="d-flex justify-content-center" style="height: 160px;">
@@ -189,7 +189,7 @@ if(!isset($_SESSION['id'])){
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-deck justify-content-between" id="wishlist-container"></div>
+                                <div class="card-columns" id="wishlist-container"></div>
                             </div>
                             <!-- To remove if not admin -->
                             <?php if(isAdmin($_SESSION['id'])) require_once './components/admin_panel.php' ?>

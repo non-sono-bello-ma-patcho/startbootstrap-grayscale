@@ -8,15 +8,16 @@ import 'bootstrap/js/dist/button';
 import 'bootstrap/js/dist/modal';
 
 /*
-import './components/addProdcutForm';
-import './components/editProductForm';
+
 import './components/addAdminForm';
 */
 
-import {addCard, getCookie, updateTotal, username, initCart} from "./common";
+import {addCard, getCookie, updateTotal} from "./common";
 
 import './components/private_card';
 import './components/searchForm';
+import './components/editProductForm';
+import './components/addProdcutForm';
 
 // activate tooltip
 $(function () {
@@ -34,7 +35,6 @@ $(document).ready(()=>{
 // reload active tab on click
 $(document).on('shown.bs.tab', 'a[data-toggle="tab"]',function (e) {
     let target = $(e.target).attr("href"); // activated tab
-    flush_tab(target);
     load_tab(target);
 });
 
@@ -112,71 +112,42 @@ function load_search_result(){
 function load_tab(target){
     console.log("loading: "+$(target).attr('id'));
     // add spinner
-    let command, $data = {username : getCookie("user")};
-    switch (target) {
-        case '#new-prod':
-            command = 'listProducts';
-            break;
-        case '#cart':
-            command = 'getCart';
-            break;
-    }
-    new Promise((resolve, reject)=>{
-        console.log("calling rest, retrieving products");
-        $.ajax({
-            contentType : "application/json",
-            data : JSON.stringify($data),
-            type : 'POST',
-            processData: false,
-            url : `rest/${command}.php`
-        }).then((response)=>{
-            console.log("got response: ");
-            console.log(response);
-            try{
-                if(response !==[]) {
-                    switch (target) {
-                        case '#new-prod':
-                            resolve(response);
-                            break;
-                        case '#cart':
-                            resolve(response["cart"]);
-                            break;
-                    }
-                }
-                else
-                    resolve(command);
-            } catch (e) {
-                reject(e);
-            }
-        });
-    }).then((fulfilled) => {
-        console.log("resolved value");
-        console.log(fulfilled);
-        if(Array.isArray(fulfilled)){
+    let command = $(target).data('action'), $data = {username : getCookie("user")}, $targetContainer = $(target).find('.card-columns'), $targetSpinner = $(target).find("div[id$='-spinner']");
+    console.log(command);
+    console.log($targetContainer.attr('id'));
+    console.log($targetSpinner.attr('id'));
+    if(command === undefined) return;
 
+    flush_tab($targetContainer);
+    $targetSpinner.removeClass('d-none').addClass('d-flex');
+    console.log("calling rest, "+command);
+    $.ajax({
+        contentType : "application/json",
+        data : JSON.stringify($data),
+        type : 'POST',
+        processData: false,
+        url : `rest/${command}.php`
+    }).done((response)=>{
+        // se la richiesta va a buon fine carico il contenuto o, se il risultato è vuoto, mostro l'informazione
+        if(response.length === 0){
+            // display empty message
+            $targetContainer.append(`<p class='text-muted m-auto' style='height: 160px'>Your ${$(target).attr('id')} is empty</p>`);
+        }
+        else{
+            // load all promise
             let promises = [];
-            $(target + "-container").hide();
-            for (let i in fulfilled) {
-                promises.push(addCard(fulfilled[i], $(target + "-container")));
-            }
-            Promise.all(promises).then(() => {
-                $(target+"-container").fadeIn('slow');
+            response.forEach((item) => promises.push(addCard(item,$targetContainer)));
+
+            // load all promises
+            $targetContainer.hide();
+            Promise.all(promises).then(()=>{
+                $targetContainer.fadeIn('slow');
             });
         }
-        else {
-            console.log("this is not an array");
-            console.log(fulfilled);
-            $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>Your ${fulfilled} is empty</p>`);
-        }
-    }).catch((error) => {
-        $(target+"-container").append(`<p class='text-muted m-auto' style='height: 160px'>An error occured loading ${error.message}</p>`);
-    }).finally(() => {
-        // remove spinner
-        $(target+"-spinner").toggleClass('d-none', true).toggleClass('d-flex', false);
-    });
-
+    }).fail(()=>$targetContainer.append(`<p class='text-muted m-auto' style='height: 160px'>An error occured loading ${$(target).attr('id')}</p>`))
+        .always(()=>$targetSpinner.addClass('d-none').removeClass('d-flex'));
 }
 
 function flush_tab(target){
-    $(target+"-container").empty();
+    $(target).empty();
 }
