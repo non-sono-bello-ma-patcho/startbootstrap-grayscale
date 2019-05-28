@@ -14,16 +14,11 @@ try {
 
     $username = $bean->username;
 
-    $cookie_purchase = getUserPurchases($username);
-
-    setcookie("purchase", serialize($cookie_purchase), time()+3600, "/");
-
-    $result = getUserPurchases($username); // get_multiple_information("purchase c inner join products p on c.product = p.code", [ "code", "name", "description", "price", "img" ], "username", $username);
+    $result = get_multiple_information("purchase c inner join products p on c.product = p.code", [ "code", "name", "description", "price", "img" ], "username", $username);
 } catch (Exception $e){
     $result = [
         "error" => $e->getMessage()
     ];
 }
-
 echo json_encode($result);
 

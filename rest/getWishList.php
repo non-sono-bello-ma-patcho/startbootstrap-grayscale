@@ -6,7 +6,7 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 // files needed to connect to database
-require_once '../php/wishlistUtility.php';
+require_once '../php/purchaseUtility.php';
 
 
 try {
@@ -14,13 +14,11 @@ try {
 
     $username = $bean->username;
 
-    $cookie_wishlist = getUserWishList($username);
-
-    setcookie("wishlist", serialize($cookie_wishlist), time()+3600, "/");
-    error_log("set");
-    $result = get_multiple_information("wishlist w inner join products p on w.product = p.code", [ "code", "name", "description", "price", "img" ], "username", $username);
+    $result = get_multiple_information("wishlist c inner join products p on c.product = p.code", [ "code", "name", "description", "price", "img" ], "username", $username);
 } catch (Exception $e){
-    http_response(400);
+    $result = [
+        "error" => $e->getMessage()
+    ];
 }
 echo json_encode($result);
 
