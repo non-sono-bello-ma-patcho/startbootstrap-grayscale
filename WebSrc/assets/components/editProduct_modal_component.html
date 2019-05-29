@@ -1,7 +1,7 @@
 <div class="modal fade" id="editproduct_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-primary text-white">
                 <h5 class="modal-title" id="editmodal">Edit Product <span class="fas fa-search"></span></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -20,11 +20,11 @@
                     </div>
                     <div class="col-md-3 text-center">
                         <label class="sr-only">Delete Product</label>
-                        <input type="submit" value="DELETE" class="btn btn-danger disabled">
+                        <button type="submit" class="btn btn-danger disabled w-75" id="delete-product-btn" disabled>DELETE</button>
                     </div>
                     <div class="col-md-3 text-center">
                         <label class="sr-only">Update Product</label>
-                        <input type="submit" value="UPDATE" class="btn btn-primary disabled" form="editProduct">
+                        <button type="submit" class="btn btn-primary disabled w-75" form="editProduct" id="update-product-btn" disabled>UPDATE</button>
                     </div>
                 </div>
                 <hr>
@@ -56,7 +56,7 @@
                                 <div class="search-input-group">
                                     <label for="eprice" class="input-text-label align-bottom">Product price</label>
                                     <div class="collapse inputwrapper">
-                                        <input type="number" name="eprice" class="" id="eprice" placeholder="" aria-describedby="" >
+                                        <input type="number" name="eprice" class="" id="eprice" placeholder=""  >
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
                                 <div class="search-input-group">
                                     <label for="edistance" class="input-text-label align-bottom">Distance</label>
                                     <div class="collapse inputwrapper">
-                                        <input type="number" name="edistance" class="" id="edistance" placeholder="" aria-describedby="" >
+                                        <input type="number" name="edistance" class="" id="edistance" placeholder=""  >
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
                                 <div class="search-input-group">
                                     <label for="eduration" class="input-text-label align-bottom">Duration</label>
                                     <div class="collapse inputwrapper">
-                                        <input type="number" name="eduration" class="" id="eduration" placeholder="" aria-describedby="" >
+                                        <input type="number" name="eduration" class="" id="eduration" placeholder=""  >
                                     </div>
                                 </div>
                             </div>
@@ -120,14 +120,14 @@
                     <div class="form-row px-1 mt-4">
                         <div class="col-6 text-center">
                             <label class="switch d-inline-block">
-                                <input type="checkbox" name="eguide" id="eguide">
+                                <input type="checkbox" name="eguide" id="eguide" value="1">
                                 <span class="slider round"></span>
                             </label>
                             <label for="eguide" class="text-primary ml-1 d-inline">Guide</label>
                         </div>
                         <div class="col-6 text-center">
                             <label class="switch d-inline-block">
-                                <input type="checkbox" id="ehousing" name="ehousing">
+                                <input type="checkbox" id="ehousing" name="ehousing" value="1">
                                 <span class="slider round"></span>
                             </label>
                             <label for="ehousing" class="text-primary ml-1 d-inline">Housing</label>

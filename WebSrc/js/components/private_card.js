@@ -4,36 +4,39 @@ import {updateTotal, getCookie} from "../common";
 // delegate on card click
 // TODO fix no event on listing page (creare un id generico anziché selettivo)
 $(document).on('click', '.manage-cart-container', function(e){
-    console.log("Oh crap someone clicked, delegate private cart functions");
     let btn = $(this);
-    let id = btn.data('id');
-    let cmd = btn.data('cmd');
-    let username = getCookie('user');
-
     //alter behaviour
 
-    console.log(`about to send request for ${id}, ${cmd}, ${username}`);
-    updateCart(username, id, cmd, ()=>{
+    cardHandler(btn, ()=>{
         let card = btn.closest('.card');
         card.fadeOut('slow').remove();
     });
 });
 
-$(document).on('click', '.manage-new-prod-container', function(e){
+$(document).on('click', '.manage-products-container', function(e){
     let btn = $(this);
-    let id = btn.data('id');
-    let cmd = btn.data('cmd');
-    let username = getCookie('user');
 
-    console.log(`about to send request for ${id}, ${cmd}, ${username}`);
-    updateCart(username, id, cmd, ()=>{
+    cardHandler(btn,()=>{
         btn.data('cmd', btn.data('cmd') === 'add' ? "remove" : 'add');
         btn.empty().append(`<span class="${btn.data('cmd') === 'add' ?'far':'fas'} fa-star text-warning"></span>`)
     });
 });
 
-function updateCart(username, id, cmd, callback){
-    console.log("Oh crap someone clicked, delegate private cart functions");
+$(document).on('click', '.manage-wishlist-container', function(e){
+    let btn = $(this);
+
+    cardHandler(btn,()=>{
+        btn.data('cmd', btn.data('cmd') === 'add' ? "remove" : 'add');
+        btn.empty().append(`<span class="${btn.data('cmd') === 'add' ?'far':'fas'} fa-star text-warning"></span>`)
+    });
+});
+
+
+function cardHandler(btn, callback){
+    let username = getCookie('user');
+    let id = btn.data('id');
+    let cmd = btn.data('cmd');
+    let target = btn.data('table'); // adding data attribute to div...
     let $data = JSON.stringify({ username : username, code : id, op : cmd });
 
     $.ajax({
@@ -43,8 +46,8 @@ function updateCart(username, id, cmd, callback){
         processData: false,
         url : `rest/updateCart.php`
     }).then((response)=>{
-        console.log(`the item: ${id} had been successfully ${cmd}ed by ${username}`);
-        updateTotal(response);
+        console.log(`the item: ${id} had been successfully ${cmd}ed by ${username}`); // thinking about a toast to display on success
+        updateTotal();
         callback();
     }).catch((e)=>{
         console.log(`could not send request due to: ${e.message}`);

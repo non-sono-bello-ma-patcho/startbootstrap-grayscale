@@ -85,9 +85,9 @@ a {
     margin-bottom: 5px;
   }
   &:hover {
-    border-left-color: $teal !important;
+    border-left-color: $primary !important;
     h4 {
-      color: $teal !important;
+      color: $primary !important;
     }
     transition: all 0.5s ease;
   }

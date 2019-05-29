@@ -13,7 +13,10 @@ import '../scss/common.scss';
 let user_card_cfg = {
     command : 'getUserInfo',
     component : 'user_card',
-    key : 'username'
+    key : 'username',
+    op : (tab)=>{
+        return ($(tab).attr('id'));
+    }
 };
 let prod_card_cfg = {
     command : 'getProductInfo',
@@ -27,7 +30,7 @@ let prod_card_cfg = {
 export let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1] | 'none'; // fa schifo sto coso...
 
 export function addCard(entity_obj, target, type='product'){
-    let productInfo, conf;
+    let conf;
 
     switch(type){
         case 'product':
@@ -38,13 +41,7 @@ export function addCard(entity_obj, target, type='product'){
             break;
     }
 
-    console.log("initialized variables");
     entity_obj.tab = conf.op($(target));
-    console.log("tab is: "+conf.op($(target)));
-    console.log(entity_obj);// sta cosa è ridondante, definire direttamente il valore tab...
-    // dal momento che ho l'oggetto intero non mi resta che chiamare la componente
-    // aggiungo il campo tab all'oggetto che passo:
-
     $.ajax({
         contentType : 'text/html',
         data : entity_obj,
@@ -84,10 +81,8 @@ export function getCookie(c_name) {
 }
 
 export var updateCart = () => createCookie('cart', JSON.stringify(cart), false);
+export var updateTotal = () =>     $('#total-cart').html(getCookie('cart-total')!==""? getCookie('cart-total') : 0);
 
-export function updateTotal(total) {
-    $('#total-cart').html("$"+total);
-}
 
 function initCart(){
     let $username = getCookie('username');
@@ -125,4 +120,20 @@ export function readURL(input) {
 
         reader.readAsDataURL(input.files[0]);
     }
+}
+
+
+export function addSpinner(btn){
+    let icon = btn.find('svg').data('icon');
+    let prefix = btn.find('svg').data('prefix');
+    btn.data('icon', icon).data('prefix', prefix).find('svg').remove();
+    btn.append('<i class="fas fa-circle-notch fa-spin"></i>');
+}
+
+export function removeSpinner(btn){
+    btn.find('svg').remove();
+    let icon = btn.data('icon');
+    let prefix = btn.data('prefix');
+    if(prefix !== undefined && icon !== undefined)
+        btn.append(`<i class="${prefix} fa-${icon}"></i>`);
 }

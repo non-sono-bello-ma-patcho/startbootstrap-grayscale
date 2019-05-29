@@ -16,8 +16,10 @@ import {faSlidersH} from '@fortawesome/free-solid-svg-icons/faSlidersH';
 import {faSort} from '@fortawesome/free-solid-svg-icons/faSort';
 import {faFileUpload} from '@fortawesome/free-solid-svg-icons/faFileUpload';
 import {faCircleNotch} from '@fortawesome/free-solid-svg-icons/faCircleNotch';
+import {faHeart} from '@fortawesome/free-solid-svg-icons/faHeart';
 
 import {faStar as faStarReg} from '@fortawesome/free-regular-svg-icons/faStar';
+import {faHeart as faHeartReg} from '@fortawesome/free-regular-svg-icons/faHeart';
 
 import {faInstagram} from '@fortawesome/free-brands-svg-icons/faInstagram';
 import{faGithub} from '@fortawesome/free-brands-svg-icons/faGithub';
@@ -41,9 +43,11 @@ library.add(
     faSort,
     faFileUpload,
     faCircleNotch,
+    faHeart,
 
     // regular
     faStarReg,
+    faHeartReg,
 
     // brand
     faInstagram,

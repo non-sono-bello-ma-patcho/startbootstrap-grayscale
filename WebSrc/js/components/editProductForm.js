@@ -1,17 +1,17 @@
 import "../common";
 import "./fontawesome";
-import {readURL} from "../common";
+import {readURL, addSpinner, removeSpinner} from "../common";
 
 
 let $idSearch = $('#product-edit');
 let $searchBtn = $('#edit-search-btn');
+let $updateBtn = $('#update-product-btn');
+let $deleteBtn = $('#delete-product-btn');
+let $editForm = $('#editProduct');
 
 $('.search-input-group input').on("change", function () {
     if(($(this).val()!=="" || $(this).attr('placeholder') !== "") && !$(this).is(':visible'))
         $(this).parent().toggle('collapse');
-
-    // iterate over inputs and enable update button if at least one is filled
-
 });
 
 $("#eimg").change(function() {
@@ -36,6 +36,8 @@ $searchBtn.click(()=>{
         if(response.length === 0){
             // display empty message
             $searchInput.addClass('is-invalid');
+            $updateBtn.addClass('disabled').attr('disabled', true);
+            $deleteBtn.addClass('disabled').attr('disabled', true);
         }
         else{
             // load all promise
@@ -57,7 +59,10 @@ $searchBtn.click(()=>{
                         break;
                     case 'guide':
                     case 'housing':
-                        if(response.hasOwnProperty(key) && response[key]) $target.attr('checked');
+                        console.log(`setting ${key} to ${!!parseInt(response[key])}`);
+                        if(response.hasOwnProperty(key)){
+                            $target.prop('checked', !!parseInt(response[key]));
+                        }
                            break;
                     case 'img':
                         $('#edit-preview').attr('src', response[key]).removeClass('d-none');
@@ -75,21 +80,8 @@ $searchBtn.click(()=>{
         .fail(()=>$searchInput.addClass('is-invalid'))
         .always(()=>{
             // remove spinner
-            removeSpinner($searchBtn)
-
-            // enable delete button
+            removeSpinner($searchBtn);
+            $updateBtn.removeClass('disabled').attr('disabled', false);
+            $deleteBtn.removeClass('disabled').attr('disabled', false);
         });
 });
-
-function addSpinner(btn){
-    let icon = btn.find('svg').data('icon');
-    let prefix = btn.find('svg').data('prefix');
-    btn.data('icon', icon).data('prefix', prefix).empty().append('<i class="fas fa-circle-notch fa-spin"></i>');
-}
-
-function removeSpinner(btn){
-    btn.empty();
-    let icon = btn.data('icon');
-    let prefix = btn.data('prefix');
-    btn.append(`<i class="${prefix} fa-${icon}"></i>`);
-}

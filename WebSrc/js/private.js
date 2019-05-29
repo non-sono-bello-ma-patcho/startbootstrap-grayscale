@@ -7,17 +7,13 @@ import 'bootstrap/js/dist/tab';
 import 'bootstrap/js/dist/button';
 import 'bootstrap/js/dist/modal';
 
-/*
-
-import './components/addAdminForm';
-*/
-
 import {addCard, getCookie, updateTotal} from "./common";
 
 import './components/private_card';
 import './components/searchForm';
 import './components/editProductForm';
 import './components/addProdcutForm';
+import './components/addAdminForm';
 
 // activate tooltip
 $(function () {
@@ -50,34 +46,34 @@ $("#resultlist").on("change", function(){
     $('#adduserbtn').toggleClass("disabled", false).attr("disabled", false);
 });
 
-// TODO: refactor using components
-function load_likable_users(){
-    $('#resultlist').empty();
-    let username = $('#newusername').val();
-    console.log('calling promise:');
-    new Promise((resolve, reject)=>{
-        // in questa puntata di Andreo e le pormise carichiamo delle carte contenenti un profilo da aggiungere come admin
-        // eseguo una chiamata get per ottenere la lista dei papabili
-        console.log('calling rest: guessuser');
-        $.get("php/rest.php", { param : username, op : "guessuser" })
-            .done((response)=>JSON.parse(response).length>0?resolve(JSON.parse(response)):reject())
-            .fail(()=>reject());
-    }).then((users)=>{
-        // a questo punto carico gli utenti
-        console.log('successfull: adding cards!');
-            $('#newusername').toggleClass('is-invalid', false);
-        for(let i = 0; i<users.length; i++){
-            addCard(users[i], $('#resultlist'), 'user');
-        }
-        $('#resultlist').toggleClass('d-none', false).toggleClass("custom-hidden", false);
-    },
-        ()=>{
-            console.log('failed: show error message');
-            // a questo punto dico che non ci sono utenti papabili con quel nome
-            $('#resultlist').toggleClass('d-none', true).toggleClass("custom-hidden", true);
-            $('#newusername').toggleClass('is-invalid', true);
-        });
-}
+// // TODO: refactor using components
+// function load_likable_users(){
+//     $('#resultlist').empty();
+//     let username = $('#newusername').val();
+//     console.log('calling promise:');
+//     new Promise((resolve, reject)=>{
+//         // in questa puntata di Andreo e le pormise carichiamo delle carte contenenti un profilo da aggiungere come admin
+//         // eseguo una chiamata get per ottenere la lista dei papabili
+//         console.log('calling rest: guessuser');
+//         $.get("php/rest.php", { param : username, op : "guessuser" })
+//             .done((response)=>JSON.parse(response).length>0?resolve(JSON.parse(response)):reject())
+//             .fail(()=>reject());
+//     }).then((users)=>{
+//         // a questo punto carico gli utenti
+//         console.log('successfull: adding cards!');
+//             $('#newusername').toggleClass('is-invalid', false);
+//         for(let i = 0; i<users.length; i++){
+//             addCard(users[i], $('#resultlist'), 'user');
+//         }
+//         $('#resultlist').toggleClass('d-none', false).toggleClass("custom-hidden", false);
+//     },
+//         ()=>{
+//             console.log('failed: show error message');
+//             // a questo punto dico che non ci sono utenti papabili con quel nome
+//             $('#resultlist').toggleClass('d-none', true).toggleClass("custom-hidden", true);
+//             $('#newusername').toggleClass('is-invalid', true);
+//         });
+// }
 
 function load_search_result(){
     var value = document.getElementById("itemsearch").value;
@@ -139,9 +135,7 @@ function load_tab(target){
             response.forEach((item) => promises.push(addCard(item,$targetContainer)));
 
             // load all promises
-            $targetContainer.hide();
             Promise.all(promises).then(()=>{
-                $targetContainer.fadeIn('slow');
             });
         }
     }).fail(()=>$targetContainer.append(`<p class='text-muted m-auto' style='height: 160px'>An error occured loading ${$(target).attr('id')}</p>`))

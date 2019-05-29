@@ -27,6 +27,7 @@ try {
         removeFromCart($data->username, $data->code);
     }
     setcookie('cart', serialize(getUserCart($data->username)), time()+3600, "/");
+    setcookie('cart-total', getTotalCartPrice($data->username), time()+3600, "/");
 
     http_response_code(200);
     echo json_encode(getTotalCartPrice($data->username));

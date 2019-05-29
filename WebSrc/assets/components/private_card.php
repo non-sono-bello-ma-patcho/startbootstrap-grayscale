@@ -24,17 +24,17 @@ $tab = isset($_REQUEST['tab'])? $_REQUEST['tab'] : "";
 // setting button class and style depending on tab
 switch($tab){
     case 'purchase-container':
-    case 'wishlist-container':
-    case 'cart-container':
+        break;
+    case 'wishlist':
+    case 'cart':
         $icon = 'minus-circle';
         $color = 'danger';
         $card_class = 'fas';
         $card_cmd  = 'remove';
         break;
-    case 'products-container':
     default:
-        $icon = 'star';
-        $color = 'warning';
+        $icon = '';
+        $color = '';
         break;
 }
 // come faccio a settare il bottone a seconda che il prodotto sia già nel carrello o meno? piango.
@@ -46,15 +46,20 @@ echo "
         <img src=\"{$card_image}\" class=\"card-img\" alt=\"...\">
         <div class=\"card-img-overlay\">
             <div class='row'>
-                <div class='col-10'>
+                <div class='col-8'>
                     <h4 class=\"card-title d-inline\">{$card_title}</h4>
                     <span class='badge badge-info'><small>{$card_price}$</small></span>
                 </div>
                 <div class='col-2'>
-                    <button data-id=\"{$card_code}\" data-cmd='{$card_cmd}' class='manage-{$tab} bg-transparent border-0 float-right outline' style='outline: none;'>
+                    <button data-id=\"{$card_code}\" data-cmd='{$card_cmd}' data-table='' class='manage-{$tab} bg-transparent border-0 float-right outline' style='outline: none;'>
                         <span class='{$card_class} fa-{$icon} float-right text-{$color}'></span>
                     </button>    
-                </div>  
+                </div>
+                <div class='col-2'>
+                    <button data-id='{$card_code}' data-cmd='{$card_cmd}' data-table='' class='manage-{$tab} bg-transparent border-0 float-right outline' style='outline: none;'>
+                        <span class='{$card_class} fa-{$icon} float-right text-{$color}'></span>
+                    </button>    
+                </div>   
             </div>            
             <p class=\"card-text\">{$card_description}</p>
         </div>

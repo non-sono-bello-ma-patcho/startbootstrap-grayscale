@@ -27,7 +27,7 @@ $(window).on("load", ()=>{
 $('.search-input-group input').focusout(function () {
     let _this = this;
     setTimeout(()=>{
-        if($(_this).val()===""){
+        if($(_this).val() === "" && ($(_this).attr('placeholder') === "" || $(_this).attr('placeholder') === undefined)){
             console.log($(_this).attr('id')+': lost focus');
             $(_this).parent().toggle('collapse');
         }
@@ -38,8 +38,7 @@ $('.search-input-group input').focusout(function () {
 $('.search-input-group label').click(function () {
     console.log('label clicked');
     let inputWrapper = $(this).next();
-    let input = $(inputWrapper).children();
-    if($(input).val() === "" || ($(input).val() !== "" && !$(inputWrapper).is(':visible')))
+    if(!$(inputWrapper).is(':visible'))
         $(inputWrapper).toggle('collapse');
 });
 
