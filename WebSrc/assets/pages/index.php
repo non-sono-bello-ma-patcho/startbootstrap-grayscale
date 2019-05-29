@@ -66,7 +66,7 @@
         <div class="carousel-inner">
             <div class="carousel-item" id="form-item">
                 <div class="fixed-form">
-                    <div class="search-form-wrapper bg-white">
+                    <div class="custom-form-wrapper bg-white">
                         <%=require('../components/small_search_form_component.html')%>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
             <div class="mx-auto text-center d-block">
                 <h1 class="mx-auto my-0 text-uppercase">Herschel</h1>
             </div>
-            <div class="w-100 bg-white mb-0 py-0 search-form-wrapper" id="big_form_wrapper">
+            <div class="w-100 bg-white mb-0 py-0 custom-form-wrapper" id="big_form_wrapper">
                 <%=require('../components/search_form_component.html')%>
             </div>
         </div>
