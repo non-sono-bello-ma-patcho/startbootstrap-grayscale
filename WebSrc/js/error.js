@@ -2,7 +2,8 @@ import Trianglify from 'trianglify';
 
 import '../scss/error.scss';
 
-console .log('initializing trianglify');
+import './common';
+
 let pattern = Trianglify({
     cell_size: 75,
     variance: 0.75,

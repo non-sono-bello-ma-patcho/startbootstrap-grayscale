@@ -10,10 +10,11 @@ import 'bootstrap/js/dist/modal';
 import {addCard, getCookie, updateTotal} from "./common";
 
 import './components/private_card';
-import './components/searchForm';
+import './components/customForm';
 import './components/editProductForm';
 import './components/addProdcutForm';
 import './components/addAdminForm';
+import './components/customForm';
 
 // activate tooltip
 $(function () {
@@ -108,7 +109,7 @@ function load_search_result(){
 function load_tab(target){
     console.log("loading: "+$(target).attr('id'));
     // add spinner
-    let command = $(target).data('action'), $data = {username : getCookie("user")}, $targetContainer = $(target).find('.card-columns'), $targetSpinner = $(target).find("div[id$='-spinner']");
+    let command = $(target).data('action'), $data = {username : getCookie("user")}, $targetContainer = $(target).find("[id$='-container']"), $targetSpinner = $(target).find("div[id$='-spinner']");
     console.log(command);
     console.log($targetContainer.attr('id'));
     console.log($targetSpinner.attr('id'));

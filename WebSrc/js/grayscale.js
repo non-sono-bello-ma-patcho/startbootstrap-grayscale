@@ -1,10 +1,18 @@
 import 'jquery.easing';
 import 'bootstrap/js/dist/scrollspy';
 import 'bootstrap/js/dist/collapse';
+import 'bootstrap/js/dist/carousel';
+
 import './components/searchForm';
 import './components/signupForm';
+import './common';
+
 /* SCSS */
 import '../scss/grayscale.scss';
+
+$('.carousel').carousel({
+  interval : false
+});
 
 
 (function($) {
@@ -67,9 +75,3 @@ $(window).scroll((e)=>{
     $('.carousel').carousel('prev');
   }
 });
-
-
-/* Ajax */
-
-/* Domani faccio refactoring */
-

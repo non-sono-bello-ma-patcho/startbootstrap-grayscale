@@ -20,6 +20,8 @@ if(!isset($_SESSION['id'])){
     <meta name="author" content="">
 
     <title>Private Page - Herschel</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
 
 </head>
 <body>
@@ -74,7 +76,7 @@ if(!isset($_SESSION['id'])){
 <div id="user-info" class="mt-5" style="">
     <div class="container mb-5 pt-1 px-0 card">
         <div class="container-lg px-3 card-body" style="background: white;">
-            <div id="userinfoColumn" class="col-sm-5 col-md-4 col-lg-3  float-left">
+            <div id="userinfoColumn" class="col-12 col-md-4 col-lg-3  float-left">
                 <div class="card-deck">
                     <div class="card mx-auto">
                         <div class="position-relative">
@@ -101,7 +103,7 @@ if(!isset($_SESSION['id'])){
                     </div>
                 </div>
             </div>
-            <div id="tabColumn" class="col-sm-7 col-md-8 col-lg-9 float-left">
+            <div id="tabColumn" class="col-12 col-md-8 col-lg-9 float-left">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
                                 <a href="#products" class="nav-link active text-muted" id="overview-tab" data-toggle="tab" role="tab" aria-controls="overview">New Products</a>
@@ -115,7 +117,7 @@ if(!isset($_SESSION['id'])){
                             <li>
                                 <a href="#wishlist" class="nav-link text-muted" id="wish-tab" data-toggle="tab" role="tab">Wish list</a>
                             </li>
-                            <li>
+                            <li class="d-none d-md-block">
                                 <!-- To remove if not admin  -->
                                 <a href="#admin" class="nav-link text-muted" id="admin-tab"
                                     <?php echo isAdmin($_SESSION['id'])? 'data-toggle="tab" role="tab"' : 'data-toggle="tooltip" data-placement="bottom" title="Only for developers"'?>>Admin</a>
@@ -130,7 +132,7 @@ if(!isset($_SESSION['id'])){
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-columns" id="products-container">
+                                <div class="" id="products-container">
 
                                 </div>
                             </div>
@@ -141,7 +143,7 @@ if(!isset($_SESSION['id'])){
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-columns" id="cart-container">
+                                <div class="" id="cart-container">
 
                                 </div>
                             </div>
@@ -152,7 +154,7 @@ if(!isset($_SESSION['id'])){
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-columns" id="purchase"></div>
+                                <div class="" id="purchase"></div>
                             </div>
                             <div class="tab-pane fade" id="wishlist" role="tabpanel" data-action="getWishList" aria-labelledby="wishlist">
                                 <h3 class="text-muted mt-3">Your Wishlist</h3>
@@ -162,7 +164,7 @@ if(!isset($_SESSION['id'])){
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-columns" id="wishlist-container"></div>
+                                <div class="" id="wishlist-container"></div>
                             </div>
                             <!-- To remove if not admin -->
                             <?php if(isAdmin($_SESSION['id'])) require_once './components/admin_panel.php' ?>

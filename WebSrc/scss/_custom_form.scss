@@ -1,6 +1,6 @@
 @import "slider";
 
-.search-form{
+.custom-form{
   input[type='text'], input[type='number']{
     width: 100%;
     color: $text-muted;
@@ -37,7 +37,7 @@
     transition: all 0.5s linear;
     border-bottom: 5px solid $primary;
   }
-  .search-input-group{
+  .custom-input-group{
     width: 100% !important;
     height: 53px;
     vertical-align: bottom;

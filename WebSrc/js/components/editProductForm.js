@@ -2,14 +2,13 @@ import "../common";
 import "./fontawesome";
 import {readURL, addSpinner, removeSpinner} from "../common";
 
-
 let $idSearch = $('#product-edit');
 let $searchBtn = $('#edit-search-btn');
 let $updateBtn = $('#update-product-btn');
 let $deleteBtn = $('#delete-product-btn');
 let $editForm = $('#editProduct');
 
-$('.search-input-group input').on("change", function () {
+$('.custom-input-group input').on("change", function () {
     if(($(this).val()!=="" || $(this).attr('placeholder') !== "") && !$(this).is(':visible'))
         $(this).parent().toggle('collapse');
 });

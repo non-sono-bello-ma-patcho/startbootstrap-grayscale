@@ -6,7 +6,7 @@
 
 
 html * {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 .btn-nav {
@@ -145,5 +145,24 @@ a {
       border-radius: 0;
       height: 100%;
     }
+  }
+}
+
+
+body {
+  background: url("../img/bg-listing_css.jpg") repeat;
+  background-size: 737px 648px;
+}
+
+.fading {
+  padding: 5rem;
+  background: linear-gradient(to bottom, #{fade-out($black, .9)} 0%, #{fade-out($black, .5)} 75%, $black 100%),
+}
+
+footer {
+  padding: 5rem 0;
+  &:before{
+    padding: 5rem;
+    background: linear-gradient(to bottom, #{fade-out($black, .9)} 0%, #{fade-out($black, .5)} 75%, $black 100%);
   }
 }
