@@ -15,7 +15,8 @@ let user_card_cfg = {
     component : 'user_card',
     key : 'username',
     op : (tab)=>{
-        return ($(tab).attr('id'));
+        let id = $(tab).attr('id');
+        return (id.substr(0, id.indexOf('-')));
     }
 };
 let prod_card_cfg = {
@@ -23,11 +24,10 @@ let prod_card_cfg = {
     component : 'private_card',
     key : 'code',
     op : (tab)=>{
-        return ($(tab).attr('id'));
+        let id = $(tab).attr('id');
+        return (id.substr(0, id.indexOf('-')));
     }
 };
-
-export let username = document.cookie.match(/user=([a-zA-Z0-9]+)/)[1] | 'none'; // fa schifo sto coso...
 
 export function addCard(entity_obj, target, type='product'){
     let conf;
@@ -41,6 +41,7 @@ export function addCard(entity_obj, target, type='product'){
             break;
     }
 
+    console.log(`rendering product in ${conf.op($(target))}`);
     entity_obj.tab = conf.op($(target));
     $.ajax({
         contentType : 'text/html',

@@ -14,7 +14,7 @@ try {
 
     $username = $bean->username;
 
-    $result = get_multiple_information("wishlist c inner join products p on c.product = p.code", [ "code", "name", "description", "price", "img" ], "username", $username);
+    $result = get_multiple_information("wishlist c inner join products p on c.item = p.code", [ "code", "name", "description", "price", "img" ], "username", $username);
 } catch (Exception $e){
     $result = [
         "error" => $e->getMessage()
