@@ -6,6 +6,9 @@
  * Time: 23.14
  */
 
+$action_1 = new \ stdClass();
+$action_2 = new \ stdClass();
+
 $action_1 -> name = "1";
 $action_2 -> name = "2";
 // a seconda che la carta sia vista nello store, nel carrello o wishlist, deve reindirizzare sul carrello o sul dettaglio
