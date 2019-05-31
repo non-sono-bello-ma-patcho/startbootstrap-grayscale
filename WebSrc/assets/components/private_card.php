@@ -15,12 +15,6 @@ $card_description = isset($_REQUEST['description']) ? trim($_REQUEST['descriptio
 $card_image = isset($_REQUEST['img']) ? trim($_REQUEST['img']) : $card_image = $img;
 $card_code = isset($_REQUEST['code'])? trim($_REQUEST['code']) : $code;
 $product_link = 'herschel.hopto.org/detail.php?id='.$card_code;
-$uc = json_encode(unserialize($_COOKIE['cart']));
-$response = strpos($card_code, $uc)>=0;
-error_log("unserialiazed cart is: {$uc}");
-error_log("the response for {$card_code} is {$response}");
-$card_cmd = array_search($card_code, unserialize($_COOKIE['cart']))===false? 'add' : 'remove';
-$card_class = array_search($card_code, unserialize($_COOKIE['cart']))===false? 'far' : 'fas'; // array search restituisce la chiave, altrimenti resituisce false...
 $tab = isset($_REQUEST['tab'])? $_REQUEST['tab'] : "";
 
 // setting button class and style depending on tab
@@ -58,15 +52,6 @@ $card_level = isset($_REQUEST['level']) ? "<span class='custom-tag level {$lev}'
 $housing_tag = $_REQUEST['housing']? "<span class='custom-tag housing'>acc.</span>" : "";
 $guide_tag = $_REQUEST['guide']? "<span class='custom-tag guide'>guide</span>" : "";
 
-error_log($action_1->name);
-error_log($action_2->name);
-error_log($action_1->id);
-error_log($action_2->id);
-error_log($action_1->icon);
-error_log($action_2->icon);
-
-
-
 $faction = isset($action_1->deactivated)? "" : "<button class='bg-transparent border-0 px-1 $action_1->color $action_1->jselector' data-id='{$action_1->id}' data-command='{$action_1->cmd}' data-target='{$action_1->target}'><span class='{$action_1->icon} '></span></button>";
 $saction = isset($action_2->deactivated)? "" : "<button class='bg-transparent border-0 px-1 $action_2->color $action_2->jselector' data-id='{$action_2->id}' data-command='{$action_2->cmd}' data-target='{$action_2->target}'><span class='{$action_2->icon} '></span></button>";
 
@@ -91,25 +76,6 @@ echo "
     </div>
 </div>
 ";
-
-function geticon() {
-    global $tab;
-    switch($tab){
-        case 'purchase':
-            break;
-        case 'wishlist':
-        case 'cart':
-            $icon = 'minus-circle';
-            $color = 'danger';
-            $card_class = 'fas';
-            $card_cmd  = 'remove';
-            break;
-        default:
-            $icon = '';
-            $color = '';
-            break;
-    }
-}
 
 function initFirstAction(){
     global $tab, $action_1, $card_code;

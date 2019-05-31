@@ -84,32 +84,6 @@ export function getCookie(c_name) {
 export var updateCart = () => createCookie('cart', JSON.stringify(cart), false);
 export var updateTotal = () =>     $('#total-cart').html(getCookie('cart-total')!==""? getCookie('cart-total') : 0);
 
-
-function initCart(){
-    let $username = getCookie('username');
-    new Promise((resolve, reject)=>{
-        $.ajax({
-            contentType : "application/json",
-            data : JSON.stringify({username : $username}),
-            type : 'POST',
-            processData: false,
-            url : `rest/getCart.php`
-        }).then((response)=>{
-            console.log("username: "+$username);
-            console.log(response);
-            console.log('initializing cart with: '+response['cart']);
-            try{
-                let cart = response['cart'];
-                resolve(cart);
-            } catch (e) {
-                reject(e);
-            }
-        });
-    }).then((fulfilled)=>createCookie('cart', JSON.stringify(fulfilled), 1));
-    console.log(document.cookie);
-}
-
-
 export function readURL(input) {
 
     if (input.files && input.files[0]) {

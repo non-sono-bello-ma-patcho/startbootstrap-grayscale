@@ -24,7 +24,7 @@ try {
     error_log("encoding {$cookie_cart}");
     setcookie("cart", serialize($cookie_cart), time()+3600, "/");
     error_log("set");
-    $result = get_multiple_information("cart c inner join products p on c.item = p.code", [ "code", "name", "description", "price", "img" ], "username", $username);
+    $result = get_multiple_information("cart c inner join products p on c.item = p.code", [ "code", "name", "description", "price", "img", "guide", "housing", "level" ], "username", $username);
 } catch (Exception $e){
     $result = [
         "error" => $e->getMessage()
