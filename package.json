@@ -7,7 +7,6 @@
     "build": "webpack",
     "dist": "webpack --config webpack.dev.js && sudo chmod 774 -R /srv/http && sudo chown -R phibonachos:http /srv/http",
     "shinon": "webpack --config distconfig.js && sudo chmod 774 -R /var/www/html && sudo chown -R shinon:www-data /var/www/html"
-
   },
   "repository": {
     "type": "git",
