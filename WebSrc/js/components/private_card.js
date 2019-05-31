@@ -1,52 +1,96 @@
 import "../../scss/_private_card.scss";
-import {updateTotal, getCookie} from "../common";
+import {updateTotal, getCookie, removeSpinner, addSpinner} from "../common";
 
 // delegate on card click
 // TODO fix no event on listing page (creare un id generico anziché selettivo)
-$(document).on('click', '.manage-cart-container', function(e){
-    console.log("Oh crap someone clicked, delegate private cart functions");
+$(document).on('click', '.manage-cart .cart-handler, .manage-wishlist .wishlist-handler', function(e){
     let btn = $(this);
-    let id = btn.data('id');
-    let cmd = btn.data('cmd');
-    let username = getCookie('user');
-
     //alter behaviour
 
-    console.log(`about to send request for ${id}, ${cmd}, ${username}`);
-    updateCart(username, id, cmd, ()=>{
-        let card = btn.closest('.card');
+    let icon = btn.find('svg').data('icon');
+    addSpinner(btn);
+    cardHandler(btn, ()=>{
+        let card = btn.closest('.bubble-box');
         card.fadeOut('slow').remove();
     });
 });
 
-$(document).on('click', '.manage-new-prod-container', function(e){
+$(document).on('click', '.manage-wishlist .cart-handler', function(e){
     let btn = $(this);
-    let id = btn.data('id');
-    let cmd = btn.data('cmd');
-    let username = getCookie('user');
+    //alter behaviour
 
-    console.log(`about to send request for ${id}, ${cmd}, ${username}`);
-    updateCart(username, id, cmd, ()=>{
-        btn.data('cmd', btn.data('cmd') === 'add' ? "remove" : 'add');
-        btn.empty().append(`<span class="${btn.data('cmd') === 'add' ?'far':'fas'} fa-star text-warning"></span>`)
+    let icon = btn.find('svg').data('icon');
+    addSpinner(btn);
+    cardHandler(btn, ()=>{
+        let card = btn.closest('.bubble-box');
+        card.fadeOut('slow').remove();
+        // se il target è il carrello vuol dire che devo eliminare il prodotto dalla wishlist
+        if(btn.data('target')==='cart') {
+            let $data = JSON.stringify({ username : getCookie('user'), code : btn.data('id'), op : 'remove' });
+            $.ajax({
+                contentType: "application/json",
+                data: $data,
+                type: 'POST',
+                processData: false,
+                url: 'rest/updateWishList.php'
+            }).then((response, status) => {
+                if (status === 200) {
+                    updateTotal();
+                    console.log(`the item: ${id} had been successfully ${cmd}ed by ${username}`); // thinking about a toast to display on success
+                }
+            }).catch((e) => {
+                console.log(`could not send request due to: ${e.message}`);
+            });
+        }
     });
 });
 
-function updateCart(username, id, cmd, callback){
-    console.log("Oh crap someone clicked, delegate private cart functions");
-    let $data = JSON.stringify({ username : username, code : id, op : cmd });
+$(document).on('click', '.manage-products .cart-handler, .manage-products .wishlist-handler, .manage-wishlist .wishlist-handler', function(e){
+    let btn = $(this);
 
+    let icon = btn.find('svg').data('icon');
+    addSpinner(btn);
+    cardHandler(btn,()=>{
+        console.log(`cmd pre: ${btn.data('command')}`);
+        btn.data('command', btn.data('command') === 'add' ? "remove" : 'add');
+        console.log(`cmd after: ${btn.data('command')}`);
+        removeSpinner(btn);
+        btn.empty().append(`<span class="${btn.data('command') === 'add' ?'far':'fas'} fa-${icon}"></span>`)
+    });
+});
+
+
+
+function cardHandler(btn, callback){
+    let username = getCookie('user');
+    let id = btn.data('id');
+    let cmd = btn.data('command');
+    let target = btn.data('target'); // adding data attribute to div...
+    let $data = JSON.stringify({ username : username, code : id, op : cmd });
+    let rest;
+    switch (target) {
+        case 'cart':
+            rest = 'rest/updateCart.php';
+            break;
+        case 'wishlist':
+            rest = 'rest/updateWishList.php';
+            break;
+    }
+    console.log(`sending request ${rest} with paramas: ${$data}`);
     $.ajax({
         contentType : "application/json",
         data : $data,
         type : 'POST',
         processData: false,
-        url : `rest/updateCart.php`
-    }).then((response)=>{
-        console.log(`the item: ${id} had been successfully ${cmd}ed by ${username}`);
-        updateTotal(response);
+        url : rest
+    }).then((response, status)=>{
+        if(status===200) {
+            updateTotal();
+            console.log(`the item: ${id} had been successfully ${cmd}ed by ${username}`); // thinking about a toast to display on success
+        }
         callback();
     }).catch((e)=>{
         console.log(`could not send request due to: ${e.message}`);
+        removeSpinner(btn);
     });
 }

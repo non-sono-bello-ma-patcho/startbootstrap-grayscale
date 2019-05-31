@@ -1,3 +1,4 @@
 import "../scss/detail.scss";
 
-import "./components/fontawesome"
+import "./components/fontawesome";
+import './common';

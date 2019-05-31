@@ -1,5 +1,5 @@
 <?php
-echo '<div class="tab-pane fade" id="admin" role="tabpanel" aria-labelledby="admin">
+echo '<div class="tab-pane fade d-none d-md-block" id="admin" role="tabpanel" aria-labelledby="admin">
         <h3 class="text-muted mt-3">Admin Panel</h3>
         <div class="row py-3">
             <button class="btn custom-btn mx-auto" data-toggle="modal" data-target="#addproduct">Add product</button>

@@ -11,12 +11,11 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 module.exports = {
     context: path.resolve(__dirname, 'WebSrc'),
     entry : {
-        common : './js/common.js',
+        // common : './js/common.js',
         grayscale : './js/grayscale.js',
         private : './js/private.js',
         // test : './js/test.js',
         error : './js/error.js',
-        fontawesome : './js/components/fontawesome.js',
         detail : './js/detail.js',
         modify : './js/modify.js',
         listing : './js/listing.js'
@@ -152,13 +151,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename : "modifyform.php",
             template: "assets/pages/modifyform.php",
-            chunks:  ['modify'],
+            chunks:  ['common', 'modify'],
             inject: 'body'
         }),
         new HtmlWebpackPlugin({
             filename : "error.php",
             template: "assets/pages/error.php",
-            chunks:  ['error'],
+            chunks:  ['common', 'error'],
             inject: 'body'
         }),
         new HtmlWebpackPlugin({
@@ -232,15 +231,15 @@ module.exports = {
             cacheGroups: {
                 js: {
                     test: /\.js$/,
-                    name: "commons",
+                    name: "common",
                     chunks: "all",
-                    minChunks: 7,
+                    minChunks: 3,
                 },
                 css: {
                     test: /\.s?css$/,
-                    name: "commons",
+                    name: "common",
                     chunks: "all",
-                    minChunks: 15,
+                    minChunks: 5,
                 },
             }
         }

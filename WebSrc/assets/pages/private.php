@@ -9,6 +9,7 @@ if(!isset($_SESSION['id'])){
     require_once "php/purchaseUtility.php";
     require_once "php/productUtility.php";
 ?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -19,6 +20,8 @@ if(!isset($_SESSION['id'])){
     <meta name="author" content="">
 
     <title>Private Page - Herschel</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -52,83 +55,55 @@ if(!isset($_SESSION['id'])){
     </div>
 </div>
 
-<!-- Main content -->
-    <!-- Navigation -->
-    <!--<nav class="navbar navbar-expand-lg navbar-shrink navbar-light" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger a-logo" href=""></a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href=""><?php /*echo $_SESSION['id'];*/?></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="logoutbtn" class="btn btn-nav custom-btn text-white border-light" data-target="#logoutModal" data-toggle="modal">Log out</a>
-                    </li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-shrink navbar-light shadow" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand a-logo" href="index.php"></a>
+        <h1 class="mx-auto my-0 text-uppercase gradient-title">Herschel</h1>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">Log Out</a>
+                </li>
+            </ul>
         </div>
-    </nav>-->
-
-    <nav class="navbar navbar-expand-lg navbar-shrink navbar-light shadow" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand a-logo" href="index.php"></a>
-            <h1 class="mx-auto my-0 text-uppercase gradient-title">Herschel</h1>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">Log Out</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    </div>
+</nav>
     <!-- User Profile Section -->
-        <div id="usercontent" class="mt-5" style="">
-            <div class="container mb-5 pt-1 px-0 card">
-                <div class="container-lg px-3 card-body" style="background: white;">
-                    <div id="userinfoColumn" class="col-sm-5 col-md-4 col-lg-3  float-left">
-                        <div class="card-deck">
-                            <div class="card mx-auto">
-                                <div class="position-relative">
-                                    <a href="modifyform.php?<?php echo  htmlspecialchars(session_id());?>'" aria-label="edit profile" title="edit profile" class="idlink">
-                                        <span class="modify-icon fas fa-cog text-white custom-icon"></span>
-                                        <img src="<?php echo getUserImg($_SESSION['id']);?>" class="card-img-top" alt="..." style="overflow: hidden">
-                                    </a>
-                                </div>
-                                <div class="card-body shadow">
-                                    <p class="card-title font-weight-bolder">
-                                        <?php echo getUserName($_SESSION['id'])." ".getUserSurname($_SESSION['id']); ?>
-                                    </p>
-                                    <span class="text-muted fas fa-user"></span>
-                                    <span><?php echo $_SESSION['id']; ?></span>
-                                    <hr>
-                                    <p class="card-text"><?php echo getUserDescription($_SESSION['id']); ?></p>
-                                    <ul class="no-bullet">
-                                        <li>
-                                            <span class="fas fa-map-marked-alt"></span>
-                                            <span><?php echo getUserLocation($_SESSION['id']); ?></span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+<div id="user-info" class="mt-5" style="">
+    <div class="container mb-5 pt-1 px-0 card">
+        <div class="container-lg px-3 card-body" style="background: white;">
+            <div id="userinfoColumn" class="col-12 col-md-4 col-lg-3  float-left">
+                <div class="card-deck">
+                    <div class="card mx-auto">
+                        <div class="position-relative">
+                            <a href="modifyform.php?<?php echo  htmlspecialchars(session_id());?>'" aria-label="edit profile" title="edit profile" class="idlink">
+                                <span class="modify-icon fas fa-cog text-white custom-icon"></span>
+                                <img src="<?php echo getUserImg($_SESSION['id']);?>" class="card-img-top" alt="..." style="overflow: hidden">
+                            </a>
+                        </div>
+                        <div class="card-body shadow">
+                            <p class="card-title font-weight-bolder">
+                                <?php echo getUserName($_SESSION['id'])." ".getUserSurname($_SESSION['id']); ?>
+                            </p>
+                            <span class="text-muted fas fa-user"></span>
+                            <span><?php echo $_SESSION['id']; ?></span>
+                            <hr>
+                            <p class="card-text"><?php echo getUserDescription($_SESSION['id']); ?></p>
+                            <ul class="no-bullet">
+                                <li>
+                                    <span class="fas fa-map-marked-alt"></span>
+                                    <span><?php echo getUserLocation($_SESSION['id']); ?></span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div id="tabColumn" class="col-sm-7 col-md-8 col-lg-9 float-left">
+                </div>
+            </div>
+            <div id="tabColumn" class="col-12 col-md-8 col-lg-9 float-left">
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
                                 <a href="#products" class="nav-link active text-muted" id="overview-tab" data-toggle="tab" role="tab" aria-controls="overview">New Products</a>
@@ -142,14 +117,14 @@ if(!isset($_SESSION['id'])){
                             <li>
                                 <a href="#wishlist" class="nav-link text-muted" id="wish-tab" data-toggle="tab" role="tab">Wish list</a>
                             </li>
-                            <li>
+                            <li class="d-none d-md-block">
                                 <!-- To remove if not admin  -->
                                 <a href="#admin" class="nav-link text-muted" id="admin-tab"
                                     <?php echo isAdmin($_SESSION['id'])? 'data-toggle="tab" role="tab"' : 'data-toggle="tooltip" data-placement="bottom" title="Only for developers"'?>>Admin</a>
                                 <!-- End of area to remove -->
                             </li>
                         </ul>
-                        <div class="tab-content" id="usercontent">
+                        <div class="tab-content" id="user-content">
                             <div class="tab-pane fade show active" id="products" data-action="listProducts" role="tabpanel" aria-labelledby="overview">
                                 <h3 class="mt-3 text-muted">Freshly baked</h3>
                                 <div id="products-spinner" class="d-flex justify-content-center" style="height: 160px;">
@@ -157,7 +132,7 @@ if(!isset($_SESSION['id'])){
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-columns" id="products-container">
+                                <div class="" id="products-container">
 
                                 </div>
                             </div>
@@ -168,7 +143,7 @@ if(!isset($_SESSION['id'])){
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-columns" id="cart-container">
+                                <div class="" id="cart-container">
 
                                 </div>
                             </div>
@@ -179,7 +154,7 @@ if(!isset($_SESSION['id'])){
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-columns" id="purchase"></div>
+                                <div class="" id="purchase"></div>
                             </div>
                             <div class="tab-pane fade" id="wishlist" role="tabpanel" data-action="getWishList" aria-labelledby="wishlist">
                                 <h3 class="text-muted mt-3">Your Wishlist</h3>
@@ -189,7 +164,7 @@ if(!isset($_SESSION['id'])){
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="card-columns" id="wishlist-container"></div>
+                                <div class="" id="wishlist-container"></div>
                             </div>
                             <!-- To remove if not admin -->
                             <?php if(isAdmin($_SESSION['id'])) require_once './components/admin_panel.php' ?>
@@ -197,8 +172,8 @@ if(!isset($_SESSION['id'])){
                         </div>
 
                     </div>
-                </div>
-                <div class="card-footer py-3 bg-white">
+        </div>
+        <div class="card-footer py-3 bg-white">
                     <div class="row text-right align-baseline mb-0">
                         <div class="col-md-8"></div>
                         <div class="col-md-4">
@@ -207,9 +182,9 @@ if(!isset($_SESSION['id'])){
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    <!-- Footer -->
+    </div>
+</div>
+<!-- Footer -->
 <div class="fading"></div>
 <!-- Footer -->
 <footer class="bg-black small text-center text-white-50">

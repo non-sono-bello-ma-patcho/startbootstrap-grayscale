@@ -87,6 +87,7 @@ if(!isset($_SESSION['id'])){
             </div>
         </div>
 <!-- Footer -->
+<div class="fading"></div>
 <footer class="bg-black small text-center text-white-50">
     <div class="container">
         Copyright &copy; Herschel 2018

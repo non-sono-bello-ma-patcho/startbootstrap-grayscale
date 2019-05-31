@@ -1,3 +1,5 @@
+import "./common";
+
 function loadname() {
     var full_path =$('#inputGroupFile01').val();
     var filename = full_path.substring(full_path.lastIndexOf('\\')+1, full_path.length);

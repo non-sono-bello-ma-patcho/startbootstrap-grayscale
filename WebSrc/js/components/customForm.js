@@ -1,7 +1,6 @@
 import '../../scss/_custom_form.scss';
 
-import './customForm'
-import './datepicker';
+import 'bootstrap/js/dist/collapse';
 
 /*
 * add this feature on price field
@@ -13,7 +12,6 @@ import './datepicker';
 *
 * */
 
-/*
 $(window).on("load", ()=>{
     $('.custom-input-group input').each(function () {
         let _this = this;
@@ -40,8 +38,4 @@ $('.custom-input-group label').click(function () {
     if(!$(inputWrapper).is(':visible'))
         $(inputWrapper).toggle('collapse');
 });
-*/
 
-$( function() {
-    $( ".datepicker" ).datepicker({orientation : 'bottom'});
-} );
