@@ -84,13 +84,9 @@ function cardHandler(btn, callback){
         processData: false,
         url : rest
     }).then((response, status)=>{
-        if(status===200) {
-            updateTotal();
-            console.log(`the item: ${id} had been successfully ${cmd}ed by ${username}`); // thinking about a toast to display on success
-        }
+        updateTotal();
         callback();
     }).catch((e)=>{
-        console.log(`could not send request due to: ${e.message}`);
         removeSpinner(btn);
     });
 }
