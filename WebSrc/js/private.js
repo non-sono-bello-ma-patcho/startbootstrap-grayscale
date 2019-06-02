@@ -115,7 +115,10 @@ function load_tab(target){
         data : JSON.stringify($data),
         type : 'POST',
         processData: false,
-        url : `rest/${command}.php`
+        url : `rest/${command}.php`,
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.error("Status: " + textStatus); console.error("Error: " + errorThrown);
+        }
     }).done((response)=>{
         // se la richiesta va a buon fine carico il contenuto o, se il risultato è vuoto, mostro l'informazione
         if(response.length === 0){

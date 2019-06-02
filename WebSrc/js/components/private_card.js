@@ -94,3 +94,5 @@ function cardHandler(btn, callback){
         removeSpinner(btn);
     }).always();
 }
+
+// TODO add empty tab check on removing action (cart and wishlist), append empty target message, disable checkout button
