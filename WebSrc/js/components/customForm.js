@@ -39,3 +39,7 @@ $('.custom-input-group label').click(function () {
         $(inputWrapper).toggle('collapse');
 });
 
+$('.custom-form').on('submit', function(){
+
+});
+

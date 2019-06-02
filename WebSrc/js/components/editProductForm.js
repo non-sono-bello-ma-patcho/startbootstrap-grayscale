@@ -7,6 +7,7 @@ let $searchBtn = $('#edit-search-btn');
 let $updateBtn = $('#update-product-btn');
 let $deleteBtn = $('#delete-product-btn');
 let $editForm = $('#editProduct');
+let $deleteInput = $('#dcode');
 
 $('.custom-input-group input').on("change", function () {
     if(($(this).val()!=="" || $(this).attr('placeholder') !== "") && !$(this).is(':visible'))
@@ -31,6 +32,8 @@ $searchBtn.click(()=>{
         processData: false,
         url : `rest/getProductInfo.php`
     }).done((response)=>{
+        console.log('got response');
+        console.log(response);
         // se la richiesta va a buon fine carico i place holder, se il risultato è vuoto, attivo la classe invalid sull'input testuale
         if(response.length === 0){
             // display empty message
@@ -39,7 +42,6 @@ $searchBtn.click(()=>{
             $deleteBtn.addClass('disabled').attr('disabled', true);
         }
         else{
-            // load all promise
             for(let key in response){
                 let selector = `[name='e${key}']`;
                 let $target = $(selector);
@@ -48,6 +50,7 @@ $searchBtn.click(()=>{
                     case 'code':
                         if(response.hasOwnProperty(key) && response[key]!==null){
                             $target.val(response[key]);
+                            $deleteInput.val(response[key]); // inizializzo valore anche per form di rimozione
                             if(($target.val()!=="" || $target.attr('placeholder') !== "") && !$target.is(':visible'))
                                 $target.parent().toggle('collapse');
                         }
@@ -74,13 +77,14 @@ $searchBtn.click(()=>{
                         }
                 }
             }
+            $updateBtn.removeClass('disabled').attr('disabled', false);
+            $deleteBtn.removeClass('disabled').attr('disabled', false);
         }
     })
         .fail(()=>$searchInput.addClass('is-invalid'))
         .always(()=>{
             // remove spinner
             removeSpinner($searchBtn);
-            $updateBtn.removeClass('disabled').attr('disabled', false);
-            $deleteBtn.removeClass('disabled').attr('disabled', false);
         });
 });
+

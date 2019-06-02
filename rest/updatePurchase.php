@@ -7,38 +7,36 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 // files needed to connect to database
 require_once '../php/purchaseUtility.php';
-require_once '../php/wishlistUtility.php';
 
 
 $data = json_decode(file_get_contents("php://input"));
 
 // set product property values
-if(!$data->op){
+if(!$data->items){
     http_response_code(400);
     return;
 }
 
 
 try {
-    if($data->op==="add"){
-        error_log("adding item to cart");
-        insertUserCart($data->username, $data->code);
-        if(array_search($data->code, unserialize($_COOKIE['wishlist']))!==false){
-            // rimuovo item dalla wishlist e aggiorno wishlist cookie
-            removeFromWishList($data->username, $data->code);
-            setcookie('wishlist', serialize(getUserWishList($data->username)), time()+3600, "/");
-        }
+    error_log($data->items);
+    // inserisco in acquisti
+    insertUserPurchases($data->username, $data->items);
 
+    // rimuovo dal carrello
+    foreach ($data->items as $key => $value){
+        error_log("removing from cart $key");
+        removeFromCart($data->username, $key);
     }
-    else{
-        error_log("removing item from cart");
-        removeFromCart($data->username, $data->code);
-    }
+
+
+    // aggiorno cookie
     setcookie('cart', serialize(getUserCart($data->username)), time()+3600, "/");
     setcookie('cart-total', getTotalCartPrice($data->username), time()+3600, "/");
-
     http_response_code(200);
-    echo json_encode(getTotalCartPrice($data->username));
+
+    echo json_encode(getUserPurchases($data->username));
+
 } catch (Exception $e){
     http_response_code(500);
 }

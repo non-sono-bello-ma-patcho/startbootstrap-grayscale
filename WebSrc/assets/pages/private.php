@@ -30,7 +30,7 @@ if(!isset($_SESSION['id'])){
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Log Out</h5>
+                <h5 class="modal-title" id="logOutModalButton">Log Out</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -137,7 +137,14 @@ if(!isset($_SESSION['id'])){
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="cart" role="tabpanel" data-action="getCart">
-                                <h3 class="mt-3 text-muted">Your Cart</h3>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <h3 class="mt-3 text-muted">Your Cart</h3>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <button class="btn btn-success disabled mt-3" id="buyAll" disabled>Checkout</button>
+                                    </div>
+                                </div>
                                 <div id="cart-spinner" class="d-flex justify-content-center" style="height: 160px;">
                                     <div class="my-auto spinner-border text-primary align-middle" role="status">
                                         <span class="sr-only">Loading...</span>
@@ -154,7 +161,7 @@ if(!isset($_SESSION['id'])){
                                         <span class="sr-only">Loading...</span>
                                     </div>
                                 </div>
-                                <div class="" id="purchase"></div>
+                                <div class="" id="purchase-container"></div>
                             </div>
                             <div class="tab-pane fade" id="wishlist" role="tabpanel" data-action="getWishList" aria-labelledby="wishlist">
                                 <h3 class="text-muted mt-3">Your Wishlist</h3>

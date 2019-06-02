@@ -83,12 +83,12 @@ function initFirstAction(){
     $action_1->jselector = 'cart-handler';
     switch($tab){
         case 'cart':
-            // nel cart c'è solo la prima action: delete from cart
-            $action_1->icon = 'fas fa-minus-circle';
-            $action_1->color = 'text-danger';
-            $action_1->target = 'cart';
+            $action_1->jselector = 'purchase-handler';
+            $action_1->target = 'purchase';
             $action_1->id = $card_code;
-            $action_1->cmd = 'remove';
+            $action_1->icon = 'fas fa-money-check-alt';
+            $action_1->cmd = 'add';
+            $action_1->color = 'text-success';
             break;
         case 'products':
             // statici
@@ -142,11 +142,20 @@ function initSecondAction(){
             break;
         case 'wishlist':
             // la seconda action è quella che elimina il prodotto dalla wishlist
+
             $action_2->target = 'wishlist';
             $action_2->id = $card_code;
             $action_2->icon = 'fas fa-minus-circle';
             $action_2->cmd = 'remove';
             $action_2->color = 'text-danger';
+            break;
+        case 'cart':
+            $action_2->jselector = 'cart-handler';
+            $action_2->icon = 'fas fa-minus-circle';
+            $action_2->color = 'text-danger';
+            $action_2->target = 'cart';
+            $action_2->id = $card_code;
+            $action_2->cmd = 'remove';
             break;
         default:
             // purchase e listato non hanno actions.. o almeno per ora

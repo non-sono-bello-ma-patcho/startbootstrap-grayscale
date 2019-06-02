@@ -12,7 +12,8 @@
                 <div class="form-row">
                     <div class="col-md-6">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Product ID" id="product-edit">
+                            <label for="product-edit" class="sr-only">product ID</label>
+                            <input type="text" class="form-control" placeholder="Product ID" name="eID" id="product-edit">
                             <div class="input-group-append">
                                 <button id="edit-search-btn" class="btn btn-primary py-0" type="button"><span class="fas fa-search"></span></button>
                             </div>
@@ -20,14 +21,18 @@
                     </div>
                     <div class="col-md-3 text-center">
                         <label class="sr-only">Delete Product</label>
-                        <button type="submit" class="btn btn-danger disabled w-75" id="delete-product-btn" disabled>DELETE</button>
+                        <button type="submit" name="deleteproductform" form="deleteProduct" class="btn btn-danger disabled w-75" id="delete-product-btn" disabled>DELETE</button>
                     </div>
                     <div class="col-md-3 text-center">
                         <label class="sr-only">Update Product</label>
-                        <button type="submit" class="btn btn-primary disabled w-75" form="editProduct" id="update-product-btn" disabled>UPDATE</button>
+                        <button type="submit" name="editproductform" class="btn btn-primary disabled w-75" form="editProduct" id="update-product-btn" disabled>UPDATE</button>
                     </div>
                 </div>
                 <hr>
+                <form id ="deleteProduct" action="php/deleteProduct.php" enctype="multipart/form-data" method="post" class="d-none">
+                    <input type="text" name="dcode" id="dcode" readonly>
+                    <input type="hidden" name="deleteproductform">
+                </form>
                 <form  id ="editProduct" action="php/editProduct.php" enctype="multipart/form-data" method="post" class="custom-form">
                     <input type="hidden" name="editproductform">
                     <div class="form-row">

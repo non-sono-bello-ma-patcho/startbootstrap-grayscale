@@ -46,19 +46,19 @@ setrawcookie("filters", $stringFilters, time()+3600, "/");
 if(isset($_REQUEST["order"]))
     switch($_REQUEST['order']){
         case "lowest":
-            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"price","ASC",$filters);
+            $result = search_items('name, code, description, img, price, level, guide, housing','products',array('name','description'),$destination,"price","ASC",$filters);
             break;
         case "hightest":
-            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"price","DESC",$filters);
+            $result = search_items('name, code, description, img, price, level, guide, housing','products',array('name','description'),$destination,"price","DESC",$filters);
             break;
         case "relevance":
-            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,"relevance","DESC",$filters);
+            $result = search_items('name, code, description, img, price, level, guide, housing','products',array('name','description'),$destination,"relevance","DESC",$filters);
             break;
         default:
-            $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,false,false, $filters);
+            $result = search_items('name, code, description, img, price, level, guide, housing','products',array('name','description'),$destination,false,false, $filters);
     }
 else
-    $result = search_items('name, code, description, img, price','products',array('name','description'),$destination,false,false, $filters);
+    $result = search_items('name, code, description, img, price, level, guide, housing','products',array('name','description'),$destination,false,false, $filters);
 
 $number_of_trips = sizeof($result);
 

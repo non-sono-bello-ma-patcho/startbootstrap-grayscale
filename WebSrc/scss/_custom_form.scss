@@ -45,6 +45,13 @@
     position: relative;
     &-wrapper{
       border-bottom: 2px solid $primary;
+      &.invalid {
+        border-bottom: 2px solid $danger;
+        label {
+          color: $danger;
+          font-weight: bold;
+        }
+      }
     }
     label {
       color: $primary;
@@ -68,7 +75,7 @@
       cursor: pointer;
       bottom: 1rem;
       right: 1rem;
-      padding: .8rem .9rem;
+      padding: .8rem 1.1rem;
       border-radius: 32px;
       border-bottom: solid 3px $gray-600;
       border-right: solid 3px $gray-600;

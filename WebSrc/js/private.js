@@ -7,7 +7,7 @@ import 'bootstrap/js/dist/tab';
 import 'bootstrap/js/dist/button';
 import 'bootstrap/js/dist/modal';
 
-import {addCard, getCookie, updateTotal} from "./common";
+import {addCard, addSpinner, getCookie, removeSpinner, updateTotal} from "./common";
 
 import './components/private_card';
 import './components/customForm';
@@ -16,10 +16,11 @@ import './components/addProdcutForm';
 import './components/addAdminForm';
 import './components/customForm';
 
+let checkoutBtn = $('#buyAll');
+
 // activate tooltip
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
-    $('#searchbtn').click(()=>load_likable_users());
 });
 
 // load active tab and update total
@@ -35,9 +36,30 @@ $(document).on('shown.bs.tab', 'a[data-toggle="tab"]',function (e) {
     load_tab(target);
 });
 
-// this delegates action on button click depending on card type
-
-
+checkoutBtn.click(()=>{
+    let $targetContainer = $('#cart-container');
+    let items = {};
+    let cards = $targetContainer.find('.purchase-handler');
+    addSpinner(checkoutBtn);
+    cards.each((index, btn)=>{
+        console.log(btn);
+        items[$(btn).data('id')]=1;
+    });
+    let $data = JSON.stringify({ username : getCookie('user'), 'items' : items });
+    console.log(`sending request with data: ${$data}`);
+    $.ajax({
+        contentType : "application/json",
+        data : $data,
+        type : 'POST',
+        processData: false,
+        url : 'rest/updatePurchase.php',
+}).done((response, status)=>{
+        updateTotal();
+        $targetContainer.empty().append(`<p class='text-muted m-auto' style='height: 160px'>Your cart is empty</p>`);
+    }).catch((e)=>{
+        console.error(e.stackTrace);
+    }).always(()=>removeSpinner(checkoutBtn));
+});
 
 
 
@@ -47,35 +69,7 @@ $("#resultlist").on("change", function(){
     $('#adduserbtn').toggleClass("disabled", false).attr("disabled", false);
 });
 
-// // TODO: refactor using components
-// function load_likable_users(){
-//     $('#resultlist').empty();
-//     let username = $('#newusername').val();
-//     console.log('calling promise:');
-//     new Promise((resolve, reject)=>{
-//         // in questa puntata di Andreo e le pormise carichiamo delle carte contenenti un profilo da aggiungere come admin
-//         // eseguo una chiamata get per ottenere la lista dei papabili
-//         console.log('calling rest: guessuser');
-//         $.get("php/rest.php", { param : username, op : "guessuser" })
-//             .done((response)=>JSON.parse(response).length>0?resolve(JSON.parse(response)):reject())
-//             .fail(()=>reject());
-//     }).then((users)=>{
-//         // a questo punto carico gli utenti
-//         console.log('successfull: adding cards!');
-//             $('#newusername').toggleClass('is-invalid', false);
-//         for(let i = 0; i<users.length; i++){
-//             addCard(users[i], $('#resultlist'), 'user');
-//         }
-//         $('#resultlist').toggleClass('d-none', false).toggleClass("custom-hidden", false);
-//     },
-//         ()=>{
-//             console.log('failed: show error message');
-//             // a questo punto dico che non ci sono utenti papabili con quel nome
-//             $('#resultlist').toggleClass('d-none', true).toggleClass("custom-hidden", true);
-//             $('#newusername').toggleClass('is-invalid', true);
-//         });
-// }
-
+/*
 function load_search_result(){
     var value = document.getElementById("itemsearch").value;
     var min_price = document.getElementById("price-min").value;
@@ -105,14 +99,12 @@ function load_search_result(){
             }
         })
 }
+*/
 
 function load_tab(target){
     console.log("loading: "+$(target).attr('id'));
     // add spinner
     let command = $(target).data('action'), $data = {username : getCookie("user")}, $targetContainer = $(target).find("[id$='-container']"), $targetSpinner = $(target).find("div[id$='-spinner']");
-    console.log(command);
-    console.log($targetContainer.attr('id'));
-    console.log($targetSpinner.attr('id'));
     if(command === undefined) return;
 
     flush_tab($targetContainer);
@@ -129,6 +121,7 @@ function load_tab(target){
         if(response.length === 0){
             // display empty message
             $targetContainer.append(`<p class='text-muted m-auto' style='height: 160px'>Your ${$(target).attr('id')} is empty</p>`);
+            if($(target).attr('id')==='cart') $('#buyAll').attr('disabled', true).addClass('disabled');
         }
         else{
             // load all promise
@@ -137,6 +130,7 @@ function load_tab(target){
 
             // load all promises
             Promise.all(promises).then(()=>{
+                if($(target).attr('id')==='cart') $('#buyAll').removeAttr('disabled').removeClass('disabled');
             });
         }
     }).fail(()=>$targetContainer.append(`<p class='text-muted m-auto' style='height: 160px'>An error occured loading ${$(target).attr('id')}</p>`))

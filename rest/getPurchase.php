@@ -9,16 +9,12 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require_once '../php/purchaseUtility.php';
 
 
-try {
-    $bean = json_decode(file_get_contents("php://input"));
 
-    $username = $bean->username;
+$bean = json_decode(file_get_contents("php://input"));
 
-    $result = get_multiple_information("purchase c inner join products p on c.item = p.code", [ "code", "name", "description", "price", "img" ], "username", $username);
-} catch (Exception $e){
-    $result = [
-        "error" => $e->getMessage()
-    ];
-}
+$username = $bean->username;
+
+$result = get_multiple_information("purchases c inner join products p on c.item = p.code", [ "code", "name", "description", "price", "img" ], "username", $username);
+
 echo json_encode($result);
 
