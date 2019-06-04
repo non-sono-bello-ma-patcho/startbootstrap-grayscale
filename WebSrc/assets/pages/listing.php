@@ -227,7 +227,7 @@ function initSecondAction(){
                         $card_price = $item['price'];
                         $card_image = $item['img'];
                         $card_code = $item['code'];
-                        $product_link = 'herschel.hopto.org/detail.php?id='.$card_code;
+                        $product_link = 'detail.php?id='.$card_code;
                         $tab = "";
 // setting button class and style depending on tab
                         $action_1 = new stdClass();

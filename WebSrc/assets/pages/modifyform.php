@@ -67,7 +67,7 @@ $img = getUserImg($username);
                             <div class="custom-input-group">
                                 <label for="modifyName" class="input-text-label align-bottom">Name</label>
                                 <div class="collapse inputwrapper">
-                                    <input type="text" id="modifyName" name=modifyName" placeholder="<?php echo $name; ?>" aria-describedby="">
+                                    <input type="text" id="modifyName" name="modifyName" placeholder="<?php echo $name; ?>" aria-describedby="">
                                 </div>
                             </div>
                         </div>
@@ -89,7 +89,7 @@ $img = getUserImg($username);
                             <div class="custom-input-group">
                                 <label for="modifyUsername" class="input-text-label align-bottom">Username</label>
                                 <div class="collapse inputwrapper">
-                                    <input type="text" id="modifyUsername" name=modifyUsername" placeholder="<?php echo $username; ?>" aria-describedby="">
+                                    <input type="text" id="modifyUsername" name="modifyUsername" placeholder="" value="<?php echo $username; ?>" aria-describedby="" readonly>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@ $img = getUserImg($username);
                             <div class="custom-input-group">
                                 <label for="modifyLocation" class="input-text-label align-bottom">Location</label>
                                 <div class="collapse inputwrapper">
-                                    <input type="text" id="modifyLocation" name=modifyLocation" placeholder="<?php echo $location; ?>" aria-describedby="">
+                                    <input type="text" id="modifyLocation" name="modifyLocation" placeholder="<?php echo $location; ?>" aria-describedby="">
                                 </div>
                             </div>
                         </div>

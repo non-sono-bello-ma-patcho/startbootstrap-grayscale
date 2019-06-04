@@ -45,7 +45,7 @@ $searchBtn.click(()=>{
             for(let key in response){
                 let selector = `[name='e${key}']`;
                 let $target = $(selector);
-
+                console.log(`loading ${key} placholder`);
                 switch(key){
                     case 'code':
                         if(response.hasOwnProperty(key) && response[key]!==null){

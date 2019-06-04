@@ -27,9 +27,8 @@ require_once "php/userUtility.php";?>
                         case 503: $text = 'Error 503: Service Unavailable'; break;
                         default:  $text= "unknown http error status";
                     }
-                    if(isset($_SESSION['id']))
-                        if(isadmin($_SESSION['id']))
-                            $text.= " \n".$_SESSION['last_error'];
+//                    if(isset($_SESSION['id']))
+                    $text.= $_SESSION['last_error'];
                     echo $text;
 
                     ?>

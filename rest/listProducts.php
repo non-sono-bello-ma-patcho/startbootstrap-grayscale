@@ -9,6 +9,6 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 require_once '../php/productUtility.php';
 
 // set product property values
-$result = getAllProducts();
+$result = getAllProducts("active = true");
 
 echo json_encode($result);

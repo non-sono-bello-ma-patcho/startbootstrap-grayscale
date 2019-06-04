@@ -172,6 +172,19 @@
     }
   }
 
+  .custom-tag.not-available {
+    background-color: #868e96;
+    padding-right: .5rem;
+    color: #d9dbde;
+    &::before {
+      border-color: transparent #868e96 transparent transparent;
+    }
+
+    &::after {
+      border-color: #868e96 transparent #868e96 transparent;
+    }
+  }
+
   .custom-tag.beginner {
     background: darkgreen;
     &.level::before {

@@ -30,7 +30,7 @@ try {
     }
 
 
-    // aggiorno cookie
+//    // aggiorno cookie
     setcookie('cart', serialize(getUserCart($data->username)), time()+3600, "/");
     setcookie('cart-total', getTotalCartPrice($data->username), time()+3600, "/");
     http_response_code(200);
@@ -39,5 +39,6 @@ try {
 
 } catch (Exception $e){
     http_response_code(500);
+    echo json_encode(getUserPurchases($data->username));
 }
 
