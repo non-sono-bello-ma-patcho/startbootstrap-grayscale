@@ -16,7 +16,8 @@ $(window).on("load", ()=>{
     $('.custom-input-group input').each(function () {
         let _this = this;
         console.log(`${$(_this).attr('id')} has value: (${$(_this).val()})`);
-        if($(_this).val()!=="")
+        console.log(`${$(_this).attr('id')} has placholder: (${$(_this).attr('placeholder')})`);
+        if($(_this).val()!=="" || $(_this).attr('placeholder')!=="")
             $(_this).parent().toggle('collapse');
     });
 });

@@ -13,33 +13,7 @@ $(document).on('click', '.manage-cart .cart-handler, .manage-cart .purchase-hand
         let card = btn.closest('.bubble-box');
         card.fadeOut('slow').remove();
     });
-});/*
-
-$(document).on('click', '', function(e){
-    let btn = $(this);
-    //alter behaviour
-
-    let icon = btn.find('svg').data('icon');
-    addSpinner(btn);
-    cardHandler(btn, ()=>{
-        let card = btn.closest('.bubble-box');
-        card.fadeOut('slow').remove();
-    });
-});*/
-
-/*
-$(document).on('click', '', function(e){
-    let btn = $(this);
-    //alter behaviour
-
-    let icon = btn.find('svg').data('icon');
-    addSpinner(btn);
-    cardHandler(btn, ()=>{
-        let card = btn.closest('.bubble-box');
-        card.fadeOut('slow').remove();
-    });
 });
-*/
 
 $(document).on('click', '.manage-products .cart-handler, .manage-products .wishlist-handler', function(e){
     let btn = $(this);
@@ -86,13 +60,13 @@ function cardHandler(btn, callback){
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             console.error("Status: " + textStatus); console.error("Error: " + errorThrown);
         }
-    }).then((response, status)=>{
+    }).done((response, status)=>{
         updateTotal();
         callback();
-    }).catch((e)=>{
+    }).fail((e)=>{
         console.log('an error occurred...');
         removeSpinner(btn);
-    }).always();
+    });
 }
 
 // TODO add empty tab check on removing action (cart and wishlist), append empty target message, disable checkout button

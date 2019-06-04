@@ -79,10 +79,10 @@ if(!isset($_SESSION['id'])){
             <div id="userinfoColumn" class="col-12 col-md-4 col-lg-3  float-left">
                 <div class="card-deck">
                     <div class="card mx-auto">
-                        <div class="position-relative">
+                        <div class="position-relative row overflow-hidden align-content-center" style="max-height: 256px;">
                             <a href="modifyform.php?<?php echo  htmlspecialchars(session_id());?>'" aria-label="edit profile" title="edit profile" class="idlink">
                                 <span class="modify-icon fas fa-cog text-white custom-icon"></span>
-                                <img src="<?php echo getUserImg($_SESSION['id']);?>" class="card-img-top" alt="..." style="overflow: hidden">
+                                <img src="<?php echo getUserImg($_SESSION['id']);?>" class="card-img-top col align-self-center" alt="..." style="overflow: hidden">
                             </a>
                         </div>
                         <div class="card-body shadow">

@@ -14,7 +14,7 @@ $bean = json_decode(file_get_contents("php://input"));
 
 $username = $bean->username;
 
-$result = get_multiple_information("purchases c inner join products p on c.item = p.code", [ "code", "name", "description", "price", "img" ], "username", $username);
+$result = get_multiple_information("purchases c inner join products p on c.item = p.code", [ "code", "name", "description", "price", "img", "guide", "housing", "level" ], "username", $username);
 
 echo json_encode($result);
 
