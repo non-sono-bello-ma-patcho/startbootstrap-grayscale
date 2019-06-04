@@ -1,5 +1,6 @@
 @import "variables";
-
+/*
+ @deprecated
 .slim-card {
   max-height: 160px !important;
   @media (min-width: 768px) {
@@ -50,6 +51,7 @@
     width: 100%;
   }
 }
+*/
 
 .bubble-box {
   margin-top: 20px;
@@ -64,6 +66,9 @@
   h4 {
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
+  }
+  button {
+    outline: none;
   }
   &-left {
     float: left;
