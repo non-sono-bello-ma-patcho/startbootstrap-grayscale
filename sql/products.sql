@@ -14,5 +14,6 @@ create table products
   duration    int                    null,
   guide       bit                    null,
   housing     bit                    null,
-  maxUsers    int                    null
+  maxUsers    int                    null,
+  active      tinyint                default true null
 );
