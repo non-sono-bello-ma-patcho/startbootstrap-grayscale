@@ -12,7 +12,7 @@ import 'bootstrap/js/dist/collapse';
 *
 * */
 
-$(window).on("load", ()=>{
+$(document).on("ready", ()=>{
     $('.custom-input-group input').each(function () {
         let _this = this;
         console.log(`${$(_this).attr('id')} has value: (${$(_this).val()})`);

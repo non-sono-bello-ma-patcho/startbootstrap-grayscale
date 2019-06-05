@@ -9,11 +9,18 @@ import './common';
 
 /* SCSS */
 import '../scss/grayscale.scss';
+import {getCookie} from "./common";
 
 $('.carousel').carousel({
   interval : false
 });
 
+let filters = JSON.parse(getCookie("filters"));
+console.log(filters);
+Object.keys(filters).forEach((key, index)=> {
+  console.log(`${key} : ${filters[key]}`);
+  $(`input[name=${key}]`).val(filters[key]);
+});
 
 (function($) {
   "use strict"; // Start of use strict
