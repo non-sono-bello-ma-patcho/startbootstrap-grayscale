@@ -18,27 +18,21 @@ if(!$data->items){
 }
 
 
-try {
-    error_log($data->items);
-    // inserisco in acquisti
-    insertUserPurchases($data->username, $data->items);
+// inserisco in acquisti
+insertUserPurchases($data->username, $data->items);
 
-    // rimuovo dal carrello
-    foreach ($data->items as $key => $value){
-        error_log("removing from cart $key");
-        removeFromCart($data->username, $key);
-    }
+// rimuovo dal carrello
+foreach ($data->items as $key => $value){
+    removeFromCart($data->username, $key);
+    setProductRelevance($key,getProductRelevance($key)+$value);
+}
 
 
 //    // aggiorno cookie
-    setcookie('cart', serialize(getUserCart($data->username)), time()+3600, "/");
-    setcookie('cart-total', getTotalCartPrice($data->username), time()+3600, "/");
-    http_response_code(200);
+setcookie('cart', serialize(getUserCart($data->username)), time()+3600, "/");
+setcookie('cart-total', getTotalCartPrice($data->username), time()+3600, "/");
+http_response_code(200);
 
-    echo json_encode(getUserPurchases($data->username));
+echo json_encode(getUserPurchases($data->username));
 
-} catch (Exception $e){
-    http_response_code(500);
-    echo json_encode(getUserPurchases($data->username));
-}
 

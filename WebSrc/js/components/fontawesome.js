@@ -18,6 +18,7 @@ import {faFileUpload} from '@fortawesome/free-solid-svg-icons/faFileUpload';
 import {faCircleNotch} from '@fortawesome/free-solid-svg-icons/faCircleNotch';
 import {faHeart} from '@fortawesome/free-solid-svg-icons/faHeart';
 import {faMoneyCheckAlt} from '@fortawesome/free-solid-svg-icons/faMoneyCheckAlt';
+import {faShoppingBasket} from '@fortawesome/free-solid-svg-icons/faShoppingBasket';
 
 import {faStar as faStarReg} from '@fortawesome/free-regular-svg-icons/faStar';
 import {faHeart as faHeartReg} from '@fortawesome/free-regular-svg-icons/faHeart';
@@ -46,6 +47,7 @@ library.add(
     faCircleNotch,
     faHeart,
     faMoneyCheckAlt,
+    faShoppingBasket,
 
     // regular
     faStarReg,

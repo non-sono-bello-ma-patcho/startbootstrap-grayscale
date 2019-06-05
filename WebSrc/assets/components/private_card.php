@@ -16,7 +16,8 @@ $card_description = isset($_REQUEST['description']) ? trim($_REQUEST['descriptio
 $card_image = isset($_REQUEST['img']) ? trim($_REQUEST['img']) : $card_image = $img;
 $card_code = isset($_REQUEST['code'])? trim($_REQUEST['code']) : $code;
 $card_active = isset($_REQUEST['active'])&&!empty($_REQUEST['active']);
-$product_link = 'herschel.hopto.org/detail.php?id='.$card_code;
+$product_link = 'detail.php?id='.$card_code;
+$card_amount = isset($_REQUEST['amount'])? trim($_REQUEST['amount']) : "";
 $tab = isset($_REQUEST['tab'])? $_REQUEST['tab'] : "";
 
 // setting button class and style depending on tab
@@ -55,7 +56,7 @@ $housing_tag = $_REQUEST['housing']? "<span class='custom-tag housing'>acc.</spa
 $guide_tag = $_REQUEST['guide']? "<span class='custom-tag guide'>guide</span>" : "";
 $disabled_tag = !$card_active? "<span class='custom-tag not-available'>n.a.</span>" : "";
 $faction = isset($action_1->deactivated)? "" : "<button class='bg-transparent border-0 px-1 $action_1->color $action_1->jselector' data-id='{$action_1->id}' data-command='{$action_1->cmd}' data-target='{$action_1->target}' $action_1->disabled><span class='{$action_1->icon} '></span></button>";
-$saction = isset($action_2->deactivated)? "" : "<button class='bg-transparent border-0 px-1 $action_2->color $action_2->jselector' data-id='{$action_2->id}' data-command='{$action_2->cmd}' data-target='{$action_2->target}' $action_2->disabled><span class='{$action_2->icon} '></span></button>";
+$saction = isset($action_2->deactivated)? "<p class='font-weight-bold text-muted'><span class='fas fa-shopping-basket'></span>$card_amount</p>" : "<button class='bg-transparent border-0 px-1 $action_2->color $action_2->jselector' data-id='{$action_2->id}' data-command='{$action_2->cmd}' data-target='{$action_2->target}' $action_2->disabled><span class='{$action_2->icon} '></span></button>";
 
 echo "
 <div class='bubble-box'>

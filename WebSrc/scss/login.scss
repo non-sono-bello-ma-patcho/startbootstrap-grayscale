@@ -1,0 +1,25 @@
+@import "slider";
+@import "~bootstrap/scss/mixins";
+
+.container {
+  width: 100% !important;
+  margin-top: 10rem;
+  @include media-breakpoint-up(sm) {
+    width: 50% !important;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 25% !important;
+  }
+}
+
+.image-previewer {
+  height: 256px;
+  width: 256px !important;
+  border-radius: 128px;
+  border: solid 5px white;
+}
+
+.bg-dark-transparent {
+  background: rgba($black, 0.75);
+}

@@ -55,7 +55,24 @@ $productName = "prodotto di prova";
         </div>
     </nav>
     <!--  Log in modal  -->
-    <%=require('../components/login_modal_component.html')%>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginmodalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <%=require('../components/login_modal_component.html')%>
+                </div>
+                <div class="modal-footer">
+                    <p class="align-content-between">Don't have an account? <a id="loglink" class="js-scroll-trigger" href="" aria-label="Close">Sign up!</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--    Main body section    -->
     <div class="container">

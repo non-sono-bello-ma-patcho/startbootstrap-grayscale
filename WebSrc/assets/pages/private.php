@@ -74,31 +74,35 @@ if(!isset($_SESSION['id'])){
 </nav>
     <!-- User Profile Section -->
 <div id="user-info" class="mt-5" style="">
-    <div class="container mb-5 pt-1 px-0 card">
+    <div class="container mb-5 pt-1 px-0 card shadow">
         <div class="container-lg px-3 card-body" style="background: white;">
             <div id="userinfoColumn" class="col-12 col-md-4 col-lg-3  float-left">
                 <div class="card-deck">
                     <div class="card mx-auto">
                         <div class="position-relative row overflow-hidden align-content-center" style="max-height: 256px;">
-                            <a href="modifyform.php?<?php echo  htmlspecialchars(session_id());?>'" aria-label="edit profile" title="edit profile" class="idlink">
+                            <a href="modifyform.php" aria-label="edit profile" title="edit profile" data-toggle="tooltip" data-placement="bottom" class="idlink">
                                 <span class="modify-icon fas fa-cog text-white custom-icon"></span>
                                 <img src="<?php echo getUserImg($_SESSION['id']);?>" class="card-img-top col align-self-center" alt="..." style="overflow: hidden">
                             </a>
                         </div>
-                        <div class="card-body shadow">
-                            <p class="card-title font-weight-bolder">
-                                <?php echo getUserName($_SESSION['id'])." ".getUserSurname($_SESSION['id']); ?>
-                            </p>
-                            <span class="text-muted fas fa-user"></span>
-                            <span><?php echo $_SESSION['id']; ?></span>
-                            <hr>
-                            <p class="card-text"><?php echo getUserDescription($_SESSION['id']); ?></p>
+                        <div class="card-body">
                             <ul class="no-bullet">
+                                <li>
+                                    <p class="card-title font-weight-bolder">
+                                        <?php echo getUserName($_SESSION['id'])." ".getUserSurname($_SESSION['id']); ?>
+                                    </p>
+                                </li>
+                                <li>
+                                    <span class="text-muted fas fa-user"></span>
+                                    <span><?php echo $_SESSION['id']; ?></span>
+                                </li>
                                 <li>
                                     <span class="fas fa-map-marked-alt"></span>
                                     <span><?php echo getUserLocation($_SESSION['id']); ?></span>
                                 </li>
                             </ul>
+                            <hr>
+                            <p class="card-text"><?php echo getUserDescription($_SESSION['id']); ?></p>
                         </div>
                     </div>
                 </div>
