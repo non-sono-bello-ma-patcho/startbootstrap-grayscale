@@ -9,4 +9,4 @@ create table wishlist
     constraint wishlist_users_username_fk
         foreign key (username) references users (username)
             on update cascade
-);
+) ENGINE myISAM;

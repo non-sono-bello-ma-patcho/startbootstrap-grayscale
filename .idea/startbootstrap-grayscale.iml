@@ -8,6 +8,7 @@
       <sourceFolder url="file://$MODULE_DIR$/php" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/rest" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/css" />
+      <excludeFolder url="file://$MODULE_DIR$/dist" />
       <excludeFolder url="file://$MODULE_DIR$/js" />
     </content>
     <content url="file://$MODULE_DIR$/dist" />

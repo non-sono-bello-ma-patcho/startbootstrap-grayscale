@@ -13,6 +13,16 @@
         <div class="col-12">
             <div class="custom-input-group-wrapper">
                 <div class="custom-input-group mx-auto">
+                    <label for="small_minitemprice" class="input-text-label align-bottom">Min Price</label>
+                    <div class="collapse inputwrapper">
+                        <input type="number" name="maxPrice" id="small_minitemprice" placeholder="" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="custom-input-group-wrapper">
+                <div class="custom-input-group mx-auto">
                     <label for="small_maxitemprice" class="input-text-label align-bottom">Max Price</label>
                     <div class="collapse inputwrapper">
                         <input type="number" name="maxPrice" id="small_maxitemprice" placeholder="" value="">
@@ -23,20 +33,13 @@
         <div class="col-6">
             <div class="custom-input-group-wrapper">
                 <div class="custom-input-group mx-auto">
-                    <label for="small_dateStart" class="input-text-label align-bottom">Arrival</label>
-                    <div class="collapse inputwrapper">
-                        <input type="text" name="startDate" id="small_dateStart" class="datepicker" placeholder="" value="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="custom-input-group-wrapper">
-                <div class="custom-input-group mx-auto">
-                    <label for="small_dateEnd" class="input-text-label align-bottom">Departure</label>
-                    <div class="collapse inputwrapper">
-                        <input type="text" name="endDate" id="small_dateEnd" class="datepicker" placeholder="" value="">
-                    </div>
+                    <label for="small_level" class="input-text-label align-bottom">Level</label>
+                    <select name="level" id="small_level" class="">
+                        <option value="">select</option>
+                        <option value="1">beginner</option>
+                        <option value="2">intermediate</option>
+                        <option value="3">expert</option>
+                    </select>
                 </div>
             </div>
         </div>

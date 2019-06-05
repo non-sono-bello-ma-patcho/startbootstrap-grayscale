@@ -18,7 +18,8 @@ module.exports = {
         error : './js/error.js',
         detail : './js/detail.js',
         modify : './js/modify.js',
-        listing : './js/listing.js'
+        listing : './js/listing.js',
+        login : './js/login.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -152,6 +153,12 @@ module.exports = {
             filename : "modifyform.php",
             template: "assets/pages/modifyform.php",
             chunks:  ['common', 'modify'],
+            inject: 'body'
+        }),
+        new HtmlWebpackPlugin({
+            filename : "login.php",
+            template: "assets/pages/login.php",
+            chunks:  ['common', 'login'],
             inject: 'body'
         }),
         new HtmlWebpackPlugin({

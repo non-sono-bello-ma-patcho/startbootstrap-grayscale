@@ -13,30 +13,41 @@
         <div class="col-md-3 col-12">
             <div class="custom-input-group-wrapper">
                 <div class="custom-input-group mx-auto">
+                    <label for="minitemprice" class="input-text-label align-bottom">Min Price</label>
+                    <div class="collapse inputwrapper">
+                        <input type="number" name="minPrice" id="minitemprice" placeholder="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-12 d-none d-md-block">
+            <div class="custom-input-group-wrapper">
+                <div class="custom-input-group mx-auto">
                     <label for="maxitemprice" class="input-text-label align-bottom">Max Price</label>
                     <div class="collapse inputwrapper">
-                        <input type="number" name="maxPrice" id="maxitemprice" placeholder="">
+                        <input type="number" name="maxPrice" id="maxitemprice" placeholder="" value="">
                     </div>
+<!--                    <label for="dateStart" class="input-text-label align-bottom">Arrival</label>-->
+<!--                    <div class="collapse inputwrapper">-->
+<!--                        <input type="text" name="startDate" id="dateStart" class="datepicker" placeholder="">-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>
         <div class="col-md-2 col-12 d-none d-md-block">
             <div class="custom-input-group-wrapper">
                 <div class="custom-input-group mx-auto">
-                    <label for="dateStart" class="input-text-label align-bottom">Arrival</label>
-                    <div class="collapse inputwrapper">
-                        <input type="text" name="startDate" id="dateStart" class="datepicker" placeholder="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-2 col-12 d-none d-md-block">
-            <div class="custom-input-group-wrapper">
-                <div class="custom-input-group mx-auto">
-                    <label for="dateEnd" class="input-text-label align-bottom">Departure</label>
-                    <div class="collapse inputwrapper">
-                        <input type="text" name="endDate" id="dateEnd" class="datepicker" placeholder="" value="">
-                    </div>
+                    <label for="level" class="text-primary">Level</label>
+                    <select name="level" id="level" class="">
+                        <option value="">select</option>
+                        <option value="1">beginner</option>
+                        <option value="2">intermediate</option>
+                        <option value="3">expert</option>
+                    </select>
+<!--                    <label for="dateEnd" class="input-text-label align-bottom">Departure</label>-->
+<!--                    <div class="collapse inputwrapper">-->
+<!--                        <input type="text" name="endDate" id="dateEnd" class="datepicker" placeholder="" value="">-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>

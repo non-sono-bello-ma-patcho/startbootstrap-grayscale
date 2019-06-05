@@ -8,5 +8,5 @@ create table purchases
         foreign key (item) references products (code),
     constraint purchase_users_username_fk
         foreign key (username) references users (username)
-);
+) ENGINE myISAM;
 
