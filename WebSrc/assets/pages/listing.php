@@ -6,7 +6,7 @@
  * Time: 21.20
  */
 // set all the variables to pages
-
+ session_start();
 require_once 'php/databaseUtility.php';
 require_once 'php/productUtility.php';
 require_once 'php/card_utility.php';
