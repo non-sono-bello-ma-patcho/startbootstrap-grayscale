@@ -84,25 +84,39 @@
             <div class="col-6">
                 <div class="form-row ">
                     <label class="switch d-inline-block">
-                        <input type="checkbox" id="modal_housing">
+                        <input type="checkbox" name="housing" id="modal_housing" value="1">
                         <span class="slider round"></span>
                     </label>
                     <label for="modal_housing" class="text-primary ml-1 d-inline">Housing</label>
                 </div>
                 <div class="form-row">
                     <label class="switch d-inline-block">
-                        <input type="checkbox" id="modal_guide">
+                        <input type="checkbox" name="guide" id="modal_guide" value="1">
                         <span class="slider round"></span>
                     </label>
                     <label for="modal_guide" class="text-primary ml-1 d-inline">Guide</label>
                 </div>
             </div>
             <div class="col-6">
-                <select name="level" id="modal_level" class="">
-                    <option value="1">beginner</option>
-                    <option value="2">intermediate</option>
-                    <option value="3">expert</option>
-                </select>
+                <div class="dropdown">
+                    <label for="modal_button_level" class="input-text-label align-bottom sr-only">Level</label>
+                    <button type="button" class="form-control btn-outline-primary dropdown-toggle" id="modal_button_level" data-class="primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        level
+                    </button>
+                    <div class="dropdown-menu" style="position: absolute;transform: translate3d(156px, -38px, 0px);top: 0px;left: 0px;will-change: transform;">
+                        <!-- Dropdown menu links -->
+                        <p class="dropdown-item text-primary">select</p>
+                        <p class="dropdown-item text-starter">starter</p>
+                        <p class="dropdown-item text-average">average</p>
+                        <p class="dropdown-item text-expert">expert</p>
+                    </div>
+                    <select name="level" id="level" class="d-none">
+                        <option value="">select</option>
+                        <option value="1">starter</option>
+                        <option value="2">average</option>
+                        <option value="3">expert</option>
+                    </select>
+                </div>
             </div>
         </div>
         <div class="col-12 d-flex flex-column align-items-center position-relative">

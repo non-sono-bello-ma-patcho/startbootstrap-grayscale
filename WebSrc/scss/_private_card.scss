@@ -131,6 +131,8 @@
   .custom-tag.price{
     background-color: #3E8989;
     padding-right: .5rem;
+    border-top-right-radius: .1rem;
+    border-bottom-right-radius: .5rem;
     &::before {
       border-color: transparent #3E8989 transparent transparent;
     }
@@ -173,48 +175,48 @@
   }
 
   .custom-tag.not-available {
-    background-color: #868e96;
+    background-color: $text-muted;
     padding-right: .5rem;
-    color: #d9dbde;
+    color: $white;
     &::before {
-      border-color: transparent #868e96 transparent transparent;
+      border-color: transparent $text-muted transparent transparent;
     }
 
     &::after {
-      border-color: #868e96 transparent #868e96 transparent;
+      border-color: $text-muted transparent $text-muted transparent;
     }
   }
 
-  .custom-tag.beginner {
-    background: darkgreen;
+  .custom-tag.starter {
+    background: $starter;
     &.level::before {
-      border-color: transparent darkgreen transparent transparent;
+      border-color: transparent $starter transparent transparent;
     }
 
     &.level::after {
-      border-color: darkgreen transparent darkgreen transparent;
+      border-color: $starter transparent $starter transparent;
     }
   }
 
-  .custom-tag.medium {
-    background: darkorange;
+  .custom-tag.average {
+    background: $average;
     &.level::before {
-      border-color: transparent darkorange transparent transparent;
+      border-color: transparent $average transparent transparent;
     }
 
     &.level::after {
-      border-color: darkorange transparent darkorange transparent;
+      border-color: $average transparent $average transparent;
     }
   }
 
   .custom-tag.expert {
-    background: #de0029;
+    background: $expert;
     &.level::before {
-      border-color: transparent #de0029 transparent transparent;
+      border-color: transparent $expert transparent transparent;
     }
 
     &.level::after {
-      border-color: #de0029 transparent #de0029 transparent;
+      border-color: $expert transparent $expert transparent;
     }
   }
 

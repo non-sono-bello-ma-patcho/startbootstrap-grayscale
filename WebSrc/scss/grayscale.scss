@@ -37,3 +37,10 @@ a {
 footer {
   padding: 5rem 0;
 }
+
+.fixed-form {
+  .dropdown-item{
+    padding: 0 1.5rem !important;
+    margin-bottom: 0 !important;
+  }
+}

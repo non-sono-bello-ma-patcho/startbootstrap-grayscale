@@ -11,8 +11,10 @@ import 'bootstrap/js/dist/collapse';
 });
 *
 * */
+let $select = $('select[name=level]');
 
-$(document).on("ready", ()=>{
+
+$(document).ready(()=>{
     $('.custom-input-group input').each(function () {
         let _this = this;
         console.log(`${$(_this).attr('id')} has value: (${$(_this).val()})`);
@@ -40,7 +42,28 @@ $('.custom-input-group label').click(function () {
         $(inputWrapper).toggle('collapse');
 });
 
-$('.custom-form').on('submit', function(){
+$('.custom-form .dropdown-item').click(function () {
+    let $level_button = $(this).parent().prev();
+    let prev = $level_button.data('class');
+    let _this = this;
+    let level = $(_this).text();
+    let _class = level === "select"? "primary" : level;
+    let _text = level === "select"? "level" : level;
+    $(`.custom-form select[name=level] option:contains("${level}")`).prop('selected', true); // select correct style
+    console.log(`triggering change event with class: ${_class}, text: ${_text}`);
+    $select.trigger('change', [_class, _text]);
+});
+
+$select.on("change", function(event, _class, _text){
+
+    console.log("select changed option...");
+    console.log(`class: ${_class}, text: ${_text}`);
+
+    let $this = $(this);
+    let $level_button = $this.parent().find('button');
+    let prev = $level_button.data('class');
+    $level_button.removeClass(`btn-outline-${prev}`).addClass(`btn-outline-${_class}`).text(_text);
+    $level_button.data('class', _class);
 
 });
 

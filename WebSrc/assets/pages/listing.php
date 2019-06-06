@@ -61,7 +61,7 @@ else
 $number_of_trips = sizeof($result);
 
 
-$h1 = "{$number_of_trips} trips to {$destination}";
+$h1 = "{$number_of_trips} trip".($number_of_trips>1?"s":"")." to {$destination}";
 
 ?>
 
@@ -142,19 +142,19 @@ $h1 = "{$number_of_trips} trips to {$destination}";
         </div>
     </div>
 </nav>
-<div class="container bg-light mt-3">
-    <div class="row px-4 pt-4">
-        <div class="col-lg-12 col-10">
-            <h3 class="text-primary mb-0"><?php echo $h1; ?></h3>
-        </div>
-        <div class="col-2 d-lg-none text-center my-auto">
-            <button type="button" class="btn btn-light btn-outline-light" data-toggle="modal" data-target="#form_modal">
-                <span class="fas fa-sliders-h text-primary m-auto"></span>
-            </button>
-        </div>
-    </div>
+<div class="container bg-light mt-3 py-4">
     <div class="row px-4">
         <div class="col-lg-8 col-12 pl-0" id="items_column">
+            <div class="d-flex">
+                <div class="col-lg-12 col-10">
+                    <h3 class="text-primary mb-0"><?php echo $h1; ?></h3>
+                </div>
+                <div class="col-2 d-lg-none text-center my-auto">
+                    <button type="button" class="btn btn-light btn-outline-light" data-toggle="modal" data-target="#form_modal">
+                        <span class="fas fa-sliders-h text-primary m-auto"></span>
+                    </button>
+                </div>
+            </div>
             <div class="" id="item_container">
                 <?php
                     // here iterate over found tuples and print html
@@ -163,20 +163,6 @@ $h1 = "{$number_of_trips} trips to {$destination}";
                     }
                 ?>
             </div>
-            <!--      Pagination navbar      -->
-            <nav aria-label="Page navigation example" class="listing-pagination py-2">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item disabled">
-                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">...</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">Next</a>
-                    </li>
-                </ul>
-            </nav>
 -        </div>
         <div class="col-lg-4 d-none d-lg-block px-2" id="filters_column">
             <div class="card shadow">

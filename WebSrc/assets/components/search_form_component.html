@@ -34,21 +34,25 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-2 col-12 d-none d-md-block">
-            <div class="custom-input-group-wrapper">
-                <div class="custom-input-group mx-auto">
-                    <label for="level" class="text-primary">Level</label>
-                    <select name="level" id="level" class="">
-                        <option value="">select</option>
-                        <option value="1">beginner</option>
-                        <option value="2">intermediate</option>
-                        <option value="3">expert</option>
-                    </select>
-<!--                    <label for="dateEnd" class="input-text-label align-bottom">Departure</label>-->
-<!--                    <div class="collapse inputwrapper">-->
-<!--                        <input type="text" name="endDate" id="dateEnd" class="datepicker" placeholder="" value="">-->
-<!--                    </div>-->
+        <div class="col-md-2 col-12 d-none d-md-flex flex-column align-items-center position-relative">
+            <div class="custom-input-group">
+                <label for="button_level" class="input-text-label align-bottom sr-only">Level</label>
+                <button type="button" class="form-control btn-outline-primary dropdown-toggle" id="button_level" data-class="primary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    level
+                </button>
+                <div class="dropdown-menu" style="position: absolute;transform: translate3d(156px, -38px, 0px);top: 0px;left: 0px;will-change: transform;">
+                    <!-- Dropdown menu links -->
+                    <p class="dropdown-item text-primary">select</p>
+                    <p class="dropdown-item text-starter">starter</p>
+                    <p class="dropdown-item text-average">average</p>
+                    <p class="dropdown-item text-expert">expert</p>
                 </div>
+                <select name="level" id="level" class="d-none">
+                    <option value="">select</option>
+                    <option value="1">starter</option>
+                    <option value="2">average</option>
+                    <option value="3">expert</option>
+                </select>
             </div>
         </div>
         <div class="col-md-2 col-12 d-flex flex-column align-items-center position-relative">
