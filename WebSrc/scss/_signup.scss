@@ -18,3 +18,31 @@
     }
   }
 }
+
+
+// flatten modal on index page for bigger screens
+@include media-breakpoint-up(md){
+  #signup {
+    padding: 0;
+    background: unset;
+    .modal.fade {
+      height: unset;
+      opacity: 1;
+      display: block;
+      position: unset;
+      transform: unset;
+      .modal-dialog {
+        max-width: 750px;
+        transform: unset;
+        .modal-header {
+          display: none;
+        }
+        .modal-content {
+          background: transparent;
+          border: none;
+        }
+      }
+
+    }
+  }
+}

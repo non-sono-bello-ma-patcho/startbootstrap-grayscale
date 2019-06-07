@@ -41,7 +41,7 @@
     }
   }
   /* dispositivi grandi*/
-  @media (min-width: 992px) {
+  @include media-breakpoint-up(lg) {
     padding-top: 0;
     padding-bottom: 0;
     border-bottom: none;

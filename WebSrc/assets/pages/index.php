@@ -39,14 +39,17 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
+                <li class="nav-item d-none d-md-block">
                     <a class="nav-link js-scroll-trigger" href="#about">About</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item d-none d-md-block">
                     <a class="nav-link js-scroll-trigger" href="#projects">Planets</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item d-none d-md-block">
                     <a class="nav-link js-scroll-trigger" href="#signup">Sign Up</a>
+                </li>
+                <li class="nav-item d-md-none">
+                    <a class="nav-link" href="#signUpModal" data-toggle="modal">Sign Up</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#loginModal" data-toggle="modal">Log In</a>
@@ -57,7 +60,7 @@
 </nav>
 
 <!-- Log In Modal-->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginmodalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -196,12 +199,26 @@
 </section>
 
 <!-- Signup Section -->
-<section id="signup" class="signup-section">
-    <div class="container">
+<section id="signup" class="signup-section>
+    <div class="container d-md-block d-none">
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto text-center">
                 <h2 class="text-white mb-5">Sign up to Herschel and start to explore!</h2>
-                <%=require('../components/signup_form_component.html')%>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title text-primary">Sign Up</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <%=require('../components/signup_form_component.html')%>
+                </div>
             </div>
         </div>
     </div>
