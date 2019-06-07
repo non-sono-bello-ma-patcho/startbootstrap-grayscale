@@ -1,3 +1,5 @@
+@import "~bootstrap/scss/mixins";
+
 .signup-section {
   padding: 10rem 0;
   background: linear-gradient(to bottom, #{fade-out($black, .9)} 0%,#{fade-out($black, .5)} 75%,$black 100%), url('../img/bottom_css.png');
@@ -23,12 +25,10 @@
 // flatten modal on index page for bigger screens
 @include media-breakpoint-up(md){
   #signup {
-    padding: 0;
-    background: unset;
     .modal.fade {
       height: unset;
       opacity: 1;
-      display: block;
+      display: block !important;
       position: unset;
       transform: unset;
       .modal-dialog {
@@ -44,5 +44,12 @@
       }
 
     }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  #signup {
+    padding: 0;
+    background: unset;
   }
 }

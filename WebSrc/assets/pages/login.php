@@ -28,7 +28,26 @@
                             <input type="file" name="modifyImage" class="d-none" id="image" lang="en">
                         </div>
                     </div>
-                    <%=require('../components/login_modal_component.html')%>
+                    <form  method="post" class="form-signin" action="php/sign_in.php">
+                        <input type="hidden" name="loginform">
+                        <div class="form-group">
+                            <label for="inputUsernamelog" class="sr-only">Password</label>
+                            <input type="text" class="form-control" name="username" placeholder="Enter your username" id="inputUsernamelog">
+                            <label for="inputPassowrdlog" class="sr-only">Password</label>
+                            <input type="password" class="form-control" id= "inputPassowrdlog" name="pswd" placeholder="Type your password...">
+                        </div>
+
+                        <div class="form-row justify-content-center text-center">
+                            <label class="switch d-inline-block">
+                                <input type="checkbox" name="eguide" id="rememberuser" value="1">
+                                <span class="slider round"></span>
+                            </label>
+                            <label for="rememberuser" class="text-primary ml-1 d-inline">Remember me</label>
+
+                        </div>
+                        <input type="submit" class="form-control btn-primary" value="Log In">
+                    </form>
+
                     <div class="row justify-content-around">
                         <p class="text-white">don't have an account?<a class="font-weight-bold text-white" href="#loginCarousel" data-slide-to="1">Sign up</a></p>
                     </div>
@@ -41,7 +60,54 @@
                         <h2 class="text-white w-100">Looks like you're not registered yet</h2>
                         <p class="text-white">Join Herschel today and start to explore! It will take just few minutes!</p>
                     </div>
-                    <%=require('../components/signup_form_component.html')%>
+                    <form name ="sign_up" class="needs-validation" method='post' action="php/sign_up.php">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div id="emailcol" class="col-md-6 mb-3">
+                                    <input type="hidden" name="signupform">
+                                    <input type="email" id="suEmail" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="email" placeholder="Enter email address..." required>
+                                    <div class="text-left invalid-feedback mt-0">
+                                        <small class="font-weight-bold">
+                                            Email format not valid.
+                                        </small>
+                                    </div>
+                                </div>
+                                <div id="usernamecol" class="col-md-6 mb-3">
+                                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="username" id="suUsername" placeholder="Enter your username..." required>
+                                    <div class="text-left invalid-feedback mt-0">
+                                        <small class="font-weight-bold">
+                                            This username is already taken.
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="name" placeholder="Enter your name..." required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="surname" placeholder="Enter your surname..." required>
+                                </div>
+                            </div>
+
+                            <div class="form-row pb-2">
+                                <div id="pwcol" class="col-md-6 mb-3">
+                                    <input type="password" id="suPassword" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswd" placeholder="Type your password..." required>
+                                </div>
+                                <div id="pwccol" class="col-md-6 mb-3">
+                                    <input type="password" id="suConfirmPassword" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswdConfirm" placeholder="Confirm your password..." required>
+                                    <div class="text-left invalid-feedback mt-0">
+                                        <small class="font-weight-bold">
+                                            Confirm password doesn't match.
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row text-center justify-content-center pb-2">
+                            <button type="submit" class="btn btn-primary mx-auto">Sign Up</button>
+                        </div>
+                    </form>
                     <div class="row justify-content-around">
                         <p class="text-white">Already subscribed?<a class="font-weight-bold text-white" href="#loginCarousel" data-slide-to="0">Log in</a></p>
                     </div>

@@ -86,31 +86,18 @@ $h1 = "{$number_of_trips} trip".($number_of_trips>1?"s":"")." to {$destination}"
 <body>
 
 <!-- Log In Modal-->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginmodalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body text-center">
-                <%=require('../components/login_modal_component.html')%>
-            </div>
-            <div class="modal-footer">
-                <p class="align-content-between">Don't have an account? <a id="loglink" class="js-scroll-trigger" href="login.php" aria-label="Close">Sign up!</a>
-            </div>
-        </div>
-    </div>
-</div>
+<%=require('../components/login_modal_component.html')%>
+
+<!-- Sign Up Modal-->
+<%=require('../components/signup_modal_component.html')%>
+
 
 <!-- mobile filters modal -->
 <div class="modal fade" id="form_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header bg-primary">
-                <h5 class="modal-title text-white" id="exampleModalLabel">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title text-white">
                     <span class="fas fa-sliders-h"></span>
                     Filter your search
                 </h5>
@@ -138,10 +125,14 @@ $h1 = "{$number_of_trips} trip".($number_of_trips>1?"s":"")." to {$destination}"
                 <li class="nav-item">
                     <a class="nav-link" href="" data-toggle="modal" data-target="#loginModal">Log In</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="" data-toggle="modal" data-target="#signUpModal">Sign Up</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
+
 <div class="container bg-light mt-3 py-4">
     <div class="row px-4">
         <div class="col-lg-8 col-12 pl-0" id="items_column">

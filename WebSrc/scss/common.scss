@@ -171,3 +171,12 @@ footer {
 .btn-outline-average:hover {
   color: $white !important;
 }
+
+button {
+  outline: none;
+}
+
+.close {
+  color: $white;
+  text-shadow: 0 1px 0 $black;
+}

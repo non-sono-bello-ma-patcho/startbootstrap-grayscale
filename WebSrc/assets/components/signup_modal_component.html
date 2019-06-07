@@ -1,0 +1,62 @@
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title">Sign Up</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center row align-content-center">
+                <form name ="sign_up" class="needs-validation col" method='post' action="php/sign_up.php">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div id="emailcol" class="col-md-6 mb-3">
+                                <input type="hidden" name="signupform">
+                                <input type="email" id="suEmail" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="email" placeholder="Enter email address..." required>
+                                <div class="text-left invalid-feedback mt-0">
+                                    <small class="font-weight-bold">
+                                        Email format not valid.
+                                    </small>
+                                </div>
+                            </div>
+                            <div id="usernamecol" class="col-md-6 mb-3">
+                                <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="username" id="suUsername" placeholder="Enter your username..." required>
+                                <div class="text-left invalid-feedback mt-0">
+                                    <small class="font-weight-bold">
+                                        This username is already taken.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="name" placeholder="Enter your name..." required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="surname" placeholder="Enter your surname..." required>
+                            </div>
+                        </div>
+
+                        <div class="form-row pb-2">
+                            <div id="pwcol" class="col-md-6 mb-3">
+                                <input type="password" id="suPassword" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswd" placeholder="Type your password..." required>
+                            </div>
+                            <div id="pwccol" class="col-md-6 mb-3">
+                                <input type="password" id="suConfirmPassword" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswdConfirm" placeholder="Confirm your password..." required>
+                                <div class="text-left invalid-feedback mt-0">
+                                    <small class="font-weight-bold">
+                                        Confirm password doesn't match.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row text-center justify-content-center pb-2">
+                        <button type="submit" class="btn btn-primary mx-auto">Sign Up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

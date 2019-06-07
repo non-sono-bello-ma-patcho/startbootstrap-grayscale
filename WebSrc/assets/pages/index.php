@@ -60,24 +60,7 @@
 </nav>
 
 <!-- Log In Modal-->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body text-center">
-                <%=require('../components/login_modal_component.html')%>
-            </div>
-            <div class="modal-footer">
-                <p class="align-content-between">Don't have an account? <a id="loglink" class="js-scroll-trigger" href="#signup" aria-label="Close">Sign up!</a>
-            </div>
-        </div>
-    </div>
-</div>
+<%=require('../components/login_modal_component.html')%>
 
 
 <!-- small search form -->
@@ -199,7 +182,7 @@
 </section>
 
 <!-- Signup Section -->
-<section id="signup" class="signup-section>
+<section id="signup" class="signup-section">
     <div class="container d-md-block d-none">
         <div class="row">
             <div class="col-md-10 col-lg-8 mx-auto text-center">
@@ -207,21 +190,7 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-primary">
-                    <h5 class="modal-title text-primary">Sign Up</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center">
-                    <%=require('../components/signup_form_component.html')%>
-                </div>
-            </div>
-        </div>
-    </div>
+    <%=require('../components/signup_modal_component.html')%>
 </section>
 
 <!-- Contact Section -->
