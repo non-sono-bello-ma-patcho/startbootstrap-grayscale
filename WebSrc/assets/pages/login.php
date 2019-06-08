@@ -17,7 +17,7 @@
     <title>Herschel | </title>
 </head>
 <body>
-    <div class="container bg-dark-transparent border-none card mt-5 py-5 px-3 w-50">
+    <div class="container custom-container bg-dark-transparent border-none card mt-5 py-5 px-3 w-50">
         <div id="loginCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item" id="login_slide">
@@ -25,7 +25,6 @@
                         <h2 class="text-white w-100"><?php echo "$name $surname"; ?></h2>
                         <div class="bg-black overflow-hidden image-previewer row align-content-center mb-5" style="height: 256px; width: 256px; -webkit-border-radius: 128px">
                             <img src="<?php echo $img; ?>" id="imgUserlog" alt="" class="col align-self-center px-0 d-none">
-                            <input type="file" name="modifyImage" class="d-none" id="image" lang="en">
                         </div>
                     </div>
                     <form  method="post" class="form-signin" action="php/sign_in.php">
@@ -118,11 +117,7 @@
 
     <!-- Footer -->
     <div class="fading"></div>
-    <footer class="bg-black small text-center text-white-50">
-    <div class="container">
-        Copyright &copy; Herschel 2018
-    </div>
-</footer>
+    <%=require('../components/footer_component.html')%>
 <!-- Bootstrap core JavaScript -->
 </body>
 </html>

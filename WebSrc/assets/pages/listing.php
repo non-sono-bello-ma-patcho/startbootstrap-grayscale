@@ -171,10 +171,6 @@ $h1 = "{$number_of_trips} trip".($number_of_trips>1?"s":"")." to {$destination}"
 </div>
 <div class="fading"></div>
 <!-- Footer -->
-<footer class="bg-black small text-center text-white-50">
-    <div class="container">
-        Copyright &copy; Herschel 2018
-    </div>
-</footer>
+<%=require('../components/footer_component.html')%>
 </body>
 </html>

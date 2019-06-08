@@ -118,5 +118,7 @@ $productName = "prodotto di prova";
             </div>
         </section>
     </div>
+    <div class="fading"></div>
+    <%=require('../components/footer_component.html')%>
     </body>
 </html>

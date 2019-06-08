@@ -19,7 +19,8 @@ module.exports = {
         detail : './js/detail.js',
         modify : './js/modify.js',
         listing : './js/listing.js',
-        login : './js/login.js'
+        login : './js/login.js',
+        changePw : './js/changePw.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -150,9 +151,15 @@ module.exports = {
             inject: 'body'
         }),
         new HtmlWebpackPlugin({
-            filename : "modifyform.php",
-            template: "assets/pages/modifyform.php",
+            filename : "changeInfo.php",
+            template: "assets/pages/changeInfo.php",
             chunks:  ['common', 'modify'],
+            inject: 'body'
+        }),
+        new HtmlWebpackPlugin({
+            filename : "changePassword.php",
+            template: "assets/pages/changePassword.php",
+            chunks:  ['common', 'changePw'],
             inject: 'body'
         }),
         new HtmlWebpackPlugin({
@@ -203,6 +210,7 @@ module.exports = {
             { from : '../php', to : 'php' },
             { from : '../rest', to : 'rest' },
             { from : '../config.php', to : '' },
+            { from : '../.htaccess', to : '' },
             { context : './assets/components/', from : '*_card.php', to : 'components' },
             { from : 'img/default-account.png', to : 'img/profileImg'},
             { from : 'img/default-product.jpg', to : 'img/productImg'}

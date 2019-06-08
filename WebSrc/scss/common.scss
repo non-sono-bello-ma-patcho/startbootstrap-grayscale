@@ -4,6 +4,7 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap/scss/bootstrap-grid";
 
+@import "footer";
 
 html * {
   font-family: 'Nunito', sans-serif;
@@ -160,14 +161,6 @@ body {
   background: linear-gradient(to bottom, #{fade-out($black, .9)} 0%, #{fade-out($black, .5)} 75%, $black 100%),
 }
 
-footer {
-  padding: 5rem 0;
-  &:before{
-    padding: 5rem;
-    background: linear-gradient(to bottom, #{fade-out($black, .9)} 0%, #{fade-out($black, .5)} 75%, $black 100%);
-  }
-}
-
 .btn-outline-average:hover {
   color: $white !important;
 }
@@ -179,4 +172,9 @@ button {
 .close {
   color: $white;
   text-shadow: 0 1px 0 $black;
+}
+
+.no-bullet {
+  list-style-type: none;
+  padding-left: 0 !important;
 }

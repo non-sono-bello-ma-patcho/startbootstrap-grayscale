@@ -3,7 +3,7 @@ require 'php/userUtility.php';
 
 if(!isset($_SESSION['id'])){
     http_response_code(401);
-    $_SESSION['last_error'] = "trying to access to modifyform.php without passing trough sign in or sign up";
+    $_SESSION['last_error'] = "trying to access to changeInfo.php without passing trough sign in or sign up";
     header("Location: ../error.php?code=" . http_response_code());
 }
 
@@ -122,10 +122,6 @@ $img = getUserImg($username);
     </div>
 <!-- Footer -->
 <div class="fading"></div>
-<footer class="bg-black small text-center text-white-50">
-    <div class="container">
-        Copyright &copy; Herschel 2018
-    </div>
-</footer>
+<%=require('../components/footer_component.html')%>
 </body>
 </html>

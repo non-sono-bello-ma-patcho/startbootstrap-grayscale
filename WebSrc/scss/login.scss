@@ -1,7 +1,7 @@
 @import "slider";
 @import "~bootstrap/scss/mixins";
 
-.container {
+.custom-container {
   width: 100% !important;
   margin-top: 10rem;
   @include media-breakpoint-up(sm) {

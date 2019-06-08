@@ -25,6 +25,8 @@ import {faHeart as faHeartReg} from '@fortawesome/free-regular-svg-icons/faHeart
 
 import {faInstagram} from '@fortawesome/free-brands-svg-icons/faInstagram';
 import{faGithub} from '@fortawesome/free-brands-svg-icons/faGithub';
+import{faBootstrap} from '@fortawesome/free-brands-svg-icons/faBootstrap';
+import{faYarn} from '@fortawesome/free-brands-svg-icons/faYarn';
 
 library.add(
     // solid
@@ -55,7 +57,9 @@ library.add(
 
     // brand
     faInstagram,
-    faGithub
+    faGithub,
+    faBootstrap,
+    faYarn
 );
 
 dom.watch();

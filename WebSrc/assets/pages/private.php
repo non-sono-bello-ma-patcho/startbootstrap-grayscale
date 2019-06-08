@@ -80,7 +80,7 @@ if(!isset($_SESSION['id'])){
                 <div class="card-deck">
                     <div class="card mx-auto">
                         <div class="position-relative row overflow-hidden align-content-center" style="max-height: 256px;">
-                            <a href="modifyform.php" aria-label="edit profile" title="edit profile" data-toggle="tooltip" data-placement="bottom" class="idlink">
+                            <a href="changeInfo.php" aria-label="edit profile" title="edit profile" data-toggle="tooltip" data-placement="bottom" class="idlink">
                                 <span class="modify-icon fas fa-cog text-white custom-icon"></span>
                                 <img src="<?php echo getUserImg($_SESSION['id']);?>" class="card-img-top col align-self-center" alt="..." style="overflow: hidden">
                             </a>
@@ -197,11 +197,6 @@ if(!isset($_SESSION['id'])){
 </div>
 <!-- Footer -->
 <div class="fading"></div>
-<!-- Footer -->
-<footer class="bg-black small text-center text-white-50">
-    <div class="container">
-        Copyright &copy; Herschel 2018
-    </div>
-</footer>
+<%=require('../components/footer_component.html')%>
 </body>
 </html>

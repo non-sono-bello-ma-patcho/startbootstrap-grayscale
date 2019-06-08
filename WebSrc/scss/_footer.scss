@@ -1,0 +1,44 @@
+@import "~bootstrap/scss/mixins";
+
+footer {
+    padding: 5rem 0;
+  background-color: #000;
+  p {
+    margin-bottom: 0 !important;
+  }
+  .gradient-title {
+    display: block;
+    margin-top: .5rem !important;
+    margin-bottom: 0 !important;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.8rem;
+    background: -webkit-linear-gradient(fade-out($white, 0.1), fade-out($white, 1));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  .social {
+    a {
+      text-align: center;
+      height: 3rem;
+      width: 3rem;
+      background: fade-out($white, 0.9);
+      border-radius: 100%;
+      line-height: 3rem;
+      color: fade-out($white, 0.7);
+      &:hover {
+        color: fade-out($white, 0.5);
+      }
+      &:active {
+        color: $white;
+      }
+    }
+  }
+  .frameworks {
+    p, span {
+      font-family: Arial;
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+  }
+}

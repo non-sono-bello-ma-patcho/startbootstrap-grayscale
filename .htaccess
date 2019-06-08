@@ -1,0 +1,4 @@
+# prevent folders browsing
+Options -Indexes
+
+# remove file extension

@@ -49,13 +49,12 @@
     transition: background-color 0.3s ease-in-out;
     .gradient-title {
       display: block;
-      font-family: 'Varela Round';
       margin-top: .5rem !important;
       margin-bottom: 0 !important;
       font-size: 2rem;
       line-height: 2.5rem;
       letter-spacing: 0.8rem;
-      background: -webkit-linear-gradient(fade-out(white, 0.1), fade-out(white, 1));
+      background: -webkit-linear-gradient(fade-out($white, 0.1), fade-out($white, 1));
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
     }
@@ -84,7 +83,6 @@
     &.navbar-shrink {
       background-color: $white;
       .gradient-title {
-        font-family: 'Varela Round';
         margin-top: .5rem !important;
         margin-bottom: 0 !important;
         font-size: 2rem;

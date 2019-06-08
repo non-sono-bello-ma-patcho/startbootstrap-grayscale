@@ -194,64 +194,60 @@
 </section>
 
 <!-- Contact Section -->
-<section class="contact-section bg-black">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-4 mb-3 mb-md-0">
-                <div class="card py-4 h-100">
-                    <div class="card-body text-center">
-                        <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                        <h4 class="text-uppercase m-0">Address</h4>
-                        <hr class="my-4">
-                        <div class="small text-black-50">Fakestreet 123</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-3 mb-md-0">
-                <div class="card py-4 h-100">
-                    <div class="card-body text-center">
-                        <i class="fas fa-envelope text-primary mb-2"></i>
-                        <h4 class="text-uppercase m-0">Email</h4>
-                        <hr class="my-4">
-                        <div class="small text-black-50">
-                            <a href="#">hello@yourdomain.com</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-3 mb-md-0">
-                <div class="card py-4 h-100">
-                    <div class="card-body text-center">
-                        <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                        <h4 class="text-uppercase m-0">Phone</h4>
-                        <hr class="my-4">
-                        <div class="small text-black-50">Orso Balù</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="social d-flex justify-content-center">
-            <a href="https://www.instagram.com/nonsonobellomapatcho/?hl=it" class="mx-2">
-                <i class="fab fa-instagram my-3"></i>
-            </a>
-            <a href="https://github.com/non-sono-bello-ma-patcho" class="mx-2">
-                <i class="fab fa-github my-3"></i>
-            </a>
-        </div>
-
-    </div>
-</section>
+<!--<section class="contact-section bg-black">-->
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!---->
+<!--            <div class="col-md-4 mb-3 mb-md-0">-->
+<!--                <div class="card py-4 h-100">-->
+<!--                    <div class="card-body text-center">-->
+<!--                        <i class="fas fa-map-marked-alt text-primary mb-2"></i>-->
+<!--                        <h4 class="text-uppercase m-0">Address</h4>-->
+<!--                        <hr class="my-4">-->
+<!--                        <div class="small text-black-50">Fakestreet 123</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!---->
+<!--            <div class="col-md-4 mb-3 mb-md-0">-->
+<!--                <div class="card py-4 h-100">-->
+<!--                    <div class="card-body text-center">-->
+<!--                        <i class="fas fa-envelope text-primary mb-2"></i>-->
+<!--                        <h4 class="text-uppercase m-0">Email</h4>-->
+<!--                        <hr class="my-4">-->
+<!--                        <div class="small text-black-50">-->
+<!--                            <a href="#">hello@yourdomain.com</a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!---->
+<!--            <div class="col-md-4 mb-3 mb-md-0">-->
+<!--                <div class="card py-4 h-100">-->
+<!--                    <div class="card-body text-center">-->
+<!--                        <i class="fas fa-mobile-alt text-primary mb-2"></i>-->
+<!--                        <h4 class="text-uppercase m-0">Phone</h4>-->
+<!--                        <hr class="my-4">-->
+<!--                        <div class="small text-black-50">Orso Balù</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!---->
+<!--        <div class="social d-flex justify-content-center">-->
+<!--            <a href="https://www.instagram.com/nonsonobellomapatcho/?hl=it" class="mx-2">-->
+<!--                <i class="fab fa-instagram my-3"></i>-->
+<!--            </a>-->
+<!--            <a href="https://github.com/non-sono-bello-ma-patcho" class="mx-2">-->
+<!--                <i class="fab fa-github my-3"></i>-->
+<!--            </a>-->
+<!--        </div>-->
+<!---->
+<!--    </div>-->
+<!--</section>-->
 
 <!-- Footer -->
-<footer class="bg-black small text-center text-white-50">
-    <div class="container">
-        Copyright &copy; Herschel 2018
-    </div>
-</footer>
+<%=require('../components/footer_component.html')%>
 </body>
 
 </html>
