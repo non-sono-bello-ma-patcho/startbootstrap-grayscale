@@ -29,7 +29,7 @@ $surname = isset($_COOKIE['user'])? getUserSurname($username) : "";
         </div>
 
     </div>
-    <form  method="post" class="form-signin" action="php/changePassword.php">
+    <form  method="post" class="form-signin" action="php/editPassword.php">
         <input type="hidden" name="changepasswordform">
         <div class="form-group">
             <input type="password" class="form-control" name="old_password" placeholder="Type old password..." id="inputOldPassword">
