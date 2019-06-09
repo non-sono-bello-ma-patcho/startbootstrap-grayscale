@@ -1,7 +1,7 @@
 <?php
     session_start();
-    if(isset($_SESSION['id']))
-        header("Location: private.php");
+   // if(isset($_SESSION['id']))
+      //  header("Location: private.php");
 ?>
 
 <html lang="en" xmlns:size="http://www.w3.org/1999/xhtml">
