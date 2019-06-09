@@ -37,23 +37,9 @@ $productName = "prodotto di prova";
     </head>
     <body class="bg-white">
     <!--    Detail Navigation    -->
-    <nav class="navbar navbar-expand-lg navbar-shrink navbar-light mb-2" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger a-logo" href="<%= htmlWebpackPlugin.options.links[0].link %>"></a>
-            <h1 class="mx-auto my-0 text-uppercase gradient-title">Herschel</h1>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Log In
-                <i class="fas fa-rocket"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="" data-toggle="modal" data-target="#loginModal">Log In</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- NavBar -->
+    <%=require('../components/navbar_component.html')%>
+
     <!--  Log in modal  -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginmodalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

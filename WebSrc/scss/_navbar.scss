@@ -1,3 +1,4 @@
+@import "~bootstrap/scss/mixins";
 @import "variables";
 
 #mainNav {
@@ -15,11 +16,12 @@
   .gradient-title {
     display: none;
   }
-  .a-logo {
-    background: url("../img/logo_purple_char_css.png") no-repeat;
-    background-size: cover;
-    height: calc(44px*0.6);
-    width: calc(127px*0.6);
+  .logo {
+    width: 37px;
+    max-height: 62px;
+    @include media-breakpoint-up(lg){
+      width: 55px;
+    }
   }
   .navbar-brand {
     color: $black;
@@ -29,7 +31,7 @@
   .navbar-nav {
     .nav-item {
       &:hover {
-        color: fade(white, 80%);
+        color: fade($white, 80%);
         outline: none;
         background-color: transparent;
       }
@@ -54,7 +56,7 @@
       font-size: 2rem;
       line-height: 2.5rem;
       letter-spacing: 0.8rem;
-      background: -webkit-linear-gradient(fade-out($white, 0.1), fade-out($white, 1));
+      background: -webkit-linear-gradient(fade-out($secondary, 0.1), fade-out($secondary, 1));
       -webkit-text-fill-color: transparent;
       -webkit-background-clip: text;
     }
@@ -81,6 +83,7 @@
       width: calc(127px*0.8);
     }
     &.navbar-shrink {
+      max-height: 72px;
       background-color: $white;
       .gradient-title {
         margin-top: .5rem !important;
@@ -88,15 +91,9 @@
         font-size: 2rem;
         line-height: 2.5rem;
         letter-spacing: 0.8rem;
-        background: -webkit-linear-gradient(fade-out($primary, 0.1), fade-out($primary, 1));
+        background: -webkit-linear-gradient($secondary, $primary);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
-      }
-      .a-logo {
-        background: url("../img/logo_purple_char_css.png") no-repeat;
-        background-size: cover;
-        height: calc(44px*0.6);
-        width: calc(127px*0.6);
       }
       .navbar-brand {
         color: $black;

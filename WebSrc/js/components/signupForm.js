@@ -1,48 +1,36 @@
-import 'bootstrap/js/dist/popover';
+import "./passwordCheck";
 
+let $signupForm = $('#signUpForm input');
 let $signUpEmail = $('#suEmail');
+let $anagraphic = $('#suName, #suSurname');
 let $signUpUsername = $('#suUsername');
-let $signUpPassword = $('#suPassword');
-let $signUpConfirm = $('#suConfirmPassword');
-let content = "Password must contains at least one digit, one interpunction symbol and one capital letter"
-
-$(function () {
-    $signUpPassword.parent().popover({ title : "Password format", content : content, placement : "top"});
-});
-
-$signUpPassword.on("focusout", function(){ $(this).parent().popover('hide')});
+let $signupSubmit = $('#suSubmit');
 
 $signUpEmail.keyup(function () {
     let re = /([^@]+@[a-z]+.(com|it|en|es))/;
     let email = $(this).val();
-    if (email !== "")
-        $(this).toggleClass("is-invalid", !re.test(email)).toggleClass("is-valid", re.test(email)).parent().toggleClass("mb-0", re.test(email)).toggleClass("mb-3", re.test(email));
-    else
-        $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);
-});
-
-$signUpPassword.keyup(function () {
-    let re = /(?=.*\d)(?=.*(\W|_))(?=.*[A-Z]).+/;
-    let email = $(this).val();
     if (email !== ""){
-        let match = re.test(email), op = match? "hide" : "show";
-        $(this).toggleClass("is-invalid", !match).toggleClass("is-valid", match).parent().popover(op);
+        let valid = re.test(email);
+        $(this).toggleClass("is-invalid", !valid).toggleClass("is-valid", valid).parent().toggleClass("mb-0", valid).toggleClass("mb-3", valid);
     }
-    else
+    else{
         $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);
+    }
 });
 
-// this removes popover on focusout, at least I hope
+$anagraphic.keyup(()=>{
+    let re = /[A-Z][a-z]+/;
+    $anagraphic.each((i, elem)=>{
+        let val = $(elem).val();
+        if(val !== ""){
+            let valid = re.test(val);
+            $(elem).toggleClass("is-invalid", !valid).toggleClass("is-valid", valid);
+        }
+        else{
+            $(elem).toggleClass("is-invalid", false).toggleClass("is-valid", false);
+        }
 
-
-$signUpConfirm.keyup(function () {
-    let pw = $signUpPassword.val();
-    let conf =$(this).val();
-    if (pw !== ""){
-        $(this).toggleClass("is-invalid", pw!==conf).toggleClass("is-valid", pw===conf).parent.toggleClass("mb-0", pw!==conf).toggleClass("mb-3", pw===conf);
-    }
-    else
-        $(this).removeClass("is-invalid").removeClass("is-valid");
+    });
 });
 
 $signUpUsername.keyup(function () {
@@ -57,10 +45,23 @@ $signUpUsername.keyup(function () {
         }).done((response)=>{
             let exists = response.exists;
                 $(this).toggleClass("is-invalid", exists).toggleClass("is-valid", !exists).parent().toggleClass("mb-0", exists).toggleClass("mb-3", !exists);
+                toggleSubmit(exists);
         }).catch((error)=>{
             console.log("an error occured");
         });
     } else {
         $(this).removeClass('is-valid').removeClass('is-invalid');
+        toggleSubmit(true);
     }
 });
+
+$signupForm.on("change", ()=>{
+    console.log("change detected");
+    console.log($signupForm);
+    console.log($('#signUpForm input.is-valid'));
+    toggleSubmit($('#signUpForm input.is-valid').length !== 6)
+});
+
+function toggleSubmit(val){
+    $signupSubmit.prop("disabled", val).toggleClass("disabled", val);
+}

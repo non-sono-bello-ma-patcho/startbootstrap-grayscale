@@ -30,12 +30,15 @@ $surname = isset($_COOKIE['user'])? getUserSurname($username) : "";
 
     </div>
     <form  method="post" class="form-signin" action="php/changePassword.php">
-        <input type="hidden" name="loginform">
+        <input type="hidden" name="changepasswordform">
+        <div class="form-group">
+            <input type="password" class="form-control" name="old_password" placeholder="Type old password..." id="inputOldPassword">
+        </div>
         <div class="form-group">
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" class="form-control" name="username" placeholder="Type new password..." id="inputPassword">
+            <input type="password" class="form-control" name="new_password" placeholder="Type new password..." id="inputNewPassword">
             <label for="inputConfirm" class="sr-only">Password</label>
-            <input type="password" class="form-control" id= "inputConfirm" name="pswd" placeholder="Confirm new password">
+            <input type="password" class="form-control" id= "inputConfirm" placeholder="Confirm new password">
         </div>
         <input type="submit" class="form-control btn-primary" value="Change Password">
     </form>

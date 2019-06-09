@@ -55,24 +55,12 @@ if(!isset($_SESSION['id'])){
     </div>
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-shrink navbar-light shadow" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand a-logo" href="index.php"></a>
-        <h1 class="mx-auto my-0 text-uppercase gradient-title">Herschel</h1>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">Log Out</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-    <!-- User Profile Section -->
+<!-- NavBar -->
+
+<% var template = require("../components/navbar_component.html")%>
+<%= template.replace('${logo_link}', 'index.php').replace('${link}','#logoutModal').replace('${anchor}', 'Log Out') %>
+
+<!-- User Profile Section -->
 <div id="user-info" class="mt-5" style="">
     <div class="container mb-5 pt-1 px-0 card shadow">
         <div class="container-lg px-3 card-body" style="background: white;">

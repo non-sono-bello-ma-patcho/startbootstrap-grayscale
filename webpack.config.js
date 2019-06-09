@@ -142,7 +142,8 @@ module.exports = {
             filename : "private.php",
             template: "assets/pages/private.php",
             chunks:  [ 'common', 'private' ],
-            inject: 'body'
+            inject: 'body',
+            link : "#logoutModal"
         }),
         new HtmlWebpackPlugin({
             filename : "listing.php",
@@ -213,7 +214,8 @@ module.exports = {
             { from : '../.htaccess', to : '' },
             { context : './assets/components/', from : '*_card.php', to : 'components' },
             { from : 'img/default-account.png', to : 'img/profileImg'},
-            { from : 'img/default-product.jpg', to : 'img/productImg'}
+            { from : 'img/default-product.jpg', to : 'img/productImg'},
+            { from : 'img/logo_ext.svg', to : 'img/logo_ext.svg'},
         ]),
         new webpack.ProvidePlugin({
             $: 'jquery',
