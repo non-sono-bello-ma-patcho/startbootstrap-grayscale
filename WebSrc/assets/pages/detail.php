@@ -38,7 +38,7 @@ $productName = "prodotto di prova";
     <body class="bg-white">
     <!--    Detail Navigation    -->
     <!-- NavBar -->
-    <%=require('../components/navbar_component.html')%>
+    <%=require('../components/navbar_component.php')%>
 
     <!--  Log in modal  -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginmodalLabel" aria-hidden="true">

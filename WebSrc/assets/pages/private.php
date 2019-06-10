@@ -57,8 +57,8 @@ if(!isset($_SESSION['id'])){
 
 <!-- NavBar -->
 
-<% var template = require("../components/navbar_component.html")%>
-<%= template.replace('${logo_link}', 'index.php').replace('${link}','#logoutModal').replace('${anchor}', 'Log Out') %>
+<% var template = require("../components/navbar_component.php")%>
+<%= template.replace('${logo_link}', 'index.php').replace('${link-2}','#logoutModal').replace('${anchor-2}', 'Log Out') %>
 
 <!-- User Profile Section -->
 <div id="user-info" class="mt-5" style="">

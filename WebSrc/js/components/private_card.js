@@ -15,7 +15,7 @@ $(document).on('click', '.manage-cart .cart-handler, .manage-cart .purchase-hand
     });
 });
 
-$(document).on('click', '.manage-products .cart-handler, .manage-products .wishlist-handler', function(e){
+$(document).on('click', '.manage-products .cart-handler, .manage-products .wishlist-handler, .manage-items .wishlist-handler', function(e){
     let btn = $(this);
 
     let icon = btn.find('svg').data('icon');
@@ -39,6 +39,7 @@ function cardHandler(btn, callback){
     let target = btn.data('target'); // adding data attribute to div...
     let $data = JSON.stringify({ username : username, code : id, op : cmd });
     let rest;
+    console.log(`sending request with target: ${target}`);
     switch (target) {
         case 'cart':
             rest = 'rest/updateCart.php';
@@ -63,6 +64,7 @@ function cardHandler(btn, callback){
     }).done((response, status)=>{
         updateTotal();
         callback();
+        console.log("success");
     }).fail((e)=>{
         console.log('an error occurred...');
         removeSpinner(btn);

@@ -10,16 +10,13 @@ session_start();
 require_once '../php/purchaseUtility.php';
 require_once '../php/userUtility.php';
 
-if(!isset($_SESSION['id']) || !isAdmin($_SESSION['id'])){
+if(!isset($_SESSION['id'])){
     http_response_code(401);
     exit;
 }
 
 
 try {
-/*    $bean = json_decode(file_get_contents("php://input"));
-
-    $username = $bean->username;*/
     $username = $_SESSION['id'];
     $result = get_multiple_information("cart c inner join products p on c.item = p.code", [ "code", "name", "description", "price", "img", "guide", "housing", "level", "active" ], "username", $username);
 } catch (Exception $e){

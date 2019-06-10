@@ -85,11 +85,14 @@ $h1 = "{$number_of_trips} trip".($number_of_trips>1?"s":"")." to {$destination}"
 </head>
 <body>
 
-<!-- Log In Modal-->
-<%=require('../components/login_modal_component.html')%>
+<!-- Log In, Out and Sign Up Modal-->
+<?php
+if(!isset($_SESSION['id']))
+    echo '<%=require("../components/login_modal_component.html")%> <%=require("../components/signup_modal_component.html")%>';
+else
+    echo '<%=require("../components/logout_modal_component.html")%>';
+?>
 
-<!-- Sign Up Modal-->
-<%=require('../components/signup_modal_component.html')%>
 
 
 <!-- mobile filters modal -->
@@ -113,7 +116,8 @@ $h1 = "{$number_of_trips} trip".($number_of_trips>1?"s":"")." to {$destination}"
 </div>
 
 <!-- NavBar -->
-<%=require('../components/navbar_component.html')%>
+<% var template = require("../components/navbar_component.php")%>
+<%= template.replace('${logo_link}', 'index.php').replace('${link-2}','#logoutModal').replace('${anchor-2}', 'Log Out').replace('${link-1}','private.php').replace('${anchor-1}', 'Profile') %>
 
 <div class="container bg-light mt-3 py-4">
     <div class="row px-4">
@@ -128,11 +132,11 @@ $h1 = "{$number_of_trips} trip".($number_of_trips>1?"s":"")." to {$destination}"
                     </button>
                 </div>
             </div>
-            <div class="" id="item_container">
+            <div class="" id="items-container">
                 <?php
                     // here iterate over found tuples and print html
                     foreach ($result as $item){
-                        echo computeCard($item['code'], $item['name'], $item['price'], $item['description'], $item['img'], $item['active'], $item['level'],$item['housing'],$item['guide'],'');
+                        echo computeCard($item['code'], $item['name'], $item['price'], $item['description'], $item['img'], $item['active'], $item['level'],$item['housing'],$item['guide'],'items');
                     }
                 ?>
             </div>

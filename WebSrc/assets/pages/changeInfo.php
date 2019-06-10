@@ -31,23 +31,9 @@ $img = getUserImg($username);
 </head>
 <body >
 
-<nav class="navbar navbar-expand-lg navbar-shrink navbar-light shadow" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand a-logo" href="index.php"></a>
-        <h1 class="mx-auto my-0 text-uppercase gradient-title">Herschel</h1>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="" data-toggle="modal" data-target="#logoutModal">Log Out</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+
+<% var template = require("../components/navbar_component.php")%>
+<%= template.replace('${logo_link}', 'index.php').replace('${link}','private.php').replace('${anchor}', 'Profile') %>
 
 <div class="form-container mx-auto card p-2">
         <div class="row text-left justify-content-center">

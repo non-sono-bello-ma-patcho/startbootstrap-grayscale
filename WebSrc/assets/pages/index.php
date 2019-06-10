@@ -41,6 +41,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
+                <?php
+
+                if(!isset($_SESSION['id'])) {
+                    echo '
                 <li class="nav-item d-none d-md-block">
                     <a class="nav-link js-scroll-trigger" href="#about">About</a>
                 </li>
@@ -56,13 +60,31 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#loginModal" data-toggle="modal">Log In</a>
                 </li>
+                ';
+                } else{
+                    $username = $_SESSION['id'];
+                    echo "
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"private.php\" >{$username}</a>
+                </li>
+                <li class=\"nav-item\">
+                    <a class=\"nav-link\" href=\"#logoutModal\" data-toggle=\"modal\">Log Out</a>
+                </li>";
+                }
+                ?>
             </ul>
         </div>
     </div>
 </nav>
 
 <!-- Log In Modal-->
-<%=require('../components/login_modal_component.html')%>
+<?php
+    if(!isset($_SESSION['id']))
+        echo '<%=require("../components/login_modal_component.html")%>';
+    else
+        echo '<%=require("../components/logout_modal_component.html")%>';
+?>
+
 
 
 <!-- small search form -->
@@ -184,16 +206,22 @@
 </section>
 
 <!-- Signup Section -->
-<section id="signup" class="signup-section">
-    <div class="container d-md-block d-none">
-        <div class="row">
-            <div class="col-md-10 col-lg-8 mx-auto text-center">
-                <h2 class="text-white mb-5">Sign up to Herschel and start to explore!</h2>
+<?php
+    if(!isset($_SESSION['id']))
+        echo '
+        <section id="signup" class="signup-section">
+            <div class="container d-md-block d-none">
+                <div class="row">
+                    <div class="col-md-10 col-lg-8 mx-auto text-center">
+                        <h2 class="text-white mb-5">Sign up to Herschel and start to explore!</h2>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <%=require('../components/signup_modal_component.html')%>
-</section>
+            <%=require("../components/signup_modal_component.html")%>
+        </section>
+        ';
+?>
+
 
 <!-- Footer -->
 <%=require('../components/footer_component.html')%>

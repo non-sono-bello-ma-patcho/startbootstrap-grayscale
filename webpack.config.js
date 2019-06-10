@@ -54,6 +54,17 @@ module.exports = {
                     }
             },
             {
+                test: /_component\.(php)$/,
+                use:
+                    {
+
+                        loader: 'html-loader',
+                        options: {
+                            attrs: [':data-src']
+                        }
+                    }
+            },
+            {
                 test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,

@@ -133,8 +133,8 @@ a {
 @media (max-width: 576px) {
   .modal.fade{
     .modal-dialog {
-      height: 100%;
-      width: 100%;
+      height: 100vh;
+      width: 100vw;
       max-width: unset !important;
       margin: 0;
     }
@@ -166,7 +166,7 @@ body {
 }
 
 button {
-  outline: none;
+  outline: none !important;
 }
 
 .close {
