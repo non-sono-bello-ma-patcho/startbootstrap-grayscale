@@ -33,7 +33,8 @@ $img = getUserImg($username);
 
 
 <% var template = require("../components/navbar_component.php")%>
-<%= template.replace('${logo_link}', 'index.php').replace('${link}','private.php').replace('${anchor}', 'Profile') %>
+<%= template.replace('${logo_link}', 'index.php').replace('${link-1}','private.php').replace('${link-2}','#logoutModal').replace('${anchor-2}', 'Log Out') %>
+<%=require("../components/logout_modal_component.html")%>
 
 <div class="form-container mx-auto card p-2">
         <div class="row text-left justify-content-center">
@@ -91,7 +92,7 @@ $img = getUserImg($username);
                         </div>
                     </div>
                 </div>
-                <div class="form-row justify-content-center mt-2 mb-4">
+                <div class="form-row justify-content-center mt-4 mb-4">
                     <a href="php/changePassword.php" class="btn custom-btn mx-auto">Change password</a>
                 </div>
                 <div class="form-row px-1 mt-4">

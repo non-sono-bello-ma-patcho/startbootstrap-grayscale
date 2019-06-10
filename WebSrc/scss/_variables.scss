@@ -20,11 +20,16 @@ $secondary: #54defd !default;
 $theme-colors: (
   "starter" : #06a77d,
   "average" : #f18f01,
-  "expert" : #de0029
+  "expert" : #de0029,
+  "guide" : #C2E812,
+  "housing" : #A1B5D8
 );
 
 $expert : theme-color("expert");
 $average : theme-color("average");
 $starter : theme-color("starter");
+$guide : theme-color("guide");
+$housing : theme-color("housing");
+
 // #ba1d66 pink
 @import "~bootstrap/scss/variables";

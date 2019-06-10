@@ -1,5 +1,9 @@
 import "../../scss/_private_card.scss";
+
+import 'bootstrap/js/dist/popover';
 import {updateTotal, getCookie, removeSpinner, addSpinner} from "../common";
+
+let content = "Login or Sign up now to Herschel to save your favourite destinations!";
 
 // delegate on card click
 // TODO fix no event on listing page (creare un id generico anziché selettivo)
@@ -59,6 +63,8 @@ function cardHandler(btn, callback){
         processData: false,
         url : rest,
         error: function(XMLHttpRequest, textStatus, errorThrown) {
+            btn.popover({ title : "Login needed!", content : content, placement : "top"});
+            btn.on("focusout", function(){ $(this).popover('hide')});
             console.error("Status: " + textStatus); console.error("Error: " + errorThrown);
         }
     }).done((response, status)=>{
@@ -70,5 +76,3 @@ function cardHandler(btn, callback){
         removeSpinner(btn);
     });
 }
-
-// TODO add empty tab check on removing action (cart and wishlist), append empty target message, disable checkout button

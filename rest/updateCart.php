@@ -4,6 +4,10 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
+if(!isset($_SESSION['id'])){
+    http_response_code(401);
+    exit;
+}
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");

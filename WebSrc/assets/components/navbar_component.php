@@ -5,20 +5,25 @@
         </a>
         <h1 class="mx-auto my-0 text-uppercase gradient-title">Herschel</h1>
         <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="logo">
-                Menu
-                <i class="fas fa-bars"></i>
-            </div>
+            Menu
+            <i class="fas fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <?php if(isset($_SESSION['id'])) echo '
+                <?php if(isset($_SESSION['id'])) {
+                    $userImg = getUserImg($_SESSION['id']);
+                    echo '
                 <li class="nav-item">
-                    <a class="nav-link" href="${link-1}">${anchor-1}</a>
+                    <a class="nav-link" href="${link-1}">
+                        <div style="" class="bg-black overflow-hidden d-flex align-content-center avatar">
+                            <img src="'.$userImg.'" id="imgUserlog" alt="" class="col align-self-center px-0">
+                        </div>
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="${link-2}" data-toggle="modal">${anchor-2}</a>
+                <li class="nav-item d-flex align-content-center">
+                    <a class="nav-link align-self-center" href="${link-2}" data-toggle="modal">${anchor-2}</a>
                 </li>';
+                }
                 else
                     echo '<li class="nav-item">
                     <a class="nav-link" href="#loginModal" data-toggle="modal">Log In</a>

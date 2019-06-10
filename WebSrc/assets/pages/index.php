@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once "php/userUtility.php";
    // if(isset($_SESSION['id']))
       //  header("Location: private.php");
 ?>
@@ -62,13 +63,17 @@
                 </li>
                 ';
                 } else{
-                    $username = $_SESSION['id'];
+                    $userImg = getUserImg($_SESSION['id']);
                     echo "
                 <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"private.php\" >{$username}</a>
+                    <a class=\"nav-link\" href='private.php'>
+                        <div style=\"\" class=\"bg-black overflow-hidden image-previewer d-flex align-content-center avatar\">
+                            <img src=\"".$userImg."\" id=\"imgUserlog\" alt=\"\" class=\"col align-self-center px-0\">
+                        </div>
+                    </a>
                 </li>
-                <li class=\"nav-item\">
-                    <a class=\"nav-link\" href=\"#logoutModal\" data-toggle=\"modal\">Log Out</a>
+                <li class=\"nav-item d-flex align-content-center\">
+                    <a class=\"nav-link align-self-center\" href=\"#logoutModal\" data-toggle=\"modal\">Log Out</a>
                 </li>";
                 }
                 ?>

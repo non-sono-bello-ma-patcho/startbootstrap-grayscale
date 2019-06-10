@@ -6,9 +6,13 @@
  * Time: 21.20
  */
 // set all the variables to pages
- session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once 'php/databaseUtility.php';
 require_once 'php/productUtility.php';
+require_once 'php/userUtility.php';
 require_once 'php/card_utility.php';
 
 $destination = trim($_REQUEST['destination']);
@@ -72,7 +76,7 @@ $h1 = "{$number_of_trips} trip".($number_of_trips>1?"s":"")." to {$destination}"
     <meta name="description" content="">
     <meta name="author" content="phibonachos and PageFaultHandler">
 
-    <title>Herschel | Listato provvisorio</title>
+    <title>Herschel | Trips to <?php echo $destination; ?></title>
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
@@ -117,7 +121,7 @@ else
 
 <!-- NavBar -->
 <% var template = require("../components/navbar_component.php")%>
-<%= template.replace('${logo_link}', 'index.php').replace('${link-2}','#logoutModal').replace('${anchor-2}', 'Log Out').replace('${link-1}','private.php').replace('${anchor-1}', 'Profile') %>
+<%= template.replace('${logo_link}', 'index.php').replace('${link-2}','#logoutModal').replace('${anchor-2}', 'Log Out').replace('${link-1}','private.php') %>
 
 <div class="container bg-light mt-3 py-4">
     <div class="row px-4">

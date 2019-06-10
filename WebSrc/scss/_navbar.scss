@@ -2,6 +2,12 @@
 @import "variables";
 
 #mainNav {
+  .avatar {
+    height: 60px;
+    width: 60px;
+    border-radius: 128px;
+    border: solid 2px white;
+  }
   min-height: 56px;
   background-color: $white;
   .navbar-toggler {

@@ -1,4 +1,15 @@
 <?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if(!isset($_SESSION['id'])){
+    http_response_code(401);
+    exit;
+}
+
+
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
@@ -16,18 +27,19 @@ if(!$data->op){
     return;
 }
 
+$username = $_SESSION['id'];
 
 //try {
     if($data->op==="add"){
         error_log("adding item to wishlist");
-        insertUserWishList($data->username, $data->code);
+        insertUserWishList($username, $data->code);
     }
     else{
         error_log("removing item from cart");
-        removeFromWishList($data->username, $data->code);
+        removeFromWishList($username, $data->code);
     }
 
-    setcookie('wishlist', serialize(getUserWishList($data->username)), time()+3600, "/");
+    setcookie('wishlist', serialize(getUserWishList($username)), time()+3600, "/");
 
     echo json_encode(unserialize($_COOKIE['wishlist']));
 /*    http_response_code(200);

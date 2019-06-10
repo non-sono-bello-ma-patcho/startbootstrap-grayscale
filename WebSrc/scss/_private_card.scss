@@ -102,6 +102,7 @@
     margin: 4.5px 2px 4.5px 15px;
     color: #fff;
     padding: 2px .2rem 2px 0;
+    -webkit-padding-after: 3px; // maledetto chrome
     position: relative;
     &::before {
       content: '';
