@@ -1,10 +1,8 @@
 <?php session_start();
 
 if(!isset($_SESSION['id'])){
-        http_response_code(401);
-        $_SESSION['last_error'] = "trying to access to private.php without passing trough sign in or sign up";
-        header("Location: ../error.php?code=" . http_response_code());
-    }
+    header("Location: login.php");
+}
     require_once "php/userUtility.php";
     require_once "php/purchaseUtility.php";
     require_once "php/productUtility.php";

@@ -1,8 +1,9 @@
 import "../scss/login.scss";
 
 import 'bootstrap/js/dist/carousel';
-import {getCookie} from "./common.js";
 import './components/signupForm';
+import {getCookie} from "./common.js";
+
 
 $('.carousel').carousel({
     interval : false

@@ -48,7 +48,7 @@
                     </form>
 
                     <div class="row justify-content-around">
-                        <p class="text-white">don't have an account?<a class="font-weight-bold text-white" href="#loginCarousel" data-slide-to="1">Sign up</a></p>
+                        <p class="text-white">don't have an account? <a class="font-weight-bold text-white" href="#loginCarousel" data-slide-to="1">Sign up</a></p>
                     </div>
                 </div>
                 <div class="carousel-item active" id="signup_slide">
@@ -82,19 +82,19 @@
                             </div>
                             <div class="form-row">
                                 <div class="col-md-6 mb-3">
-                                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="name" placeholder="Enter your name..." required>
+                                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="name" id="suName" placeholder="Enter your name..." required>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="surname" placeholder="Enter your surname..." required>
+                                    <input type="text" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="surname" id="suSurname" placeholder="Enter your surname..." required>
                                 </div>
                             </div>
 
                             <div class="form-row pb-2">
                                 <div id="pwcol" class="col-md-6 mb-3">
-                                    <input type="password" id="suPassword" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswd" placeholder="Type your password..." required>
+                                    <input type="password" id="inputNewPassword" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswd" placeholder="Type your password..." required>
                                 </div>
                                 <div id="pwccol" class="col-md-6 mb-3">
-                                    <input type="password" id="suConfirmPassword" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswdConfirm" placeholder="Confirm your password..." required>
+                                    <input type="password" id="inputConfirm" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" name="pswdConfirm" placeholder="Confirm your password..." required>
                                     <div class="text-left invalid-feedback mt-0">
                                         <small class="font-weight-bold">
                                             Confirm password doesn't match.
@@ -108,7 +108,7 @@
                         </div>
                     </form>
                     <div class="row justify-content-around">
-                        <p class="text-white">Already subscribed?<a class="font-weight-bold text-white" href="#loginCarousel" data-slide-to="0">Log in</a></p>
+                        <p class="text-white">Already subscribed? <a class="font-weight-bold text-white" href="#loginCarousel" data-slide-to="0">Log in</a></p>
                     </div>
                 </div>
             </div>
