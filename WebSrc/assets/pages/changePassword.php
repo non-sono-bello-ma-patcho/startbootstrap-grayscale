@@ -10,6 +10,7 @@ $name = isset($_COOKIE['user'])? getUserName($username) : "";
 $surname = isset($_COOKIE['user'])? getUserSurname($username) : "";
 
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">

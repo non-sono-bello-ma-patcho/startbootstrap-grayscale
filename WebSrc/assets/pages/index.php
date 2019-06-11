@@ -5,6 +5,7 @@
       //  header("Location: private.php");
 ?>
 
+<!DOCTYPE html>
 <html lang="en" xmlns:size="http://www.w3.org/1999/xhtml">
 
 <head>

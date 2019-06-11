@@ -6,6 +6,7 @@
     $surname = isset($_COOKIE['user'])? getUserSurname($username) : "";
 
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -104,7 +105,7 @@
                             </div>
                         </div>
                         <div class="form-row text-center justify-content-center pb-2">
-                            <button type="submit" class="btn btn-primary mx-auto">Sign Up</button>
+                            <button type="submit" class="btn btn-primary mx-auto" disabled>Sign Up</button>
                         </div>
                     </form>
                     <div class="row justify-content-around">

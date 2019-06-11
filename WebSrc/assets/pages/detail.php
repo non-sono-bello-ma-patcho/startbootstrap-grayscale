@@ -33,6 +33,7 @@ $guide_content = "This product provides a guide to a more complete experience of
 $level_content = "";
 // e qua tutti gli altri campi
 ?>
+<!DOCTYPE html>
 <html lang="en">
     <head>
 

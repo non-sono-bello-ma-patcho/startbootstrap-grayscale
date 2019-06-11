@@ -1,9 +1,9 @@
 <?php session_start();
 require_once "php/userUtility.php";?>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <style>
-    </style>
+    <title>An error occurred</title>
 </head>
 <body>
 <!--                <img src="../img/error.png" height="300">-->

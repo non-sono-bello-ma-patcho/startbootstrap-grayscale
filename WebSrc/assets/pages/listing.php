@@ -68,8 +68,8 @@ $number_of_trips = sizeof($result);
 $h1 = "{$number_of_trips} trip".($number_of_trips>1?"s":"")." to {$destination}";
 
 ?>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html  lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
