@@ -11,7 +11,7 @@ require_once '../php/userUtility.php';
 
 $bean = json_decode(file_get_contents("php://input"));
 $prop = $bean->prop;
-$result = "";
+$result = [];
 if($prop === 'username'){
     $result['exists'] = existingUser($bean->username);
 }
