@@ -11,6 +11,6 @@ create table users
     location    varchar(32)            null,
     admin       bit                    null,
     constraint users_mail_uindex
-        unique (mail)
+        unique (email)
 );
 

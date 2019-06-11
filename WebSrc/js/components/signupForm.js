@@ -10,8 +10,20 @@ $signUpEmail.keyup(function () {
     let re = /([^@]+@[a-z]+.(com|it|en|es))/;
     let email = $(this).val();
     if (email !== ""){
-        let valid = re.test(email);
-        $(this).toggleClass("is-invalid", !valid).toggleClass("is-valid", valid).parent().toggleClass("mb-0", valid).toggleClass("mb-3", valid);
+        let $data = `{ "prop" : "email", "email" : "${email}" }`;
+        $.ajax({
+            contentType : 'text/html',
+            data : $data,
+            type : 'POST',
+            url : `rest/checkExist.php`
+        }).done((response)=>{
+            let exists = response.exists;
+            let valid = re.test(email) && !exists;
+            $(this).toggleClass("is-invalid", valid).toggleClass("is-valid", !valid).parent().toggleClass("mb-0", valid).toggleClass("mb-3", !valid);
+            toggleSubmit(exists);
+        }).catch((error)=>{
+            console.log("an error occurred");
+        });
     }
     else{
         $(this).toggleClass("is-invalid", false).toggleClass("is-valid", false);

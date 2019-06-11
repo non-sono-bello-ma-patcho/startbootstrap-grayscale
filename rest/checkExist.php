@@ -13,7 +13,10 @@ $bean = json_decode(file_get_contents("php://input"));
 $prop = $bean->prop;
 $result = "";
 if($prop === 'username'){
-    $result["exists"] = existingUser($bean->username);
+    $result['exists'] = existingUser($bean->username);
+}
+else {
+    $result['exists'] = existingMail($bean->email);
 }
 
 
