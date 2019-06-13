@@ -70,7 +70,6 @@ $signUpUsername.keyup(function () {
 $signupForm.on("change", ()=>{
     console.log("change detected");
     console.log($signupForm);
-    console.log($('#signUpForm input.is-valid'));
     toggleSubmit($('#signUpForm input.is-valid').length !== 6)
 });
 

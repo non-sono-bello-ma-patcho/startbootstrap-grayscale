@@ -1,8 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserJSPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -220,6 +218,7 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             { from : '../php', to : 'php' },
+            { from : '../WebSrc', to : 'WebSrc' },
             { from : '../rest', to : 'rest' },
             { from : '../config.php', to : '' },
             { from : '../.htaccess', to : '' },
