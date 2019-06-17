@@ -56,13 +56,16 @@
 .bubble-box {
   margin-top: 20px;
   margin-bottom: 20px;
-  padding: 1rem;
+  padding: 1rem 1rem calc(1rem + 20px);
   background: white;
   justify-content: center;
   position: relative;
   font-family: 'Rubik', sans-serif !important;
   color:  $primary;
   border-bottom: solid 3px $primary;
+  &:last-child {
+    border-bottom: none;
+  }
   h4 {
     font-family: 'Nunito', sans-serif;
     font-weight: bold;
@@ -102,7 +105,6 @@
     margin: 4.5px 2px 4.5px 15px;
     color: #fff;
     padding: 2px .2rem 2px 0;
-    -webkit-padding-after: 3px; // maledetto chrome
     position: relative;
     &::before {
       content: '';
@@ -123,6 +125,33 @@
       height: 0;
       border-style: solid;
       border-width: 9px 13px 10px 0;
+    }
+    @each $name,$color in $level-colors {
+      &.#{$name} {
+        background: $color;
+        &::before {
+          border-color: transparent $color transparent transparent;
+        }
+
+        &::after {
+          border-color: $color transparent $color transparent;
+        }
+      }
+    }
+
+    @each $name,$color in $feature-colors {
+      &.#{$name} {
+        background-color: $color;
+        padding-right: .5rem;
+
+        &::before {
+          border-color: transparent $color transparent transparent;
+        }
+
+        &::after {
+          border-color: $color transparent $color transparent;
+        }
+      }
     }
   }
 
@@ -147,7 +176,7 @@
     }
   }
 
-  .custom-tag.guide {
+  /*.custom-tag.guide {
     background-color: #C2E812;
     padding-right: .5rem;
     color: #90af1e;
@@ -170,7 +199,7 @@
     &::after {
       border-color: #A1B5D8 transparent #A1B5D8 transparent;
     }
-  }
+  }*/
 
   .custom-tag.not-available {
     background-color: $text-muted;
@@ -185,7 +214,7 @@
     }
   }
 
-  .custom-tag.starter {
+  /*.custom-tag.starter {
     background: $starter;
     &.level::before {
       border-color: transparent $starter transparent transparent;
@@ -216,7 +245,7 @@
     &.level::after {
       border-color: $expert transparent $expert transparent;
     }
-  }
+  }*/
 
   .description {
     max-height: 100px;

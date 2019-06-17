@@ -2,10 +2,10 @@
 @import "private_card";
 
 .features {
-  @include media-breakpoint-up(md){
-    display: flex;
+  @include media-breakpoint-down(md){
+    display: block;
   }
-  display: block;
+  display: flex;
   .feature-container {
     position: relative;
     background: $primary;
@@ -18,70 +18,87 @@
         text-transform: uppercase;
       }
     }
-    @include media-breakpoint-up(md){
-      margin-left: 5px;
-      &::before {
-        position: absolute;
-        content: '';
-        width: 0;
-        height: 0;
-        left: 0;
-        border-bottom: 22px solid transparent;
-        border-top: 22px solid transparent;
-        border-left: 22px solid $white;
-        top: calc(50% - 22px);
+    @include media-breakpoint-down(md){
+      margin-bottom: 5px;
+      margin-left: 0;
+    }
+    margin-left: 5px;
+    &::before {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border-bottom: 22px solid transparent;
+      border-top: 22px solid transparent;
+      border-left: 22px solid $white;
+      top: calc(50% - 22px);
+      left: 0;
+      @include media-breakpoint-down(md){
+        border-right: 22px solid transparent;
+        border-left: 22px solid transparent;
+        border-bottom: 22px solid $white;
+        left: calc(50% - 22px);
+        bottom: 0;
+        top: unset;
       }
-      &:first-child::before {
-        border-left: 22px solid transparent !important;
+    }
+    &:first-child::before {
+      border-left: 22px solid transparent !important;
+    }
+    @include media-breakpoint-down(md){
+      &:first-child::after {
+        border-bottom: 22px solid transparent !important;
       }
-      &::after {
-        position: absolute;
-        content: '';
-        width: 0;
-        height: 0;
-        right: -20px;
-        border-bottom: 20px solid transparent;
-        border-top: 20px solid transparent;
-        border-left: 20px solid $primary;
-        top: calc(50% - 20px);
-        z-index: 2;
+      &:last-child::before {
+        border-bottom: 22px solid transparent !important;
       }
-      &:last-child::after {
-        border-left: 22px solid transparent !important;
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      z-index: 2;
+      border-bottom: 20px solid transparent;
+      border-top: 20px solid transparent;
+      border-left: 20px solid $primary;
+      top: calc(50% - 20px);
+      right: -20px;
+      @include media-breakpoint-down(md) {
+        border-right: 20px solid transparent;
+        border-left: 20px solid transparent;
+        border-bottom: 20px solid $primary;
+        top: -40px;
+        left: calc(50% - 21px);
       }
+    }
+    &:last-child::after {
+      border-left: 22px solid transparent !important;
     }
     &.level {
-      &.expert{
-        background-color: $expert;
-        &::after {
-          border-left: 22px solid $expert;
-        }
-      }
-      &.average {
-        background-color: $average;
-        &::after {
-          border-left: 22px solid $average;
-        }
-      }
-      &.starter {
-        background-color: $starter;
-        &::after {
-          border-left: 22px solid $starter;
+      @each $name,$color in $level-colors {
+        &.#{$name} {
+          background-color: $color;
+          &::after {
+            border-left: 22px solid $color;
+            @include media-breakpoint-down(md){
+              border-left: 22px solid transparent;
+              border-bottom: 22px solid $color;
+            }
+          }
         }
       }
     }
-    &.guide {
-      background-color: $guide;
-      color: #90af1e;
-      &::after {
-        border-left: 22px solid $guide;
-      }
-    }
-
-    &.housing {
-      background: $housing;
-      &::after {
-        border-left: 22px solid $housing;
+    @each $name,$color in $feature-colors {
+      &.#{$name} {
+        background-color: $color;
+        &::after {
+          border-left: 22px solid $color;
+          @include media-breakpoint-down(md){
+            border-left: 22px solid transparent;
+            border-bottom: 22px solid $color;
+          }
+        }
       }
     }
   }

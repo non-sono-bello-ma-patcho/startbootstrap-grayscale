@@ -65,12 +65,14 @@ function cardHandler(btn, callback){
         error: function(XMLHttpRequest, textStatus, errorThrown) {
             btn.popover({ title : "Login needed!", content : content, placement : "top"});
             btn.on("focusout", function(){ $(this).popover('hide')});
+            console.log(XMLHttpRequest);
             console.error("Status: " + textStatus); console.error("Error: " + errorThrown);
         }
     }).done((response, status)=>{
         updateTotal();
         callback();
-        console.log("success");
+        console.log("success:");
+        console.log(response);
     }).fail((e)=>{
         console.log('an error occurred...');
         removeSpinner(btn);

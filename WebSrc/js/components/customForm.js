@@ -25,12 +25,10 @@ $(document).ready(()=>{
 
 $('.custom-input-group input').focusout(function () {
     let _this = this;
-    setTimeout(()=>{
-        if($(_this).val() === "" && ($(_this).attr('placeholder') === "" || $(_this).attr('placeholder') === undefined)){
-            console.log($(_this).attr('id')+': lost focus');
-            $(_this).parent().toggle('collapse');
-        }
-    }, 500);
+    if($(_this).val() === "" && ($(_this).attr('placeholder') === "" || $(_this).attr('placeholder') === undefined)){
+        console.log($(_this).attr('id')+': lost focus');
+        $(_this).parent().toggle('collapse');
+    }
 });
 
 // uncollapse wrapper onlabel click

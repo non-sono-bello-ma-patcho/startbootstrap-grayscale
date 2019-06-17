@@ -21,7 +21,7 @@ $theme-colors: (
   "starter" : #06a77d,
   "average" : #f18f01,
   "expert" : #de0029,
-  "guide" : #C2E812,
+  "guide" : #2274a5,
   "housing" : #A1B5D8
 );
 
@@ -30,6 +30,17 @@ $average : theme-color("average");
 $starter : theme-color("starter");
 $guide : theme-color("guide");
 $housing : theme-color("housing");
+
+$level-colors : (
+  "starter" : $starter,
+  "average" : $average,
+  "expert" : $expert
+);
+
+$feature-colors : (
+  "guide" : $guide,
+  "housing" : $housing
+);
 
 // #ba1d66 pink
 @import "~bootstrap/scss/variables";

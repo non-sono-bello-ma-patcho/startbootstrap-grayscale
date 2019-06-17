@@ -82,9 +82,9 @@ $level_content = "";
                 $level_content = "The expert package includes long journeys. Assistance is guaranteed through the communication system on our travel devices. Please note that to make trips of this level you must have completed at least the second level certificate of CCoS (Civil Citizen of Space).";
         }
 
-        $level_box = "<div class='col-md-4 feature-container col-12 py-3 level $lev'><span class='feature-title'>$lev</span><p>$level_content</p></div>";
-        $housing_box = $product_housing ? "<div class='col-md-4 col-12 py-3 feature-container housing'><span class='feature-title'>Accommodation</span><p>$housing_content</p></div>" : "";
-        $guide_box = $product_guide ? "<div class='col-md-4 col-12 py-3 feature-container guide'><span class='feature-title'>Guided</span><p>$guide_content</p></div>" : "";
+        $level_box = "<div class='col-lg-4 feature-container col-12 py-3 level $lev'><span class='feature-title'>$lev</span><p>$level_content</p></div>";
+        $housing_box = $product_housing ? "<div class='col-lg-4 col-12 py-3 feature-container housing'><span class='feature-title'>Accommodation</span><p>$housing_content</p></div>" : "";
+        $guide_box = $product_guide ? "<div class='col-lg-4 col-12 py-3 feature-container guide'><span class='feature-title'>Guided</span><p>$guide_content</p></div>" : "";
 
         echo "
         <div class='bubble-box round'>
