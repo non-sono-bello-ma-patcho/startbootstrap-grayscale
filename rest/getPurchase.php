@@ -10,20 +10,20 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 // files needed to connect to database
-require_once '../php/purchaseUtility.php';
-require_once '../php/userUtility.php';
+require_once '../php/databaseUtility.php';
 
 if(!isset($_SESSION['id'])){
     http_response_code(401);
     exit;
 }
 
+$username = $_SESSION['id'];
+
 
 /*$bean = json_decode(file_get_contents("php://input"));
 
 $username = $bean->username;*/
 
-$username = $_SESSION['id'];
 
 $result = get_multiple_information("purchases c inner join products p on c.item = p.code", [ "code", "name", "description", "price", "img", "guide", "housing", "level", "active", "amount" ], "username", $username);
 

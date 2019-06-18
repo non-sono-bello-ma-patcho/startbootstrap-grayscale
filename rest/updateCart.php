@@ -32,7 +32,6 @@ if(!$data->op){
 
 try {
     if($data->op==="add"){
-        error_log("adding item to cart");
         insertUserCart($username, $data->code);
         if(array_search($data->code, unserialize($_COOKIE['wishlist']))!==false){
             // rimuovo item dalla wishlist e aggiorno wishlist cookie
