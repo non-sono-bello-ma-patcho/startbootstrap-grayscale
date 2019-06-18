@@ -10,7 +10,7 @@ module.exports = {
     context: path.resolve(__dirname, 'WebSrc'),
     entry : {
         // common : './js/common.js',
-        grayscale : './js/grayscale.js',
+        herschel : './js/herschel.js',
         private : './js/private.js',
         // test : './js/test.js',
         error : './js/error.js',
@@ -144,7 +144,7 @@ module.exports = {
             title: "Herschel | Planet is your playground",
             filename : "index.php",
             template: "assets/pages/index.php",
-            chunks:  ['common', 'grayscale'],
+            chunks:  ['common', 'herschel'],
             inject: 'body'
         }),
         new HtmlWebpackPlugin({

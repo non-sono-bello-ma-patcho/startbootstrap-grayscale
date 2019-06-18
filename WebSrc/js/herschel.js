@@ -8,7 +8,7 @@ import './components/signupForm';
 import './common';
 
 /* SCSS */
-import '../scss/grayscale.scss';
+import '../scss/herschel.scss';
 import {getCookie} from "./common";
 
 $('.carousel').carousel({

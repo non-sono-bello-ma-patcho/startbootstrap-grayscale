@@ -6,9 +6,10 @@ let $anagraphic = $('#suName, #suSurname');
 let $signUpUsername = $('#suUsername');
 let $signupSubmit = $('#suSubmit');
 
-$signUpEmail.keyup(function () {
-    let re = /([^@]+@[a-z]+.(com|it|en|es))/;
-    let email = $(this).val();
+$signUpEmail.keyup(() => {
+    console.log("ziii");
+    let re = /([^@]+)(@[a-z]+)(.com|it|en|es)/;
+    let email = $signUpEmail.val();
     if (email !== ""){
         let $data = `{ "prop" : "email", "email" : "${email}" }`;
         $.ajax({
@@ -18,9 +19,13 @@ $signUpEmail.keyup(function () {
             url : `rest/checkExist.php`
         }).done((response)=>{
             let exists = response.exists;
-            let valid = re.test(email) && !exists;
-            $(this).toggleClass("is-invalid", valid).toggleClass("is-valid", !valid).parent().toggleClass("mb-0", valid).toggleClass("mb-3", !valid);
-            toggleSubmit(exists);
+            console.log(`got response: ${exists}`);
+            let match = re.test(email);
+            console.log(`match resulted: ${match}`);
+            let valid = match && !exists;
+            console.log(`valid resulted: ${valid}`);
+            $signUpEmail.toggleClass("is-invalid", !valid).toggleClass("is-valid", valid).parent().toggleClass("mb-0", !valid).toggleClass("mb-3", valid);
+            toggleSubmit(valid);
         }).catch((error)=>{
             console.log("an error occurred");
         });

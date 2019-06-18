@@ -125,88 +125,86 @@
 </header>
 
 <!-- About Section -->
+<!--
 <section id="about" class="about-section text-center d-none d-md-block">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2 class="text-white mb-4">Everyone on board!</h2>
-                <p class="text-white-50">
-
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan nec sem et maximus. Donec convallis efficitur pharetra. Nullam iaculis, magna nec aliquet consectetur, eros risus pretium nisi, vitae ultricies quam orci et erat. Vivamus varius diam non ligula rutrum, a maximus lorem convallis. Maecenas faucibus lectus diam, vel porta quam bibendum ac. Sed vulputate sem sapien, id pretium turpis accumsan sit amet. Ut suscipit quis turpis a volutpat. Phasellus pulvinar nunc non placerat molestie. In neque leo, fringilla sit amet nisl blandit, pretium tempus ante. Phasellus quis nisi mauris. Vivamus commodo iaculis posuere. Aliquam bibendum orci nulla, dictum tincidunt erat scelerisque ornare. Nulla ullamcorper lacus vitae orci posuere lobortis. Sed pharetra nunc ut tristique posuere.
-
-                    Nullam a justo cursus, luctus sem at, lobortis ex. Nullam vitae est id odio finibus viverra. Nam leo dolor, aliquam congue augue sed, pulvinar tristique lectus. Cras et imperdiet elit. Pellentesque tristique mi sem. Vivamus pretium, est vitae luctus euismod, ipsum quam dapibus lacus, eu tincidunt arcu metus ut justo. Maecenas pellentesque, eros sagittis volutpat auctor, est elit consequat diam, non molestie ex ante sit amet sem. Vestibulum consequat sem eros. Nunc sit amet lectus at quam pharetra suscipit in a eros. Vivamus at consectetur risus. Nam lorem dolor, luctus sed elit sit amet, condimentum sodales ipsum. </p>
+                <blockquote class="blockquote text-center text-white">
+                    <p class="mb-0">That’s the advantage of space.  It’s big enough to hold practically anything, and so, eventually, it does.</p>
+                    <div class="blockquote-footer">Terry Pratchet, <cite title="Source Title">The Last Hero</cite></div>
+                </blockquote>
             </div>
         </div>
 
     </div>
 </section>
-
+-->
 <!-- Projects Section -->
 <section id="projects" class="projects-section bg-light d-none d-md-block">
     <div class="container">
 
         <!-- Featured Project Row -->
         <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-xl-5 col-md-6">
                 <img class="img-fluid mb-3 mb-lg-0" src="<%=require('../..//img/project2_ext.jpg')%>" alt="">
             </div>
-            <div class="col-xl-4 col-lg-5">
-                <div class="featured-text text-center text-lg-left">
-                    <h4>Explore</h4>
-                    <p class="text-black-50 mb-0">
-
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis sapien ante. Aenean nec odio leo. Morbi at ultricies erat. Vivamus at dolor lacus. Curabitur accumsan porta nisi, id convallis nisi malesuada non. Curabitur posuere non velit in accumsan. Integer quis molestie lectus, eu tristique sem.
-
-                        Maecenas condimentum egestas porta. Mauris et tellus diam. Curabitur et urna finibus, malesuada dolor non, scelerisque neque. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi aliquam libero eros, quis convallis urna dapibus id. Maecenas nec ipsum neque. Etiam sit amet est quam. Sed vulputate sed quam ac laoreet. Nunc elementum nunc vitae volutpat tincidunt. Etiam vulputate turpis eu ornare blandit. Maecenas viverra, est quis fringilla scelerisque, quam libero faucibus tellus, a porttitor eros diam sit amet nisi. Nullam tempor tortor ornare, faucibus tellus a, aliquam nibh. Sed placerat ex tincidunt, pulvinar ipsum nec, hendrerit mi. Nulla rhoncus est vel maximus placerat. Fusce eget iaculis est.
-
-                        Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris ac dui sem. Quisque sagittis maximus nisl, elementum dapibus massa feugiat dignissim. Donec condimentum ut ex a pellentesque. Phasellus pulvinar a enim eget commodo. Nulla facilisis nisl vitae sem lacinia, nec rhoncus sem dapibus. Fusce luctus molestie ex id consectetur. Aenean vestibulum augue sed sagittis pretium. Cras vel tempor nunc. Sed et cursus nunc. Suspendisse vehicula risus vitae urna suscipit elementum.</p>
+            <div class="col-xl-7 col-md-6">
+                <div class="featured-text right text-center text-lg-left">
+                    <h4 class="text-black-50">Explore</h4>
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <blockquote class="blockquote text-center py-5 text-black-50">
+                                <p class="">That’s the advantage of space.  It’s big enough to hold practically anything, and so, eventually, it does.</p>
+                                <div class="blockquote-footer">Terry Pratchet, <cite title="Source Title">The Last Hero</cite></div>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <p class="text-black-50 mb-0">Bored of the old fashioned vacation where your kids keep on crying about every single thing and your partner has probably fled with the lifeguard? Tired Of all those mosquitoes, of the long lines on the highway at 3AM of the famous "holiday pack" which include merely a breakfast and maybe (maybe) sunscreen protection? Well you're lucky 'cause with Herschel you can get rid of all those hassles sending you, your kids and your partner (this part is optional) to space! Yes you read that right. Space. Join Herschel program to flee all your troubles and rediscover the joy of a holiday with a capital H.</p>
                 </div>
+            </div>
+        </div>
+
+        <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+            <div class="col-xl-7 col-md-6">
+                <div class="featured-text left text-center text-lg-left">
+                    <h4 class="text-black-50 pb-5">Easy, quick and safe</h4>
+                    <p class="text-black-50 pt-5">Can you remember the last time you came to visit your grandma in Pizzo Calabro, how much did it takes you? 12-15 hours? How many trains did you changed? How many shirt did you changed trying not to melt on that lonely sunny platform? Or in your dad's old car?</p>
+                    <p class="text-black-50 mb-0">Herschel is a Safari agency launched in 2019 by Andrea Storace and Alessandro Savona. We are the world's second largest online safary company aimed at international audiences. The website provides booking services for trips around the cosmos. You can look at our catalogue and you'll find over 18000 fantastic packets to choose. So what are you waiting for? Get off that stupid train, throw your flip flop in the trash and enjoy Herschel!</p>
+                </div>
+            </div>
+            <div class="col-xl-5 col-md-6">
+                <img class="img-fluid mb-3 mb-lg-0" src="<%=require('../../img/mismatched_ext.jpg')%>" alt="">
             </div>
         </div>
 
         <!-- Project One Row -->
-        <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-            <div class="col-lg-6">
-                <img class="img-fluid" src="<%=require('../../img/project1_ext.jpg')%>" alt="">
-            </div>
-            <div class="col-lg-6 bg-black">
-                <div class=" text-center h-100 project">
-                    <div class="d-flex h-100">
-                        <div class="project-text w-100 my-auto text-center text-lg-left">
-                            <h4 class="text-white">Lorem</h4>
-                            <p class="mb-0 text-white-50">
-
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan nec sem et maximus. Donec convallis efficitur pharetra. Nullam iaculis, magna nec aliquet consectetur, eros risus pretium nisi, vitae ultricies quam orci et erat. Vivamus varius diam non ligula rutrum, a maximus lorem convallis. Maecenas faucibus lectus diam, vel porta quam bibendum ac. Sed vulputate sem sapien, id pretium turpis accumsan sit amet. Ut suscipit quis turpis a volutpat. Phasellus pulvinar nunc non placerat molestie. In neque leo, fringilla sit amet nisl blandit, pretium tempus ante. Phasellus quis nisi mauris. Vivamus commodo iaculis posuere. Aliquam bibendum orci nulla, dictum tincidunt erat scelerisque ornare. Nulla ullamcorper lacus vitae orci posuere lobortis. Sed pharetra nunc ut tristique posuere.
-
-                                Nullam a justo cursus, luctus sem at, lobortis ex. Nullam vitae est id odio finibus viverra. Nam leo dolor, aliquam congue augue sed, pulvinar tristique lectus. Cras et imperdiet elit. Pellentesque tristique mi sem. </p>
-                            <hr class="d-none d-lg-block mb-0 ml-0">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <!--<h4 class="text-white">Easy, quick and safe</h4>
+        <p class="text-white-50">
+            Can you remember the last time you came to visit your grandma in Pizzo Calabro, how much did it takes you? 12-15 hours? How many trains did you changed? How many shirt did you changed trying not to melt on that lonely sunny platform? Or in your dad's old car?
+        </p>
+        <p class="mb-0 text-white-50">
+            Herschel is a Safari agency launched in 2019 by Andrea Storace and Alessandro Savona. We are the world's second largest online safary company aimed at international audiences. The website provides booking services for trips around the cosmos. You can look at our catalogue and you'll find over 18000 fantastic packets to choose. So what are you waiting for? Get off that stupid train, throw your flip flop in the trash and enjoy Herschel!
+        </p>-->
         <!-- Project Two Row -->
-        <div class="row justify-content-center no-gutters">
-            <div class="col-lg-6">
-                <img class="img-fluid custom-img" src="<%=require('../../img/project4_ext.jpg')%>" alt="">
-            </div>
-            <div class="col-lg-6 bg-black order-lg-first">
-                <div class="bg-black text-center h-100 project">
-                    <div class="d-flex h-100">
-                        <div class="project-text w-100 my-auto text-center text-lg-right">
-                            <h4 class="text-white">Ipsum</h4>
-                            <p class="mb-0 text-white-50">
-
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras accumsan nec sem et maximus. Donec convallis efficitur pharetra. Nullam iaculis, magna nec aliquet consectetur, eros risus pretium nisi, vitae ultricies quam orci et erat. Vivamus varius diam non ligula rutrum, a maximus lorem convallis. Maecenas faucibus lectus diam, vel porta quam bibendum ac. Sed vulputate sem sapien, id pretium turpis accumsan sit amet. Ut suscipit quis turpis a volutpat. Phasellus pulvinar nunc non placerat molestie. In neque leo, fringilla sit amet nisl blandit, pretium tempus ante. Phasellus quis nisi mauris. Vivamus commodo iaculis posuere. Aliquam bibendum orci nulla, dictum tincidunt erat scelerisque ornare. Nulla ullamcorper lacus vitae orci posuere lobortis. Sed pharetra nunc ut tristique posuere.
-
-                                Nullam a justo cursus, luctus sem at, lobortis ex. Nullam vitae est id odio finibus viverra. Nam leo dolor, aliquam congue augue sed, pulvinar tristique lectus. Cras et imperdiet elit. Pellentesque tristique mi sem. </p>
-                            <hr class="d-none d-lg-block mb-0 mr-0">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--        <div class="row justify-content-center no-gutters d-none">-->
+<!--            <div class="col-lg-6">-->
+<!--                <img class="img-fluid custom-img" src="<%=require('../../img/project4_ext.jpg')%>" alt="">-->
+<!--            </div>-->
+<!--            <div class="col-lg-6 bg-black order-lg-first">-->
+<!--                <div class="bg-black text-center h-100 project">-->
+<!--                    <div class="d-flex h-100">-->
+<!--                        <div class="project-text w-100 my-auto text-center text-lg-right">-->
+<!--                            <h4 class="text-white">Ipsum</h4>-->
+<!--                            <p class="mb-0 text-white-50">-->
+<!--                                A this point we have nothing less to say but we found this layout so beautiful-->
+<!--                            </p>-->
+<!--                            <hr class="d-none d-lg-block mb-0 mr-0">-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
     </div>
 </section>
