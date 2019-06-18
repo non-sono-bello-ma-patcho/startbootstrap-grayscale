@@ -7,7 +7,6 @@ let $signUpUsername = $('#suUsername');
 let $signupSubmit = $('#suSubmit');
 
 $signUpEmail.keyup(() => {
-    console.log("ziii");
     let re = /([^@]+)(@[a-z]+)(.com|it|en|es)/;
     let email = $signUpEmail.val();
     if (email !== ""){
@@ -19,11 +18,7 @@ $signUpEmail.keyup(() => {
             url : `rest/checkExist.php`
         }).done((response)=>{
             let exists = response.exists;
-            console.log(`got response: ${exists}`);
-            let match = re.test(email);
-            console.log(`match resulted: ${match}`);
-            let valid = match && !exists;
-            console.log(`valid resulted: ${valid}`);
+            let valid = re.test(email) && !exists;
             $signUpEmail.toggleClass("is-invalid", !valid).toggleClass("is-valid", valid).parent().toggleClass("mb-0", !valid).toggleClass("mb-3", valid);
             toggleSubmit(valid);
         }).catch((error)=>{
